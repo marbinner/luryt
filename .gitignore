@@ -1,0 +1,21 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local dictionaries created by `luryt dict` (personal, not part of the language)
+lexicon.json
+
+# Editor / assistant local state
+.claude/
+claude_files/
+.text-graph/
+
+# Notebooks and scratch work stay out of the public repo
+notebooks/

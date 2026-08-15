@@ -1,0 +1,61 @@
+name: "Proposal: new particle family"
+description: Propose a series for one of the reserved consonants (b f v z l x g)
+title: "[series] "
+labels: ["proposal", "grammar"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A series takes **one consonant × the six vowels in canonical order**
+        (`i y e a o u`) mapped to a monotone semantic scale. Where natural, it
+        should also work as a prefix (like the K-family).
+  - type: input
+    id: consonant
+    attributes:
+      label: Consonant
+      description: One of the reserved ones — b, f, v, z, l, x, g
+      placeholder: b
+    validations:
+      required: true
+  - type: input
+    id: domain
+    attributes:
+      label: What the family covers
+      placeholder: "e.g. evidentiality: how the speaker knows"
+    validations:
+      required: true
+  - type: textarea
+    id: forms
+    attributes:
+      label: The six forms
+      description: One per vowel, in order, showing the scale.
+      placeholder: |
+        bi — ...
+        by — ...
+        be — ...
+        ba — ...
+        bo — ...
+        bu — ...
+    validations:
+      required: true
+  - type: textarea
+    id: scale
+    attributes:
+      label: The scale
+      description: What semantic progression do the vowels trace? Why is it monotone?
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example sentences
+      description: Show the family working in clauses (and as a prefix, if applicable).
+    validations:
+      required: true
+  - type: textarea
+    id: interactions
+    attributes:
+      label: Interactions
+      description: |
+        Where does it sit in the clause template? Does it conflict or overlap
+        with an existing family (P, M, T, D, N, Q, S, C, W, J, K, R, H)?

@@ -1,0 +1,101 @@
+rank,root_word,semantic_field,tier,metaphorical_uses,universality,embodiment,productivity
+1,in,Container/Boundary,1,mind/body/emotions/states,universal,high,very_high
+2,out,Container/Boundary,1,mind/body/emotions/states,universal,high,very_high
+3,inside,Container/Boundary,1,mind/body/emotions/states,universal,high,high
+4,outside,Container/Boundary,1,mind/body/emotions/states,universal,high,high
+5,contain,Container/Boundary,1,mind/states/organizations,universal,medium,high
+6,hold,Container/Boundary,1,possession/memory/emotions,universal,high,very_high
+7,empty,Container/Boundary,1,lack/hunger/meaninglessness,universal,high,high
+8,full,Container/Boundary,1,satisfaction/completeness,universal,high,high
+9,boundary,Container/Boundary,1,limits/social_norms,widespread,medium,medium
+10,edge,Container/Boundary,1,danger/limits/margins,widespread,medium,high
+11,center,Container/Boundary,1,importance/focus/self,widespread,medium,medium
+12,up,Verticality,1,happiness/power/increase,universal,high,very_high
+13,down,Verticality,1,sadness/weakness/decrease,universal,high,very_high
+14,high,Verticality,1,status/power/quantity,universal,high,very_high
+15,low,Verticality,1,depression/submission/lack,universal,high,very_high
+16,rise,Verticality,1,improvement/anger/status,universal,high,high
+17,fall,Verticality,1,failure/sadness/loss,universal,high,very_high
+18,top,Verticality,1,peak/best/leadership,universal,medium,high
+19,bottom,Verticality,1,worst/foundation/low_status,universal,medium,high
+20,heavy,Weight/Force,1,important/difficult/depressed,universal,high,very_high
+21,light,Weight/Force,1,unimportant/easy/happy,universal,high,very_high
+22,press,Weight/Force,1,pressure/stress/force,universal,high,high
+23,push,Weight/Force,1,force/promote/pressure,universal,high,high
+24,pull,Weight/Force,1,attract/influence/effort,universal,high,high
+25,carry,Weight/Force,1,burden/responsibility,universal,high,high
+26,burden,Weight/Force,1,obligation/hardship/weight,widespread,high,medium
+27,near,Distance/Proximity,1,soon/intimate/related,universal,high,very_high
+28,far,Distance/Proximity,1,future/estranged/unrelated,universal,high,very_high
+29,close,Distance/Proximity,1,intimate/imminent/related,universal,high,very_high
+30,distant,Distance/Proximity,1,remote/estranged/future,universal,medium,high
+31,approach,Distance/Proximity,1,future/nearing/method,widespread,medium,high
+32,away,Distance/Proximity,1,absence/avoidance/departure,universal,medium,high
+33,move,Motion/Journey,2,change/affect/progress,universal,high,very_high
+34,go,Motion/Journey,2,proceed/depart/function,universal,high,very_high
+35,come,Motion/Journey,2,arrive/originate/happen,universal,high,very_high
+36,stop,Motion/Journey,2,cease/prevent/end,universal,high,very_high
+37,walk,Motion/Journey,2,live/proceed/travel,universal,high,high
+38,run,Motion/Journey,2,operate/flee/manage,universal,high,high
+39,travel,Motion/Journey,2,think/experience/journey,widespread,medium,high
+40,path,Motion/Journey,2,method/life/career,universal,medium,very_high
+41,road,Motion/Journey,2,way/method/journey,universal,medium,high
+42,way,Motion/Journey,2,method/manner/path,universal,medium,very_high
+43,journey,Motion/Journey,2,life/process/story,widespread,low,very_high
+44,arrive,Motion/Journey,2,succeed/conclude/reach,universal,medium,high
+45,depart,Motion/Journey,2,die/leave/diverge,universal,medium,medium
+46,head,Body Parts,2,leader/thought/top,universal,high,very_high
+47,heart,Body Parts,2,emotion/center/courage,universal,high,very_high
+48,hand,Body Parts,2,help/control/action,universal,high,very_high
+49,eye,Body Parts,2,attention/understanding/watch,universal,high,very_high
+50,mouth,Body Parts,2,speech/opening/consume,universal,high,high
+51,foot,Body Parts,2,foundation/travel/lowest,universal,high,medium
+52,face,Body Parts,2,confront/honor/appearance,universal,high,very_high
+53,body,Body Parts,2,main_part/group/physical,universal,high,high
+54,blood,Body Parts,2,life/family/violence,widespread,high,high
+55,bone,Body Parts,2,core/structure/essential,widespread,high,medium
+56,skin,Body Parts,2,surface/shallow/race,widespread,high,medium
+57,breath,Body Parts,2,life/moment/slight,widespread,high,high
+58,place,Location/Position,2,role/state/location,universal,medium,very_high
+59,where,Location/Position,2,state/situation/place,universal,low,high
+60,here,Location/Position,2,now/present/this_state,universal,medium,high
+61,there,Location/Position,2,then/that_state/existence,universal,medium,high
+62,at,Location/Position,2,state/location/time,universal,low,very_high
+63,position,Location/Position,2,state/stance/role,widespread,low,high
+64,stand,Location/Position,2,endure/tolerate/be_located,universal,high,very_high
+65,sit,Location/Position,2,be_located/remain/convene,universal,high,high
+66,hot,Temperature,2,angry/popular/intense,universal,high,very_high
+67,cold,Temperature,2,unemotional/unfriendly/fear,universal,high,very_high
+68,warm,Temperature,2,friendly/affectionate/comfortable,universal,high,very_high
+69,cool,Temperature,2,calm/unfriendly/good,widespread,high,high
+70,heat,Temperature,2,anger/pressure/intensity,universal,high,high
+71,burn,Temperature,2,passion/hurt/consume,universal,high,high
+72,freeze,Temperature,2,stop/fear/preserve,widespread,high,medium
+73,forward,Direction,2,future/progress/ahead,universal,medium,very_high
+74,backward,Direction,2,past/regress/behind,universal,medium,very_high
+75,front,Direction,2,future/leadership/facade,universal,medium,very_high
+76,back,Direction,2,past/support/return,universal,medium,very_high
+77,ahead,Direction,2,future/leading/front,universal,medium,high
+78,behind,Direction,2,past/support/following,universal,medium,high
+79,eat,Food/Consumption,3,consume/erode/absorb,universal,high,high
+80,drink,Food/Consumption,3,consume/absorb/alcohol,universal,high,high
+81,food,Food/Consumption,3,ideas/fuel/sustenance,widespread,high,high
+82,hunger,Food/Consumption,3,desire/need/lack,universal,high,high
+83,full,Food/Consumption,3,satisfied/complete/drunk,universal,high,high
+84,taste,Food/Consumption,3,experience/preference/try,widespread,high,high
+85,swallow,Food/Consumption,3,accept/endure/consume,widespread,high,medium
+86,water,Fluidity,3,fundamental/sustenance/dilute,universal,high,high
+87,liquid,Fluidity,3,fluid/adaptable/money,widespread,medium,medium
+88,flow,Fluidity,3,proceed/money/smooth,widespread,medium,high
+89,pour,Fluidity,3,give_freely/flow/rain,widespread,medium,high
+90,wet,Fluidity,3,emotional/inexperienced/rainy,widespread,high,medium
+91,dry,Fluidity,3,unemotional/boring/arid,widespread,high,medium
+92,light,Light/Vision,3,understanding/hope/not_heavy,universal,high,very_high
+93,dark,Light/Vision,3,ignorance/evil/sadness,universal,high,very_high
+94,bright,Light/Vision,3,intelligent/cheerful/clear,universal,high,high
+95,dim,Light/Vision,3,stupid/unclear/faint,widespread,medium,medium
+96,see,Light/Vision,3,understand/meet/experience,universal,high,very_high
+97,clean,Cleanliness/Purity,3,moral/simple/pure,universal,high,high
+98,dirty,Cleanliness/Purity,3,immoral/corrupt/obscene,universal,high,high
+99,pure,Cleanliness/Purity,3,moral/simple/unmixed,universal,medium,high
+100,wash,Cleanliness/Purity,3,cleanse/absolve/succeed,widespread,high,medium

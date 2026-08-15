@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Half-formed ideas & open questions
+    url: https://github.com/marbinner/luryt/discussions
+    about: Not ready for a formal proposal? Start a discussion instead.

@@ -1,0 +1,636 @@
+{
+  "consonants": "PBMFVTDNQSZLCWXJKGRH",
+  "vowels": "IYEAOU",
+  "numeric_vowels": "IYEAO",
+  "final_consonants": "MTNSLR",
+  "consonant_ipa": {
+    "P": "/p/",
+    "B": "/b/",
+    "M": "/m/",
+    "F": "/f/",
+    "V": "/v/",
+    "T": "/t/",
+    "D": "/d/",
+    "N": "/n/",
+    "Q": "/ts/",
+    "S": "/s/",
+    "Z": "/z/",
+    "L": "/l/",
+    "C": "/tʃ/",
+    "W": "/dʒ/",
+    "X": "/ʃ/",
+    "J": "/j/",
+    "K": "/k/",
+    "G": "/g/",
+    "R": "/ʀ/",
+    "H": "/h/"
+  },
+  "vowel_ipa": {
+    "I": "/i/",
+    "Y": "/y/",
+    "E": "/e/",
+    "A": "/a/",
+    "O": "/o/",
+    "U": "/u/"
+  },
+  "head_kinds": {
+    "M": [
+      "Entity head",
+      "generic noun: \"an X-thing / X-entity\""
+    ],
+    "T": [
+      "Specific head",
+      "specific entity: \"that/the X\""
+    ],
+    "N": [
+      "Event head",
+      "verb: \"to X / X happens\""
+    ],
+    "S": [
+      "Property head",
+      "adjective: \"X-like, having X-property\""
+    ],
+    "L": [
+      "Manner head",
+      "adverb: \"in an X way, X-ly\""
+    ],
+    "R": [
+      "Relational head",
+      "relational NP: \"of X, X's, from X, related-by-X\""
+    ]
+  },
+  "domains": {
+    "I": [
+      "PERSON",
+      "individual humans: body, mind, experience"
+    ],
+    "Y": [
+      "SOCIETY",
+      "families, groups, institutions, culture"
+    ],
+    "E": [
+      "LIFE",
+      "non-human life: animals, plants, ecosystems"
+    ],
+    "A": [
+      "PHYSICAL",
+      "non-living world: matter, space, energy, weather"
+    ],
+    "O": [
+      "ARTEFACT",
+      "tools, objects, machines, buildings, infrastructure"
+    ],
+    "U": [
+      "ABSTRACT",
+      "ideas, language, math, logic, information"
+    ]
+  },
+  "aspects": {
+    "I": [
+      "INDIVIDUAL",
+      "basic \"things/actors\" in that domain"
+    ],
+    "Y": [
+      "CONFIG",
+      "parts, wholes, groups, layouts, structures, systems"
+    ],
+    "E": [
+      "PROCESS",
+      "activities, processes, changes, doing"
+    ],
+    "A": [
+      "STATE",
+      "relatively stable conditions/qualities"
+    ],
+    "O": [
+      "RELATION",
+      "links/roles between things"
+    ],
+    "U": [
+      "QUANTITY",
+      "measures, magnitudes, degrees"
+    ]
+  },
+  "particle_series": {
+    "P": {
+      "PI": [
+        "inceptive",
+        "just now start to"
+      ],
+      "PY": [
+        "progressive",
+        "currently, be -ing"
+      ],
+      "PE": [
+        "resumptive",
+        "again, back to doing it"
+      ],
+      "PA": [
+        "continuative",
+        "still, keep (on)"
+      ],
+      "PO": [
+        "completive",
+        "completely, all the way"
+      ],
+      "PU": [
+        "perfect",
+        "already, (has) done/finished"
+      ]
+    },
+    "M": {
+      "MI": [
+        "minimal",
+        "slightly, a bit, barely"
+      ],
+      "MY": [
+        "low",
+        "somewhat, rather low"
+      ],
+      "ME": [
+        "neutral",
+        "moderately, normally"
+      ],
+      "MA": [
+        "above-typical",
+        "quite, pretty, fairly"
+      ],
+      "MO": [
+        "strong",
+        "very, strongly"
+      ],
+      "MU": [
+        "maximal",
+        "extremely, too, overly"
+      ]
+    },
+    "T": {
+      "TI": [
+        "remote past",
+        "long ago"
+      ],
+      "TY": [
+        "recent past",
+        "recently, just now"
+      ],
+      "TE": [
+        "present",
+        "now, currently"
+      ],
+      "TA": [
+        "near future",
+        "soon, about to"
+      ],
+      "TO": [
+        "far future",
+        "later, someday"
+      ],
+      "TU": [
+        "gnomic",
+        "generally, whenever"
+      ]
+    },
+    "D": {
+      "DI": [
+        "near singular",
+        "this"
+      ],
+      "DY": [
+        "near plural",
+        "these"
+      ],
+      "DE": [
+        "medial singular",
+        "that (here / in view)"
+      ],
+      "DA": [
+        "medial plural",
+        "those (here / in view)"
+      ],
+      "DO": [
+        "far singular",
+        "that (elsewhere)"
+      ],
+      "DU": [
+        "far plural",
+        "those (elsewhere)"
+      ]
+    },
+    "N": {
+      "NI": [
+        "affirmation",
+        "yes, indeed, it is so"
+      ],
+      "NY": [
+        "partial",
+        "sort of, partly, more or less"
+      ],
+      "NE": [
+        "neutral",
+        "(no special polarity)"
+      ],
+      "NA": [
+        "negation",
+        "not, no, it isn't so"
+      ],
+      "NO": [
+        "contrary",
+        "on the contrary, anti-"
+      ],
+      "NU": [
+        "strong negation",
+        "never, absolutely not, cannot"
+      ]
+    },
+    "Q": {
+      "QI": [
+        "empty",
+        "no, none of"
+      ],
+      "QY": [
+        "existential",
+        "a / some (there exists)"
+      ],
+      "QE": [
+        "partitive",
+        "some of (them), not all"
+      ],
+      "QA": [
+        "large subset",
+        "most (of)"
+      ],
+      "QO": [
+        "universal collective",
+        "all (of), the whole X"
+      ],
+      "QU": [
+        "universal distributive",
+        "every / each / any (one by one)"
+      ]
+    },
+    "S": {
+      "SI": [
+        "interior",
+        "in, inside (within X)"
+      ],
+      "SY": [
+        "surface",
+        "on, on top of, touching X"
+      ],
+      "SE": [
+        "adjacency",
+        "next to, beside X"
+      ],
+      "SA": [
+        "surrounding",
+        "around X, in X's area"
+      ],
+      "SO": [
+        "exterior",
+        "outside X, beyond X"
+      ],
+      "SU": [
+        "among",
+        "among X, amidst, throughout"
+      ]
+    },
+    "C": {
+      "CI": [
+        "minimal bound",
+        "at least"
+      ],
+      "CY": [
+        "less-than",
+        "less, not as ~"
+      ],
+      "CE": [
+        "equal",
+        "as ~ as, equally"
+      ],
+      "CA": [
+        "more-than",
+        "more, -er"
+      ],
+      "CO": [
+        "superlative",
+        "most, at most"
+      ],
+      "CU": [
+        "extremal",
+        "as ~ as possible"
+      ]
+    },
+    "W": {
+      "WI": [
+        "time",
+        "when?"
+      ],
+      "WY": [
+        "reason",
+        "why? (for what reason?)"
+      ],
+      "WE": [
+        "place",
+        "where?"
+      ],
+      "WA": [
+        "thing",
+        "what? / what thing?"
+      ],
+      "WO": [
+        "person",
+        "who? / which person?"
+      ],
+      "WU": [
+        "manner",
+        "how? / in what way?"
+      ]
+    },
+    "J": {
+      "JI": [
+        "1sg",
+        "I"
+      ],
+      "JY": [
+        "2sg",
+        "you (sg)"
+      ],
+      "JE": [
+        "3sg",
+        "he / she / it"
+      ],
+      "JA": [
+        "1pl",
+        "we"
+      ],
+      "JO": [
+        "2pl",
+        "you (pl)"
+      ],
+      "JU": [
+        "3pl",
+        "they"
+      ]
+    },
+    "K": {
+      "KI": [
+        "singled",
+        "as a single unit, alone, singly"
+      ],
+      "KY": [
+        "pair",
+        "in pairs, as a pair"
+      ],
+      "KE": [
+        "small group",
+        "in a small group, a few together"
+      ],
+      "KA": [
+        "generic group",
+        "as a group, together, in a crowd"
+      ],
+      "KO": [
+        "large collective",
+        "en masse, as a large crowd/mass"
+      ],
+      "KU": [
+        "scattered",
+        "scattered, spread out, all over"
+      ]
+    },
+    "R": {
+      "RI": [
+        "agent",
+        "by (agent), as doer"
+      ],
+      "RY": [
+        "experiencer",
+        "to / for (person)"
+      ],
+      "RE": [
+        "patient",
+        "object of, about; \"than\" in comparatives"
+      ],
+      "RA": [
+        "instrument",
+        "with, using, by means of"
+      ],
+      "RO": [
+        "location",
+        "at, in, on (place/time)"
+      ],
+      "RU": [
+        "path edge",
+        "from, to, into/out of (generic DIR)"
+      ]
+    },
+    "H": {
+      "HI": [
+        "single",
+        "once, one time"
+      ],
+      "HY": [
+        "low frequency",
+        "rarely, seldom"
+      ],
+      "HE": [
+        "intermittent",
+        "sometimes"
+      ],
+      "HA": [
+        "frequent",
+        "often, frequently"
+      ],
+      "HO": [
+        "habitual",
+        "usually, normally"
+      ],
+      "HU": [
+        "maximal frequency",
+        "always, constantly"
+      ]
+    }
+  },
+  "core_roots": {
+    "PIRI": {
+      "domain": "I",
+      "aspect": "I",
+      "gloss": "person, human individual"
+    },
+    "MILY": {
+      "domain": "I",
+      "aspect": "Y",
+      "gloss": "body, physical self"
+    },
+    "ZIFE": {
+      "domain": "I",
+      "aspect": "E",
+      "gloss": "to speak, talk (personal act)"
+    },
+    "HISA": {
+      "domain": "I",
+      "aspect": "A",
+      "gloss": "to be well, healthy"
+    },
+    "SIRO": {
+      "domain": "I",
+      "aspect": "O",
+      "gloss": "friend relation, friend-of"
+    },
+    "TINU": {
+      "domain": "I",
+      "aspect": "U",
+      "gloss": "age of a person (years lived)"
+    },
+    "RYDI": {
+      "domain": "Y",
+      "aspect": "I",
+      "gloss": "group, crowd, people-as-unit"
+    },
+    "SYRY": {
+      "domain": "Y",
+      "aspect": "Y",
+      "gloss": "institution, organized structure"
+    },
+    "GYFE": {
+      "domain": "Y",
+      "aspect": "E",
+      "gloss": "to interact socially, mingle"
+    },
+    "VYRA": {
+      "domain": "Y",
+      "aspect": "A",
+      "gloss": "social peace, order, stability"
+    },
+    "TYRO": {
+      "domain": "Y",
+      "aspect": "O",
+      "gloss": "rule/authority relation, boss-of"
+    },
+    "BYRU": {
+      "domain": "Y",
+      "aspect": "U",
+      "gloss": "wealth, money amount"
+    },
+    "FENI": {
+      "domain": "E",
+      "aspect": "I",
+      "gloss": "animal (non-human)"
+    },
+    "BELY": {
+      "domain": "E",
+      "aspect": "Y",
+      "gloss": "forest / herd / ecosystem cluster"
+    },
+    "KEFE": {
+      "domain": "E",
+      "aspect": "E",
+      "gloss": "to grow, develop (biological)"
+    },
+    "MELA": {
+      "domain": "E",
+      "aspect": "A",
+      "gloss": "to be alive, living"
+    },
+    "SEVO": {
+      "domain": "E",
+      "aspect": "O",
+      "gloss": "ecological relation (predator-of, symbiont-of, etc.)"
+    },
+    "BENU": {
+      "domain": "E",
+      "aspect": "U",
+      "gloss": "population, biomass, ecological quantity"
+    },
+    "KATI": {
+      "domain": "A",
+      "aspect": "I",
+      "gloss": "rock, stone, lump of matter"
+    },
+    "SARY": {
+      "domain": "A",
+      "aspect": "Y",
+      "gloss": "region, landscape, area"
+    },
+    "PASE": {
+      "domain": "A",
+      "aspect": "E",
+      "gloss": "to move, go, travel, flow"
+    },
+    "HATA": {
+      "domain": "A",
+      "aspect": "A",
+      "gloss": "hot/warm (physical temperature)"
+    },
+    "SAKO": {
+      "domain": "A",
+      "aspect": "O",
+      "gloss": "physical relation (contact/inclusion/proximity)"
+    },
+    "DARU": {
+      "domain": "A",
+      "aspect": "U",
+      "gloss": "distance, spatial extent, length"
+    },
+    "TOKI": {
+      "domain": "O",
+      "aspect": "I",
+      "gloss": "tool, implement, usable object"
+    },
+    "KORY": {
+      "domain": "O",
+      "aspect": "Y",
+      "gloss": "house, building, constructed structure"
+    },
+    "GOSE": {
+      "domain": "O",
+      "aspect": "E",
+      "gloss": "to build, construct, make artefact"
+    },
+    "VOSA": {
+      "domain": "O",
+      "aspect": "A",
+      "gloss": "broken, out of order"
+    },
+    "ZORO": {
+      "domain": "O",
+      "aspect": "O",
+      "gloss": "functional relation (fit, plug, compatibility)"
+    },
+    "KOMU": {
+      "domain": "O",
+      "aspect": "U",
+      "gloss": "capacity, size, volume (of artefacts)"
+    },
+    "RUFI": {
+      "domain": "U",
+      "aspect": "I",
+      "gloss": "idea, concept"
+    },
+    "LURY": {
+      "domain": "U",
+      "aspect": "Y",
+      "gloss": "language, system, theory"
+    },
+    "GUSE": {
+      "domain": "U",
+      "aspect": "E",
+      "gloss": "to think, compute, reason"
+    },
+    "GUSA": {
+      "domain": "U",
+      "aspect": "A",
+      "gloss": "to know, be knowledgeable"
+    },
+    "KURO": {
+      "domain": "U",
+      "aspect": "O",
+      "gloss": "cause-of, reason relation"
+    },
+    "NUNU": {
+      "domain": "U",
+      "aspect": "U",
+      "gloss": "number, amount, abstract quantity"
+    }
+  }
+}

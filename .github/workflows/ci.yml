@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+
+      - name: Install
+        run: uv sync
+
+      - name: Tests (parser, numbers, data integrity, spec sync)
+        run: uv run pytest -q
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Guide sync (docs/index.html vs language.json)
+        run: node scripts/check_guide_sync.mjs

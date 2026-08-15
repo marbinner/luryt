@@ -1,0 +1,52 @@
+name: "Proposal: new root"
+description: Propose a new CVCV vocabulary root
+title: "[root] "
+labels: ["proposal", "lexicon"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before proposing, check the [guide's matrix](https://marbinner.github.io/luryt/#grid)
+        and `src/conlang_tools/data/language.json` — the root's two vowels must
+        match the matrix cell it belongs to.
+  - type: input
+    id: root
+    attributes:
+      label: Proposed root (CVCV)
+      description: "Vowel 1 = domain, vowel 2 = aspect. Example: nife"
+      placeholder: nife
+    validations:
+      required: true
+  - type: input
+    id: cell
+    attributes:
+      label: Matrix cell
+      placeholder: "Person × Process (i·e)"
+    validations:
+      required: true
+  - type: input
+    id: gloss
+    attributes:
+      label: Gloss
+      placeholder: "to eat"
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why this root, why now
+      description: |
+        Why does the language need it? Why this consonant choice (pleasant to
+        say, not confusable with existing roots)? Note any near-collisions with
+        existing vocabulary.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example sentences
+      description: 3–5 sentences using existing vocabulary, with translations.
+      placeholder: |
+        ji nifen. — "I eat."
+    validations:
+      required: true

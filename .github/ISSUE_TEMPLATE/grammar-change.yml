@@ -1,0 +1,29 @@
+name: "Proposal: grammar / spec change"
+description: Syntax, morphology, phonology, naming — anything else about the language
+title: "[grammar] "
+labels: ["proposal", "grammar"]
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: The change
+      description: What should the spec say that it doesn't (or say differently)?
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: |
+        What can't be expressed today, or what inconsistency does this fix?
+        Note whether this touches something spec §0 lists as **fixed** —
+        those need a much stronger case than filling an open slot.
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Before / after examples
+      description: Show sentences that this change affects or newly enables.
+    validations:
+      required: true
