@@ -8,6 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+.env
 
 # Editor / assistant local state
 .claude/
@@ -16,3 +17,4 @@ claude_files/
 
 # Notebooks and scratch work stay out of the public repo
 notebooks/
+tmp/
