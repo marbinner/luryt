@@ -37,7 +37,8 @@ reading practice. The normative reference is the [foundational spec](https://mar
 luryt is deliberately unfinished, and the grammar defines exactly where the
 empty slots are:
 
-- **7 consonants** (`b f v z l x g`) are reserved for future particle families
+- **6 consonants** (`b f v z l x`) are reserved for future particle families
+  (four already earmarked: mood, coordination, subordination, discourse reference)
 - the **36 matrix cells** each hold one core root — with room for many more
 - **numbers above 99**, **conjunctions**, and **complex-clause syntax** are open
 - only the K-family works as a prefix so far; more prefix families are anticipated
@@ -60,7 +61,7 @@ converter, and a practice web app.
 ```bash
 uv sync                     # install
 uv run luryt parse kapirim  # segment + analyze a word
-uv run luryt ref particles  # the 13 particle families
+uv run luryt ref particles  # the 14 particle families
 uv run luryt num --to-cv 42 # numbers <-> syllables
 uv run luryt web            # practice web app at http://127.0.0.1:8000
 ```

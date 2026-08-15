@@ -37,6 +37,13 @@ def test_atomic_particle_and_numeral(parser):
     assert r.numeric_value == 27
 
 
+def test_num_is_a_valid_fixed_atomic_form(parser):
+    r = parser.parse("num")
+    assert r.is_valid
+    assert r.word_type == "atomic"
+    assert r.particle_meaning[0] == "numeral marker"
+
+
 def test_atomic_u_vowel_has_no_numeric_reading(parser):
     r = parser.parse("tu")
     assert r.is_valid

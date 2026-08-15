@@ -470,9 +470,13 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <span class="lx">ka</span>, <span class="lx">rim</span>. No syllable starts with a vowel, and
       consonants never cluster. The result is a steady, drum-like rhythm:
       <span class="lx">ka·pi·rim</span>, <span class="lx">zi·fe·n</span>.</p>
-      <p>Stress is automatic: always the <b>second-to-last syllable</b> of the word.
+      <p>Stress is automatic: always the <b>first syllable of the root</b> — which, given the
+      word template, is always the second-to-last syllable.
       <span class="lx">pi·rim</span> → <b class="lx">pi</b>rim;
-      <span class="lx">ka·pi·rim</span> → ka<b class="lx">pi</b>rim.</p>
+      <span class="lx">ka·pi·rim</span> → ka<b class="lx">pi</b>rim.
+      Free particles are little words with their own stress, so
+      <span class="lx">ka pirim</span> (“people, as a group”) and
+      <span class="lx">kapirim</span> (“a crowd”) sound different.</p>
     </div>
   </div>
   <div class="wrap"><hr class="chrule"></div>
@@ -492,7 +496,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <p><b>1 · Particles.</b> Little two-letter words — consonant plus vowel — that do the grammar:
       pronouns, tense, negation, quantifiers, question words. <span class="lx">ji</span> “I”,
       <span class="lx">te</span> “now”, <span class="lx">na</span> “not”. They never take prefixes
-      or endings; they are atoms.</p>
+      or endings; they are atoms. (One longer fixed word exists: <span class="lx">num</span>, the
+      numeral marker — chapter 06.)</p>
       <p><b>2 · Content words.</b> The open-ended vocabulary: things, actions, qualities. Every
       content word is built on exactly one four-letter root (consonant-vowel-consonant-vowel),
       wears exactly one final consonant as its ending, and may stack two-letter prefixes in front:</p>
@@ -545,8 +550,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <table>
         <thead><tr><th>Ending</th><th>Kind</th><th>What it makes</th></tr></thead>
         <tbody>
-          <tr><td class="lx b">‑m</td><td><b>Entity</b></td><td>a generic thing — “an X-thing”</td></tr>
-          <tr><td class="lx b">‑t</td><td><b>Specific</b></td><td>a particular thing — “that X, the X”</td></tr>
+          <tr><td class="lx b">‑m</td><td><b>Entity</b></td><td>a descriptive thing — “an X, some X” (no particular one)</td></tr>
+          <tr><td class="lx b">‑t</td><td><b>Referential</b></td><td>an identifiable thing or set — “the X (we know which)”</td></tr>
           <tr><td class="lx b">‑n</td><td><b>Event</b></td><td>a verb — “to X, X happens”</td></tr>
           <tr><td class="lx b">‑s</td><td><b>Property</b></td><td>an adjective — “X-like, having X”</td></tr>
           <tr><td class="lx b">‑l</td><td><b>Manner</b></td><td>an adverb — “in an X way, X-ly”</td></tr>
@@ -564,7 +569,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <table>
         <tbody>
           <tr><td class="lx b">zifem</td><td>an utterance; a piece of speech</td></tr>
-          <tr><td class="lx b">zifet</td><td>the speech; that specific utterance</td></tr>
+          <tr><td class="lx b">zifet</td><td>the utterance (the identifiable one — one or several)</td></tr>
           <tr><td class="lx b">zifen</td><td>to speak</td></tr>
           <tr><td class="lx b">zifes</td><td>talkative; speech-like</td></tr>
           <tr><td class="lx b">zifel</td><td>verbally; in a speaking manner</td></tr>
@@ -664,9 +669,11 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <p class="plate-cap">One consonant, one scale: past → future → outside time.</p>
     </div>
     <div class="prose">
-      <p>Thirteen families are defined so far; the remaining seven consonants
-      (<span class="lx">b f v z l x g</span>) are reserved for future ones. Here they all are,
-      grouped by what they do.</p>
+      <p>Fourteen families are defined so far. Six consonants
+      (<span class="lx">b f v z l x</span>) remain reserved — four of them already earmarked
+      (<span class="lx">b</span> mood, <span class="lx">f</span> coordination,
+      <span class="lx">x</span> subordination, <span class="lx">z</span> reflexive &amp; discourse
+      reference). Here they all are, grouped by what they do.</p>
     </div>
     <div id="seriesHost"></div>
   </div>
@@ -693,9 +700,13 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     </div>
     <div class="plate">
       <div class="scrollx" id="numgridHost"></div>
-      <p class="plate-cap">Yes — number syllables collide with particles: <span class="lx">te</span>
-      is both “now” and 27. Context (a counting context vs. a clause) decides, the same way English
-      survives “one” vs. “won”. Numbers above 99 aren’t specified yet.</p>
+      <p class="plate-cap">Number syllables would collide with particles —
+      <span class="lx">te</span> is both “now” and 27 — so counting is announced by the fixed
+      marker <span class="lx">num</span> (a clipped form of <span class="lx">nunu</span> “number”):
+      <span class="lx">num te</span> = 27, <span class="lx">num pi</span> = 0,
+      <span class="lx">num pa pirim pasen</span> “three people go”. A bare syllable like
+      <span class="lx">pi</span> stays a particle (“just starting to”). Numbers above 99 aren’t
+      specified yet.</p>
     </div>
     <h3>Try it</h3>
     <div class="plate conv">
@@ -762,6 +773,18 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
       <div class="ix-w"><span class="lx">zifen.</span><span class="g">speak</span></div>
     </div><div class="ix-t">“Right now, I am not speaking.” — polarity slots in just before the subject.</div></div>
+    <div class="prose"><p>Operators bind everything to their right, so <em>where</em> you put one
+    is its scope. Moving <span class="lx">na</span> past a quantifier flips the meaning:</p></div>
+    <div class="ix"><div class="ix-s">
+      <div class="ix-w"><span class="lx">na</span><span class="g">not</span></div>
+      <div class="ix-w"><span class="lx">qo pirim</span><span class="g">all people</span></div>
+      <div class="ix-w"><span class="lx">pasen.</span><span class="g">go</span></div>
+    </div><div class="ix-t">“Not all people go.”</div></div>
+    <div class="ix"><div class="ix-s">
+      <div class="ix-w"><span class="lx">qo pirim</span><span class="g">all people</span></div>
+      <div class="ix-w"><span class="lx">na</span><span class="g">not</span></div>
+      <div class="ix-w"><span class="lx">pasen.</span><span class="g">go</span></div>
+    </div><div class="ix-t">“All the people don’t go — none of them go.”</div></div>
 
     <h3>Noun phrases: quantifier, pointer, noun</h3>
     <div class="prose"><p>Inside a noun phrase the order is quantifier (Q-family), then
@@ -769,21 +792,31 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">qy pirim</span><span class="g">some person</span></div>
       <div class="ix-w"><span class="lx">qa pirim</span><span class="g">most people</span></div>
-      <div class="ix-w"><span class="lx">qe da fenim</span><span class="g">some of those animals</span></div>
-      <div class="ix-w"><span class="lx">qo du korym</span><span class="g">all those houses (elsewhere)</span></div>
-    </div><div class="ix-t">Pronouns (<span class="lx">ji, jy, je…</span>) stand anywhere a noun phrase can.</div></div>
+      <div class="ix-w"><span class="lx">qe da fenit</span><span class="g">some of those animals</span></div>
+      <div class="ix-w"><span class="lx">qo du koryt</span><span class="g">all those houses (elsewhere)</span></div>
+    </div><div class="ix-t">Pronouns (<span class="lx">ji, jy, je…</span>) stand anywhere a noun
+    phrase can. Demonstratives point at identifiable things, so they normally pair with the
+    <span class="lx">‑t</span> ending.</div></div>
 
     <h3>Who did what to whom: role markers</h3>
     <div class="prose"><p>Instead of case endings, Luryt puts a small R-family particle
     <em>after</em> a noun phrase to mark its role — agent <span class="lx">ri</span>, recipient
     <span class="lx">ry</span>, object <span class="lx">re</span>, instrument <span class="lx">ra</span>,
-    location <span class="lx">ro</span>, path <span class="lx">ru</span>:</p></div>
+    location <span class="lx">ro</span>, path <span class="lx">ru</span>. One argument — the
+    <b>pivot</b>, usually the doer — may stay unmarked in the subject slot; every other argument
+    carries its role:</p></div>
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
-      <div class="ix-w"><span class="lx">korym re</span><span class="g">house · object</span></div>
+      <div class="ix-w"><span class="lx">koryt re</span><span class="g">the house · object</span></div>
       <div class="ix-w"><span class="lx">tokim ra</span><span class="g">tool · with</span></div>
       <div class="ix-w"><span class="lx">gosen.</span><span class="g">build</span></div>
     </div><div class="ix-t">“I build the house with a tool.”</div></div>
+    <div class="ix"><div class="ix-s">
+      <div class="ix-w"><span class="lx">ty</span><span class="g">recently</span></div>
+      <div class="ix-w"><span class="lx">di koryt re</span><span class="g">this house · object</span></div>
+      <div class="ix-w"><span class="lx">gosen.</span><span class="g">build</span></div>
+    </div><div class="ix-t">“This house was built recently.” — mark every argument and leave the
+    doer out: agent omission without any passive voice.</div></div>
 
     <h3>Space: no verb “to be” required</h3>
     <div class="prose"><p>The S-family places a figure relative to a ground —
@@ -793,8 +826,15 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">di pirit</span><span class="g">this person</span></div>
       <div class="ix-w"><span class="lx">si</span><span class="g">inside</span></div>
-      <div class="ix-w"><span class="lx">di korym.</span><span class="g">this house</span></div>
+      <div class="ix-w"><span class="lx">di koryt.</span><span class="g">this house</span></div>
     </div><div class="ix-t">“This person is in this house.”</div></div>
+    <div class="ix"><div class="ix-s">
+      <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
+      <div class="ix-w"><span class="lx">si di koryt</span><span class="g">inside this house</span></div>
+      <div class="ix-w"><span class="lx">ro</span><span class="g">at</span></div>
+      <div class="ix-w"><span class="lx">zifen.</span><span class="g">speak</span></div>
+    </div><div class="ix-t">“I speak inside this house.” — for an event at a place, the spatial
+    phrase is closed by <span class="lx">ro</span> (location role).</div></div>
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
       <div class="ix-w"><span class="lx">pasen</span><span class="g">move</span></div>
@@ -803,11 +843,15 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     </div><div class="ix-t">“I wander around the region.” — with a motion verb, the same particles trace paths.</div></div>
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
-      <div class="ix-w"><span class="lx">ru</span><span class="g">to</span></div>
+      <div class="ix-w"><span class="lx">go</span><span class="g">arriving</span></div>
       <div class="ix-w"><span class="lx">si</span><span class="g">inside</span></div>
-      <div class="ix-w"><span class="lx">di korym</span><span class="g">this house</span></div>
+      <div class="ix-w"><span class="lx">di koryt</span><span class="g">this house</span></div>
+      <div class="ix-w"><span class="lx">ru</span><span class="g">path</span></div>
       <div class="ix-w"><span class="lx">pasen.</span><span class="g">move</span></div>
-    </div><div class="ix-t">“I go into this house.” — <span class="lx">ru</span> (path) + <span class="lx">si</span> (inside) compose “into”.</div></div>
+    </div><div class="ix-t">“I go into this house.” — a G-family word orients the path
+    (<span class="lx">go</span> = endpoint), and <span class="lx">ru</span> closes the whole path
+    phrase. Swap in <span class="lx">gi</span> (origin) and you exit instead:
+    <span class="lx">ji gi si di koryt ru pasen</span> — “I come out of this house.”</div></div>
 
     <h3>Questions</h3>
     <div class="prose"><p>Content questions start with a W-family word; yes/no questions are just
@@ -831,7 +875,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
       <div class="ix-w"><span class="lx">ca</span><span class="g">more</span></div>
       <div class="ix-w"><span class="lx">gusas</span><span class="g">knowledgeable</span></div>
-      <div class="ix-w"><span class="lx">de pirim</span><span class="g">that person</span></div>
+      <div class="ix-w"><span class="lx">de pirit</span><span class="g">that person</span></div>
       <div class="ix-w"><span class="lx">re.</span><span class="g">than</span></div>
     </div><div class="ix-t">“I am more knowledgeable than that person.” Swap
     <span class="lx">ca</span> for <span class="lx">ce</span> “as … as”, <span class="lx">cy</span>
@@ -901,7 +945,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
           <li>Particle: <span class="lx">cv</span> — two letters, atomic</li>
           <li>Content: <span class="lx">(cv)* + cvcv + m/t/n/s/l/r</span></li>
           <li>Stress: second-to-last syllable</li>
-          <li>Numbers 0–99: <span class="lx">cv</span>, value = 5·C + V</li>
+          <li>Numbers 0–99: <span class="lx">num</span> + <span class="lx">cv</span>, value = 5·C + V</li>
         </ul>
       </div>
       <div class="refbox">
@@ -927,6 +971,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
           <li><span class="lx">subject · NPs+role · verb</span></li>
           <li>NP: <span class="lx">[q] [d] noun</span> · roles follow the NP</li>
           <li>Compare: <span class="lx">A ca PROP‑s B re</span> “A is more PROP than B”</li>
+          <li>Path: <span class="lx">figure g (s) place ru verb</span></li>
+          <li>Operators scope over what follows them</li>
         </ul>
       </div>
     </div>
@@ -938,6 +984,9 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <ul class="edges">
         <li>More prefix families — only K- (grouping) is fully defined as a prefix so far; time,
         voice and valence prefixes are anticipated.</li>
+        <li>The earmarked families — <span class="lx">b</span> mood, <span class="lx">f</span>
+        coordination, <span class="lx">x</span> subordination, <span class="lx">z</span>
+        reflexive &amp; discourse reference — have jobs but no forms yet.</li>
         <li>Conjunctions and clause-linking — no “and / but / because / if” yet.</li>
         <li>The lexicon beyond the 36 core roots (one extra root, <span class="lx">nife</span>
         “eat”, floats around examples provisionally).</li>
@@ -952,7 +1001,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
 
 <footer class="colophon">
   <div class="wrap">
-    <p><b>luryt</b> · compiled August 2026 from the foundational spec (<a href="https://marbinner.github.io/luryt/spec.html"><span class="lx" style="font-size:12.5px">spec.md</span></a>) · source, spec &amp; contributions: <a href="https://github.com/marbinner/luryt">github.com/marbinner/luryt</a>.</p>
+    <p><b>luryt</b> · compiled August 2026 from the foundational spec (v2) (<a href="https://marbinner.github.io/luryt/spec.html"><span class="lx" style="font-size:12.5px">spec.md</span></a>) · source, spec &amp; contributions: <a href="https://github.com/marbinner/luryt">github.com/marbinner/luryt</a>.</p>
     <p>“Luryt” is a provisional nickname coined by this guide, not (yet) an official name. Vowel
     colors are a teaching device of this page, not part of the language.</p>
   </div>
@@ -980,7 +1029,7 @@ const VOW_INFO = [
 ];
 
 const SUFF = {
-  m:["Entity","a thing — “an X-thing”"], t:["Specific","the thing — “that/the X”"],
+  m:["Entity","a descriptive thing — “an X, some X”"], t:["Referential","the identifiable thing — “the X (we know which)”"],
   n:["Event","a verb — “to X”"], s:["Property","“X-like, having X”"],
   l:["Manner","“in an X way”"], r:["Relational","“of X, related by X”"]
 };
@@ -1088,6 +1137,10 @@ const SERIES = [
    rows:[["si","interior","in, inside"],["sy","surface","on, touching"],["se","adjacency","next to"],
          ["sa","vicinity","around, near"],["so","exterior","outside, beyond"],["su","dispersed","among, throughout"]],
    note:"Static on its own; traces a path when the verb moves."},
+  {c:"g", name:"Paths", grp:3, scale:"origin → return",
+   rows:[["gi","origin","from, starting at"],["gy","departure","away from, leaving"],["ge","route","along, via, through"],
+         ["ga","approach","toward, nearing"],["go","endpoint","into / onto, arriving at"],["gu","return","back to, returning"]],
+   note:"Orients a motion path; <span class='lx'>ru</span> closes the whole path phrase: <span class='lx'>ji go si di koryt ru pasen</span> — “I go into this house.”"},
   {c:"k", name:"Grouping", grp:3, scale:"single → scattered",
    rows:[["ki","singled","as a single unit, alone"],["ky","pair","as a pair"],["ke","small group","a few together"],
          ["ka","group","as a group, together"],["ko","mass","en masse, a large collective"],["ku","scattered","spread out, all over"]],
@@ -1240,14 +1293,18 @@ $("#vowrow").innerHTML = VOW_INFO.map(([L,ipa,hint]) =>
      [["te","now"],["py","-ing"],["je","he/she/it"],["gusen","think"]]],
     ["ho qa pirim gyfen.", "“Most people usually socialize.”",
      [["ho","usually"],["qa","most"],["pirim","people"],["gyfen","mingle"]]],
-    ["dy fenim si di korym.", "“These animals are inside this house.”",
-     [["dy","these"],["fenim","animals"],["si","inside"],["di","this"],["korym","house"]]],
+    ["dy fenit si di koryt.", "“These animals are inside this house.”",
+     [["dy","these"],["fenit","animals"],["si","inside"],["di","this"],["koryt","house"]]],
     ["ti ja ru do sarym pasen.", "“Long ago, we traveled to that faraway region.”",
      [["ti","long ago"],["ja","we"],["ru","to"],["do","that (far)"],["sarym","region"],["pasen","go"]]],
     ["jy ca hisas ji re.", "“You are healthier than I am.”",
      [["jy","you"],["ca","more"],["hisas","healthy"],["ji","I"],["re","than"]]],
-    ["pu ju qo korym gosen.", "“They have already built all the houses.”",
-     [["pu","already"],["ju","they"],["qo","all"],["korym","houses"],["gosen","build"]]]
+    ["pu ju qo koryt gosen.", "“They have already built all the houses.”",
+     [["pu","already"],["ju","they"],["qo","all"],["koryt","the houses"],["gosen","build"]]],
+    ["num pa pirim pasen.", "“Three people go.”",
+     [["num","number:"],["pa","3"],["pirim","people"],["pasen","go"]]],
+    ["ty di koryt re gosen.", "“This house was built recently.”",
+     [["ty","recently"],["di","this"],["koryt","house"],["re","object"],["gosen","build"]]]
   ];
   $("#drills").innerHTML = drills.map(([q, t, ws], i) => `
     <div class="drill" id="drill${i}">
@@ -1274,6 +1331,11 @@ function parseWord(raw){
   const out = {word:w, errors:[], type:null};
   if (!w) return null;
   if (/[^a-z]/.test(w)){ out.type="content"; out.errors.push("Only the letters a–z occur in Luryt."); return out; }
+  if (w === "num"){
+    out.type = "atomic";
+    out.fixedGloss = "numeral marker — reads the next syllable as a number (num te = 27); clipped from nunu “number”";
+    return out;
+  }
   const isCV = s => s.length===2 && CONS.includes(s[0]) && VOWS.includes(s[1]);
 
   if (w.length === 2 && isCV(w)){
@@ -1319,7 +1381,7 @@ function parseWord(raw){
 }
 
 (function(){
-  const samples = ["kapirim","zifes","te","qe","kykatim","gusan","vosas","pirit","piri","ho"];
+  const samples = ["kapirim","zifes","te","num","qe","kykatim","gusan","koryt","piri","ho"];
   $("#pchips").innerHTML = samples.map(s => `<button class="chip" data-w="${s}">${s}</button>`).join("");
   const pin = $("#pin"), pout = $("#pout");
   $("#pchips").addEventListener("click", e => {
@@ -1337,6 +1399,7 @@ function parseWord(raw){
 
     if (p.type === "atomic"){
       html += `<div class="an-word"><span class="an-seg" data-k="root">${colorize(p.word)}</span></div><dl class="det">`;
+      if (p.fixedGloss) html += dt("fixed form", esc(p.fixedGloss));
       if (p.particle) html += dt("particle", `${p.particle.series}-family <b>${p.particle.name}</b> — ${esc(p.particle.val)}: “${esc(p.particle.gloss)}”`);
       if (p.numval !== null) html += dt("numeral", `the number <b>${p.numval}</b> (5×${CONS.indexOf(p.word[0])} + ${NVOWS.indexOf(p.word[1])})`);
       if (p.particle && p.numval !== null) html += dt("note", "both readings exist — context picks one");

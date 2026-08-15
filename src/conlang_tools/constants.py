@@ -55,6 +55,11 @@ PARTICLE_SERIES: Dict[str, Dict[str, Tuple[str, str]]] = {
 # Core lexicon (36 roots from the semantic matrix)
 CORE_ROOTS: Dict[str, Dict[str, str]] = _DATA["core_roots"]
 
+# Fixed atomic words longer than CV (e.g. NUM, the numeral marker)
+ATOMIC_WORDS: Dict[str, Tuple[str, str]] = {
+    k: tuple(v) for k, v in _DATA.get("atomic_words", {}).items()
+}
+
 
 def cv_to_number(cv: str) -> int:
     """Convert a CV syllable to a number (0-99).

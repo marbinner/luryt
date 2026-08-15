@@ -1,11 +1,4 @@
-# Foundational Spec (v2)
-
-> **v2 — August 2026.** First revision, driven by an external stress test of the language.
-> Summary of changes: **-t** referential vs **-m** descriptive; a **pivot-and-role** clause rule;
-> three distinct spatial constructions with the new **G-series** (path orientation) and **ru** as
-> the path-phrase closer; linear **operator scope**; the numeral marker **num**; stress restated
-> as root-anchored (equivalent to the old penultimate rule). The prior version is preserved as
-> `archive/doc_v15.md`. Details in §9.
+# Foundational Spec (Updated)
 
 ## 0. Scope
 
@@ -20,19 +13,14 @@
 - Principle that **CV series use one consonant + vowels in I Y E A O U order**
 - Root semantics: **6 Domains × 6 Aspects** (semantic matrix)
 - Numeric **00–99 → CV** system
-- Particle series defined so far: **P, M, T, D, N, Q, S, C, W, J, K, G, R, H**
+- Particle series defined so far: **P, M, T, D, N, Q, S, C, W, J, K, R, H**
 - First derivational prefix series: **K-series** (configuration / collectivity)
 - A core lexicon: **one root per semantic cell (36 roots)**
-- The numeral marker **num** (§8.1)
-- Clause **pivot rule** and linear **operator scope** (§7.1)
 
 **Still open (deliberately):**
 
 - Additional derivational prefix series (Time, Voice, Valence, etc.)
 - More closed-class items (conjunctions, clause-linkers, etc.)
-- The earmarked series **B** (mood / clause force), **F** (coordination & logical linkage),
-  **X** (subordinate-clause delimiters), **Z** (reflexive / reciprocal / discourse reference):
-  functions reserved, forms not yet specified. **V** and **L** remain unallocated.
 - Larger lexicon beyond the 36 core roots
 - Full syntax for complex clauses, subordination, focus, etc.
 
@@ -109,15 +97,9 @@ Used for:
 
 - Allowed syllables: **CV** or **CVC**
 - No onsetless syllables; no consonant clusters
-- Stress: on the **first syllable of the root** — which, given the content-word template, is
-  always the **penultimate syllable**. The two statements are equivalent; the root-anchored one
-  is primary (v2).
-- Free atomic particles are separate prosodic words, each carrying its own stress.
+- Stress: always on the **penultimate syllable**
 
-Examples: `pi.rim` → **pi**rim; `ka.pi.rim` → ka**pi**rim.
-
-Because prefixes are unstressed but free particles are stressed, `ka pirim` (**ka** **pi**rim,
-“people, as a group”) is audibly distinct from `kapirim` (ka**pi**rim, “a crowd”).
+Example: `ka.piri.m` → stress on **pi**.
 
 ---
 
@@ -126,8 +108,7 @@ Because prefixes are unstressed but free particles are stressed, `ka pirim` (**k
 ### 2.1 Two Word Types
 
 1. **Atomic words (particles)**  
-   - Shape: typically **CV**; a few longer fixed forms allowed
-     (currently one exists: **num**, the numeral marker — §8.1).
+   - Shape: typically **CV**; a few longer fixed forms allowed.
    - Used for: pronouns, TAM, quantifiers, roles, wh-words, etc.
    - No productive morphology (no prefixes/suffixes) on these forms.
 
@@ -158,18 +139,12 @@ Final suffixes (in canonical order):
 
 | Suffix | Head kind        | Typical use                                           |
 |--------|------------------|-------------------------------------------------------|
-| **-m** | Entity head      | descriptive noun: “an X / X-things” (no particular one) |
-| **-t** | Referential head | identifiable entity or set: “the X (we can identify)”  |
+| **-m** | Entity head      | generic noun: “an X-thing / X-entity”                |
+| **-t** | Specific head    | specific entity: “that/the X”                        |
 | **-n** | Event head       | verb: “to X / X happens”                             |
 | **-s** | Property head    | adjective: “X-like, having X-property”               |
 | **-l** | Manner head      | adverb: “in an X way, X-ly”                          |
 | **-r** | Relational head  | relational NP: “of X, X’s, from X, related-by-X”     |
-
-**-m** vs **-t** (v2): **-t** picks out a referent the hearer can identify — a specific
-individual *or* an identifiable plural set (`kory-t` “the house / those houses, you know which”).
-**-m** is descriptive and non-anchored: a class or an unidentified instance (`kory-m` “a house,
-houses in general”). **-t** marks *identifiability*, not distance — pointing is the D-series’ job,
-and demonstratives therefore normally combine with **-t** (§7.2).
 
 Hyphens (`piri-m`) are just glossing; in orthography it’s written as one word (`pirim`).
 
@@ -326,7 +301,7 @@ Used as clause particles, typically before the verb.
 
 ### 1 – B
 
-*(reserved — earmarked for mood / clause force)*
+*(unused / reserved)*
 
 ---
 
@@ -345,7 +320,7 @@ Used as clause particles, typically before the verb.
 
 ### 3 – F
 
-*(reserved — earmarked for coordination & logical linkage)*
+*(unused / reserved)*
 
 ---
 
@@ -425,7 +400,7 @@ Dynamic: with motion verbs (`pase-n` “go/move”) → path relative to ground.
 
 ### 10 – Z
 
-*(reserved — earmarked for reflexive, reciprocal & discourse reference)*
+*(unused / reserved)*
 
 ---
 
@@ -472,7 +447,7 @@ A cy/ce/ca PROP-s B re
 
 ### 14 – X
 
-*(reserved — earmarked for subordinate-clause delimiters)*
+*(unused / reserved)*
 
 ---
 
@@ -518,20 +493,9 @@ As a **particle**:
 
 ---
 
-### 17 – G (Path Orientation)
+### 17 – G
 
-Orients a motion event relative to its path. The path phrase is closed by **ru** (§7.3).
-
-| **Form** | **Orientation** | **Gloss**                  |
-| -------- | --------------- | -------------------------- |
-| **gi**   | origin          | “from, starting at”        |
-| **gy**   | departure       | “away from, leaving”       |
-| **ge**   | route           | “along, via, through”      |
-| **ga**   | approach        | “toward, nearing”          |
-| **go**   | endpoint        | “into / onto, arriving at” |
-| **gu**   | return          | “back to, returning”       |
-
-Pattern: `FIGURE  G  (S)  GROUND  ru  MOTION-VERB` — see §7.3.
+*(unused / reserved)*
 
 ---
 
@@ -596,10 +560,6 @@ Example:
 * `kapiri-m` = (one) group of people, a crowd/community
 
 This **does not change** the Domain×Aspect classification of the root; it only modifies **internal configuration**.
-
-Note (v2): **ki-** singles out one unit from a configuration (“one of the group”). It does not
-mark identifiability (that is **-t**) nor pointing (that is the D-series): `kipiri-m` “a lone
-individual”, `kipiri-t` “the lone individual (we can identify)”.
 
 Other series (M, T, etc.) may later get parallel **prefix roles** (e.g. degree prefixes on adjectives, tense-aspect prefixes on verbs).
 
@@ -803,22 +763,6 @@ Example:
 * `ji zife-n.` – “I speak.”
 * `te py ji zife-n.` – “Now I am speaking.”
 
-**Pivot and roles (v2).** A clause has at most one *unmarked* noun phrase: the **pivot**, in the
-subject slot, read as the most agent-like argument of the verb. Every other argument carries an
-R-series role particle (§7.3). A clause may also be *fully role-marked*, with no pivot at all —
-which is how the agent is omitted, with no passive morphology:
-
-* `ji kory-t re toki-m ra gose-n.` – “I build the house with a tool.”
-* `ji jy ry qy rufi-m re zife-n.` – “I tell you an idea.”
-* `ty di kory-t re gose-n.` – “This house was built recently.” (patient marked, agent omitted)
-
-**Operator scope (v2).** The front operators ([T] [P] [H] [M] [N]) take scope over everything to
-their right, in linear order. Polarity **na** may also stand immediately before the verb for
-narrow scope:
-
-* `na qo piri-m pase-n.` – “Not all people go.” (¬∀)
-* `qo piri-m na pase-n.` – “All the people don’t go — none of them go.” (∀¬)
-
 ---
 
 ### 7.2 Noun Phrase Template
@@ -834,11 +778,8 @@ Examples:
 
 * `qy piri-m` – a person / some person
 * `qa piri-m` – most people
-* `qe da feni-t` – some of those animals (here)
-* `qo du kory-t` – all those houses (over there)
-
-Demonstratives point at identifiable referents, so they normally take **-t** heads; a **-m** head
-after a demonstrative gives a kind reading (`da feni-m` ≈ “those sorts of animal”).
+* `qe da feni-m` – some of those animals (here)
+* `qo du kory-m` – all those houses (over there)
 
 Pronouns (`ji, jy, je, ja, jo, ju`) behave as NPs.
 
@@ -855,28 +796,19 @@ Role particles (R-series):
 * `NP ro` – location/setting (“at/in/on NP”)
 * `NP ru` – path edge (“from/to/into/out-of NP”)
 
-Space (v2) distinguishes three constructions:
+Spatial S-series:
 
-**1 · Static location** — no verb needed: `FIGURE  S  GROUND`
+* Static: `FIGURE S GROUND`
+* Dynamic with motion: `FIGURE VERB S GROUND`
 
-* `di piri-t si di kory-t.` – “This person is inside this house.”
+Examples:
 
-**2 · Location adjunct of an event** — the spatial phrase closed by `ro` (location role):
+* `di piri-t si di kory-m.` – “This person is inside this house.”
+* `ji pase-n sa sary-m.` – “I go around the region.”
 
-* `ji si di kory-t ro zife-n.` – “I speak inside this house.”
-* `ji pase-n sa sary-m.` – “I wander around the region.” (path-neutral motion)
+Combine with `ru` for directional:
 
-**3 · Oriented path** — a G-series particle orients the path, and `ru` closes the whole path
-phrase: `FIGURE  G  (S)  GROUND  ru  MOTION-VERB`
-
-* `ji go si di kory-t ru pase-n.` – “I go into this house.” (endpoint + inside)
-* `ji gi si di kory-t ru pase-n.` – “I come out of this house.” (origin + inside)
-* `ja ge su bely-m ru pase-n.` – “We travel through the forest.” (route + among)
-* `je gu si di kory-t ru pase-n.` – “She returns into this house.”
-
-`ru` no longer means “from” or “to” by itself: orientation lives in the G-series, and `ru` is the
-role particle closing the completed path frame. (This fixes v1, where `ru` conflated source with
-goal and the directional example placed `ru` *before* its NP, against the `NP + R` rule.)
+* `ji ru si di kory-m pase-n.` – “I go into this house.”
 
 ---
 
@@ -912,13 +844,13 @@ Property from root + `-s`:
 
 Comparative pattern (C-series + `re`):
 
-* `ji ca gusa-s de piri-t re.`
+* `ji ca gusa-s de piri-m re.`
   → “I am more knowledgeable than that person.”
 
-* `ji ce gusa-s de piri-t re.`
+* `ji ce gusa-s de piri-m re.`
   → “I am as knowledgeable as that person.”
 
-* `ji cy gusa-s de piri-t re.`
+* `ji cy gusa-s de piri-m re.`
   → “I am less knowledgeable than that person.”
 
 Superlative:
@@ -991,30 +923,8 @@ Inverse, given CV (with vowel in {I,Y,E,A,O}):
 d = 5 * c_index + v_index
 ```
 
-### 8.1 The numeral marker `num` (v2)
+Numeric CVs can function as:
 
-Every numeric CV is homophonous with some particle (`te` is both “now” and 27), which left weak
-contexts genuinely ambiguous. Counting is therefore announced by **num** — the language’s first
-fixed atomic form longer than CV, a clipped entity form of **nunu** “number”:
-
-* `num pi` – “zero”
-* `num te` – “twenty-seven”
-* `num pa piri-m pase-n.` – “Three people go.”
-* `pi ji zife-n.` – “I begin to speak.” (bare `pi` is still the phase particle)
-
-A bare numeric CV remains available as a label or code where no clause competes for the reading
-(list numbering, IDs, tables).
-
----
-
-## 9. Version History
-
-- **v1** — the original foundational spec, preserved as `archive/doc_v15.md`
-  (earlier drafts: `archive/doc_v1.md` … `doc_v14.md`).
-- **v2 (August 2026)** — first revision, prompted by an external stress test. The word-level
-  architecture is unchanged (all 36 roots re-verified against the matrix). Adopted: referential
-  **-t** / descriptive **-m**; the pivot-and-role clause rule with fully-role-marked
-  (agent-omitting) clauses; three-way spatial constructions; the **G-series** with **ru** as path
-  closer; linear operator scope; the numeral marker **num**; root-anchored stress statement.
-  Earmarked but *not* adopted sight-unseen from the stress-test proposal: the **B/F/X/Z** form
-  tables and its provisional added roots.
+* atomic numerals,
+* labels/codes,
+* and, where sensible, also as particles (disambiguated by context).

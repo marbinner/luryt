@@ -3,7 +3,7 @@
 from dataclasses import dataclass
 from typing import List, Optional, Union
 from .constants import (
-    CONSONANTS, VOWELS, FINAL_CONSONANTS, PARTICLE_SERIES,
+    ATOMIC_WORDS, CONSONANTS, VOWELS, FINAL_CONSONANTS, PARTICLE_SERIES,
     DOMAINS, ASPECTS, HEAD_KINDS, cv_to_number
 )
 
@@ -53,6 +53,10 @@ class ParseResult:
                 meaning, gloss = self.particle_meaning
                 lines.append(f"Particle: {self.particle_series}-series ({meaning})")
                 lines.append(f"Gloss: \"{gloss}\"")
+            elif self.particle_meaning:
+                meaning, gloss = self.particle_meaning
+                lines.append(f"Fixed form: {meaning}")
+                lines.append(f"Gloss: \"{gloss}\"")
             if self.numeric_value is not None:
                 lines.append(f"Numeric value: {self.numeric_value}")
 
@@ -100,7 +104,16 @@ class WordParser:
                 errors=['Empty word']
             )
 
-        # Check if it's an atomic word (CV or known longer form)
+        # Check if it's an atomic word (CV or known longer fixed form)
+        if word in ATOMIC_WORDS:
+            name, gloss = ATOMIC_WORDS[word]
+            return ParseResult(
+                original=original,
+                word_type='atomic',
+                is_valid=True,
+                errors=[],
+                particle_meaning=(name, gloss)
+            )
         if len(word) == 2 and self._is_cv(word):
             return self._parse_atomic(word, original)
 

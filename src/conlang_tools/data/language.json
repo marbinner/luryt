@@ -36,11 +36,11 @@
   "head_kinds": {
     "M": [
       "Entity head",
-      "generic noun: \"an X-thing / X-entity\""
+      "descriptive noun: \"an X / X-things\" (class or non-anchored, no particular one)"
     ],
     "T": [
-      "Specific head",
-      "specific entity: \"that/the X\""
+      "Referential head",
+      "identifiable noun: \"the X\" (a specific individual or set we can identify)"
     ],
     "N": [
       "Event head",
@@ -398,6 +398,32 @@
         "scattered, spread out, all over"
       ]
     },
+    "G": {
+      "GI": [
+        "origin",
+        "from, starting at (the path's origin)"
+      ],
+      "GY": [
+        "departure",
+        "away from, leaving"
+      ],
+      "GE": [
+        "route",
+        "along, via, through"
+      ],
+      "GA": [
+        "approach",
+        "toward, nearing"
+      ],
+      "GO": [
+        "endpoint",
+        "into / onto, arriving at, reaching"
+      ],
+      "GU": [
+        "return",
+        "back to, returning"
+      ]
+    },
     "R": {
       "RI": [
         "agent",
@@ -632,5 +658,11 @@
       "aspect": "U",
       "gloss": "number, amount, abstract quantity"
     }
+  },
+  "atomic_words": {
+    "NUM": [
+      "numeral marker",
+      "reads the following CV syllable as a number (num te = 27); clipped from nunu 'number'"
+    ]
   }
 }
