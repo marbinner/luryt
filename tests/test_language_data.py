@@ -16,7 +16,7 @@ from conlang_tools.constants import (
     VOWELS,
 )
 
-SPEC = (Path(__file__).parent.parent / "spec.md").read_text(encoding="utf-8").lower()
+SPEC = (Path(__file__).parent.parent / "docs" / "spec.md").read_text(encoding="utf-8").lower()
 
 
 def test_inventories():
@@ -52,7 +52,7 @@ def test_series_use_own_consonant_and_full_vowel_scale(series, particles):
 
 
 def test_spec_mentions_every_root_and_particle():
-    """Drift alarm: anything in language.json must be documented in spec.md."""
+    """Drift alarm: anything in language.json must be documented in docs/spec.md."""
     missing = [r for r in CORE_ROOTS if f"**{r.lower()}**" not in SPEC]
     assert not missing, f"roots in language.json but not bolded in spec.md: {missing}"
     missing = [

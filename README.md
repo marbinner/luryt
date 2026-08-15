@@ -16,7 +16,8 @@ Nothing is irregular. Nothing has to be memorized that could instead be computed
 
 **Start here → [the interactive guide](https://marbinner.github.io/luryt/)** — the
 whole language on one page, with a live word parser, the 6×6 root matrix, and
-reading practice. The normative reference is [`spec.md`](spec.md).
+reading practice. The normative reference is the [foundational spec](https://marbinner.github.io/luryt/spec.html)
+([`docs/spec.md`](docs/spec.md) in the repo).
 
 ## How the language works, in three rules
 
@@ -69,7 +70,7 @@ uv run luryt web            # practice web app at http://127.0.0.1:8000
 ## Repository layout
 
 ```
-spec.md                          the normative language spec
+docs/spec.md                     the normative language spec (also served on Pages)
 docs/index.html                  the interactive guide (GitHub Pages)
 src/conlang_tools/               Python tooling
 src/conlang_tools/data/language.json   canonical language data
