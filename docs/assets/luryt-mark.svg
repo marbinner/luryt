@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Luryt</title>
+  <desc id="description">Two coordinate paths frame a selected cell, representing meaning located by Luryt's vowel matrix.</desc>
+  <style>
+    .axis { stroke: #1E6B5C; }
+    .cell { fill: #E85D4A; }
+    @media (prefers-color-scheme: dark) {
+      .axis { stroke: #72CBB4; }
+      .cell { fill: #F08A78; }
+    }
+  </style>
+  <path class="axis" d="M14 35V21a7 7 0 0 1 7-7h14" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="axis" d="M50 29v14a7 7 0 0 1-7 7H29" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect class="cell" x="27" y="27" width="10" height="10" rx="2"/>
+</svg>

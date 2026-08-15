@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/luryt-mark.svg" width="112" height="112" alt="Luryt logo">
+</p>
+
 # luryt
 
 An engineered constructed language where form computes meaning — 20 consonants,
@@ -90,3 +94,6 @@ The language has no official name yet. *luryt* is a self-description in the
 language's own grammar: `lury` "language, system" + `-t` "this specific one" —
 *the language*. Proposals for a real name are welcome (issue template: grammar
 change).
+
+The mark follows the same logic visually: two coordinate paths locate meaning in
+the vowel matrix, and the filled cell identifies this particular system.

@@ -1,6 +1,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Luryt</title>
+<link rel="icon" href="assets/luryt-mark.svg" type="image/svg+xml">
 
 <style>
 /* ---------- fonts ---------- */
@@ -102,9 +103,11 @@ b.lx,.lx.b{font-weight:600}
   display:grid;grid-template-columns:minmax(0,.88fr) minmax(420px,1.12fr);
   gap:clamp(28px,5vw,64px);align-items:center;margin-bottom:32px;
 }
+.hero .brand-lockup{display:flex;align-items:center;gap:14px;margin:14px 0 10px}
+.hero .brand-mark{display:block;width:clamp(52px,8vw,72px);height:auto;flex:0 0 auto}
 .hero .name{
   font-family:var(--mono);font-weight:600;letter-spacing:.02em;
-  font-size:clamp(46px,8vw,76px);line-height:1.05;margin:14px 0 10px;
+  font-size:clamp(46px,8vw,76px);line-height:1.05;margin:0;
 }
 .hero .thesis{font-size:clamp(21px,3vw,26px);font-style:italic;color:var(--ink2);margin:0 0 26px}
 .hero-copy .prose{max-width:58ch}
@@ -399,7 +402,10 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="eyebrow">A field guide to a constructed language</p>
-        <h1 class="name" id="heroName">luryt</h1>
+        <div class="brand-lockup">
+          <img class="brand-mark" src="assets/luryt-mark.svg" width="64" height="64" alt="">
+          <h1 class="name" id="heroName">luryt</h1>
+        </div>
         <p class="thesis">A language you can compute.</p>
         <div class="prose lead">
           <p>Luryt is a constructed language built like an instrument: small, regular, and fully
