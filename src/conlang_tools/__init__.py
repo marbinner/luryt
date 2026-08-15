@@ -1,8 +1,7 @@
-"""Conlang Tools - Development and practice tools for the constructed language."""
+"""Luryt reference tooling."""
 
 from .parser import WordParser, ParseResult
-from .lexicon import Lexicon, LexiconEntry
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
-__all__ = ["WordParser", "ParseResult", "Lexicon", "LexiconEntry"]
+__all__ = ["WordParser", "ParseResult"]

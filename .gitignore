@@ -9,9 +9,6 @@ wheels/
 # Virtual environments
 .venv
 
-# Local dictionaries created by `luryt dict` (personal, not part of the language)
-lexicon.json
-
 # Editor / assistant local state
 .claude/
 claude_files/

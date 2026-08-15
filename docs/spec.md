@@ -1010,7 +1010,7 @@ A bare numeric CV remains available as a label or code where no clause competes 
 ## 9. Version History
 
 - **v1** — the original foundational spec, preserved as `archive/doc_v15.md`
-  (earlier drafts: `archive/doc_v1.md` … `doc_v14.md`).
+  (earlier working drafts remain available in the repository’s Git history).
 - **v2 (August 2026)** — first revision, prompted by an external stress test. The word-level
   architecture is unchanged (all 36 roots re-verified against the matrix). Adopted: referential
   **-t** / descriptive **-m**; the pivot-and-role clause rule with fully-role-marked

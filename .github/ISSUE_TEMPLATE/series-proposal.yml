@@ -1,5 +1,5 @@
 name: "Proposal: new particle family"
-description: Propose a series for one of the reserved consonants (b f v z l x g)
+description: Propose a series for one of the reserved consonants (b f v z l x)
 title: "[series] "
 labels: ["proposal", "grammar"]
 body:
@@ -13,7 +13,7 @@ body:
     id: consonant
     attributes:
       label: Consonant
-      description: One of the reserved ones — b, f, v, z, l, x, g
+      description: One of the reserved ones — b, f, v, z, l, x
       placeholder: b
     validations:
       required: true
@@ -58,4 +58,4 @@ body:
       label: Interactions
       description: |
         Where does it sit in the clause template? Does it conflict or overlap
-        with an existing family (P, M, T, D, N, Q, S, C, W, J, K, R, H)?
+        with an existing family (P, M, T, D, N, Q, S, C, W, J, K, G, R, H)?

@@ -11,7 +11,7 @@ naming — are **design decisions, not patches**. The flow:
 2. **Concrete idea? Open an issue** using one of the proposal templates
    (new root / new particle family / grammar change). A good proposal states
    what slot it fills, why this form, and shows example sentences.
-3. **The language editor decides** (see [GOVERNANCE.md](GOVERNANCE.md)).
+3. **The language editor decides.**
    Accepted proposals get the `accepted` label.
 4. **A PR lands the change everywhere at once.** The language lives in three
    synchronized places, and CI fails unless they agree:

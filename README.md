@@ -45,8 +45,7 @@ empty slots are:
 
 Proposals go through issues (there are templates), discussion happens in
 GitHub Discussions, and accepted changes land as PRs against the spec and data.
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the process and
-[GOVERNANCE.md](GOVERNANCE.md) for how decisions get made.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the process.
 
 The single machine-readable source of truth is
 [`src/conlang_tools/data/language.json`](src/conlang_tools/data/language.json);
@@ -55,15 +54,13 @@ CI keeps the spec, the tooling, and the guide honest against it.
 ## Tooling
 
 A Python package (managed with [uv](https://docs.astral.sh/uv/)) ships with the
-language: a parser/validator, dictionary manager, reference lookups, a number
-converter, and a practice web app.
+language: a parser/validator, reference lookups, and a number converter.
 
 ```bash
 uv sync                     # install
 uv run luryt parse kapirim  # segment + analyze a word
 uv run luryt ref particles  # the 14 particle families
 uv run luryt num --to-cv 42 # numbers <-> syllables
-uv run luryt web            # practice web app at http://127.0.0.1:8000
 ```
 
 (`uv run conlang …` works too, as an alias.)
@@ -77,7 +74,7 @@ src/conlang_tools/               Python tooling
 src/conlang_tools/data/language.json   canonical language data
 tests/                           parser tests + data/spec integrity checks
 scripts/check_guide_sync.mjs     guide <-> data drift check
-archive/                         earlier spec versions (v1-v14) and word lists
+archive/doc_v15.md              previous official specification
 ```
 
 ## Licensing

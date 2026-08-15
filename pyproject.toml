@@ -3,10 +3,6 @@ name = "luryt"
 version = "0.2.0"
 description = "luryt — an engineered constructed language, plus its reference tooling"
 requires-python = ">=3.12"
-dependencies = [
-    "fastapi>=0.123.9",
-    "uvicorn>=0.38.0",
-]
 
 [project.scripts]
 luryt = "conlang_tools.cli:main"
