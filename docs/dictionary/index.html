@@ -4,11 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Search the canonical roots, particles, heads, and dictionary entries of Luryt.">
+  <meta name="theme-color" content="#0d6d61">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Luryt">
+  <meta property="og:title" content="Luryt Dictionary">
+  <meta property="og:description" content="Search Luryt roots, particles, word-building heads, and established word senses.">
+  <meta property="og:url" content="https://marbinner.github.io/luryt/dictionary/">
   <title>Luryt Dictionary</title>
+  <link rel="canonical" href="https://marbinner.github.io/luryt/dictionary/">
   <link rel="icon" href="../assets/luryt-mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/dictionary.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to dictionary entries</a>
+  <noscript>
+    <p class="site-alert" role="alert">The dictionary needs JavaScript to read the generated
+      language data. You can still <a href="../data/language.json">download the canonical JSON</a>
+      or read the <a href="../spec.html">foundational document</a>.</p>
+  </noscript>
   <nav class="topbar" aria-label="Project">
     <a class="brand" href="../">
       <img src="../assets/luryt-mark.svg" width="30" height="30" alt="">
@@ -31,7 +44,7 @@
     <div class="snapshot" id="snapshot" aria-live="polite">Loading language data…</div>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="search-panel" aria-label="Dictionary filters">
       <label class="search">
         <span>Search form, meaning, or gloss</span>
@@ -60,12 +73,12 @@
     </section>
 
     <div class="result-bar">
-      <p id="resultCount" aria-live="polite"></p>
+      <p id="resultCount" aria-live="polite">Loading entries…</p>
       <p class="legend"><span class="dot established"></span> established sense
         <span class="dot productive"></span> productive form</p>
     </div>
 
-    <section id="entries" class="entries" aria-label="Dictionary entries"></section>
+    <section id="entries" class="entries" aria-label="Dictionary entries" aria-busy="true"></section>
     <p id="empty" class="empty" hidden>No entries match those filters.</p>
 
     <aside class="scope-note">
@@ -79,7 +92,8 @@
 
   <footer>
     <p>Data schema <span id="schemaVersion">—</span> · language version
-      <span id="languageVersion">—</span> · <a href="../data/language.json">download JSON</a></p>
+      <span id="languageVersion">—</span> · <a href="../data/language.json">download JSON</a> ·
+      <a href="../schema/language.schema.json">view schema</a></p>
   </footer>
 
   <script type="module" src="../assets/js/dictionary.mjs"></script>

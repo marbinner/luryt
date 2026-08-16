@@ -7,10 +7,13 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 SPEC = (ROOT / "language" / "grammar" / "foundational.md").read_text(encoding="utf-8")
 GUIDE_HTML = (ROOT / "docs" / "index.html").read_text(encoding="utf-8")
+GUIDE_STYLE = (ROOT / "docs" / "assets" / "css" / "guide.css").read_text(
+    encoding="utf-8"
+)
 GUIDE_SCRIPT = (ROOT / "docs" / "assets" / "js" / "guide.mjs").read_text(
     encoding="utf-8"
 )
-GUIDE = GUIDE_HTML + "\n" + GUIDE_SCRIPT
+GUIDE = "\n".join((GUIDE_HTML, GUIDE_STYLE, GUIDE_SCRIPT))
 README = (ROOT / "README.md").read_text(encoding="utf-8")
 CONTRIBUTING = (ROOT / "CONTRIBUTING.md").read_text(encoding="utf-8")
 

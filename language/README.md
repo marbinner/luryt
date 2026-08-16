@@ -15,6 +15,27 @@ Authority is divided by subject, rather than duplicated:
 Files under `src/conlang_tools/data/` and `docs/data/`, plus `docs/spec.md`, are
 generated consumer copies. Do not edit them directly.
 
+The one-way dependency flow is:
+
+```text
+language/data/*.json ─┐
+                     ├─ scripts/language.py ─┬─ package data
+language/grammar/* ──┘                       ├─ website data + schema
+                                             └─ published spec
+```
+
+Choose the source by what you mean to change:
+
+| Change | Canonical file | Generated consumers |
+| --- | --- | --- |
+| Sounds, heads, semantic axes | `data/inventory.json` | package + website JSON |
+| Particles and prefixes | `data/particles.json` | package + website JSON |
+| Productive roots | `data/roots.json` | package + website JSON |
+| Established complete-word senses | `data/lexemes.json` | package + website JSON, dictionary |
+| Reusable cited examples | `data/examples.json` | package + website JSON, dictionary |
+| Grammar, scope, interpretation | `grammar/foundational.md` | `docs/spec.md` |
+| Compiled public JSON contract | `schema/language.schema.json` | published schema |
+
 ## Editing workflow
 
 1. Edit the relevant canonical source in this directory.
@@ -26,6 +47,20 @@ generated consumer copies. Do not edit them directly.
 file is missing or stale. Generation is deterministic and adds no timestamps.
 Canonical records use named fields such as `label` and `gloss`; the compiler
 may adapt them to a stable consumer representation.
+
+## Version ownership
+
+The repository has three deliberately separate versions:
+
+- `language_version` in `manifest.json` identifies a published revision of the
+  language. Bump it only as part of an explicit language release.
+- `schema_version` identifies the compiled JSON contract. Bump it for a
+  consumer-visible breaking schema change, even when the language is unchanged.
+- `project.version` in `pyproject.toml` versions the Python tooling and package.
+  It may change without either language version changing.
+
+A normal vocabulary or documentation edit does not automatically bump any of
+these. Release/version changes should be intentional and reviewed separately.
 
 ## Data boundaries
 

@@ -14,6 +14,8 @@ try {
   language = await response.json();
 } catch (error) {
   $("#snapshot").textContent = "Language data unavailable";
+  $("#resultCount").textContent = "Dictionary unavailable";
+  $("#entries").removeAttribute("aria-busy");
   $("#entries").innerHTML = `
     <article class="entry">
       <h2 class="form">Unable to load dictionary</h2>
@@ -216,4 +218,5 @@ $("#snapshot").textContent =
   + `${language.lexemes.length} established words`;
 $("#schemaVersion").textContent = language.metadata.schema_version;
 $("#languageVersion").textContent = language.metadata.language_version;
+$("#entries").removeAttribute("aria-busy");
 render();

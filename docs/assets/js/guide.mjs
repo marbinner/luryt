@@ -10,6 +10,10 @@ try {
     '<p role="alert" style="margin:0;padding:12px 20px;background:#7d1d1d;color:white;text-align:center">The language data could not be loaded. Please refresh the page.</p>');
   throw new Error(`Could not load ${LANGUAGE_URL}: ${error}`);
 }
+
+const languageVersion = document.querySelector("#languageVersion");
+if (languageVersion) languageVersion.textContent = LANGUAGE.metadata.language_version;
+
 const lowerPairs = entries => Object.fromEntries(
   Object.entries(entries).map(([form, values]) => [form.toLowerCase(), values])
 );

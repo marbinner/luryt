@@ -22,6 +22,9 @@ jobs:
       - name: Tests (parser, numbers, data, docs, repository contracts)
         run: uv run pytest -q
 
+      - name: Build distribution
+        run: uv build
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22

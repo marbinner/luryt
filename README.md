@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/luryt-mark.svg" width="112" height="112" alt="Luryt logo">
+  <img src="https://marbinner.github.io/luryt/assets/luryt-mark.svg" width="112" height="112" alt="Luryt logo">
 </p>
 
 # luryt
@@ -78,6 +78,7 @@ uv run luryt num --to-num "py pi"  # -> 100 (quote a multi-block run)
 docs/spec.md                     generated published spec (served on Pages)
 docs/index.html                  the interactive guide (GitHub Pages)
 docs/dictionary/                 the data-driven dictionary page
+docs/assets/css/ and js/         authored website presentation and behavior
 docs/data/language.json          generated website data
 language/data/                   canonical structured language facts
 language/grammar/foundational.md canonical normative grammar

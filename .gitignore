@@ -5,6 +5,11 @@ build/
 dist/
 wheels/
 *.egg-info
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
 
 # Virtual environments
 .venv
@@ -14,6 +19,9 @@ wheels/
 .claude/
 claude_files/
 .text-graph/
+.idea/
+.vscode/
+.DS_Store
 
 # Notebooks and scratch work stay out of the public repo
 notebooks/

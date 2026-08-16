@@ -1,12 +1,31 @@
 [project]
 name = "luryt"
 version = "0.2.0"
-description = "luryt — an engineered constructed language, plus its reference tooling"
+description = "Luryt — an engineered constructed language and its reference tooling"
+readme = "README.md"
 requires-python = ">=3.12"
+license = "MIT AND CC-BY-SA-4.0"
+license-files = ["LICENSE", "LICENSE-DOCS.md"]
+keywords = ["constructed-language", "conlang", "linguistics", "parser"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Education",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing :: Linguistic",
+]
 
 [project.scripts]
 luryt = "conlang_tools.cli:main"
 conlang = "conlang_tools.cli:main"
+
+[project.urls]
+Homepage = "https://marbinner.github.io/luryt/"
+Documentation = "https://marbinner.github.io/luryt/spec.html"
+Dictionary = "https://marbinner.github.io/luryt/dictionary/"
+Repository = "https://github.com/marbinner/luryt"
+Issues = "https://github.com/marbinner/luryt/issues"
 
 [tool.uv]
 package = true
@@ -19,10 +38,12 @@ build-backend = "hatchling.build"
 packages = ["src/conlang_tools"]
 
 [tool.hatch.build.targets.sdist]
-exclude = [
-    "/.agents/**",
-    "/archive/generated_image_*.jpg",
-    "/docs/assets/illustrations/ranger_thumb_*.png",
+include = [
+    "/src",
+    "/README.md",
+    "/LICENSE",
+    "/LICENSE-DOCS.md",
+    "/pyproject.toml",
 ]
 
 [dependency-groups]
