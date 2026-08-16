@@ -75,6 +75,8 @@ def cv_to_number(cv: str) -> int:
     """
     if len(cv) != 2:
         raise ValueError(f"CV must be exactly 2 characters, got: {cv}")
+    if not cv.isascii():
+        raise ValueError(f"CV must use ASCII Luryt letters, got: {cv!r}")
 
     c, v = cv[0].upper(), cv[1].upper()
 

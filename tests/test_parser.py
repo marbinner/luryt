@@ -57,6 +57,13 @@ def test_atomic_u_vowel_has_no_numeric_reading(parser):
     assert r.numeric_value is None
 
 
+@pytest.mark.parametrize("bad", ["pı", "ſi"])
+def test_non_ascii_lookalikes_are_rejected(parser, bad):
+    r = parser.parse(bad)
+    assert not r.is_valid
+    assert "ASCII" in r.errors[0]
+
+
 @pytest.mark.parametrize("bad", ["piri", "abc", "kkapirim", "pirix", "zif", ""])
 def test_invalid_words(parser, bad):
     assert not parser.parse(bad).is_valid
@@ -77,6 +84,12 @@ def test_number_out_of_range():
         number_to_cv(100)
     with pytest.raises(ValueError):
         cv_to_number("tu")  # U is not a numeric vowel
+
+
+@pytest.mark.parametrize("bad", ["pı", "ſi"])
+def test_number_rejects_non_ascii_lookalikes(bad):
+    with pytest.raises(ValueError, match="ASCII"):
+        cv_to_number(bad)
 
 
 @pytest.mark.parametrize("bad", [1.5, True, "1", None])

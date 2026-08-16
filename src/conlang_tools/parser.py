@@ -41,7 +41,7 @@ class ParseResult:
         """Human-readable representation of the parse result."""
         lines = [f"Word: {self.original}"]
         lines.append(f"Type: {self.word_type}")
-        lines.append(f"Valid: {'✓' if self.is_valid else '✗'}")
+        lines.append(f"Valid: {'yes' if self.is_valid else 'no'}")
 
         if self.errors:
             lines.append("Errors:")
@@ -94,7 +94,7 @@ class WordParser:
             ParseResult with complete analysis
         """
         original = word
-        word = word.upper().strip()
+        word = word.strip()
 
         if not word:
             return ParseResult(
@@ -103,6 +103,18 @@ class WordParser:
                 is_valid=False,
                 errors=['Empty word']
             )
+
+        # Reject non-ASCII lookalikes before case conversion. Unicode uppercasing
+        # maps characters such as dotless ı and long ſ onto valid Luryt letters.
+        if not word.isascii():
+            return ParseResult(
+                original=original,
+                word_type='unknown',
+                is_valid=False,
+                errors=['Only ASCII letters A-Z occur in Luryt']
+            )
+
+        word = word.upper()
 
         # Check if it's an atomic word (CV or known longer fixed form)
         if word in ATOMIC_WORDS:

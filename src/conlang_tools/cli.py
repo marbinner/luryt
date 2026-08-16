@@ -7,6 +7,14 @@ from .parser import WordParser
 from .constants import PARTICLE_SERIES, CORE_ROOTS, number_to_cv, cv_to_number
 
 
+def _configure_output_streams() -> None:
+    """Keep CLI diagnostics printable on non-UTF-8 text streams."""
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            reconfigure(errors="backslashreplace")
+
+
 def cmd_parse(args):
     """Parse and analyze words."""
     parser = WordParser()
@@ -29,7 +37,7 @@ def cmd_validate(args):
     for word in args.words:
         result = parser.parse(word)
         all_valid = all_valid and result.is_valid
-        status = "✓ VALID" if result.is_valid else "✗ INVALID"
+        status = "VALID" if result.is_valid else "INVALID"
         print(f"{word}: {status}")
         if result.errors and args.verbose:
             for error in result.errors:
@@ -73,26 +81,30 @@ def cmd_number(args):
         for num in args.to_cv:
             try:
                 cv = number_to_cv(num)
-                print(f"{num} → {cv.lower()}")
             except ValueError as e:
                 print(f"Error for {num}: {e}", file=sys.stderr)
                 status = 1
+            else:
+                print(f"{num} -> {cv.lower()}")
 
     if args.to_num:
         # Convert CV to numbers
         for cv in args.to_num:
             try:
                 num = cv_to_number(cv)
-                print(f"{cv.lower()} → {num}")
             except ValueError as e:
                 print(f"Error for {cv}: {e}", file=sys.stderr)
                 status = 1
+            else:
+                print(f"{cv.lower()} -> {num}")
 
     return status
 
 
 def main() -> int:
     """Main CLI entry point."""
+    _configure_output_streams()
+
     parser = argparse.ArgumentParser(
         description='Luryt parsing and reference tools',
         formatter_class=argparse.RawDescriptionHelpFormatter
