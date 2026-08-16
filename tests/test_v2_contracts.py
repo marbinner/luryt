@@ -64,13 +64,13 @@ def test_questioned_nonpivot_keeps_its_event_role():
 
 
 def test_noun_phrase_template_allows_both_entity_heads():
-    assert "[K] [Q] [D] [ROOT-{m|t}]" in SPEC
+    assert "[K] [Q] [D] [NUM] [ROOT-{m|t}]" in SPEC
     assert "qi/qy/qe/qa/qo/qu" in SPEC
     assert "q o" not in SPEC
 
 
 def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
-    assert "configures the participants selected by the complete following Q/D/head" in SPEC
+    assert "configures the participants selected by the complete following Q/D/NUM/head" in SPEC
     assert "At most one free K-particle fills this slot" in SPEC
     for contrast in (
         "`ka qa piri-m` – “most people, configured together”",
@@ -80,11 +80,34 @@ def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
         "`ki qu dy kory-t re gose-n.` – each of these houses, configured singly, was built",
     ):
         assert contrast in SPEC
-    assert '<span class="lx">[k] [q] [d] noun</span>' in GUIDE
+    assert '<span class="lx">[k] [q] [d] [num cv] noun</span>' in GUIDE
     assert '<span class="lx">ka qa pirim</span>' in GUIDE
     assert '<span class="lx">qa kapirim</span>' in GUIDE
     assert '<span class="lx">ky qe da fenit</span>' in GUIDE
     assert '<span class="lx">qe da kyfenit</span>' in GUIDE
+
+
+def test_exact_numeral_has_inner_np_slot_and_fixed_scope():
+    assert "NUM = num CV" in SPEC
+    assert "All K/Q/D particles precede NUM" in SPEC
+    assert "Q scopes over the following D/NUM/head cardinal frame" in SPEC
+    assert "The marker governs exactly one numeric CV in the current 0–99" in SPEC
+    for contrast in (
+        "`dy num pa piri-t` – these three people / exactly three of these people",
+        "`qe da num bi feni-t` – some but not all of those five animals",
+        "`qu dy num pa kory-t re gose-n.` – each of these three houses was built",
+        "`qe num qe piri-t` – some but not all of an identifiable forty-two-person set",
+        "`da num da piri-t` – thirty-three of those people",
+        "`ka num ka piri-m` – eighty-three people, configured together",
+    ):
+        assert contrast in SPEC
+    assert '<span class="lx">[k] [q] [d] [num cv] noun</span>' in GUIDE
+    assert '<span class="lx">dy num pa pirit</span>' in GUIDE
+    assert '<span class="lx">qe da num bi fenit</span>' in GUIDE
+    assert '<span class="lx">ka num ka pirim</span>' in GUIDE
+    assert '<span class="lx">num pa kapirim</span>' in GUIDE
+    assert "Combinations of exact numerals with Q-series" not in SPEC
+    assert "How exact-number phrases headed by" not in GUIDE
 
 
 def test_public_word_shape_summaries_mention_num_exception():
@@ -103,7 +126,6 @@ def test_public_word_shape_summaries_mention_num_exception():
 def test_intentionally_open_syntax_is_documented():
     open_topics = (
         "Direct event-level use and ordering of free K-series modifiers",
-        "Combinations of exact numerals with Q-series quantifiers or D-series demonstratives",
         "General clause/phrase distribution of manner (`ROOT-l`)",
         "W-extraction from inside static-location and oriented-path phrases",
     )

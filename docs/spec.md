@@ -25,7 +25,8 @@
 - A core lexicon: **one root per semantic cell (36 roots)**
 - The numeral marker **num** (§8.1)
 - Clause **pivot rule** and linear **operator scope** (§7.1)
-- Free K-series noun-phrase order and scope before Q/D (§7.2)
+- Free K-series noun-phrase order and scope before Q/D/NUM (§7.2)
+- Exact-cardinal noun-phrase slot and scope with K/Q/D (§7.2)
 
 **Still open (deliberately):**
 
@@ -37,7 +38,6 @@
 - Larger lexicon beyond the 36 core roots
 - Full syntax for complex clauses, subordination, focus, etc.
 - Direct event-level use and ordering of free K-series modifiers relative to the event-operator track
-- Combinations of exact numerals with Q-series quantifiers or D-series demonstratives
 - General clause/phrase distribution of manner (`ROOT-l`) and relational (`ROOT-r`) heads
 - W-extraction from inside static-location and oriented-path phrases
 
@@ -524,11 +524,12 @@ Examples of **prefix** use:
 As a **particle before an NP**, K occupies the outermost NP slot:
 
 ```text
-[K] [Q] [D] [ROOT-{m|t}]
+[K] [Q] [D] [NUM] [ROOT-{m|t}]
 ```
 
-The free K-particle configures the participants selected by the complete following Q/D/head
-phrase. At most one free K-particle fills this slot.
+The free K-particle configures the participants selected by the complete following Q/D/NUM/head
+phrase. At most one free K-particle fills this slot. **NUM** is the optional exact-cardinal
+constituent defined in §7.2.
 
 * `ka piri-m sa sary-m pase-n.` – “People, configured as a group, go around the region.”
 * `ky qe da feni-t` – “some of those animals, configured in pairs”
@@ -829,8 +830,8 @@ role-marked clause. Static-location and property-predicate clauses use their own
 and do not require an event word.
 
 The track covers the fixed event operators. A free K-particle that introduces an NP belongs to
-that NP and precedes its Q and D slots (§§4.16, 7.2). Direct event-level K scope and order relative
-to this track remain open.
+that NP and precedes its Q, D, and NUM slots (§§4.16, 7.2). Direct event-level K scope and order
+relative to this track remain open.
 
 Example:
 
@@ -859,12 +860,13 @@ narrow scope:
 ### 7.2 Noun Phrase Template
 
 ```text
-[K] [Q] [D] [ROOT-{m|t}]
+[K] [Q] [D] [NUM] [ROOT-{m|t}]
 ```
 
 * **K** – configuration of the selected participants (ki/ky/ke/ka/ko/ku)
 * **Q** – quantifier (qi/qy/qe/qa/qo/qu)
 * **D** – demonstrative (di/de/do/dy/da/du)
+* **NUM** – optional exact cardinal from 0 to 99, with the fixed form `num CV`
 * **ROOT-m / ROOT-t** – descriptive or referential entity head
 
 Examples:
@@ -876,23 +878,36 @@ Examples:
 * `ka qa piri-m` – most people, configured together
 * `ky qe da feni-t` – some of those animals, configured in pairs
 * `ki qu dy kory-t re gose-n.` – each of these houses, configured singly, was built
+* `dy num pa piri-t` – these three people / exactly three of these people
+* `qe da num bi feni-t` – some but not all of those five animals
+* `qu dy num pa kory-t re gose-n.` – each of these three houses was built
 
-Free K takes scope over the participants selected by the following Q/D/head phrase. Bound K is
-part of the head instead: `ka qa piri-m` means “most people, together,” while `qa ka-piri-m`
-means “most crowds.” Likewise, `ky qe da feni-t` configures some animals as pairs, whereas
-`qe da ky-feni-t` selects some identifiable animal-pair entities. Only one free K occupies the
-optional outer slot. A following R-series role marks the complete NP, including its K/Q/D scope.
+Free K takes scope over the participants selected by the following Q/D/NUM/head phrase. Bound K
+is part of the head instead: `ka num pa piri-m` means “exactly three people, together,” while
+`num pa ka-piri-m` means “exactly three crowds.” Likewise, `ky qe da feni-t` configures some
+animals as pairs, whereas `qe da ky-feni-t` selects some identifiable animal-pair entities. Only
+one free K occupies the optional outer slot. A following R-series role marks the complete NP,
+including its K/Q/D/NUM scope.
 
-A simple exact-number noun phrase uses the numeral marker and numeric CV directly before its
-entity head:
+The current NUM constituent is indivisible and contains exactly the marker plus one numeric CV:
 
 ```text
-[num CV] [ROOT-{m|t}]
+NUM = num CV
 ```
 
-* `num pa piri-m` – three people
+NUM gives the exact cardinality of the entity head inside any restriction supplied by D. An overt
+Q scopes over the following D/NUM/head cardinal frame, so `qe da num bi feni-t` selects some but
+not all of an identified five-animal set. All K/Q/D particles precede NUM; none can occur between
+`num` and the entity head. This preserves the particle/numeral boundary even when the same CV has
+both uses:
 
-How an exact numeral combines with Q or D is not specified yet.
+* `num pa piri-m` – three people
+* `qe num qe piri-t` – some but not all of an identifiable forty-two-person set
+* `da num da piri-t` – thirty-three of those people (first `da` = demonstrative; second = 33)
+* `ka num ka piri-m` – eighty-three people, configured together (first `ka` = K; second = 83)
+
+The rule adds no special agreement morphology: combinations whose existing D, Q, and numeral
+meanings contradict one another remain semantically anomalous. Values above 99 remain open (§8).
 
 Demonstratives point at identifiable referents, so they normally take **-t** heads; a **-m** head
 after a demonstrative gives a kind reading (`da feni-m` ≈ “those sorts of animal”).
@@ -1072,6 +1087,11 @@ longer than CV, a clipped entity form of **nunu** “number”:
 * `num te` – “twenty-seven”
 * `num pa piri-m pase-n.` – “Three people go.”
 * `pi ji zife-n.` – “I begin to speak.” (bare `pi` is still the phase particle)
+
+Inside an entity NP, `num CV` occupies the NUM slot after any K, Q, and D particles and directly
+before the entity head (§7.2). The marker governs exactly one numeric CV in the current 0–99
+system. For example, `da num da piri-t` keeps the first `da` demonstrative and reads the second as
+33. This order reserves a clear phrase boundary without defining any multi-CV value above 99.
 
 A bare numeric CV remains available as a label or code where no clause competes for the reading
 (list numbering, IDs, tables).

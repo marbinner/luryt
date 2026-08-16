@@ -1136,6 +1136,10 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <span class="lx">num pa pirim pasen</span> “three people go”. A bare syllable like
       <span class="lx">pi</span> stays a particle (“just starting to”). Numbers above 99 aren’t
       specified yet.</p>
+      <p class="plate-cap">Inside an entity noun phrase, configuration, quantifier, and pointer
+      all come before the exact number: <span class="lx">[k] [q] [d] [num cv] noun</span>.
+      For example, <span class="lx">dy num pa pirit</span> means “these three people.” Keeping
+      every NP particle before <span class="lx">num</span> makes the numeral boundary visible.</p>
     </div>
     <h3>Try it</h3>
     <div class="plate conv">
@@ -1246,11 +1250,12 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       </figcaption>
     </figure>
 
-    <h3>Noun phrases: configuration, quantifier, pointer, noun</h3>
+    <h3>Noun phrases: configuration, quantifier, pointer, exact number, noun</h3>
     <div class="prose"><p>Inside a noun phrase, an optional free K-family configuration comes
-    first, then the quantifier (Q-family), demonstrative (D-family), and noun:
-    <span class="lx">[k] [q] [d] noun</span>. K configures the participants selected by everything
-    that follows it; only one free K fills this outer slot.</p></div>
+    first, then the quantifier (Q-family), demonstrative (D-family), optional exact number, and noun:
+    <span class="lx">[k] [q] [d] [num cv] noun</span>. K configures the participants selected by
+    everything that follows it; Q can quantify the following pointer-and-cardinality frame, and
+    only one free K fills the outer slot.</p></div>
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">qy pirim</span><span class="g">some person</span></div>
       <div class="ix-w"><span class="lx">qa pirim</span><span class="g">most people</span></div>
@@ -1266,6 +1271,14 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <div class="ix-w"><span class="lx">qe da kyfenit</span><span class="g">some of those animal pairs</span></div>
     </div><div class="ix-t">A spaced K-form scopes over the selected participants. A glued
     <span class="lx">k‑</span> prefix builds the noun first, so Q and D select grouped entities.</div></div>
+    <div class="ix"><div class="ix-s">
+      <div class="ix-w"><span class="lx">dy num pa pirit</span><span class="g">these three people</span></div>
+      <div class="ix-w"><span class="lx">qe da num bi fenit</span><span class="g">some of those five animals</span></div>
+      <div class="ix-w"><span class="lx">ka num ka pirim</span><span class="g">83 people · together</span></div>
+      <div class="ix-w"><span class="lx">num pa kapirim</span><span class="g">three crowds</span></div>
+    </div><div class="ix-t"><span class="lx">num</span> makes its following CV numeric, even when
+    that CV is also a particle elsewhere. All K/Q/D particles come first; a bound K remains inside
+    the noun.</div></div>
 
     <h3>Who did what to whom: role markers</h3>
     <div class="prose"><p>Instead of case endings, Luryt puts a small R-family particle
@@ -1531,7 +1544,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
         <ul>
           <li><span class="lx">[w (+r)] [t] [p] [h] [m] [n]</span></li>
           <li><span class="lx">[pivot] · NPs+role · event‑n</span></li>
-          <li>NP: <span class="lx">[k] [q] [d] noun</span> · exact number: <span class="lx">num cv noun</span> · roles follow the NP</li>
+          <li>NP: <span class="lx">[k] [q] [d] [num cv] noun</span> · roles follow the complete NP</li>
           <li>Compare: <span class="lx">A ca PROP‑s B re</span> “A is more PROP than B”</li>
           <li>Path: <span class="lx">figure g (s) place ru verb</span></li>
           <li>Operators scope over what follows them</li>
@@ -1555,9 +1568,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
         <li>Full syntax for complex sentences: subordination, focus, relative clauses, and
         extraction from inside static-location or path-ground phrases.</li>
         <li>Direct event-level use and ordering of free K-family modifiers relative to the canonical
-        operator track. NP-internal K already precedes Q and D.</li>
-        <li>How exact-number phrases headed by <span class="lx">num</span> combine with
-        quantifiers and demonstratives.</li>
+        operator track. NP-internal K already precedes Q, D, and the exact number.</li>
         <li>The general clause and phrase syntax of manner <span class="lx">-l</span> and
         relational <span class="lx">-r</span> content words.</li>
         <li>Numbers beyond 99.</li>
@@ -1958,7 +1969,7 @@ const DD_RENDERERS = {
       <div class="dd-panel" style="margin-top:9px"><span class="dd-meta">consonant index · bank 0–19</span><div class="dd-index-grid" style="margin-top:7px">${consonants}</div></div>
       <div class="dd-panel" style="margin-top:7px"><span class="dd-meta">numeral vowel index · offset 0–4 · u is not used</span><div class="dd-index-grid" style="grid-template-columns:repeat(5,1fr);margin-top:7px">${vowels}</div></div>
       <div class="dd-grid four" style="margin-top:9px">${examples}</div>
-      <div class="dd-note"><span class="lx">te</span> alone is the present-time particle; <span class="lx">num te</span> announces the number 27. Values above 99 are not specified yet.</div>`;
+      <div class="dd-note"><span class="lx">te</span> alone is the present-time particle; <span class="lx">num te</span> announces the number 27. Inside an NP, K/Q/D come before <span class="lx">num</span> and the noun closes the numeral frame. Values above 99 are not specified yet.</div>`;
   },
 
   clause(){
@@ -2218,6 +2229,8 @@ $("#vowrow").innerHTML = VOW_INFO.map(([L,ipa,hint]) =>
      [["pu","already"],["ju","they"],["qo","all"],["koryt","the houses"],["re","object"],["gosen","build"]]],
     ["num pa pirim pasen.", "“Three people go.”",
      [["num","number:"],["pa","3"],["pirim","people"],["pasen","go"]]],
+    ["qu dy num pa koryt re gosen.", "“Each of these three houses was built.”",
+     [["qu","each"],["dy","these"],["num","number:"],["pa","3"],["koryt","houses"],["re","patient"],["gosen","build"]]],
     ["wa re ji nifen?", "“What do I eat?”",
      [["wa","what?"],["re","patient"],["ji","I"],["nifen","eat"]]],
     ["ty di koryt re gosen.", "“This house was built recently.”",
