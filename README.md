@@ -25,9 +25,9 @@ reading practice. The normative reference is the [foundational spec](https://mar
 
 ## How the language works, in three rules
 
-1. **Every word wears its shape.** Two-letter words are grammar (particles);
-   longer words are vocabulary and always end in one of six consonants. Any
-   sentence segments itself.
+1. **Every word wears its shape.** Most grammar words are two-letter particles
+   (the numeral marker `num` is the sole longer fixed atom); content words end
+   in one of six consonants. Any sentence segments itself.
 2. **Vowels are coordinates.** A root's first vowel names a domain of reality
    (person, society, life, physical, artefact, abstract); its second names an
    aspect (individual, config, process, state, relation, quantity). A 6×6
@@ -91,7 +91,7 @@ archive/doc_v15.md              previous official specification
 ## About the name
 
 The language has no official name yet. *luryt* is a self-description in the
-language's own grammar: `lury` "language, system" + `-t` "this specific one" —
+language's own grammar: `lury` "language, system" + `-t` "the identifiable one" —
 *the language*. Proposals for a real name are welcome (issue template: grammar
 change).
 

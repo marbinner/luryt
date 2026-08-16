@@ -1,9 +1,9 @@
 // Checks that the interactive guide (docs/index.html) agrees with the
 // canonical language data (src/conlang_tools/data/language.json).
 //
-// The guide intentionally rewords glosses for teaching, so only structural
-// facts are compared: alphabets, root spellings and their matrix cells, and
-// particle forms per series.
+// Structural inventories and canonical semantic labels are contracts. Longer
+// teaching glosses may be reworded, but pronunciations, head/domain/aspect
+// names, root glosses, fixed atoms, and particle meanings must not drift.
 //
 // Usage: node scripts/check_guide_sync.mjs
 
@@ -34,7 +34,8 @@ const documentStub = new Proxy(
 const guide = new Function(
   "document",
   "window",
-  js + "\nreturn {CONS, VOWS, NVOWS, FINALS, ROOTS, SERIES};"
+  js + "\nreturn {CONS, VOWS, NVOWS, FINALS, CONS_INFO, VOW_INFO, " +
+    "SUFF, DOMS, ASPS, ROOTS, SERIES, ATOMS, parseWord};"
 )(documentStub, {});
 
 const failures = [];
@@ -48,6 +49,35 @@ eq("vowel order", guide.VOWS.toUpperCase(), canon.vowels);
 eq("numeric vowels", guide.NVOWS.toUpperCase(), canon.numeric_vowels);
 eq("final consonants", [...guide.FINALS.toUpperCase()].sort(), [...canon.final_consonants].sort());
 
+const pronunciationMap = (rows) =>
+  Object.fromEntries(rows.map(([form, ipa]) => [form.toUpperCase(), `/${ipa}/`]));
+eq("consonant IPA", pronunciationMap(guide.CONS_INFO), canon.consonant_ipa);
+eq("vowel IPA", pronunciationMap(guide.VOW_INFO), canon.vowel_ipa);
+
+const guidePrimary = (entries, upper = false) =>
+  Object.fromEntries(
+    Object.entries(entries).map(([form, values]) => [
+      form.toUpperCase(),
+      upper ? values[0].toUpperCase() : values[0],
+    ])
+  );
+const canonicalPrimary = (entries) =>
+  Object.fromEntries(
+    Object.entries(entries).map(([form, values]) => [form, values[0]])
+  );
+eq("head-kind labels", guidePrimary(guide.SUFF), canonicalPrimary(canon.head_kinds));
+eq("domain labels", guidePrimary(guide.DOMS, true), canonicalPrimary(canon.domains));
+eq("aspect labels", guidePrimary(guide.ASPS, true), canonicalPrimary(canon.aspects));
+
+const guideAtoms = Object.fromEntries(
+  Object.entries(guide.ATOMS).map(([form, values]) => [form.toUpperCase(), values])
+);
+eq("fixed atomic words", guideAtoms, canon.atomic_words);
+const parsedNum = guide.parseWord("num");
+eq("num parser type", parsedNum?.type, "atomic");
+eq("num parser numeric value", parsedNum?.numval, null);
+eq("num parser errors", parsedNum?.errors, []);
+
 const guideRoots = Object.keys(guide.ROOTS).map((r) => r.toUpperCase()).sort();
 eq("root inventory", guideRoots, Object.keys(canon.core_roots).sort());
 
@@ -55,6 +85,7 @@ for (const [root, info] of Object.entries(canon.core_roots)) {
   const g = root.toLowerCase();
   if (guide.ROOTS[g] && (root[1] !== info.domain || root[3] !== info.aspect))
     failures.push(`root ${root}: canonical cell ${info.domain}x${info.aspect} disagrees with spelling`);
+  eq(`${root} primary gloss`, guide.ROOTS[g]?.[0], info.gloss);
 }
 
 const bySeries = (entries) =>
@@ -67,11 +98,21 @@ const canonSeries = bySeries(
 );
 eq("particle series", guideSeries, canonSeries);
 
+for (const [series, particles] of Object.entries(canon.particle_series)) {
+  const guideRows = guide.SERIES.find(
+    (item) => item.c.toUpperCase() === series
+  )?.rows;
+  for (const [form, [meaning]] of Object.entries(particles)) {
+    const guideRow = guideRows?.find((row) => row[0].toUpperCase() === form);
+    eq(`${form} semantic label`, guideRow?.[1], meaning);
+  }
+}
+
 if (failures.length) {
   console.error("guide/data sync check FAILED:\n\n" + failures.join("\n\n"));
   process.exit(1);
 }
 console.log(
   `guide/data sync check passed: ${guideRoots.length} roots, ` +
-    `${Object.keys(canonSeries).length} series, alphabets match.`
+    `${Object.keys(canonSeries).length} series, structural and semantic contracts match.`
 );

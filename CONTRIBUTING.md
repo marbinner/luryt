@@ -16,10 +16,11 @@ naming — are **design decisions, not patches**. The flow:
 4. **A PR lands the change everywhere at once.** The language lives in three
    synchronized places, and CI fails unless they agree:
    - `src/conlang_tools/data/language.json` — the canonical data
-   - `docs/spec.md` — the normative prose (roots and particles appear **bolded**,
-     which is what the sync test checks for)
-   - `docs/index.html` — the guide's inline data block (structural facts only;
-     the guide may reword glosses for teaching)
+   - `docs/spec.md` — the normative prose (forms and their canonical semantic
+     labels are checked against the data)
+   - `docs/index.html` — the guide's inline data block (inventories,
+     pronunciations, primary semantic labels, root glosses, and fixed atoms are
+     checked; longer teaching glosses may be reworded)
 
 Run the checks locally before pushing:
 

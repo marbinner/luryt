@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Luryt</title>
@@ -100,8 +103,8 @@ b.lx,.lx.b{font-weight:600}
 /* ---------- hero ---------- */
 .hero{padding:72px 0 40px}
 .hero-grid{
-  display:grid;grid-template-columns:minmax(0,.88fr) minmax(420px,1.12fr);
-  gap:clamp(28px,5vw,64px);align-items:center;margin-bottom:32px;
+  display:grid;grid-template-columns:minmax(0,1fr);
+  gap:32px;align-items:start;margin-bottom:32px;
 }
 .hero .brand-lockup{display:flex;align-items:center;gap:14px;margin:14px 0 10px}
 .hero .brand-mark{display:block;width:clamp(52px,8vw,72px);height:auto;flex:0 0 auto}
@@ -127,6 +130,197 @@ b.lx,.lx.b{font-weight:600}
   text-transform:uppercase;color:var(--accent);margin-bottom:5px;
 }
 .visual-card .visual-note{font-size:14px;color:var(--ink2);margin:0}
+
+/* Data-driven teaching diagrams: exact text stays live; generated art is illustrative only. */
+.dense-diagram{
+  container-type:inline-size;position:relative;padding:clamp(16px,2.8vw,28px);
+  overflow:hidden;color:var(--ink);font-size:13px;line-height:1.35;
+  background:
+    radial-gradient(circle at 92% 4%,color-mix(in srgb,var(--vIbg) 74%,transparent) 0 18%,transparent 38%),
+    linear-gradient(145deg,var(--bg2),var(--bg3));
+}
+.dense-diagram::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.32;
+  background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);
+  background-size:34px 34px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.28),transparent 54%);
+}
+.dense-diagram>*{position:relative}
+.dd-head{display:flex;justify-content:space-between;gap:18px;align-items:end;margin-bottom:16px}
+.dd-kicker{
+  display:block;color:var(--accent);font:600 10px/1.2 var(--mono);
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px
+}
+.dd-title{font-size:clamp(19px,3cqw,28px);line-height:1.08;font-weight:600}
+.dd-copy{max-width:46ch;margin:0;color:var(--ink2);font-size:12.5px}
+.dd-counts{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px}
+.dd-count{
+  border:1px solid var(--line);border-radius:8px;padding:9px 10px;background:color-mix(in srgb,var(--bg2) 92%,transparent);
+}
+.dd-count b{display:block;font:600 19px/1 var(--mono);color:var(--accent)}
+.dd-count span{display:block;color:var(--ink2);font-size:10.5px;margin-top:4px}
+.dd-grid{display:grid;gap:9px}
+.dd-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.dd-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.dd-grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.dd-grid.six{grid-template-columns:repeat(3,minmax(0,1fr))}
+.dd-card{
+  min-width:0;border:1px solid var(--line);border-top:3px solid var(--ddc,var(--accent));
+  border-radius:9px;padding:11px;background:color-mix(in srgb,var(--bg2) 94%,transparent);
+  box-shadow:0 4px 12px rgba(26,35,30,.045);
+}
+.dd-card[data-v="i"]{--ddc:var(--vI);--ddbg:var(--vIbg)}
+.dd-card[data-v="y"]{--ddc:var(--vY);--ddbg:var(--vYbg)}
+.dd-card[data-v="e"]{--ddc:var(--vE);--ddbg:var(--vEbg)}
+.dd-card[data-v="a"]{--ddc:var(--vA);--ddbg:var(--vAbg)}
+.dd-card[data-v="o"]{--ddc:var(--vO);--ddbg:var(--vObg)}
+.dd-card[data-v="u"]{--ddc:var(--vU);--ddbg:var(--vUbg)}
+.dd-card-head{display:flex;align-items:start;gap:9px;margin-bottom:6px}
+.dd-code{
+  display:inline-grid;place-items:center;min-width:34px;height:30px;padding:0 7px;border-radius:6px;
+  background:var(--ddbg,var(--accent-soft));color:var(--ddc,var(--accent));
+  font:600 17px/1 var(--mono);white-space:nowrap
+}
+.dd-name{display:block;font-weight:600;font-size:14px;line-height:1.15}
+.dd-meta{display:block;color:var(--ink3);font:500 9.5px/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase;margin-top:3px}
+.dd-desc{color:var(--ink2);font-size:11.5px;margin:0}
+.dd-detail{margin-top:7px;padding-top:7px;border-top:1px solid var(--line2);font-size:11px;color:var(--ink2)}
+.dd-form{
+  padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--bg3);
+  font:600 13px/1.4 var(--mono);overflow-wrap:anywhere
+}
+.dd-form.big{font-size:clamp(17px,2.5cqw,24px);text-align:center;padding:12px}
+.dd-formula{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin:11px 0}
+.dd-seg{
+  min-width:92px;padding:10px;border:1px solid var(--line);border-radius:8px;
+  background:var(--bg2);text-align:center
+}
+.dd-seg b{display:block;font:600 20px/1.15 var(--mono)}
+.dd-seg span{font-size:10.5px;color:var(--ink2)}
+.dd-op{font:600 18px/1 var(--mono);color:var(--ink3)}
+.dd-tokenrow{display:flex;align-items:stretch;gap:5px;flex-wrap:wrap}
+.dd-token{
+  display:inline-flex;flex-direction:column;justify-content:center;min-width:56px;padding:7px 8px;
+  border-radius:6px;background:var(--bg2);border:1px solid var(--line)
+}
+.dd-token b{font:600 12.5px/1.2 var(--mono)}
+.dd-token small{font-size:9.5px;color:var(--ink2);margin-top:3px}
+.dd-note{
+  margin-top:10px;padding:8px 10px;border-left:3px solid var(--ddc,var(--accent));
+  background:color-mix(in srgb,var(--accent-soft) 46%,transparent);font-size:11.5px;color:var(--ink2)
+}
+.dd-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.dd-step{position:relative}
+.dd-step:not(:last-child)::after{
+  content:"→";position:absolute;right:-14px;top:48%;z-index:2;color:var(--accent);
+  font:600 18px/1 var(--mono)
+}
+.dd-step .dd-num{display:block;color:var(--ink3);font:600 9px/1 var(--mono);letter-spacing:.12em;margin-bottom:7px}
+.dd-mini-matrix{display:grid;grid-template-columns:repeat(6,1fr);gap:2px;margin:7px 0}
+.dd-mini-matrix i{display:block;aspect-ratio:1;border-radius:2px;background:var(--line)}
+.dd-mini-matrix i:nth-child(6n+1){background:var(--vIbg)}
+.dd-mini-matrix i:nth-child(6n+2){background:var(--vYbg)}
+.dd-mini-matrix i:nth-child(6n+3){background:var(--vEbg)}
+.dd-mini-matrix i:nth-child(6n+4){background:var(--vAbg)}
+.dd-mini-matrix i:nth-child(6n+5){background:var(--vObg)}
+.dd-mini-matrix i:nth-child(6n){background:var(--vUbg)}
+.dd-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:3px}
+.dd-sounds{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.dd-sound{
+  position:relative;display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto;
+  gap:0 7px;min-width:0;padding:6px 7px;border:1px solid var(--line);border-radius:6px;background:var(--bg2)
+}
+.dd-sound .letter{grid-row:1/3;font:600 20px/1.35 var(--mono);color:var(--accent)}
+.dd-sound .ipa{font-size:11px;font-weight:600}
+.dd-sound .hint{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--ink2);font-size:9.5px}
+.dd-sound .index{position:absolute;right:4px;top:3px;color:var(--ink3);font:500 8px/1 var(--mono)}
+.dd-vowels{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;margin-top:9px}
+.dd-vowel{text-align:center;padding:7px 4px;border-radius:7px;background:var(--ddbg);border:1px solid color-mix(in srgb,var(--ddc) 24%,var(--line))}
+.dd-vowel b{display:block;color:var(--ddc);font:600 18px/1 var(--mono)}
+.dd-vowel span{font-size:9.5px;color:var(--ink2)}
+.dd-art{overflow:hidden;border-radius:7px;background:#eaf2f7;border:1px solid color-mix(in srgb,var(--ddc,var(--accent)) 18%,var(--line));margin:7px 0}
+.dd-art img{display:block;width:100%;height:100%;object-fit:cover;filter:none!important}
+.dd-domain-art{aspect-ratio:1.85/1}
+.dd-rootlist{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px}
+.dd-root{
+  display:inline-flex;gap:4px;align-items:baseline;padding:3px 5px;border-radius:4px;
+  background:var(--bg3);font-size:9.5px;color:var(--ink2)
+}
+.dd-root b{font:600 10.5px/1 var(--mono);color:var(--ink)}
+.dd-matrix{display:grid;grid-template-columns:104px repeat(6,112px);min-width:776px;gap:3px}
+.dd-mx-head,.dd-mx-row,.dd-mx-cell{border-radius:5px;border:1px solid var(--line);background:var(--bg2)}
+.dd-mx-head,.dd-mx-row{padding:7px;display:flex;flex-direction:column;justify-content:center}
+.dd-mx-head{text-align:center;align-items:center}
+.dd-mx-head b,.dd-mx-row b{font:600 16px/1 var(--mono)}
+.dd-mx-head span,.dd-mx-row span{font-size:9px;color:var(--ink2)}
+.dd-mx-cell{padding:6px 7px;min-height:54px;border-top:3px solid var(--ddc)}
+.dd-mx-cell b{display:block;font:600 12px/1.2 var(--mono)}
+.dd-mx-cell span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:9.5px;color:var(--ink2)}
+.dd-timeline{position:relative;display:grid;grid-template-columns:repeat(6,124px);gap:8px;min-width:784px;padding-top:14px}
+.dd-timeline::before{content:"";position:absolute;left:58px;right:58px;top:28px;height:2px;background:var(--line)}
+.dd-time{position:relative;padding-top:25px}
+.dd-time::before{content:"";position:absolute;left:50%;top:8px;width:12px;height:12px;border:3px solid var(--ddc);border-radius:50%;background:var(--bg2);transform:translateX(-50%)}
+.dd-time:last-child::before{border-radius:2px;transform:translateX(-50%) rotate(45deg)}
+.dd-index-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:4px}
+.dd-index{
+  display:flex;justify-content:space-between;align-items:center;padding:5px 6px;
+  border:1px solid var(--line);border-radius:5px;background:var(--bg2)
+}
+.dd-index b{font:600 12px/1 var(--mono)}
+.dd-index span{font:500 9px/1 var(--mono);color:var(--ink3)}
+.dd-clause{display:grid;grid-template-columns:repeat(9,92px);gap:5px;min-width:868px}
+.dd-slot{position:relative;min-height:86px;padding:8px 7px;border:1px solid var(--line);border-top:4px solid var(--ddc,var(--accent));border-radius:7px;background:var(--bg2)}
+.dd-slot b{display:block;font:600 13px/1.2 var(--mono)}
+.dd-slot span{display:block;font-size:9.5px;color:var(--ink2);margin-top:4px}
+.dd-slot small{position:absolute;right:5px;bottom:4px;font:500 8px/1 var(--mono);color:var(--ink3)}
+.dd-scene-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.dd-scene-card{overflow:hidden;border:1px solid var(--line);border-top:4px solid var(--ddc,var(--accent));border-radius:9px;background:var(--bg2)}
+.dd-scene{aspect-ratio:16/9;background:#e8f1f7;overflow:hidden}
+.dd-scene img{display:block;width:100%;height:100%;object-fit:cover;filter:none!important}
+.dd-scene-card .dd-scene-copy{padding:10px}
+.dd-verdict{display:flex;align-items:center;gap:7px;margin-top:7px;color:var(--ink2);font-size:11px}
+.dd-verdict b{font:600 21px/1 var(--mono);color:var(--ddc,var(--accent))}
+.dd-role-layout{display:grid;grid-template-columns:minmax(250px,1.15fr) minmax(0,.85fr);gap:10px}
+.dd-role-art{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:9px;background:#eaf2f7}
+.dd-role-art img{width:100%;height:100%;min-height:290px;display:block;object-fit:cover;filter:none!important}
+.dd-role-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.dd-role{padding:7px;border:1px solid var(--line);border-left:3px solid var(--ddc);border-radius:6px;background:var(--bg2)}
+.dd-role b{font:600 13px/1 var(--mono);color:var(--ddc)}
+.dd-role strong{font-size:11px;margin-left:5px}
+.dd-role span{display:block;color:var(--ink2);font-size:9.5px;margin-top:3px}
+.dd-glyph{height:94px;display:grid;place-items:center;margin:2px 0 6px}
+.dd-glyph svg{width:100%;height:94px;overflow:visible}
+.dd-glyph .ground{fill:var(--bg3);stroke:var(--ink2);stroke-width:2}
+.dd-glyph .figure{fill:var(--ddc);stroke:var(--ink);stroke-width:2}
+.dd-glyph .guide{fill:none;stroke:var(--ddc);stroke-width:2;stroke-dasharray:5 4}
+.dd-space-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.dd-space-grid .dd-scene{aspect-ratio:1.25/1}
+.dd-space-grid .dd-scene img{object-fit:contain}
+.dd-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.dd-panel{border:1px solid var(--line);border-radius:9px;padding:11px;background:color-mix(in srgb,var(--bg2) 94%,transparent)}
+.dd-panel-title{display:flex;align-items:center;gap:8px;margin-bottom:9px}
+.dd-panel-title b{font-size:15px}
+.dd-rows{display:grid;gap:4px}
+.dd-row{display:grid;grid-template-columns:38px minmax(88px,.8fr) 1fr;gap:6px;align-items:baseline;padding:5px 6px;border-radius:5px;background:var(--bg3)}
+.dd-row .f{font:600 13px/1 var(--mono);color:var(--ddc)}
+.dd-row .v{font-size:10px;color:var(--ink2)}
+.dd-row .g{font-size:11px}
+.dd-parse{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:10px 0}
+.dd-parse-step{position:relative;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg2)}
+.dd-parse-step:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:42%;z-index:2;color:var(--accent);font:600 17px/1 var(--mono)}
+.dd-parse-step .n{font:600 9px/1 var(--mono);color:var(--ink3)}
+.dd-parse-step .word{display:block;margin:8px 0;font:600 18px/1 var(--mono)}
+.dd-checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.dd-check{padding:7px;border-radius:6px;border:1px solid var(--line);background:var(--bg3);font-size:10px;color:var(--ink2)}
+.dd-check b{display:block;font:600 12px/1.2 var(--mono);color:var(--ink);margin-bottom:3px}
+.hero-visual .dense-diagram{padding:16px}
+.hero-visual .dd-head{display:none}
+.hero-visual .dd-copy{font-size:10.5px}
+.hero-visual .dd-count{padding:7px}
+.hero-visual .dd-count b{font-size:16px}
+.hero-visual .dd-flow{gap:10px}
+.hero-visual .dd-card{padding:8px}
+.hero-visual .dd-step:not(:last-child)::after{right:-9px;font-size:14px}
+.hero-visual .dd-mini-matrix i{height:6px;aspect-ratio:auto}
 .hero-visual{margin:0;align-self:center}
 .hero-visual img{aspect-ratio:120/67;object-fit:contain}
 .hero-visual figcaption{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;align-items:baseline}
@@ -156,14 +350,24 @@ b.lx,.lx.b{font-weight:600}
   :root:not([data-theme="light"]) .visual-card img{filter:brightness(.82) saturate(.88)}
 }
 :root[data-theme="dark"] .visual-card img{filter:brightness(.82) saturate(.88)}
+:root[data-theme="dark"] .dd-art img,
+:root[data-theme="dark"] .dd-scene img,
+:root[data-theme="dark"] .dd-role-art img{filter:brightness(.78) saturate(.84)!important}
 @media (max-width:820px){
   .hero-grid{grid-template-columns:1fr;gap:24px}
-  .hero-visual{max-width:680px}
+  .hero-visual{width:100%}
   .domain-key{grid-template-columns:repeat(2,1fr)}
   .domain-key li:nth-child(odd){border-left:0}
   .domain-key li:nth-child(4){border-left:1px solid var(--line2)}
   .scale-key{grid-template-columns:repeat(3,1fr)}
   .scale-key li:nth-child(4){border-left:0}
+  .dd-flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dd-step:nth-child(2)::after{display:none}
+  .dd-grid.three,.dd-grid.six{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dd-role-layout{grid-template-columns:1fr}
+  .dd-role-art img{min-height:0;aspect-ratio:16/9}
+  .dd-space-grid{grid-template-columns:1fr}
+  .dd-space-grid .dd-scene{aspect-ratio:4/3}
 }
 @media (max-width:560px){
   .hero{padding-top:46px}
@@ -173,6 +377,19 @@ b.lx,.lx.b{font-weight:600}
   .scale-key{grid-template-columns:repeat(2,1fr)}
   .scale-key li:nth-child(odd){border-left:0}
   .scale-key li:nth-child(4){border-left:1px solid var(--line2)}
+  .dense-diagram{padding:14px}
+  .dd-head{display:block}
+  .dd-copy{margin-top:6px}
+  .dd-counts{grid-template-columns:repeat(2,1fr)}
+  .dd-flow,.dd-grid.two,.dd-grid.three,.dd-grid.four,.dd-grid.six,.dd-scene-grid,.dd-split{grid-template-columns:1fr}
+  .dd-step::after{display:none!important}
+  .dd-sounds{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dd-vowels{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .dd-index-grid{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .dd-role-list{grid-template-columns:1fr}
+  .dd-row{grid-template-columns:34px minmax(76px,.7fr) 1fr}
+  .dd-parse,.dd-checks{grid-template-columns:1fr}
+  .dd-parse-step::after{display:none!important}
 }
 
 /* ---------- plates ---------- */
@@ -396,6 +613,8 @@ footer.colophon{border-top:1px solid var(--line);margin-top:64px;padding:28px 0 
 footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
 </style>
 
+</head>
+<body>
 <!-- ================= HERO ================= -->
 <header class="hero">
   <div class="wrap">
@@ -418,9 +637,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
         </div>
       </div>
       <figure class="visual-card hero-visual">
-        <img src="assets/illustrations/word-machine-v2.webp" width="1920" height="1072"
-             alt="An overview flows from Luryt's sound inventory through the semantic root grid and word assembly to verb-final clauses, ending with ka plus piri plus m forming kapirim."
-             fetchpriority="high" decoding="async">
+        <div class="dense-diagram" data-diagram="overview" role="group"
+             aria-label="A data-rich overview of Luryt sounds, semantic roots, word assembly, and clause order"></div>
         <figcaption>
           <span class="visual-title">Meaning, assembled</span>
           <p class="visual-note">Small modules click together; each position contributes one inspectable part of the result.</p>
@@ -526,9 +744,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     </div>
 
     <figure class="visual-card sound-visual">
-      <img src="assets/illustrations/sound-inventory.webp" width="1920" height="1072"
-           alt="The twenty consonants are arranged in five ordered groups above the six vowels, followed by kapirim split into syllables with stress on pi."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="sounds" role="group"
+           aria-label="The complete ordered sound inventory with pronunciations, numeric indices, syllable pattern, and stress rule"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">A deliberately small sound cabinet</span>
@@ -590,9 +807,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     </div>
 
     <figure class="visual-card word-structure-visual">
-      <img src="assets/illustrations/word-anatomy.webp" width="1920" height="1072"
-           alt="Three panels show optional prefix ka meaning as a group, root piri meaning person, and ending m meaning entity, combining into kapirim, a group of people."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="word" role="group"
+           aria-label="The exact content-word template and a worked outside-in analysis of kapirim"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">A word has only one legal cut</span>
@@ -664,9 +880,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       </div>
     </div>
     <figure class="visual-card endings-visual">
-      <img src="assets/illustrations/ending-wheel.webp" width="1920" height="1072"
-           alt="The speech root zife branches into six labeled forms: zifem, zifet, zifen, zifes, zifel, and zifer, each illustrated with its grammatical function."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="endings" role="group"
+           aria-label="The root zife expanded through all six content-word endings with form, category, and function"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">One root · six grammatical lenses</span>
@@ -720,9 +935,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <p><b>The first vowel picks a domain</b> — which slice of reality the root lives in:</p>
     </div>
     <figure class="visual-card domain-visual">
-      <img src="assets/illustrations/semantic-domains-v2.webp" width="1920" height="1072"
-           alt="Six labeled panels map the first root vowel to Person, Society, Life, Physical, Artefact, and Abstract domains using concrete scenes."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="domains" role="group"
+           aria-label="All six first-vowel semantic domains with concrete scene art and example roots"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">Six domains · six slices of reality</span>
@@ -753,9 +967,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       </table>
     </div></div>
     <figure class="visual-card aspect-visual">
-      <img src="assets/illustrations/semantic-aspects.webp" width="1920" height="1072"
-           alt="The same cube is shown as an Individual, Config, Process, State, Relation, and Quantity to map the six second-vowel aspects."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="aspects" role="group"
+           aria-label="All six second-vowel semantic aspects with definitions and cross-domain root examples"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">The second vowel changes the lens</span>
@@ -781,9 +994,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     </div>
 
     <figure class="visual-card grid-visual">
-      <img src="assets/illustrations/meaning-grid.webp" width="1920" height="1072"
-           alt="A six-by-six domain and aspect matrix highlights meaning as a coordinate, with worked examples for piri, pase, and byru."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="grid" role="group"
+           aria-label="The complete six by six semantic root matrix with all 36 roots and compact glosses"></div>
       <figcaption>
         <span class="visual-title">Meaning is an address</span>
         <p class="visual-note">Choose one domain row and one aspect column. Their intersection is the neighborhood in which a root lives.</p>
@@ -827,9 +1039,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <p class="plate-cap">One consonant, one scale: past → future → outside time.</p>
     </div>
     <figure class="visual-card time-visual">
-      <img src="assets/illustrations/time-scale.webp" width="1920" height="1072"
-           alt="A six-stage timeline maps ti, ty, te, ta, to, and tu from long ago through now and future time to timelessness."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="time" role="group"
+           aria-label="The complete six-form T-family timeline from remote past to timeless truth"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">The T-family sweeps across time</span>
@@ -851,9 +1062,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       through increasingly large groups, to many units spread apart:</p>
     </div>
     <figure class="visual-card grouping-visual">
-      <img src="assets/illustrations/grouping-scale-v2.webp" width="1920" height="1072"
-           alt="Six human arrangements map ki, ky, ke, ka, ko, and ku from one singled-out person through a crowd to scattered people, with ka pirim contrasted with kapirim."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="grouping" role="group"
+           aria-label="The complete six-form K-family with free-particle and bound-prefix readings"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">K-family · configuration made visible</span>
@@ -900,9 +1110,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <b class="lx">ho</b>. The whole hundred, at a glance:</p>
     </div>
     <figure class="visual-card number-visual">
-      <img src="assets/illustrations/number-encoder.webp" width="1920" height="1072"
-           alt="A complete consonant index from zero to nineteen and five-vowel index demonstrate the formula for encoding 27 as te and marking it as num te."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="numbers" role="group"
+           aria-label="The complete consonant and vowel indices, numeral formula, and worked encodings"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">A hundred values from two small choices</span>
@@ -916,7 +1125,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     </figure>
     <div class="plate">
       <div class="scrollx" id="numgridHost"></div>
-      <p class="plate-cap">Number syllables would collide with particles —
+      <p class="plate-cap">Seventy of the hundred number syllables also name defined particles;
+      the remaining thirty are reserved but currently unallocated —
       <span class="lx">te</span> is both “now” and 27 — so counting is announced by the fixed
       marker <span class="lx">num</span> (a clipped form of <span class="lx">nunu</span> “number”):
       <span class="lx">num te</span> = 27, <span class="lx">num pi</span> = 0,
@@ -947,44 +1157,45 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <header>
       <p class="eyebrow">Chapter 07</p>
       <h2>Sentences</h2>
-      <p class="chsub prose">Verb last; grammar particles first; roles marked after each noun.
-      The syntax is young and deliberately simple.</p>
+      <p class="chsub prose">Canonical event clauses put grammar particles first, roles after
+      noun phrases, and the event word last. Other predicate types have patterns below.</p>
     </header>
     <div class="prose">
-      <p>A Luryt clause runs on a fixed track. Up front, in a fixed order, come the little operators
-      — question word, time, phase, frequency, degree, polarity — then the subject, then any other
-      noun phrases with their role markers, and the <b>verb at the very end</b>:</p>
+      <p>A pivoted event clause has a canonical track. Up front, in a fixed order, come the little
+      operators — a question word with any questioned role, then time, phase, frequency, degree,
+      and polarity — followed by an optional unmarked pivot, any other role-marked noun phrases,
+      and the <b>event word at the end</b>:</p>
     </div>
     <figure class="visual-card clause-visual">
-      <img src="assets/illustrations/clause-track.webp" width="1920" height="1072"
-           alt="Nine ordered clause stations place six optional operator families before the subject and role-marked noun phrase, with the verb always last."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="clause" role="group"
+           aria-label="The canonical nine-slot Luryt event-clause track with minimal and expanded examples"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
-          <span class="visual-title">A clause runs on a fixed track</span>
-          <p class="visual-note">Optional operators occupy the first six stations. Participants follow, and the action module closes the clause at the far right.</p>
+          <span class="visual-title">A canonical event clause runs on a track</span>
+          <p class="visual-note">Optional operators and pivot come first. Role-marked participants follow, and the event module closes the clause.</p>
         </div>
-        <ol class="visual-key space-key" aria-label="The three zones of a clause">
-          <li style="--key:var(--vY)"><span class="key-form">[w] [t] [p] [h] [m] [n]</span><span class="key-name">optional operators</span></li>
-          <li style="--key:var(--accent)"><span class="key-form">subject · NP + role</span><span class="key-name">participants</span></li>
-          <li style="--key:var(--vO)"><span class="key-form">verb‑n</span><span class="key-name">always last</span></li>
+        <ol class="visual-key space-key" aria-label="The three zones of a canonical event clause">
+          <li style="--key:var(--vY)"><span class="key-form">[w (+r)] [t] [p] [h] [m] [n]</span><span class="key-name">optional operators</span></li>
+          <li style="--key:var(--accent)"><span class="key-form">[pivot] · NP + role</span><span class="key-name">participants</span></li>
+          <li style="--key:var(--vO)"><span class="key-form">event‑n</span><span class="key-name">closes event clause</span></li>
         </ol>
       </figcaption>
     </figure>
     <div class="plate"><div class="scrollx">
-      <div class="slots" aria-label="clause template">
-        <div class="slot opt"><span class="f">w–</span><span class="l">question</span></div>
+      <div class="slots" aria-label="canonical event-clause template">
+        <div class="slot opt"><span class="f">w– (+ r–)</span><span class="l">question + role</span></div>
         <div class="slot opt"><span class="f">t–</span><span class="l">time</span></div>
         <div class="slot opt"><span class="f">p–</span><span class="l">phase</span></div>
         <div class="slot opt"><span class="f">h–</span><span class="l">frequency</span></div>
         <div class="slot opt"><span class="f">m–</span><span class="l">degree</span></div>
         <div class="slot opt"><span class="f">n–</span><span class="l">polarity</span></div>
-        <div class="slot"><span class="f">subject</span><span class="l">pronoun / NP</span></div>
+        <div class="slot opt"><span class="f">pivot</span><span class="l">unmarked pronoun / NP</span></div>
         <div class="slot opt"><span class="f">NP + role</span><span class="l">other participants</span></div>
-        <div class="slot"><span class="f">verb‑n</span><span class="l">last</span></div>
+        <div class="slot"><span class="f">event‑n</span><span class="l">last</span></div>
       </div>
     </div>
-    <p class="plate-cap">Every slot but subject and verb is optional. The minimal sentence is two words.</p>
+    <p class="plate-cap">A questioned non-pivot keeps its role directly after the W-word. The pivot
+    may be omitted when every participant is role-marked. The smallest pivoted event clause is two words.</p>
     </div>
 
     <h3>Start minimal, then add dials</h3>
@@ -1004,7 +1215,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <div class="ix-w"><span class="lx">na</span><span class="g">not</span></div>
       <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
       <div class="ix-w"><span class="lx">zifen.</span><span class="g">speak</span></div>
-    </div><div class="ix-t">“Right now, I am not speaking.” — polarity slots in just before the subject.</div></div>
+    </div><div class="ix-t">“Right now, I am not speaking.” — polarity slots in just before the pivot.</div></div>
     <div class="prose"><p>Operators bind everything to their right, so <em>where</em> you put one
     is its scope. Moving <span class="lx">na</span> past a quantifier flips the meaning:</p></div>
     <div class="ix"><div class="ix-s">
@@ -1018,9 +1229,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <div class="ix-w"><span class="lx">pasen.</span><span class="g">go</span></div>
     </div><div class="ix-t">“All the people don’t go — none of them go.”</div></div>
     <figure class="visual-card scope-visual">
-      <img src="assets/illustrations/scope-contrast.webp" width="1920" height="1072"
-           alt="Two panels contrast na qo pirim pasen, where some people may still go, with qo pirim na pasen, where the whole group is stopped."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="scope" role="group"
+           aria-label="Two matched scenes contrast negation over all with all over negation"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">Position changes the reach of “not”</span>
@@ -1050,12 +1260,11 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <em>after</em> a noun phrase to mark its role — agent <span class="lx">ri</span>, recipient
     <span class="lx">ry</span>, object <span class="lx">re</span>, instrument <span class="lx">ra</span>,
     location <span class="lx">ro</span>, path <span class="lx">ru</span>. One argument — the
-    <b>pivot</b>, usually the doer — may stay unmarked in the subject slot; every other argument
+    <b>pivot</b>, usually the doer — may stay unmarked in the pivot slot; every other argument
     carries its role:</p></div>
     <figure class="visual-card roles-visual">
-      <img src="assets/illustrations/role-markers.webp" width="1920" height="1072"
-           alt="A builder, house, and hammer align with ji, koryt re, tokim ra, and gosen to show object and instrument markers following their nouns."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="roles" role="group"
+           aria-label="A construction scene mapped to all six role particles and a complete worked clause"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">Roles travel after their noun phrases</span>
@@ -1087,9 +1296,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     beside, <span class="lx">sa</span> around, <span class="lx">so</span> outside,
     <span class="lx">su</span> among. For plain location, that’s the whole sentence:</p></div>
     <figure class="visual-card relations-visual">
-      <img src="assets/illustrations/spatial-relations.webp" width="1920" height="1072"
-           alt="Six labeled figure-ground panels show si inside, sy on, se beside, sa around, so outside, and su among."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="relations" role="group"
+           aria-label="Six precise figure-ground diagrams for the complete S-family of spatial relations"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">One figure · six relations to its ground</span>
@@ -1107,9 +1315,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     </figure>
     <div class="prose"><p>That relation can then sit at three different levels in a clause:</p></div>
     <figure class="visual-card space-visual">
-      <img src="assets/illustrations/spatial-grammar-v3.webp" width="1920" height="1072"
-           alt="Three matching house scenes contrast a static location, speaking at a location, and an oriented path moving into the house, with a full Luryt example under each."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="space-grammar" role="group"
+           aria-label="Three matching house scenes contrast static location, event setting, and directed motion"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">Space works at three levels</span>
@@ -1136,10 +1343,10 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     phrase is closed by <span class="lx">ro</span> (location role).</div></div>
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
-      <div class="ix-w"><span class="lx">pasen</span><span class="g">move</span></div>
       <div class="ix-w"><span class="lx">sa</span><span class="g">around</span></div>
-      <div class="ix-w"><span class="lx">sarym.</span><span class="g">region</span></div>
-    </div><div class="ix-t">“I wander around the region.” — with a motion verb, the same particles trace paths.</div></div>
+      <div class="ix-w"><span class="lx">sarym</span><span class="g">region</span></div>
+      <div class="ix-w"><span class="lx">pasen.</span><span class="g">move</span></div>
+    </div><div class="ix-t">“I wander around the region.” — before a motion verb, an S-phrase traces a path without choosing an orientation.</div></div>
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">ji</span><span class="g">I</span></div>
       <div class="ix-w"><span class="lx">go</span><span class="g">arriving</span></div>
@@ -1153,12 +1360,26 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <span class="lx">ji gi si di koryt ru pasen</span> — “I come out of this house.”</div></div>
 
     <h3>Questions</h3>
-    <div class="prose"><p>Content questions start with a W-family word; yes/no questions are just
-    intonation. Answers can be a single polarity particle:</p></div>
+    <div class="prose"><p>Content questions start with a W-family word. If that word asks for the
+    event pivot, it stands alone; if it asks for another participant or the event setting, its
+    R-family role follows immediately. Yes/no questions are just intonation. Answers can be a
+    single polarity particle:</p></div>
     <div class="ix"><div class="ix-s">
-      <div class="ix-w"><span class="lx">wo</span><span class="g">who?</span></div>
+      <div class="ix-w"><span class="lx">wo</span><span class="g">who? · pivot</span></div>
       <div class="ix-w"><span class="lx">zifen?</span><span class="g">speak</span></div>
     </div><div class="ix-t">“Who is speaking?”</div></div>
+    <div class="ix"><div class="ix-s">
+      <div class="ix-w"><span class="lx">wa</span><span class="g">what?</span></div>
+      <div class="ix-w"><span class="lx">re</span><span class="g">patient</span></div>
+      <div class="ix-w"><span class="lx">ji</span><span class="g">I · pivot</span></div>
+      <div class="ix-w"><span class="lx">nifen?</span><span class="g">eat</span></div>
+    </div><div class="ix-t">“What do I eat?” — the questioned thing keeps its patient role.</div></div>
+    <div class="ix"><div class="ix-s">
+      <div class="ix-w"><span class="lx">we</span><span class="g">where?</span></div>
+      <div class="ix-w"><span class="lx">ro</span><span class="g">location</span></div>
+      <div class="ix-w"><span class="lx">je</span><span class="g">he/she/it · pivot</span></div>
+      <div class="ix-w"><span class="lx">nifen?</span><span class="g">eat</span></div>
+    </div><div class="ix-t">“Where do they eat?” — event settings take the location role.</div></div>
     <div class="ix"><div class="ix-s">
       <div class="ix-w"><span class="lx">je zifen?</span><span class="g">does she speak?</span></div>
       <div class="ix-w"><span class="lx">ni.</span><span class="g">yes</span></div>
@@ -1180,16 +1401,15 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <span class="lx">ca</span> for <span class="lx">ce</span> “as … as”, <span class="lx">cy</span>
     “less”, or drop the standard and say <span class="lx">ji co gusas</span> — “I’m the most knowledgeable.”</div></div>
     <figure class="visual-card questions-visual">
-      <img src="assets/illustrations/questions-comparison.webp" width="1920" height="1072"
-           alt="A question panel uses wo zifen to seek a missing speaker, while a comparison panel orders cy, ce, ca, and co from less through most."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="questions" role="group"
+           aria-label="The complete W-family question inventory beside the complete C-family comparison scale"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">Ask for a missing value · compare a degree</span>
-          <p class="visual-note">W-family words leave one participant to be supplied. C-family words place a property on a scale from less through equal to more.</p>
+          <p class="visual-note">A questioned pivot is bare; any other questioned event role follows the W-word. C-family words place a property on a scale from less through equal to more.</p>
         </div>
         <ol class="visual-key duo-key" aria-label="Question and comparison concepts">
-          <li style="--key:var(--vI)"><span class="key-form">wo · zifen?</span><span class="key-name">who is speaking?</span></li>
+          <li style="--key:var(--vI)"><span class="key-form">wo · zifen? / wa · re · ji · nifen?</span><span class="key-name">pivot / patient question</span></li>
           <li style="--key:var(--vO)"><span class="key-form">cy · ce · ca · co</span><span class="key-name">less · equal · more · most</span></li>
         </ol>
       </figcaption>
@@ -1234,9 +1454,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       anything.</p>
     </header>
     <figure class="visual-card parser-visual">
-      <img src="assets/illustrations/parser-diagnostic.webp" width="1920" height="1072"
-           alt="The word kapirim is parsed from the outside in by peeling ending m, taking root piri, and splitting prefix ka, with the final three pieces aligned below."
-           loading="lazy" decoding="async">
+      <div class="dense-diagram" data-diagram="parser" role="group"
+           aria-label="An outside-in decision path parses kapirim and diagnoses three contrasting word shapes"></div>
       <figcaption class="keyed">
         <div class="visual-caption-head">
           <span class="visual-title">The parser follows the seams</span>
@@ -1295,11 +1514,11 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
         <ul id="refSeries"></ul>
       </div>
       <div class="refbox">
-        <h4>Clause order</h4>
+        <h4>Canonical event-clause order</h4>
         <ul>
-          <li><span class="lx">[w] [t] [p] [h] [m] [n]</span></li>
-          <li><span class="lx">subject · NPs+role · verb</span></li>
-          <li>NP: <span class="lx">[q] [d] noun</span> · roles follow the NP</li>
+          <li><span class="lx">[w (+r)] [t] [p] [h] [m] [n]</span></li>
+          <li><span class="lx">[pivot] · NPs+role · event‑n</span></li>
+          <li>NP: <span class="lx">[q] [d] noun</span> · exact number: <span class="lx">num cv noun</span> · roles follow the NP</li>
           <li>Compare: <span class="lx">A ca PROP‑s B re</span> “A is more PROP than B”</li>
           <li>Path: <span class="lx">figure g (s) place ru verb</span></li>
           <li>Operators scope over what follows them</li>
@@ -1320,7 +1539,14 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
         <li>Conjunctions and clause-linking — no “and / but / because / if” yet.</li>
         <li>The lexicon beyond the 36 core roots (one extra root, <span class="lx">nife</span>
         “eat”, floats around examples provisionally).</li>
-        <li>Full syntax for complex sentences: subordination, focus, relative clauses.</li>
+        <li>Full syntax for complex sentences: subordination, focus, relative clauses, and
+        extraction from inside static-location or path-ground phrases.</li>
+        <li>The ordering and scope of free K-family modifiers relative to the canonical operator
+        track.</li>
+        <li>How exact-number phrases headed by <span class="lx">num</span> combine with
+        quantifiers and demonstratives.</li>
+        <li>The general clause and phrase syntax of manner <span class="lx">-l</span> and
+        relational <span class="lx">-r</span> content words.</li>
         <li>Numbers beyond 99.</li>
       </ul>
       <p>Which is to say: if you learn this page, you know the entire language — for now.</p>
@@ -1359,9 +1585,9 @@ const VOW_INFO = [
 ];
 
 const SUFF = {
-  m:["Entity","a descriptive thing — “an X, some X”"], t:["Referential","the identifiable thing — “the X (we know which)”"],
-  n:["Event","a verb — “to X”"], s:["Property","“X-like, having X”"],
-  l:["Manner","“in an X way”"], r:["Relational","“of X, related by X”"]
+  m:["Entity head","a descriptive thing — “an X, some X”"], t:["Referential head","the identifiable thing — “the X (we know which)”"],
+  n:["Event head","a verb — “to X”"], s:["Property head","“X-like, having X”"],
+  l:["Manner head","“in an X way”"], r:["Relational head","“of X, related by X”"]
 };
 const DOMS = {
   i:["Person","individual humans: body, mind, experience"],
@@ -1382,10 +1608,10 @@ const ASPS = {
 const ROOTS = {
   piri:["person, human individual","person, self"],
   mily:["body, physical self","body, hand, heart, family"],
-  zife:["to speak, talk","act, speak, eat, see, move"],
+  zife:["to speak, talk (personal act)","act, speak, eat, see, move"],
   hisa:["to be well, healthy","hungry, tired, sad, happy, healthy"],
   siro:["friend relation, friend-of","friend-of, parent-of, sibling-of, lover-of"],
-  tinu:["age of a person","age, strength, personal habit frequency"],
+  tinu:["age of a person (years lived)","age, strength, personal habit frequency"],
   rydi:["group, crowd, people-as-unit","group, tribe, clan, city as a social unit"],
   syry:["institution, organized structure","institution, hierarchy, government, organization"],
   gyfe:["to interact socially, mingle","trade, talk, fight, negotiate, vote, cooperate"],
@@ -1396,20 +1622,20 @@ const ROOTS = {
   bely:["forest / herd / ecosystem cluster","forest, herd, swarm, ecosystem"],
   kefe:["to grow, develop (biological)","grow, hunt, migrate, bloom, reproduce"],
   mela:["to be alive, living","alive, dead, sick, healthy, poisonous"],
-  sevo:["ecological relation (predator-of…)","predator-of, prey-of, host-of, symbiont-of"],
-  benu:["population, biomass","population size, biomass, crop yield"],
+  sevo:["ecological relation (predator-of, symbiont-of, etc.)","predator-of, prey-of, host-of, symbiont-of"],
+  benu:["population, biomass, ecological quantity","population size, biomass, crop yield"],
   kati:["rock, stone, lump of matter","rock, river, mountain, planet, physical object"],
   sary:["region, landscape, area","landscape, region, terrain, field, cluster"],
   pase:["to move, go, travel, flow","flow, fall, rain, blow, melt, freeze"],
-  hata:["hot / warm","hot, cold, solid, liquid, gas, wet, dry"],
-  sako:["physical relation (contact, proximity)","in, on, under, near, around, between"],
+  hata:["hot/warm (physical temperature)","hot, cold, solid, liquid, gas, wet, dry"],
+  sako:["physical relation (contact/inclusion/proximity)","in, on, under, near, around, between"],
   daru:["distance, spatial extent, length","length, mass, time, energy, temperature"],
   toki:["tool, implement, usable object","tool, knife, cup, phone, vehicle, device"],
-  kory:["house, building, structure","house, road, bridge, network, city plan"],
-  gose:["to build, construct, make","cut, build, drive, send, compute"],
+  kory:["house, building, constructed structure","house, road, bridge, network, city plan"],
+  gose:["to build, construct, make artefact","cut, build, drive, send, compute"],
   vosa:["broken, out of order","broken, fixed, open, closed, on, off"],
-  zoro:["functional relation (fit, plug…)","key-of, lock-for, plug-into, port-of, interface-with"],
-  komu:["capacity, size, volume","size, capacity, speed, power, storage, bandwidth"],
+  zoro:["functional relation (fit, plug, compatibility)","key-of, lock-for, plug-into, port-of, interface-with"],
+  komu:["capacity, size, volume (of artefacts)","size, capacity, speed, power, storage, bandwidth"],
   rufi:["idea, concept","idea, concept, word, symbol"],
   lury:["language, system, theory","theory, language, model, formal system, taxonomy"],
   guse:["to think, compute, reason","think, learn, compute, imagine, infer"],
@@ -1418,19 +1644,23 @@ const ROOTS = {
   nunu:["number, amount, abstract quantity","number, amount, probability, measure, degree"]
 };
 
+const ATOMS = {
+  num:["numeral marker","reads the following CV syllable as a number (num te = 27); clipped from nunu 'number'"]
+};
+
 const SERIES = [
   {c:"j", name:"Pronouns", grp:0, scale:"me → them",
-   rows:[["ji","1st singular","I"],["jy","2nd singular","you"],["je","3rd singular","he / she / it"],
-         ["ja","1st plural","we"],["jo","2nd plural","you all"],["ju","3rd plural","they"]],
+   rows:[["ji","1sg","I"],["jy","2sg","you"],["je","3sg","he / she / it"],
+         ["ja","1pl","we"],["jo","2pl","you all"],["ju","3pl","they"]],
    note:"No gender anywhere: <span class='lx'>je</span> covers he, she and it."},
   {c:"d", name:"Demonstratives", grp:0, scale:"near → far, one → many",
-   rows:[["di","near · one","this"],["dy","near · many","these"],["de","mid · one","that (in view)"],
-         ["da","mid · many","those (in view)"],["do","far · one","that (elsewhere)"],["du","far · many","those (elsewhere)"]],
+   rows:[["di","near singular","this"],["dy","near plural","these"],["de","medial singular","that (in view)"],
+         ["da","medial plural","those (in view)"],["do","far singular","that (elsewhere)"],["du","far plural","those (elsewhere)"]],
    note:"Read the vowels in pairs: <span class='lx'>i/y</span> near, <span class='lx'>e/a</span> in view, <span class='lx'>o/u</span> elsewhere — first of each pair singular, second plural."},
   {c:"w", name:"Question words", grp:0, scale:"when → how",
    rows:[["wi","time","when?"],["wy","reason","why?"],["we","place","where?"],
          ["wa","thing","what?"],["wo","person","who?"],["wu","manner","how?"]],
-   note:"A question word opens the clause: <span class='lx'>wo zifen?</span> “who speaks?”"},
+   note:"A question word opens the clause. A pivot is bare: <span class='lx'>wo zifen?</span> “who speaks?” A nonpivot keeps its role: <span class='lx'>wa re ji nifen?</span> “what do I eat?”"},
   {c:"t", name:"Time", grp:1, scale:"long ago → timeless",
    rows:[["ti","remote past","long ago"],["ty","recent past","recently, just now"],["te","present","now"],
          ["ta","near future","soon, about to"],["to","far future","later, someday"],["tu","gnomic","generally, whenever"]],
@@ -1440,32 +1670,32 @@ const SERIES = [
          ["pa","continuative","still, keep on"],["po","completive","completely, all the way"],["pu","perfect","already done"]],
    note:"Combines freely with time: <span class='lx'>ti pu</span> “had already …”."},
   {c:"h", name:"Frequency", grp:1, scale:"once → always",
-   rows:[["hi","single","once"],["hy","low","rarely"],["he","intermittent","sometimes"],
-         ["ha","frequent","often"],["ho","habitual","usually"],["hu","maximal","always"]],
+   rows:[["hi","single","once"],["hy","low frequency","rarely"],["he","intermittent","sometimes"],
+         ["ha","frequent","often"],["ho","habitual","usually"],["hu","maximal frequency","always"]],
    note:""},
   {c:"n", name:"Polarity", grp:1, scale:"yes → never",
-   rows:[["ni","affirmed","yes, indeed"],["ny","partial","sort of, partly"],["ne","neutral","(unmarked)"],
-         ["na","negative","not"],["no","contrary","on the contrary, anti-"],["nu","impossible","never, cannot"]],
+   rows:[["ni","affirmation","yes, indeed"],["ny","partial","sort of, partly"],["ne","neutral","(unmarked)"],
+         ["na","negation","not"],["no","contrary","on the contrary, anti-"],["nu","strong negation","never, cannot"]],
    note:"These double as one-word answers: <span class='lx'>ni. na. no. nu.</span>"},
   {c:"q", name:"Quantifiers", grp:2, scale:"none → every single one",
    rows:[["qi","empty","none of"],["qy","existential","a, some"],["qe","partitive","some of, not all"],
-         ["qa","majority","most of"],["qo","universal, collective","all of, the whole"],["qu","universal, distributive","every, each"]],
+         ["qa","large subset","most of"],["qo","universal collective","all of, the whole"],["qu","universal distributive","every, each"]],
    note:"<span class='lx'>qo</span> takes the group as one mass; <span class='lx'>qu</span> goes one by one."},
   {c:"m", name:"Degree", grp:2, scale:"barely → too much",
-   rows:[["mi","minimal","slightly, barely"],["my","low","somewhat"],["me","typical","moderately"],
-         ["ma","above typical","quite, fairly"],["mo","strong","very"],["mu","excessive","extremely, too"]],
+   rows:[["mi","minimal","slightly, barely"],["my","low","somewhat"],["me","neutral","moderately"],
+         ["ma","above-typical","quite, fairly"],["mo","strong","very"],["mu","maximal","extremely, too"]],
    note:""},
   {c:"c", name:"Comparison", grp:2, scale:"at least → as much as possible",
-   rows:[["ci","minimal bound","at least"],["cy","less than","less, not as"],["ce","equal","as … as"],
-         ["ca","more than","more, -er"],["co","superlative","most, at most"],["cu","extremal","as … as possible"]],
+   rows:[["ci","minimal bound","at least"],["cy","less-than","less, not as"],["ce","equal","as … as"],
+         ["ca","more-than","more, -er"],["co","superlative","most, at most"],["cu","extremal","as … as possible"]],
    note:"Pairs with <span class='lx'>re</span> “than”: see chapter 07."},
-  {c:"r", name:"Roles", grp:3, scale:"doer → path",
+  {c:"r", name:"Roles", grp:3, scale:"doer → path closer",
    rows:[["ri","agent","by, as doer"],["ry","experiencer","to, for (someone)"],["re","patient","object of; “than”"],
-         ["ra","instrument","with, using"],["ro","location","at, in, on"],["ru","path","from / to, into / out of"]],
-   note:"Placed <em>after</em> the noun phrase, like a postposition: <span class='lx'>tokim ra</span> “with a tool”."},
+         ["ra","instrument","with, using"],["ro","location","at, in, on"],["ru","path-frame closer","closes a G-oriented path phrase"]],
+   note:"Normally placed <em>after</em> a noun phrase, like <span class='lx'>tokim ra</span> “with a tool”. In a path, <span class='lx'>ru</span> closes the full G (S) ground frame."},
   {c:"s", name:"Space", grp:3, scale:"inside → among",
    rows:[["si","interior","in, inside"],["sy","surface","on, touching"],["se","adjacency","next to"],
-         ["sa","vicinity","around, near"],["so","exterior","outside, beyond"],["su","dispersed","among, throughout"]],
+         ["sa","surrounding","around, near"],["so","exterior","outside, beyond"],["su","among","among, throughout"]],
    note:"Static on its own; traces a path when the verb moves."},
   {c:"g", name:"Paths", grp:3, scale:"origin → return",
    rows:[["gi","origin","from, starting at"],["gy","departure","away from, leaving"],["ge","route","along, via, through"],
@@ -1473,7 +1703,7 @@ const SERIES = [
    note:"Orients a motion path; <span class='lx'>ru</span> closes the whole path phrase: <span class='lx'>ji go si di koryt ru pasen</span> — “I go into this house.”"},
   {c:"k", name:"Grouping", grp:3, scale:"single → scattered",
    rows:[["ki","singled","as a single unit, alone"],["ky","pair","as a pair"],["ke","small group","a few together"],
-         ["ka","group","as a group, together"],["ko","mass","en masse, a large collective"],["ku","scattered","spread out, all over"]],
+         ["ka","generic group","as a group, together"],["ko","large collective","en masse, a large collective"],["ku","scattered","spread out, all over"]],
    note:"Also a prefix — the only one so far: <span class='lx'>kypirim</span> “a pair of people”, <span class='lx'>kokatim</span> “a mass of rock”, <span class='lx'>kufenim</span> “animals scattered everywhere”."}
 ];
 const GROUPS = [
@@ -1493,6 +1723,348 @@ function colorize(w){ // wrap vowels in colored spans
 }
 const PARTICLES = {};
 SERIES.forEach(s => s.rows.forEach(([f,v,g]) => PARTICLES[f] = {series:s.c, name:s.name, val:v, gloss:g}));
+
+/* ============ responsive teaching diagrams ============ */
+const ddSeries = c => SERIES.find(s => s.c === c);
+const ddVColor = v => `var(--v${v.toUpperCase()})`;
+const ddHead = (kicker,title,copy) => `
+  <div class="dd-head">
+    <div><span class="dd-kicker">${esc(kicker)}</span><div class="dd-title">${title}</div></div>
+    <p class="dd-copy">${copy}</p>
+  </div>`;
+const ddShortRoot = r => ROOTS[r][0].split(",")[0].replace(/^to be /,"be ").replace(/^to /,"");
+const ddRootsAt = (position,vowel,limit=3) =>
+  Object.keys(ROOTS).filter(r => r[position] === vowel).slice(0,limit);
+const ddRootPills = roots => `<div class="dd-rootlist">${roots.map(r =>
+  `<span class="dd-root"><b>${colorize(r)}</b>${esc(ddShortRoot(r))}</span>`).join("")}</div>`;
+const ddTokens = words => `<div class="dd-tokenrow">${words.map(([form,gloss]) =>
+  `<span class="dd-token"><b>${colorize(form)}</b><small>${esc(gloss)}</small></span>`).join("")}</div>`;
+const ddRows = series => `<div class="dd-rows">${series.rows.map(([f,v,g]) =>
+  `<div class="dd-row" style="--ddc:${ddVColor(f[1])}"><span class="f">${colorize(f)}</span><span class="v">${esc(v)}</span><span class="g">${esc(g)}</span></div>`).join("")}</div>`;
+const ddArt = (file,cls="") =>
+  `<div class="dd-art ${cls}"><img src="assets/illustrations/${file}" alt="" loading="lazy" decoding="async"></div>`;
+function ddNumeral(n){
+  return CONS[Math.floor(n/5)] + NVOWS[n%5];
+}
+function ddSpatialGlyph(form){
+  const common = `<svg viewBox="0 0 160 94" aria-hidden="true">`;
+  const shapes = {
+    si:`<rect class="ground" x="38" y="12" width="84" height="70" rx="7"/><circle class="figure" cx="80" cy="47" r="13"/>`,
+    sy:`<rect class="ground" x="43" y="55" width="74" height="29" rx="5"/><circle class="figure" cx="80" cy="42" r="13"/>`,
+    se:`<rect class="ground" x="28" y="25" width="62" height="57" rx="6"/><circle class="figure" cx="116" cy="54" r="13"/>`,
+    sa:`<rect class="ground" x="61" y="33" width="38" height="34" rx="5"/><ellipse class="guide" cx="80" cy="50" rx="61" ry="37"/><circle class="figure" cx="130" cy="28" r="11"/>`,
+    so:`<rect class="ground" x="35" y="18" width="72" height="64" rx="7"/><path class="guide" d="M27 10h88a9 9 0 0 1 9 9v66"/><circle class="figure" cx="137" cy="70" r="12"/>`,
+    su:`<rect class="ground" x="18" y="17" width="30" height="25" rx="4"/><rect class="ground" x="111" y="19" width="30" height="25" rx="4"/><rect class="ground" x="25" y="62" width="30" height="24" rx="4"/><rect class="ground" x="106" y="61" width="30" height="24" rx="4"/><circle class="figure" cx="80" cy="50" r="13"/>`
+  };
+  return `<div class="dd-glyph">${common}${shapes[form]}</svg></div>`;
+}
+
+const DD_RENDERERS = {
+  overview(){
+    const dots = Array.from({length:36},() => "<i></i>").join("");
+    return `
+      ${ddHead("system map","Four layers, one computation","Every symbol has a fixed job. Read left to right to see sound become meaning, then a word, then a clause.")}
+      <div class="dd-counts">
+        <div class="dd-count"><b>20 + 6</b><span>consonants + vowels</span></div>
+        <div class="dd-count"><b>6 × 6</b><span>semantic root cells</span></div>
+        <div class="dd-count"><b>6</b><span>content-word endings</span></div>
+        <div class="dd-count"><b>14 × 6</b><span>particle forms</span></div>
+      </div>
+      <div class="dd-flow">
+        <div class="dd-card dd-step" data-v="i"><span class="dd-num">01 · SOUND</span>
+          <div class="dd-card-head"><span class="dd-code">CV</span><span><b class="dd-name">legal syllables</b><span class="dd-meta">p…h · i…u</span></span></div>
+          <p class="dd-desc"><span class="lx">ka · pi · rim</span><br>no vowel onset; no consonant cluster</p>
+        </div>
+        <div class="dd-card dd-step" data-v="y"><span class="dd-num">02 · ROOT ADDRESS</span>
+          <div class="dd-mini-matrix">${dots}</div>
+          <p class="dd-desc"><span class="lx">p<span class="cv-i">i</span>r<span class="cv-i">i</span></span> = Person × Individual → person</p>
+        </div>
+        <div class="dd-card dd-step" data-v="e"><span class="dd-num">03 · WORD ASSEMBLY</span>
+          <div class="dd-form"><span class="cv-a">ka</span> + <span class="cv-i">piri</span> + m<br>→ <b>kapirim</b></div>
+          <p class="dd-desc">group + person + entity → a crowd</p>
+        </div>
+        <div class="dd-card dd-step" data-v="o"><span class="dd-num">04 · CLAUSE TRACK</span>
+          ${ddTokens([["te","now"],["py","in progress"],["na","not"],["ji","I"],["zifen","speak"]])}
+          <p class="dd-desc" style="margin-top:6px">operators → pivot → <b>event last</b></p>
+        </div>
+      </div>`;
+  },
+
+  sounds(){
+    const consonants = CONS_INFO.map(([letter,ipa,hint,trap],i) => `
+      <div class="dd-sound" title="${esc(hint)}">
+        <span class="letter">${letter}</span><span class="ipa">/${esc(ipa)}/${trap ? " · !" : ""}</span>
+        <span class="hint">${esc(hint)}</span><span class="index">${i}</span>
+      </div>`).join("");
+    const vowels = VOW_INFO.map(([letter,ipa,hint]) => `
+      <div class="dd-vowel dd-card" data-v="${letter}"><b>${letter}</b><span>/${esc(ipa)}/ · ${esc(hint)}</span></div>`).join("");
+    const traps = CONS_INFO.filter(x => x[3]).map(x => `<span class="lx">${x[0]} /${esc(x[1])}/</span>`).join(" · ");
+    return `
+      ${ddHead("complete inventory","26 sounds in canonical order","The tiny corner number is the consonant’s numeral index. An exclamation mark flags letters whose sound may surprise an English reader.")}
+      <div class="dd-sounds">${consonants}</div>
+      <div class="dd-vowels">${vowels}</div>
+      <div class="dd-grid two" style="margin-top:10px">
+        <div class="dd-card" data-v="i"><div class="dd-card-head"><span class="dd-code">CV(C)</span><span><b class="dd-name">syllable shape</b><span class="dd-meta">open or one final</span></span></div>
+          <div class="dd-form">ka · pi · rim &nbsp; / &nbsp; zi · fen</div><p class="dd-detail">Never begins with a vowel. Consonants never cluster.</p></div>
+        <div class="dd-card" data-v="o"><div class="dd-card-head"><span class="dd-code">ˈ</span><span><b class="dd-name">automatic stress</b><span class="dd-meta">first root syllable</span></span></div>
+          <div class="dd-form">ka · <b>PI</b> · rim</div><p class="dd-detail">English traps: ${traps}</p></div>
+      </div>`;
+  },
+
+  word(){
+    return `
+      ${ddHead("content-word anatomy","One legal cut, read outside-in","A content word has one four-letter root, exactly one final ending, and zero or more two-letter prefixes.")}
+      <div class="dd-form big">(CV)* &nbsp;+&nbsp; C<span class="cv-i">V₁</span>C<span class="cv-o">V₂</span> &nbsp;+&nbsp; { m · t · n · s · l · r }</div>
+      <div class="dd-formula">
+        <div class="dd-seg"><b class="cv-a">ka</b><span>prefix · group</span></div><span class="dd-op">+</span>
+        <div class="dd-seg"><b class="cv-i">piri</b><span>root · person</span></div><span class="dd-op">+</span>
+        <div class="dd-seg"><b>m</b><span>ending · entity</span></div><span class="dd-op">→</span>
+        <div class="dd-seg"><b>kapirim</b><span>a crowd</span></div>
+      </div>
+      <div class="dd-grid two">
+        <div class="dd-card" data-v="e">
+          <div class="dd-card-head"><span class="dd-code">read</span><span><b class="dd-name">deterministic algorithm</b><span class="dd-meta">from the right edge</span></span></div>
+          <div class="dd-rows">
+            <div class="dd-row"><span class="f">1</span><span class="v">last letter</span><span class="g"><b>m</b> is a legal ending</span></div>
+            <div class="dd-row"><span class="f">2</span><span class="v">previous four</span><span class="g"><b>piri</b> is the root</span></div>
+            <div class="dd-row"><span class="f">3</span><span class="v">remainder</span><span class="g"><b>ka</b> is one CV prefix</span></div>
+          </div>
+        </div>
+        <div class="dd-card" data-v="u">
+          <div class="dd-card-head"><span class="dd-code">why</span><span><b class="dd-name">the seams are unique</b><span class="dd-meta">shape carries structure</span></span></div>
+          <p class="dd-desc">Particles are exactly CV. Roots are exactly CVCV. Only six consonants can close content words. Every leftover prefix is read two letters at a time.</p>
+          <div class="dd-note">Guide notation <span class="lx">ka-piri-m</span> exposes the seams; normal writing is solid: <span class="lx">kapirim</span>.</div>
+        </div>
+      </div>`;
+  },
+
+  endings(){
+    const cards = Object.entries(SUFF).map(([s,[name,desc]],i) => `
+      <div class="dd-card" data-v="${VOWS[i]}">
+        <div class="dd-card-head"><span class="dd-code">−${s}</span><span><b class="dd-name">${esc(name)}</b><span class="dd-meta">${colorize("zife"+s)}</span></span></div>
+        <p class="dd-desc">${esc(desc)}</p>
+        <p class="dd-detail"><span class="lx">zife</span> “speak / talk” + <b class="lx">−${s}</b> → <b class="lx">${colorize("zife"+s)}</b></p>
+      </div>`).join("");
+    return `
+      ${ddHead("six grammatical lenses","One root enters a clause six ways","The semantic neighborhood stays “speech”; the last consonant declares the result’s grammatical kind.")}
+      <div class="dd-formula"><div class="dd-seg"><b class="cv-e">zife</b><span>speech root</span></div><span class="dd-op">×</span><div class="dd-seg"><b>6 endings</b><span>one required</span></div></div>
+      <div class="dd-grid six">${cards}</div>`;
+  },
+
+  domains(){
+    const cards = [...VOWS].map(v => `
+      <div class="dd-card" data-v="${v}">
+        <div class="dd-card-head"><span class="dd-code">${v}−</span><span><b class="dd-name">${esc(DOMS[v][0])}</b><span class="dd-meta">first root vowel · V₁</span></span></div>
+        ${ddArt(`scene-domain-${v}.webp`,"dd-domain-art")}
+        <p class="dd-desc">${esc(DOMS[v][1])}</p>
+        ${ddRootPills(ddRootsAt(1,v,3))}
+      </div>`).join("");
+    return `
+      ${ddHead("coordinate 1 of 2","First vowel chooses the world","Read C–V₁–C–V₂: the first vowel sets the broad semantic domain; the second will choose an aspect inside it.")}
+      <div class="dd-form" style="margin-bottom:10px">C <b>V₁</b> C V₂ → Person · Society · Life · Physical · Artefact · Abstract</div>
+      <div class="dd-grid six">${cards}</div>`;
+  },
+
+  aspects(){
+    const cards = [...VOWS].map(v => `
+      <div class="dd-card" data-v="${v}">
+        <div class="dd-card-head"><span class="dd-code">−${v}</span><span><b class="dd-name">${esc(ASPS[v][0])}</b><span class="dd-meta">second root vowel · V₂</span></span></div>
+        <div class="dd-form">C V₁ C <b style="color:${ddVColor(v)}">${v}</b></div>
+        <p class="dd-desc" style="margin-top:7px">${esc(ASPS[v][1])}</p>
+        ${ddRootPills(ddRootsAt(3,v,3))}
+      </div>`).join("");
+    return `
+      ${ddHead("coordinate 2 of 2","Second vowel chooses the angle","The same six aspects repeat across every domain, turning each row of the lexicon into a predictable conceptual family.")}
+      <div class="dd-form" style="margin-bottom:10px">C V₁ C <b>V₂</b> → Individual · Config · Process · State · Relation · Quantity</div>
+      <div class="dd-grid six">${cards}</div>`;
+  },
+
+  grid(){
+    const byCell = {};
+    Object.keys(ROOTS).forEach(r => byCell[r[1]+r[3]] = r);
+    let matrix = `<div class="dd-matrix"><div class="dd-mx-head"><b>V₁ ↓</b><span>domain / aspect →</span></div>`;
+    for (const a of VOWS) matrix += `<div class="dd-mx-head" style="border-top:3px solid ${ddVColor(a)}"><b style="color:${ddVColor(a)}">${a}</b><span>${esc(ASPS[a][0])}</span></div>`;
+    for (const d of VOWS){
+      matrix += `<div class="dd-mx-row" style="border-left:3px solid ${ddVColor(d)}"><b style="color:${ddVColor(d)}">${d}</b><span>${esc(DOMS[d][0])}</span></div>`;
+      for (const a of VOWS){
+        const r = byCell[d+a];
+        matrix += `<div class="dd-mx-cell" style="--ddc:${ddVColor(a)}"><b>${colorize(r)}</b><span>${esc(ddShortRoot(r))}</span></div>`;
+      }
+    }
+    matrix += "</div>";
+    return `
+      ${ddHead("all 36 addresses","The complete semantic map","Rows are first-vowel domains; columns are second-vowel aspects. Every cell already has one root, shown with a compact gloss.")}
+      <div class="dd-scroll">${matrix}</div>
+      <div class="dd-grid three" style="margin-top:10px">
+        <div class="dd-card" data-v="i"><div class="dd-form"><b>p-i-r-i</b></div><p class="dd-detail">Person × Individual → person</p></div>
+        <div class="dd-card" data-v="e"><div class="dd-form"><b>p-a-s-e</b></div><p class="dd-detail">Physical × Process → move / flow</p></div>
+        <div class="dd-card" data-v="u"><div class="dd-form"><b>b-y-r-u</b></div><p class="dd-detail">Society × Quantity → wealth</p></div>
+      </div>`;
+  },
+
+  time(){
+    const s = ddSeries("t");
+    const cards = s.rows.map(([f,v,g]) => `
+      <div class="dd-card dd-time" data-v="${f[1]}" style="--ddc:${ddVColor(f[1])}">
+        <div class="dd-card-head"><span class="dd-code">${colorize(f)}</span><span><b class="dd-name">${esc(g)}</b><span class="dd-meta">${esc(v)}</span></span></div>
+        <div class="dd-form">${colorize(f)} + zifen</div>
+      </div>`).join("");
+    return `
+      ${ddHead("T-family · six values","Place an event in time","Five values run from remote past through future. The sixth, tu, leaves the timeline for general or timeless truths.")}
+      <div class="dd-scroll"><div class="dd-timeline">${cards}</div></div>
+      <div class="dd-note"><span class="lx">te py ji zifen</span> = now + in-progress + I + speak. Time comes before phase; <span class="lx">tu</span> is gnomic, not “later than <span class="lx">to</span>.”</div>`;
+  },
+
+  grouping(){
+    const s = ddSeries("k");
+    const cards = s.rows.map(([f,v,g]) => `
+      <div class="dd-card" data-v="${f[1]}">
+        <div class="dd-card-head"><span class="dd-code">${colorize(f)}</span><span><b class="dd-name">${esc(g)}</b><span class="dd-meta">${esc(v)}</span></span></div>
+        <div class="dd-form">${colorize(f)} + pirim → <b>${colorize(f+"pirim")}</b></div>
+        <p class="dd-detail">${esc(K_PREFIX[f])}</p>
+      </div>`).join("");
+    return `
+      ${ddHead("K-family · particle and prefix","Six configurations, two altitudes","A spaced K-form configures an event or phrase. The same syllable glued before a root builds a grouped content word.")}
+      <div class="dd-grid six">${cards}</div>
+      <div class="dd-split" style="margin-top:10px">
+        <div class="dd-card" data-v="a"><span class="dd-meta">free particle · space</span><div class="dd-form">ka pirim pasen</div><p class="dd-detail">people travel <b>as a group</b> · modifies the action</p></div>
+        <div class="dd-card" data-v="a"><span class="dd-meta">bound prefix · no space</span><div class="dd-form">kapirim pasen</div><p class="dd-detail"><b>a crowd</b> travels · builds the noun</p></div>
+      </div>`;
+  },
+
+  numbers(){
+    const consonants = [...CONS].map((c,i) => `<span class="dd-index"><b>${c}</b><span>${i}</span></span>`).join("");
+    const vowels = [...NVOWS].map((v,i) => `<span class="dd-index"><b style="color:${ddVColor(v)}">${v}</b><span>+${i}</span></span>`).join("");
+    const examples = [0,27,42,99].map((n,i) => {
+      const f = ddNumeral(n), ci = CONS.indexOf(f[0]), vi = NVOWS.indexOf(f[1]);
+      return `<div class="dd-card" data-v="${f[1]}"><div class="dd-card-head"><span class="dd-code">${colorize(f)}</span><span><b class="dd-name">${n}</b><span class="dd-meta">5 × ${ci} + ${vi}</span></span></div><div class="dd-form">num ${colorize(f)}</div></div>`;
+    }).join("");
+    return `
+      ${ddHead("base 5 × 20","One syllable encodes 0–99","The consonant chooses a five-number bank; one of five numeral vowels adds 0–4. The marker num prevents collisions with grammar particles.")}
+      <div class="dd-form big">value = 5 × index(C) + index(V)</div>
+      <div class="dd-panel" style="margin-top:9px"><span class="dd-meta">consonant index · bank 0–19</span><div class="dd-index-grid" style="margin-top:7px">${consonants}</div></div>
+      <div class="dd-panel" style="margin-top:7px"><span class="dd-meta">numeral vowel index · offset 0–4 · u is not used</span><div class="dd-index-grid" style="grid-template-columns:repeat(5,1fr);margin-top:7px">${vowels}</div></div>
+      <div class="dd-grid four" style="margin-top:9px">${examples}</div>
+      <div class="dd-note"><span class="lx">te</span> alone is the present-time particle; <span class="lx">num te</span> announces the number 27. Values above 99 are not specified yet.</div>`;
+  },
+
+  clause(){
+    const slots = [
+      ["w– (+ r–)","question + role","optional","var(--vY)"],["t–","time","optional","var(--vY)"],["p–","phase","optional","var(--vY)"],
+      ["h–","frequency","optional","var(--vY)"],["m–","degree","optional","var(--vY)"],["n–","polarity","optional","var(--vY)"],
+      ["pivot","unmarked NP","optional","var(--accent)"],["NP + role","other participant","optional","var(--accent)"],["event−n","event","required · last","var(--vO)"]
+    ];
+    const track = slots.map(([f,label,state,color],i) => `<div class="dd-slot" style="--ddc:${color}"><b>${esc(f)}</b><span>${esc(label)}</span><small>${String(i+1).padStart(2,"0")} · ${esc(state)}</small></div>`).join("");
+    return `
+      ${ddHead("canonical event clause","Operators first; event last","Six optional operator families have a fixed order. The pivot is optional when every participant is role-marked.")}
+      <div class="dd-scroll"><div class="dd-clause">${track}</div></div>
+      <div class="dd-split" style="margin-top:10px">
+        <div class="dd-card" data-v="i"><span class="dd-meta">smallest pivoted · 2 words</span>${ddTokens([["ji","pivot"],["zifen","event"]])}<p class="dd-detail">“I speak.”</p></div>
+        <div class="dd-card" data-v="o"><span class="dd-meta">three dials added · 5 words</span>${ddTokens([["te","time"],["py","phase"],["na","polarity"],["ji","pivot"],["zifen","event"]])}<p class="dd-detail">“Right now, I am not speaking.”</p></div>
+      </div>`;
+  },
+
+  scope(){
+    return `
+      ${ddHead("same words, different reach","Position changes what “not” controls","Operators bind everything to their right. The matched scenes show one possible world for each reading.")}
+      <div class="dd-scene-grid">
+        <div class="dd-scene-card" style="--ddc:var(--vO)">
+          <div class="dd-scene"><img src="assets/illustrations/scene-scope-not-all.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="dd-scene-copy"><span class="dd-meta">negation scopes over “all”</span><div class="dd-form"><b>na</b> [ qo pirim · pasen ]</div>
+          <div class="dd-verdict"><b>&lt; 6</b><span>not everyone goes; zero to five may go</span></div></div>
+        </div>
+        <div class="dd-scene-card" style="--ddc:var(--vI)">
+          <div class="dd-scene"><img src="assets/illustrations/scene-scope-none.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="dd-scene-copy"><span class="dd-meta">“all” scopes over negation</span><div class="dd-form"><b>qo pirim</b> [ na · pasen ]</div>
+          <div class="dd-verdict"><b>0 / 6</b><span>the whole group is established; none goes</span></div></div>
+        </div>
+      </div>`;
+  },
+
+  roles(){
+    const s = ddSeries("r");
+    const scene = {ri:"builder · doer",ry:"recipient · affected experiencer",re:"house · affected object",ra:"hammer · instrument",ro:"building site · location",ru:"footprints · path"};
+    const roles = s.rows.map(([f,v,g]) => `<div class="dd-role" style="--ddc:${ddVColor(f[1])}"><b>${colorize(f)}</b><strong>${esc(v)}</strong><span>${esc(g)} · ${esc(scene[f])}</span></div>`).join("");
+    return `
+      ${ddHead("R-family · six participant links","Read the role after its noun phrase","The scene separates who acts, what is affected, what tool is used, who experiences it, where it happens, and the path through it.")}
+      <div class="dd-role-layout">
+        <div class="dd-role-art"><img src="assets/illustrations/scene-role-builder.webp" alt="" loading="lazy" decoding="async"></div>
+        <div class="dd-role-list">${roles}</div>
+      </div>
+      <div class="dd-note"><span class="dd-meta">worked clause · pivot may stay unmarked</span>${ddTokens([["ji","I · pivot"],["koryt","house"],["re","object"],["tokim","tool"],["ra","instrument"],["gosen","build"]])}</div>`;
+  },
+
+  relations(){
+    const s = ddSeries("s");
+    const cards = s.rows.map(([f,v,g]) => `
+      <div class="dd-card" data-v="${f[1]}">
+        <div class="dd-card-head"><span class="dd-code">${colorize(f)}</span><span><b class="dd-name">${esc(v)}</b><span class="dd-meta">${esc(g)}</span></span></div>
+        ${ddSpatialGlyph(f)}
+        <div class="dd-form">figure · ${colorize(f)} · ground</div>
+        <p class="dd-detail">path-neutral: <span class="lx">figure · ${f} ground · pasen</span></p>
+      </div>`).join("");
+    return `
+      ${ddHead("S-family · figure versus ground","Six reusable spatial relations","The colored dot is the figure; the outlined shape or collection is its ground. A G-particle can orient the same relation as a path.")}
+      <div class="dd-grid six">${cards}</div>`;
+  },
+
+  "space-grammar"(){
+    const items = [
+      ["i","scene-space-static.webp","static location","S relation stands alone","di pirit · si · di koryt","this person · inside · this house"],
+      ["a","scene-space-setting.webp","event setting","ro closes a location role","ji · si di koryt ro · zifen","I · inside this house · speak"],
+      ["o","scene-space-path.webp","directed motion","G orients; ru closes the path","ji · go si di koryt ru · pasen","I · into this house · go"]
+    ];
+    const cards = items.map(([v,img,name,rule,form,gloss]) => `
+      <div class="dd-scene-card" style="--ddc:${ddVColor(v)}">
+        <div class="dd-scene"><img src="assets/illustrations/${img}" alt="" loading="lazy" decoding="async"></div>
+        <div class="dd-scene-copy"><div class="dd-card-head"><span class="dd-code" style="--ddc:${ddVColor(v)};--ddbg:var(--v${v.toUpperCase()}bg)">${v==="i"?"S":v==="a"?"S+ro":"G+S+ru"}</span><span><b class="dd-name">${esc(name)}</b><span class="dd-meta">${esc(rule)}</span></span></div>
+        <div class="dd-form">${colorize(form)}</div><p class="dd-detail">${esc(gloss)}</p></div>
+      </div>`).join("");
+    return `
+      ${ddHead("one house, three constructions","Location, setting, or path","The scene stays constant. What changes is the grammatical level at which the spatial relation is closed.")}
+      <div class="dd-space-grid">${cards}</div>`;
+  },
+
+  questions(){
+    const w = ddSeries("w"), c = ddSeries("c");
+    return `
+      ${ddHead("two six-value scales","Ask for a slot; compare a degree","The W-family names the missing value. A nonpivot participant or event setting keeps its R-role immediately after W; a questioned pivot is bare.")}
+      <div class="dd-split">
+        <div class="dd-panel">
+          <div class="dd-panel-title"><span class="dd-code">w−</span><span><b>Question words</b><span class="dd-meta">missing value → answer</span></span></div>
+          ${ddRows(w)}
+          <div class="dd-note"><span class="lx">wo zifen?</span> → “who speaks?” · <span class="lx">wa re ji nifen?</span> → “what do I eat?”</div>
+        </div>
+        <div class="dd-panel">
+          <div class="dd-panel-title"><span class="dd-code">c−</span><span><b>Comparison</b><span class="dd-meta">bound → less → equal → more → most → extreme</span></span></div>
+          ${ddRows(c)}
+          <div class="dd-note"><span class="lx">jy ca hisas ji re</span> → “you are healthier than I am.”</div>
+        </div>
+      </div>`;
+  },
+
+  parser(){
+    return `
+      ${ddHead("outside-in segmentation","The ending fixes every seam","For a content word, peel one legal final, reserve exactly four letters for the root, then split the remainder into CV pairs.")}
+      <div class="dd-form big">k a p i r i m</div>
+      <div class="dd-parse">
+        <div class="dd-parse-step"><span class="n">01 · PEEL FINAL</span><span class="word">kapiri<b style="color:var(--vO)">m</b></span><p class="dd-desc"><span class="lx">m ∈ {m t n s l r}</span><br>ending = Entity</p></div>
+        <div class="dd-parse-step"><span class="n">02 · TAKE 4</span><span class="word">ka<b style="color:var(--vI)">piri</b>m</span><p class="dd-desc"><span class="lx">CVCV</span><br>root = Person × Individual</p></div>
+        <div class="dd-parse-step"><span class="n">03 · SPLIT REST</span><span class="word"><b style="color:var(--vA)">ka</b>pirim</span><p class="dd-desc"><span class="lx">CV</span><br>prefix = K-family group</p></div>
+      </div>
+      <div class="dd-formula"><div class="dd-seg"><b class="cv-a">ka</b><span>prefix</span></div><span class="dd-op">+</span><div class="dd-seg"><b class="cv-i">piri</b><span>root</span></div><span class="dd-op">+</span><div class="dd-seg"><b>m</b><span>ending</span></div><span class="dd-op">→</span><div class="dd-seg"><b>kapirim</b><span>valid content word</span></div></div>
+      <div class="dd-checks">
+        <div class="dd-check"><b>ji ✓</b>exactly CV → atomic pronoun; do not search for an ending</div>
+        <div class="dd-check"><b>piri △</b>well-formed bare root → add one of <span class="lx">m t n s l r</span></div>
+        <div class="dd-check"><b>pirix ✕</b><span class="lx">x</span> cannot close a content word → illegal final</div>
+      </div>`;
+  }
+};
+
+document.querySelectorAll(".dense-diagram[data-diagram]").forEach(el => {
+  const render = DD_RENDERERS[el.dataset.diagram];
+  if (render) el.innerHTML = render();
+});
 
 /* ============ hero anatomy ============ */
 (function(){
@@ -1625,14 +2197,16 @@ $("#vowrow").innerHTML = VOW_INFO.map(([L,ipa,hint]) =>
      [["ho","usually"],["qa","most"],["pirim","people"],["gyfen","mingle"]]],
     ["dy fenit si di koryt.", "“These animals are inside this house.”",
      [["dy","these"],["fenit","animals"],["si","inside"],["di","this"],["koryt","house"]]],
-    ["ti ja ru do sarym pasen.", "“Long ago, we traveled to that faraway region.”",
-     [["ti","long ago"],["ja","we"],["ru","to"],["do","that (far)"],["sarym","region"],["pasen","go"]]],
+    ["ti ja go do saryt ru pasen.", "“Long ago, we traveled to that faraway region.”",
+     [["ti","long ago"],["ja","we"],["go","endpoint"],["do","that (far)"],["saryt","the region"],["ru","path closer"],["pasen","go"]]],
     ["jy ca hisas ji re.", "“You are healthier than I am.”",
      [["jy","you"],["ca","more"],["hisas","healthy"],["ji","I"],["re","than"]]],
-    ["pu ju qo koryt gosen.", "“They have already built all the houses.”",
-     [["pu","already"],["ju","they"],["qo","all"],["koryt","the houses"],["gosen","build"]]],
+    ["pu ju qo koryt re gosen.", "“They have already built all the houses.”",
+     [["pu","already"],["ju","they"],["qo","all"],["koryt","the houses"],["re","object"],["gosen","build"]]],
     ["num pa pirim pasen.", "“Three people go.”",
      [["num","number:"],["pa","3"],["pirim","people"],["pasen","go"]]],
+    ["wa re ji nifen?", "“What do I eat?”",
+     [["wa","what?"],["re","patient"],["ji","I"],["nifen","eat"]]],
     ["ty di koryt re gosen.", "“This house was built recently.”",
      [["ty","recently"],["di","this"],["koryt","house"],["re","object"],["gosen","build"]]]
   ];
@@ -1658,12 +2232,13 @@ $("#vowrow").innerHTML = VOW_INFO.map(([L,ipa,hint]) =>
 /* ============ ch9: parser ============ */
 function parseWord(raw){
   const w = raw.trim().toLowerCase();
-  const out = {word:w, errors:[], type:null};
+  const out = {word:w, errors:[], type:null, numval:null};
   if (!w) return null;
   if (/[^a-z]/.test(w)){ out.type="content"; out.errors.push("Only the letters a–z occur in Luryt."); return out; }
-  if (w === "num"){
+  if (ATOMS[w]){
+    const [name, gloss] = ATOMS[w];
     out.type = "atomic";
-    out.fixedGloss = "numeral marker — reads the next syllable as a number (num te = 27); clipped from nunu “number”";
+    out.fixedGloss = `${name} — ${gloss}`;
     return out;
   }
   const isCV = s => s.length===2 && CONS.includes(s[0]) && VOWS.includes(s[1]);
@@ -1781,3 +2356,5 @@ function parseWord(raw){
   secs.forEach(s => s && io.observe(s));
 })();
 </script>
+</body>
+</html>

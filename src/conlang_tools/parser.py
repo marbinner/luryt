@@ -1,7 +1,7 @@
 """Word parser and validator for the conlang."""
 
 from dataclasses import dataclass
-from typing import List, Optional, Union
+from typing import List, Optional
 from .constants import (
     ATOMIC_WORDS, CONSONANTS, VOWELS, FINAL_CONSONANTS, PARTICLE_SERIES,
     DOMAINS, ASPECTS, HEAD_KINDS, cv_to_number
@@ -93,8 +93,8 @@ class WordParser:
         Returns:
             ParseResult with complete analysis
         """
-        word = word.upper().strip()
         original = word
+        word = word.upper().strip()
 
         if not word:
             return ParseResult(

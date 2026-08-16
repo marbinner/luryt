@@ -18,3 +18,7 @@ claude_files/
 # Notebooks and scratch work stay out of the public repo
 notebooks/
 tmp/
+
+# Unreferenced image-generation intermediates
+archive/generated_image_*.jpg
+docs/assets/illustrations/ranger_thumb_*.png

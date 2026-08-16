@@ -35,6 +35,10 @@
   functions reserved, forms not yet specified. **V** and **L** remain unallocated.
 - Larger lexicon beyond the 36 core roots
 - Full syntax for complex clauses, subordination, focus, etc.
+- Scope and ordering of free K-series modifiers relative to the event-operator track
+- Combinations of exact numerals with Q-series quantifiers or D-series demonstratives
+- General clause/phrase distribution of manner (`ROOT-l`) and relational (`ROOT-r`) heads
+- W-extraction from inside static-location and oriented-path phrases
 
 Design principle:
 
@@ -164,6 +168,10 @@ Final suffixes (in canonical order):
 | **-s** | Property head    | adjective: “X-like, having X-property”               |
 | **-l** | Manner head      | adverb: “in an X way, X-ly”                          |
 | **-r** | Relational head  | relational NP: “of X, X’s, from X, related-by-X”     |
+
+These six head meanings and their word formation are fixed. The basic syntax below specifies
+entity, event, and property constructions; the general placement and attachment rules for
+`ROOT-l` manner heads and `ROOT-r` relational heads remain deliberately open.
 
 **-m** vs **-t** (v2): **-t** picks out a referent the hearer can identify — a specific
 individual *or* an identifiable plural set (`kory-t` “the house / those houses, you know which”).
@@ -419,7 +427,7 @@ Used as clause particles, typically before the verb.
 | **su**   | among multiple / spread through   | “among X, amidst, throughout” |
 
 Static pattern: `FIGURE S GROUND`
-Dynamic: with motion verbs (`pase-n` “go/move”) → path relative to ground.
+Path-neutral motion: `FIGURE S GROUND MOTION-VERB`; the S-relation describes the path topology.
 
 ---
 
@@ -480,12 +488,12 @@ A cy/ce/ca PROP-s B re
 
 | Form   | Person / number | Gloss         |
 | ------ | --------------- | ------------- |
-| **ji** | 1st singular    | I             |
-| **jy** | 2nd singular    | you (sg)      |
-| **je** | 3rd singular    | he / she / it |
-| **ja** | 1st plural      | we            |
-| **jo** | 2nd plural      | you (pl)      |
-| **ju** | 3rd plural      | they          |
+| **ji** | 1sg             | I             |
+| **jy** | 2sg             | you (sg)      |
+| **je** | 3sg             | he / she / it |
+| **ja** | 1pl             | we            |
+| **jo** | 2pl             | you (pl)      |
+| **ju** | 3pl             | they          |
 
 ---
 
@@ -499,7 +507,7 @@ Each form functions as:
 
 | **Form** | **Config type**         | **Particle gloss**                 | **Prefix gloss (kV-ROOT-m)**                  |
 | -------- | ----------------------- | ---------------------------------- | --------------------------------------------- |
-| **ki**   | singled, atomic         | “as a single unit, alone, singly”  | “one specific X, singled-out unit”            |
+| **ki**   | singled, atomic         | “as a single unit, alone, singly”  | “one singled-out X, an atomic unit”            |
 | **ky**   | pair / dual             | “in pairs, as a pair”              | “a pair of X”                                 |
 | **ke**   | small group             | “in a small group, a few together” | “a small group of X (a few Xs)”               |
 | **ka**   | generic group / crowd   | “as a group, together, in a crowd” | “a group / crowd / community of X”            |
@@ -514,7 +522,11 @@ Examples of **prefix** use:
 
 As a **particle**:
 
-* `ka piri-m pase-n sa sary-m.` – “People go as a group around the region.”
+* `ka piri-m sa sary-m pase-n.` – “People go as a group around the region.”
+
+Current simple examples place a free K-particle immediately before the phrase it configures.
+Its ordering and scope relative to the fixed front-operator track are not yet specified, so K is
+not a slot in the canonical event template (§7.1).
 
 ---
 
@@ -544,9 +556,10 @@ Pattern: `FIGURE  G  (S)  GROUND  ru  MOTION-VERB` — see §7.3.
 | **re**   | patient / theme / standard | “object of, about; ‘than’ in comparatives” |
 | **ra**   | instrument / means         | “with, using, by means of”                 |
 | **ro**   | location / setting         | “at, in, on (place/time)”                  |
-| **ru**   | source/goal / path edge    | “from, to, into/out of (generic DIR)”      |
+| **ru**   | path-frame closer          | closes a G-oriented path phrase; not directional by itself |
 
-`NP + R` pattern: R acts like a postposition.
+`NP + R` pattern: R normally acts like a postposition. In the path construction, **ru** closes
+the complete `G (S) GROUND` frame; the G-series supplies its orientation (§7.3).
 
 ---
 
@@ -610,7 +623,7 @@ Other series (M, T, etc.) may later get parallel **prefix roles** (e.g. degree p
 Each root is **CVCV**. Actual words add a suffix:
 
 * `ROOT-m` – entity
-* `ROOT-t` – specific entity
+* `ROOT-t` – referential entity or set (identifiable in context)
 * `ROOT-n` – event/verb
 * `ROOT-s` – property
 * `ROOT-l` – manner
@@ -776,37 +789,44 @@ Each root is **CVCV**. Actual words add a suffix:
 
 ## 7. Basic Syntax (Provisional)
 
-### 7.1 Default Clause Template
+### 7.1 Default Event-Clause Template
 
-A useful canonical word order:
+A useful canonical order for a clause headed by an event word (`ROOT-n`):
 
 ```text
-[W?] [T] [P] [H] [M] [N] SUBJECT [other NPs + R/S] VERB
+[W (+R)?] [T] [P] [H] [M] [N] [PIVOT] [other NPs + R/S] VERB
 ```
 
 Where:
 
-* **W** – wh-word (wi/wy/we/wa/wo/wu)
+* **W (+R)** – wh-word, optionally followed by the role it questions (§7.4)
 * **T** – time (ti/ty/te/ta/to/tu)
 * **P** – phase/aspect (pi/py/pe/pa/po/pu)
 * **H** – frequency (hi/hy/he/ha/ho/hu)
 * **M** – degree (mi/my/me/ma/mo/mu)
 * **N** – polarity (ni/ny/ne/na/no/nu)
-* **SUBJECT** – pronoun (J) or NP
+* **PIVOT** – optional unmarked pronoun (J) or NP
 * **other NPs + R/S** – arguments and spatial phrases
 * **VERB** – root + `-n`
 
-Many slots are optional; the minimal clause is **SUBJECT + VERB**.
+The smallest pivoted event clause is **PIVOT + VERB**. The pivot may be absent in a fully
+role-marked clause. Static-location and property-predicate clauses use their own patterns below
+and do not require an event word.
+
+The track covers the fixed event operators. Free K-series phrasal modifiers are grammatical in
+the documented simple examples, but their scope and order relative to this track remain open
+(§4.16).
 
 Example:
 
 * `ji zife-n.` – “I speak.”
 * `te py ji zife-n.` – “Now I am speaking.”
 
-**Pivot and roles (v2).** A clause has at most one *unmarked* noun phrase: the **pivot**, in the
-subject slot, read as the most agent-like argument of the verb. Every other argument carries an
-R-series role particle (§7.3). A clause may also be *fully role-marked*, with no pivot at all —
-which is how the agent is omitted, with no passive morphology:
+**Pivot and roles (v2).** An event clause has at most one *unmarked* noun phrase: the **pivot**, in
+the pivot slot, read as the most agent-like argument of the verb. Every other argument carries an
+R-series role particle (§7.3), including a questioned argument (§7.4). A clause may also be
+*fully role-marked*, with no pivot at all — which is how the agent is omitted, with no passive
+morphology:
 
 * `ji kory-t re toki-m ra gose-n.` – “I build the house with a tool.”
 * `ji jy ry qy rufi-m re zife-n.` – “I tell you an idea.”
@@ -824,11 +844,12 @@ narrow scope:
 ### 7.2 Noun Phrase Template
 
 ```text
-[Q] [D] [ROOT-m]
+[Q] [D] [ROOT-{m|t}]
 ```
 
-* **Q** – quantifier (qi/qy/qe/qa/q o/qu)
+* **Q** – quantifier (qi/qy/qe/qa/qo/qu)
 * **D** – demonstrative (di/de/do/dy/da/du)
+* **ROOT-m / ROOT-t** – descriptive or referential entity head
 
 Examples:
 
@@ -836,6 +857,17 @@ Examples:
 * `qa piri-m` – most people
 * `qe da feni-t` – some of those animals (here)
 * `qo du kory-t` – all those houses (over there)
+
+A simple exact-number noun phrase uses the numeral marker and numeric CV directly before its
+entity head:
+
+```text
+[num CV] [ROOT-{m|t}]
+```
+
+* `num pa piri-m` – three people
+
+How an exact numeral combines with Q or D is not specified yet.
 
 Demonstratives point at identifiable referents, so they normally take **-t** heads; a **-m** head
 after a demonstrative gives a kind reading (`da feni-m` ≈ “those sorts of animal”).
@@ -853,7 +885,7 @@ Role particles (R-series):
 * `NP ry` – experiencer/beneficiary (“to/for NP”)
 * `NP ra` – instrument/means (“with, using NP”)
 * `NP ro` – location/setting (“at/in/on NP”)
-* `NP ru` – path edge (“from/to/into/out-of NP”)
+* `G (S) GROUND ru` – completed path frame; G supplies origin/route/goal orientation
 
 Space (v2) distinguishes three constructions:
 
@@ -861,13 +893,16 @@ Space (v2) distinguishes three constructions:
 
 * `di piri-t si di kory-t.` – “This person is inside this house.”
 
-**2 · Location adjunct of an event** — the spatial phrase closed by `ro` (location role):
+**2 · Location adjunct of an event** — the spatial phrase is closed by `ro` (location role):
 
 * `ji si di kory-t ro zife-n.` – “I speak inside this house.”
-* `ji pase-n sa sary-m.` – “I wander around the region.” (path-neutral motion)
 
-**3 · Oriented path** — a G-series particle orients the path, and `ru` closes the whole path
-phrase: `FIGURE  G  (S)  GROUND  ru  MOTION-VERB`
+**3 · Motion path.** An S-phrase alone supplies path topology without choosing an orientation:
+
+* `ji sa sary-m pase-n.` – “I wander around the region.” (path-neutral motion)
+
+A G-series particle adds orientation, and `ru` closes the whole oriented path phrase:
+`FIGURE  G  (S)  GROUND  ru  MOTION-VERB`
 
 * `ji go si di kory-t ru pase-n.` – “I go into this house.” (endpoint + inside)
 * `ji gi si di kory-t ru pase-n.` – “I come out of this house.” (origin + inside)
@@ -882,14 +917,23 @@ goal and the directional example placed `ru` *before* its NP, against the `NP + 
 
 ### 7.4 Questions
 
-**Wh-questions**: use W-series.
+**Wh-questions** use the W-series and keep the W-word clause-initial. A W-word that questions the
+pivot is unmarked. If it questions any other event participant or setting, its ordinary
+R-series marker follows it immediately; the W+R phrase remains ahead of T/P/H/M/N. W-words used
+as non-role operators (time, reason, manner) remain unmarked.
 
 * `wo zife-n?` – “Who speaks?”
-* `wa ji nife-n?` – “What do I eat?”
+* `wa re ji nife-n?` – “What do I eat?” (patient)
+* `wo ry ji qy rufi-m re zife-n?` – “To whom do I tell an idea?” (beneficiary)
+* `wa ra ji di kory-t re gose-n?` – “With what do I build this house?” (instrument)
+* `wo ri di kory-t re gose-n?` – “By whom was this house built?” (explicit agent; no pivot)
 * `wi ju pase-n?` – “When do they go?”
 * `wy je guse-n?` – “Why does he/she think?”
-* `we je nife-n?` – “Where does he/she eat?”
+* `we ro je nife-n?` – “Where does he/she eat?” (event setting)
 * `wu je zife-n?` – “How does he/she speak?”
+
+This rule does not extract a W-word from inside a static S construction or an oriented G…`ru`
+path frame; those question constructions remain open (§0).
 
 **Yes/no questions**: same clause + question intonation / `?`.
 
@@ -993,9 +1037,11 @@ d = 5 * c_index + v_index
 
 ### 8.1 The numeral marker `num` (v2)
 
-Every numeric CV is homophonous with some particle (`te` is both “now” and 27), which left weak
-contexts genuinely ambiguous. Counting is therefore announced by **num** — the language’s first
-fixed atomic form longer than CV, a clipped entity form of **nunu** “number”:
+Seventy of the hundred numeric CVs are homophonous with defined particles (`te` is both “now”
+and 27). The remaining thirty use the six reserved or unallocated series consonants and currently
+have only a numeric reading. Because collisions are nevertheless systematic and common, ordinary
+numeric expressions are announced uniformly by **num** — the language’s first fixed atomic form
+longer than CV, a clipped entity form of **nunu** “number”:
 
 * `num pi` – “zero”
 * `num te` – “twenty-seven”

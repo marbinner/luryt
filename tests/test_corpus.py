@@ -1,7 +1,7 @@
-"""Every example sentence in the spec's style must parse, token by token.
+"""Selected v2 example sentences must contain well-formed words.
 
-This corpus mirrors the examples in docs/spec.md (v2). If a language change
-invalidates one of these sentences, the spec prose needs updating too.
+This is deliberately a word-shape check, not a sentence-grammar parser.
+Semantic and word-order contracts have separate regression tests.
 """
 
 import pytest
@@ -27,13 +27,19 @@ CORPUS = [
     # space: static, adjunct, oriented path
     "di pirit si di koryt",
     "ji si di koryt ro zifen",
-    "ji pasen sa sarym",
+    "ji sa sarym pasen",
     "ji go si di koryt ru pasen",
     "ji gi si di koryt ru pasen",
     "ja ge su belym ru pasen",
     "je gu si di koryt ru pasen",
     # questions and answers
     "wo zifen",
+    "wa re ji nifen",
+    "wo ry ji qy rufim re zifen",
+    "wa ra ji di koryt re gosen",
+    "wo ri di koryt re gosen",
+    "we ro je nifen",
+    "wu je zifen",
     "wi ju pasen",
     "ni",
     "na",
@@ -41,8 +47,11 @@ CORPUS = [
     "ji ca gusas de pirit re",
     "ji co gusas",
     # grouping: particle vs prefix
-    "ka pirim pasen sa sarym",
+    "ka pirim sa sarym pasen",
     "kapirim pasen",
+    # corrected guide drills
+    "ti ja go do saryt ru pasen",
+    "pu ju qo koryt re gosen",
     # numerals
     "num pi",
     "num te",

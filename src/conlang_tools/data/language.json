@@ -446,8 +446,8 @@
         "at, in, on (place/time)"
       ],
       "RU": [
-        "path edge",
-        "from, to, into/out of (generic DIR)"
+        "path-frame closer",
+        "closes a G-oriented path phrase; orientation comes from the G-series"
       ]
     },
     "H": {

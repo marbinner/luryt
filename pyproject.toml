@@ -18,6 +18,13 @@ build-backend = "hatchling.build"
 [tool.hatch.build.targets.wheel]
 packages = ["src/conlang_tools"]
 
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.agents/**",
+    "/archive/generated_image_*.jpg",
+    "/docs/assets/illustrations/ranger_thumb_*.png",
+]
+
 [dependency-groups]
 dev = [
     "pytest>=8.0",

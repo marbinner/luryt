@@ -99,8 +99,11 @@ def number_to_cv(n: int) -> str:
         The CV syllable representation
 
     Raises:
-        ValueError: If n is out of range
+        ValueError: If n is not an integer or is out of range
     """
+    if isinstance(n, bool) or not isinstance(n, int):
+        raise ValueError(f"Number must be an integer between 0 and 99, got: {n!r}")
+
     if not 0 <= n <= 99:
         raise ValueError(f"Number must be between 0 and 99, got: {n}")
 

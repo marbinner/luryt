@@ -21,6 +21,13 @@ def test_content_word_with_prefix(parser):
     assert (r.domain, r.aspect) == ("I", "I")
 
 
+def test_parse_preserves_original_input(parser):
+    r = parser.parse("  kapirim ")
+    assert r.is_valid
+    assert r.original == "  kapirim "
+    assert r.root == "PIRI"
+
+
 def test_bare_content_word(parser):
     r = parser.parse("zifes")
     assert r.is_valid
@@ -70,3 +77,9 @@ def test_number_out_of_range():
         number_to_cv(100)
     with pytest.raises(ValueError):
         cv_to_number("tu")  # U is not a numeric vowel
+
+
+@pytest.mark.parametrize("bad", [1.5, True, "1", None])
+def test_number_rejects_non_integers(bad):
+    with pytest.raises(ValueError, match="must be an integer"):
+        number_to_cv(bad)

@@ -10,24 +10,32 @@ from .constants import PARTICLE_SERIES, CORE_ROOTS, number_to_cv, cv_to_number
 def cmd_parse(args):
     """Parse and analyze words."""
     parser = WordParser()
+    all_valid = True
 
     for word in args.words:
         result = parser.parse(word)
+        all_valid = all_valid and result.is_valid
         print(result)
         print()
+
+    return 0 if all_valid else 1
 
 
 def cmd_validate(args):
     """Validate words."""
     parser = WordParser()
+    all_valid = True
 
     for word in args.words:
         result = parser.parse(word)
+        all_valid = all_valid and result.is_valid
         status = "✓ VALID" if result.is_valid else "✗ INVALID"
         print(f"{word}: {status}")
         if result.errors and args.verbose:
             for error in result.errors:
                 print(f"  - {error}")
+
+    return 0 if all_valid else 1
 
 
 def cmd_reference(args):
@@ -53,9 +61,13 @@ def cmd_reference(args):
             print(f"    {description}")
             print()
 
+    return 0
+
 
 def cmd_number(args):
     """Convert between numbers and CV syllables."""
+    status = 0
+
     if args.to_cv:
         # Convert numbers to CV
         for num in args.to_cv:
@@ -63,7 +75,8 @@ def cmd_number(args):
                 cv = number_to_cv(num)
                 print(f"{num} → {cv.lower()}")
             except ValueError as e:
-                print(f"Error for {num}: {e}")
+                print(f"Error for {num}: {e}", file=sys.stderr)
+                status = 1
 
     if args.to_num:
         # Convert CV to numbers
@@ -72,10 +85,13 @@ def cmd_number(args):
                 num = cv_to_number(cv)
                 print(f"{cv.lower()} → {num}")
             except ValueError as e:
-                print(f"Error for {cv}: {e}")
+                print(f"Error for {cv}: {e}", file=sys.stderr)
+                status = 1
+
+    return status
 
 
-def main():
+def main() -> int:
     """Main CLI entry point."""
     parser = argparse.ArgumentParser(
         description='Luryt parsing and reference tools',
@@ -114,14 +130,17 @@ def main():
 
     if not args.command:
         parser.print_help()
-        sys.exit(1)
+        return 1
+
+    if args.command == 'num' and not args.to_cv and not args.to_num:
+        num_parser.error("at least one of --to-cv or --to-num is required")
 
     if hasattr(args, 'func'):
-        args.func(args)
-    else:
-        parser.print_help()
-        sys.exit(1)
+        return args.func(args)
+
+    parser.print_help()
+    return 1
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
