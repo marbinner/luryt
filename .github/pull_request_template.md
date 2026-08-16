@@ -5,10 +5,10 @@
 ## For language changes only
 
 - [ ] Linked to an `accepted` proposal issue: #
-- [ ] `src/conlang_tools/data/language.json` updated
-- [ ] `docs/spec.md` updated (new forms appear **bolded**)
-- [ ] `docs/index.html` data block updated
-- [ ] `uv run pytest -q` and `node scripts/check_guide_sync.mjs` pass locally
+- [ ] Canonical files under `language/` updated
+- [ ] `uv run python scripts/language.py generate` run
+- [ ] Generated snapshots committed
+- [ ] `uv run python scripts/language.py check` and `uv run pytest -q` pass locally
 
 ## For code changes
 

@@ -1,4 +1,4 @@
-"""Integrity checks for the canonical language data (language.json)."""
+"""Integrity checks for compiled data against the canonical grammar source."""
 
 import re
 from pathlib import Path
@@ -10,16 +10,20 @@ from conlang_tools.constants import (
     ATOMIC_WORDS,
     CONSONANTS,
     CORE_ROOTS,
+    DERIVATIONAL_PREFIX_SERIES,
     DOMAINS,
     FINAL_CONSONANTS,
     HEAD_KINDS,
     NUMERAL_BASE,
     NUMERIC_VOWELS,
     PARTICLE_SERIES,
+    PREFIX_FORMS,
     VOWELS,
 )
 
-SPEC = (Path(__file__).parent.parent / "docs" / "spec.md").read_text(encoding="utf-8").lower()
+SPEC = (
+    Path(__file__).parent.parent / "language" / "grammar" / "foundational.md"
+).read_text(encoding="utf-8").lower()
 
 
 def _normalized(text):
@@ -51,6 +55,8 @@ def test_inventories():
     assert list(HEAD_KINDS) == list(FINAL_CONSONANTS)
     assert set(DOMAINS) == set(VOWELS)
     assert set(ASPECTS) == set(VOWELS)
+    assert DERIVATIONAL_PREFIX_SERIES == ("K",)
+    assert PREFIX_FORMS == frozenset(PARTICLE_SERIES["K"])
 
 
 def test_core_roots_cover_matrix_exactly_once():
@@ -76,7 +82,7 @@ def test_series_use_own_consonant_and_full_vowel_scale(series, particles):
 
 
 def test_spec_documents_every_canonical_form():
-    """Inventory drift alarm for language.json versus docs/spec.md."""
+    """Inventory drift alarm for structured data versus the foundational source."""
     missing = [r for r in CORE_ROOTS if f"**{r.lower()}**" not in SPEC]
     assert not missing, f"roots in language.json but not bolded in spec.md: {missing}"
     missing = [

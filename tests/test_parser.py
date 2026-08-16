@@ -27,6 +27,14 @@ def test_content_word_with_prefix(parser):
     assert (r.domain, r.aspect) == ("I", "I")
 
 
+@pytest.mark.parametrize("word", ["xupirim", "papirim", "bipirim"])
+def test_undefined_prefixes_are_rejected(parser, word):
+    result = parser.parse(word)
+    assert not result.is_valid
+    assert result.prefixes
+    assert any("not standardized" in error for error in result.errors)
+
+
 def test_parse_preserves_original_input(parser):
     r = parser.parse("  kapirim ")
     assert r.is_valid

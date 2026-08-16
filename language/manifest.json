@@ -1,0 +1,14 @@
+{
+  "project": "luryt",
+  "display_name": "Luryt",
+  "language_version": "2",
+  "schema_version": 1,
+  "data_sources": [
+    "data/inventory.json",
+    "data/particles.json",
+    "data/roots.json",
+    "data/lexemes.json",
+    "data/examples.json"
+  ],
+  "grammar_source": "grammar/foundational.md"
+}

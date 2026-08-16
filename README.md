@@ -20,8 +20,9 @@ Nothing is irregular. Nothing has to be memorized that could instead be computed
 
 **Start here → [the interactive guide](https://marbinner.github.io/luryt/)** — the
 whole language on one page, with a live word parser, the 6×6 root matrix, and
-reading practice. The normative reference is the [foundational spec](https://marbinner.github.io/luryt/spec.html)
-([`docs/spec.md`](docs/spec.md) in the repo).
+reading practice. Browse the separate [dictionary](https://marbinner.github.io/luryt/dictionary/),
+or consult the normative [foundational spec](https://marbinner.github.io/luryt/spec.html)
+([canonical Markdown](language/grammar/foundational.md) in the repo).
 
 ## How the language works, in three rules
 
@@ -44,16 +45,17 @@ empty slots are:
 - **6 consonants** (`b f v z l x`) are reserved for future particle families
   (four already earmarked: mood, coordination, subordination, discourse reference)
 - the **36 matrix cells** each hold one core root — with room for many more
-- **negative numbers, fractions, ordinals**, **conjunctions**, and **complex-clause syntax** are open
+- **negative numbers, fractions, decimals, and ordinals**, **conjunctions**, and **complex-clause syntax** are open
 - only the K-family works as a prefix so far; more prefix families are anticipated
 
 Proposals go through issues (there are templates), discussion happens in
-GitHub Discussions, and accepted changes land as PRs against the spec and data.
-See [CONTRIBUTING.md](CONTRIBUTING.md) for the process.
+GitHub Discussions, and accepted changes land as PRs against the canonical
+sources. See [CONTRIBUTING.md](CONTRIBUTING.md) for the process.
 
-The single machine-readable source of truth is
-[`src/conlang_tools/data/language.json`](src/conlang_tools/data/language.json);
-CI keeps the spec, the tooling, and the guide honest against it.
+Canonical language sources live together under [`language/`](language/):
+structured facts are modular JSON, and normative grammar is Markdown. A
+deterministic compiler validates those sources and produces the identical
+machine-readable bundle used by the Python package, guide, and dictionary.
 
 ## Tooling
 
@@ -73,12 +75,17 @@ uv run luryt num --to-num "py pi"  # -> 100 (quote a multi-block run)
 ## Repository layout
 
 ```
-docs/spec.md                     the normative language spec (also served on Pages)
+docs/spec.md                     generated published spec (served on Pages)
 docs/index.html                  the interactive guide (GitHub Pages)
+docs/dictionary/                 the data-driven dictionary page
+docs/data/language.json          generated website data
+language/data/                   canonical structured language facts
+language/grammar/foundational.md canonical normative grammar
+language/schema/                 compiled-data contract
 src/conlang_tools/               Python tooling
-src/conlang_tools/data/language.json   canonical language data
+src/conlang_tools/data/language.json   generated package snapshot
 tests/                           parser tests + data/spec integrity checks
-scripts/check_guide_sync.mjs     guide <-> data drift check
+scripts/language.py              validate/generate/check canonical sources
 archive/doc_v15.md              previous official specification
 ```
 

@@ -1,11 +1,9 @@
-"""Constants for the conlang phonology and grammar.
+"""Constants for Luryt phonology and grammar.
 
-The single source of truth for the language's data is
-``src/conlang_tools/data/language.json``. This module loads it and exposes
-the same names the rest of the package (and downstream users) rely on.
-To change the language — add a root, define a particle series — edit the
-JSON file, not this module. CI checks that the spec (``spec.md``) and the
-web guide (``docs/index.html``) stay in sync with it.
+This module loads the generated package snapshot at
+``src/conlang_tools/data/language.json`` and preserves the public constants
+used by the parser and downstream code. Canonical edits belong under
+``language/``; run ``scripts/language.py generate`` to refresh this file.
 """
 
 import json
@@ -59,6 +57,16 @@ PARTICLE_SERIES: Dict[str, Dict[str, Tuple[str, str]]] = {
     series: {form: tuple(meaning) for form, meaning in particles.items()}
     for series, particles in _DATA["particle_series"].items()
 }
+
+# Particle series whose forms have standardized bound-prefix readings
+DERIVATIONAL_PREFIX_SERIES: Tuple[str, ...] = tuple(
+    _DATA["derivational_prefix_series"]
+)
+PREFIX_FORMS: frozenset[str] = frozenset(
+    form
+    for series in DERIVATIONAL_PREFIX_SERIES
+    for form in PARTICLE_SERIES[series]
+)
 
 # Core lexicon (36 roots from the semantic matrix)
 CORE_ROOTS: Dict[str, Dict[str, str]] = _DATA["core_roots"]

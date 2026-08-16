@@ -1,0 +1,47 @@
+name: "Proposal: dictionary word or sense"
+description: Propose an established sense for a complete Luryt word
+title: "[word] "
+labels: ["proposal", "lexicon"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The dictionary distinguishes productive analyses from established
+        complete-word senses. Use this template when a regularly formed word
+        should receive a curated definition in `language/data/lexemes.json`.
+  - type: input
+    id: form
+    attributes:
+      label: Complete word
+      description: Include every prefix, the CVCV root, and the final head.
+      placeholder: pirim
+    validations:
+      required: true
+  - type: input
+    id: analysis
+    attributes:
+      label: Morphological analysis
+      placeholder: piri + -m
+    validations:
+      required: true
+  - type: textarea
+    id: definition
+    attributes:
+      label: Proposed definition and short gloss
+      description: Explain what conventional sense is added beyond the regular analysis.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Usage evidence
+      description: Give 3–5 contrasting example sentences and translations.
+    validations:
+      required: true
+  - type: textarea
+    id: boundaries
+    attributes:
+      label: Boundaries and nearby words
+      description: State what this sense does not cover and any roots or words it could overlap.
+    validations:
+      required: true

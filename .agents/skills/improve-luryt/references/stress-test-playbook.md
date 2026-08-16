@@ -50,6 +50,12 @@ Include:
 - holdout analyses appended only after candidate freeze and the pre-holdout reruns; and
 - fresh regression cases kept separate from the frozen corpus.
 
+Also maintain the machine-readable `audit-state.json` described in
+[audit-integrity.md](audit-integrity.md). Pass and seal its manifest, pre-holdout, and final gates
+at the corresponding workflow boundaries. The checker validates IDs, hashes, summaries, holdout
+separation, generated-case arithmetic, the atomicity ledger, and implementation traceability; it
+does not decide whether a semantic analysis is correct.
+
 The frozen manifest should contain the task and coverage intent, not a desired Luryt expression or expected PASS/failure label. Do not alter prompt wording, coverage fields, or partition after hashing. If a correction is unavoidable, preserve the old manifest, create a new version and hash, and explain why the run restarted. A summary is not a substitute for the full matrix.
 
 ## Target-specific pressure

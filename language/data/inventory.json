@@ -1,0 +1,115 @@
+{
+  "consonants": "PBMFVTDNQSZLCWXJKGRH",
+  "vowels": "IYEAOU",
+  "numeric_vowels": "IYEAO",
+  "numeral_base": 100,
+  "final_consonants": "MTNSLR",
+  "consonant_ipa": {
+    "P": "/p/",
+    "B": "/b/",
+    "M": "/m/",
+    "F": "/f/",
+    "V": "/v/",
+    "T": "/t/",
+    "D": "/d/",
+    "N": "/n/",
+    "Q": "/ts/",
+    "S": "/s/",
+    "Z": "/z/",
+    "L": "/l/",
+    "C": "/tʃ/",
+    "W": "/dʒ/",
+    "X": "/ʃ/",
+    "J": "/j/",
+    "K": "/k/",
+    "G": "/g/",
+    "R": "/ʀ/",
+    "H": "/h/"
+  },
+  "vowel_ipa": {
+    "I": "/i/",
+    "Y": "/y/",
+    "E": "/e/",
+    "A": "/a/",
+    "O": "/o/",
+    "U": "/u/"
+  },
+  "head_kinds": {
+    "M": {
+      "label": "Entity head",
+      "gloss": "descriptive noun: \"an X / X-things\" (class or non-anchored, no particular one)"
+    },
+    "T": {
+      "label": "Referential head",
+      "gloss": "identifiable noun: \"the X\" (a specific individual or set we can identify)"
+    },
+    "N": {
+      "label": "Event head",
+      "gloss": "verb: \"to X / X happens\""
+    },
+    "S": {
+      "label": "Property head",
+      "gloss": "adjective: \"X-like, having X-property\""
+    },
+    "L": {
+      "label": "Manner head",
+      "gloss": "adverb: \"in an X way, X-ly\""
+    },
+    "R": {
+      "label": "Relational head",
+      "gloss": "relational NP: \"of X, X's, from X, related-by-X\""
+    }
+  },
+  "domains": {
+    "I": {
+      "label": "PERSON",
+      "gloss": "individual humans: body, mind, experience"
+    },
+    "Y": {
+      "label": "SOCIETY",
+      "gloss": "families, groups, institutions, culture"
+    },
+    "E": {
+      "label": "LIFE",
+      "gloss": "non-human life: animals, plants, ecosystems"
+    },
+    "A": {
+      "label": "PHYSICAL",
+      "gloss": "non-living world: matter, space, energy, weather"
+    },
+    "O": {
+      "label": "ARTEFACT",
+      "gloss": "tools, objects, machines, buildings, infrastructure"
+    },
+    "U": {
+      "label": "ABSTRACT",
+      "gloss": "ideas, language, math, logic, information"
+    }
+  },
+  "aspects": {
+    "I": {
+      "label": "INDIVIDUAL",
+      "gloss": "basic \"things/actors\" in that domain"
+    },
+    "Y": {
+      "label": "CONFIG",
+      "gloss": "parts, wholes, groups, layouts, structures, systems"
+    },
+    "E": {
+      "label": "PROCESS",
+      "gloss": "activities, processes, changes, doing"
+    },
+    "A": {
+      "label": "STATE",
+      "gloss": "relatively stable conditions/qualities"
+    },
+    "O": {
+      "label": "RELATION",
+      "gloss": "links/roles between things"
+    },
+    "U": {
+      "label": "QUANTITY",
+      "gloss": "measures, magnitudes, degrees"
+    }
+  }
+}

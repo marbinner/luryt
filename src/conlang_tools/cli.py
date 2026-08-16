@@ -15,6 +15,11 @@ def _configure_output_streams() -> None:
             reconfigure(errors="backslashreplace")
 
 
+def _configure_integer_conversion() -> None:
+    """Honor Luryt's deliberately unbounded numeral block count."""
+    sys.set_int_max_str_digits(0)
+
+
 def cmd_parse(args):
     """Parse and analyze words."""
     parser = WordParser()
@@ -103,6 +108,7 @@ def cmd_number(args):
 
 def main() -> int:
     """Main CLI entry point."""
+    _configure_integer_conversion()
     _configure_output_streams()
 
     parser = argparse.ArgumentParser(

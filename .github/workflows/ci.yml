@@ -14,14 +14,19 @@ jobs:
       - uses: astral-sh/setup-uv@v5
 
       - name: Install
-        run: uv sync
+        run: uv sync --locked
 
-      - name: Tests (parser, numbers, data integrity, spec sync)
+      - name: Canonical language sources
+        run: uv run python scripts/language.py check
+
+      - name: Tests (parser, numbers, data, docs, repository contracts)
         run: uv run pytest -q
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Guide sync (docs/index.html vs language.json)
-        run: node scripts/check_guide_sync.mjs
+      - name: Website JavaScript syntax
+        run: |
+          node --check docs/assets/js/guide.mjs
+          node --check docs/assets/js/dictionary.mjs

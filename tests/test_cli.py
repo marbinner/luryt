@@ -32,6 +32,13 @@ def test_invalid_words_exit_nonzero():
     assert run_cli("validate", "piri").returncode == 1
 
 
+def test_undefined_prefixes_exit_nonzero():
+    result = run_cli("validate", "--verbose", "xupirim", "papirim", "bipirim")
+    assert result.returncode == 1
+    assert result.stdout.count("INVALID") == 3
+    assert result.stdout.count("not standardized") == 3
+
+
 def test_number_conversion_error_exits_nonzero_on_stderr():
     result = run_cli("num", "--to-cv", "-1")
     assert result.returncode == 1
@@ -48,6 +55,21 @@ def test_number_command_requires_a_direction():
     result = run_cli("num")
     assert result.returncode == 2
     assert "at least one of --to-cv or --to-num is required" in result.stderr
+
+
+def test_number_command_supports_unbounded_numeral_runs():
+    decimal = "9" * 4400
+    numeric_cv = " ".join(["ho"] * 2200)
+
+    encoded = run_cli("num", "--to-cv", decimal)
+    assert encoded.returncode == 0
+    assert encoded.stderr == ""
+    assert encoded.stdout == f"{decimal} -> {numeric_cv}\n"
+
+    decoded = run_cli("num", "--to-num", numeric_cv)
+    assert decoded.returncode == 0
+    assert decoded.stderr == ""
+    assert decoded.stdout == f"{numeric_cv} -> {decimal}\n"
 
 
 def test_unicode_lookalikes_exit_nonzero():

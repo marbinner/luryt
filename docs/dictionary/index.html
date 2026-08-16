@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Search the canonical roots, particles, heads, and dictionary entries of Luryt.">
+  <title>Luryt Dictionary</title>
+  <link rel="icon" href="../assets/luryt-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/dictionary.css">
+</head>
+<body>
+  <nav class="topbar" aria-label="Project">
+    <a class="brand" href="../">
+      <img src="../assets/luryt-mark.svg" width="30" height="30" alt="">
+      <span>luryt</span>
+    </a>
+    <div class="navlinks">
+      <a href="../">Guide</a>
+      <a href="../spec.html">Foundational document</a>
+      <a href="https://github.com/marbinner/luryt">Contribute ↗</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Canonical reference</p>
+      <h1>Dictionary</h1>
+      <p class="lede">Roots, particles, word-building heads, and established complete-word
+      senses—all read from the same generated language data used by the parser and guide.</p>
+    </div>
+    <div class="snapshot" id="snapshot" aria-live="polite">Loading language data…</div>
+  </header>
+
+  <main>
+    <section class="search-panel" aria-label="Dictionary filters">
+      <label class="search">
+        <span>Search form, meaning, or gloss</span>
+        <input id="query" type="search" autocomplete="off" placeholder="Try piri, person, relation…">
+      </label>
+      <label>
+        <span>Entry type</span>
+        <select id="kind">
+          <option value="">All entries</option>
+          <option value="lexeme">Established words</option>
+          <option value="root">Roots</option>
+          <option value="particle">Particles</option>
+          <option value="head">Heads</option>
+          <option value="atom">Fixed words</option>
+        </select>
+      </label>
+      <label>
+        <span>Domain</span>
+        <select id="domain"><option value="">All domains</option></select>
+      </label>
+      <label>
+        <span>Aspect</span>
+        <select id="aspect"><option value="">All aspects</option></select>
+      </label>
+      <button id="clear" type="button">Clear</button>
+    </section>
+
+    <div class="result-bar">
+      <p id="resultCount" aria-live="polite"></p>
+      <p class="legend"><span class="dot established"></span> established sense
+        <span class="dot productive"></span> productive form</p>
+    </div>
+
+    <section id="entries" class="entries" aria-label="Dictionary entries"></section>
+    <p id="empty" class="empty" hidden>No entries match those filters.</p>
+
+    <aside class="scope-note">
+      <h2>What counts as a dictionary entry?</h2>
+      <p>A root fixes a semantic region, and the six heads create regular possible words from
+      it. Those forms are shown as <em>productive</em>; they are not automatically claimed to
+      have conventional senses. Complete words appear as <em>established</em> only when a
+      curated lexeme record has been added to the canonical data.</p>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Data schema <span id="schemaVersion">—</span> · language version
+      <span id="languageVersion">—</span> · <a href="../data/language.json">download JSON</a></p>
+  </footer>
+
+  <script type="module" src="../assets/js/dictionary.mjs"></script>
+</body>
+</html>

@@ -5,14 +5,16 @@ from pathlib import Path
 
 
 DOCS = Path(__file__).parent.parent / "docs"
-GUIDE = (DOCS / "index.html").read_text(encoding="utf-8")
+GUIDE_HTML = (DOCS / "index.html").read_text(encoding="utf-8")
+GUIDE_SCRIPT = (DOCS / "assets" / "js" / "guide.mjs").read_text(encoding="utf-8")
+GUIDE = GUIDE_HTML + "\n" + GUIDE_SCRIPT
 ILLUSTRATIONS = DOCS / "assets" / "illustrations"
 
 
 def test_static_guide_asset_references_exist():
     refs = re.findall(
         r'(?:src|href)="([^"#]+\.(?:webp|png|jpg|svg))"',
-        GUIDE,
+        GUIDE_HTML,
         flags=re.IGNORECASE,
     )
     local_refs = [ref for ref in refs if not ref.startswith(("http://", "https://", "data:"))]
@@ -28,3 +30,17 @@ def test_javascript_generated_illustrations_exist():
     missing = sorted(name for name in names if not (ILLUSTRATIONS / name).is_file())
     assert names
     assert not missing, f"guide generates references to missing illustrations: {missing}"
+
+
+def test_dictionary_local_assets_exist():
+    page = DOCS / "dictionary" / "index.html"
+    html = page.read_text(encoding="utf-8")
+    refs = re.findall(
+        r'(?:src|href)="([^"#]+\.(?:css|mjs|json|svg))"',
+        html,
+        flags=re.IGNORECASE,
+    )
+    local_refs = [ref for ref in refs if not ref.startswith(("http://", "https://", "data:"))]
+    missing = [ref for ref in local_refs if not (page.parent / ref).resolve().is_file()]
+    assert local_refs
+    assert not missing, f"dictionary references missing local assets: {missing}"

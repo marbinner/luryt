@@ -9,31 +9,38 @@ naming — are **design decisions, not patches**. The flow:
 
 1. **Not sure yet? Open a Discussion.** Half-formed ideas are welcome there.
 2. **Concrete idea? Open an issue** using one of the proposal templates
-   (new root / new particle family / grammar change). A good proposal states
-   what slot it fills, why this form, and shows example sentences.
+   (new root / dictionary word or sense / new particle family / grammar
+   change). A good proposal states what slot it fills, why this form, and shows
+   example sentences.
 3. **The language editor decides.**
    Accepted proposals get the `accepted` label.
-4. **A PR lands the change everywhere at once.** The language lives in three
-   synchronized places, and CI fails unless they agree:
-   - `src/conlang_tools/data/language.json` — the canonical data
-   - `docs/spec.md` — the normative prose (forms and their canonical semantic
-     labels are checked against the data)
-   - `docs/index.html` — the guide's inline data block (inventories,
-     pronunciations, primary semantic labels, root glosses, and fixed atoms are
-     checked; longer teaching glosses may be reworded)
+4. **A PR edits the canonical source and regenerates its consumers.**
+   - `language/data/*.json` — structured facts such as inventories,
+     morphemes, roots, established lexemes, and examples
+   - `language/grammar/foundational.md` — normative grammar and interpretation
+   - generated files under `docs/` and `src/conlang_tools/data/` — never
+     edited directly
+
+   The authority boundary is documented in `language/README.md`. The compiler
+   validates the source model and deterministically creates the package,
+   website, schema, and published-spec snapshots.
 
 Run the checks locally before pushing:
 
 ```bash
 uv sync
+uv run python scripts/language.py generate
+uv run python scripts/language.py check
 uv run pytest -q
-node scripts/check_guide_sync.mjs
+node --check docs/assets/js/guide.mjs
+node --check docs/assets/js/dictionary.mjs
 ```
 
 ### What makes a proposal easy to accept
 
 - It fills a slot the spec already reserves (an unused consonant series, an
-  under-populated matrix cell, numbers ≥ 100, conjunctions…).
+  under-populated matrix cell, negative numbers, fractions, decimals, and ordinals,
+  conjunctions…).
 - It follows the existing design language: series use one consonant crossed
   with `i y e a o u` mapped to a monotone semantic scale; roots are CVCV with
   vowels matching their matrix cell; particles should double as prefixes where
@@ -52,8 +59,8 @@ ordinary open-source code: fork, branch, PR. Please:
 
 - use `uv` (`uv sync`, `uv run pytest`),
 - add tests for behavior changes,
-- read language data from `constants.py` (which loads `language.json`) —
-  never hardcode roots or particles in code.
+- read language data from `constants.py` (which loads the generated package
+  snapshot) — never hardcode roots or particles in code.
 
 ## Setup
 
@@ -61,6 +68,7 @@ ordinary open-source code: fork, branch, PR. Please:
 git clone git@github.com:marbinner/luryt.git
 cd luryt
 uv sync
+uv run python scripts/language.py check
 uv run pytest -q          # should pass
 uv run luryt parse kapirim  # should segment ka-piri-m
 ```

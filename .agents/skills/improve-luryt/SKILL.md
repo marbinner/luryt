@@ -18,8 +18,8 @@ Make one semantic design decision per run. Treat the documentation, data, exampl
 Resolve the repository root before using the paths below. Preserve unrelated work in the worktree.
 
 1. Read CONTRIBUTING.md in full.
-2. Map the headings and cross-references in docs/spec.md. Read section 0, the complete section under test, and every section whose behavior directly interacts with it. Read the full spec only when the target is genuinely global or its dependencies cannot be bounded.
-3. Inspect the relevant entries in src/conlang_tools/data/language.json, the machine-readable source of truth for structured language data.
+2. Map the headings and cross-references in language/grammar/foundational.md. Read section 0, the complete section under test, and every section whose behavior directly interacts with it. Read the full spec only when the target is genuinely global or its dependencies cannot be bounded.
+3. Inspect the relevant canonical files under language/data/. Generated JSON under src/ and docs/ is consumer output, not an editing target.
 4. Inspect the relevant parser and tests. Remember that the current parser establishes word-form validity, not sentence-level grammaticality or meaning.
 5. Inspect docs/index.html only when it contains target facts or examples, or when implementation is authorized. Treat archive/ as historical evidence only. Do not restore an older rule merely because it existed before.
 6. Record git status and content hashes for every authoritative target file. Give this source set one snapshot label and use it throughout the run.
@@ -59,6 +59,11 @@ Freeze the coverage plan with the prompts. Give every manifest row a stable ID, 
 Treat the 24–40 cases as the semantic corpus, not as a ceiling on generated checks. When the target is finite or algorithmic, predeclare useful properties and equivalence classes, then add bounded exhaustive or reproducibly sampled checks. Record the oracle, range, count, and random seed where applicable. Generated checks supplement the meaningful cases; their raw count does not turn one structural defect into many independent failures.
 
 Before analysis, create the auditable artifact defined in the playbook. Store it outside the repository for proposal-only work, report its path, and hash the frozen prompt manifest. If no temporary filesystem is available, include the complete artifact in the final response. Do not keep the only copy in private working notes.
+
+Make the audit machine-checkable. Read [the audit-integrity reference](references/audit-integrity.md)
+in full, initialize `audit-state.json` with `scripts/check_audit.py`, populate it, and pass the
+`manifest --seal` gate before classifying any case. Treat a gate failure as a workflow failure;
+repair the artifact, not the evidence, before continuing.
 
 Test the current language without editing authoritative files. Include ordinary controls, minimal pairs, boundary cases, interactions with other systems, scope or attachment traps, productive novel examples, and realistic translation pressure. Reuse existing vocabulary where possible so a missing root is not mistaken for a grammar failure.
 
@@ -111,10 +116,12 @@ Apply the candidate hypothetically before editing the repository.
 2. Re-run every failing discovery case.
 3. Verify that passing controls still pass.
 4. Re-run every predeclared property or generated check that applies to the candidate.
-5. If the candidate changes before holdout analysis, preserve the superseded version and its results, classify the edit as editorial or semantic, freeze and hash a new version, and repeat steps 2–4. Any edit that changes a licensed form, reading, boundary, precedence, or exception is semantic even if described as a refinement.
-6. Open and analyze the frozen holdout set without altering its prompt text.
-7. Generate fresh counterexamples aimed specifically at ambiguity, overgeneration, scope leaks, collisions, and irregularity.
-8. Compare the result with the unchanged language.
+5. Populate the machine-readable candidate, ledger, rerun, and generated-check records. Pass the
+   `pre-holdout --seal` audit gate. Do not inspect any holdout outcome until it passes.
+6. If the candidate changes before holdout analysis, preserve the superseded version and its results, classify the edit as editorial or semantic, freeze and hash a new version, and repeat steps 2–5. Any edit that changes a licensed form, reading, boundary, precedence, or exception is semantic even if described as a refinement.
+7. Open and analyze the frozen holdout set without altering its prompt text.
+8. Generate fresh counterexamples aimed specifically at ambiguity, overgeneration, scope leaks, collisions, and irregularity.
+9. Compare the result with the unchanged language.
 
 Once any holdout outcome has been inspected, do not tune the candidate against it and continue calling that set a holdout. A semantic revision after opening it turns those rows into discovery evidence; either evaluate the revision on a newly frozen untouched holdout of adequate size or reject it for this run.
 
@@ -145,15 +152,19 @@ For an implementation task, treat the user's explicit implementation request or 
 
 ## 7. Synchronize an accepted change
 
-Update every affected representation together:
+Update canonical sources first, then regenerate every affected consumer:
 
-- src/conlang_tools/data/language.json for structured facts;
-- docs/spec.md for normative prose and examples;
-- docs/index.html for the teaching guide and inline structural data;
+- language/data/*.json for structured facts;
+- language/grammar/foundational.md for normative prose and examples;
+- docs/index.html or docs/assets/js/guide.mjs for teaching presentation, only when needed;
 - tests/ for machine-checkable invariants and representative forms; and
 - README.md only when the public overview changes.
 
-For a prose-only syntax decision that has no JSON representation, make docs/spec.md the normative edit and add the strongest feasible regression coverage. Do not claim that token-level corpus parsing proves sentence semantics; preserve semantic contrasts as explicit spec examples when no sentence parser can assert them.
+For a prose-only syntax decision that has no JSON representation, make language/grammar/foundational.md the normative edit and add the strongest feasible regression coverage. Do not claim that token-level corpus parsing proves sentence semantics; preserve semantic contrasts as explicit spec examples when no sentence parser can assert them.
+
+In implementation mode, record the paths authorized and changed by this run. Map every atomicity
+ledger ID to its normative representation and regression coverage; explain any untestable semantic
+claim rather than silently omitting it.
 
 Use the established orthography and formatting. Keep roots and particles bolded where the sync tests expect them. Do not change version numbers or historical files unless the accepted change includes a release decision.
 
@@ -163,8 +174,11 @@ For proposal-only work, run only the targeted read-only checks needed to support
 
 For implementation work, run the relevant focused checks, then run the complete repository checks:
 
+    uv run python scripts/language.py generate
+    uv run python scripts/language.py check
     uv run pytest -q
-    node scripts/check_guide_sync.mjs
+    node --check docs/assets/js/guide.mjs
+    node --check docs/assets/js/dictionary.mjs
     git diff --check
 
 Inspect the final diff for scope creep and stale examples. Report:
@@ -176,3 +190,8 @@ Inspect the final diff for scope creep and stale examples. Report:
 - files changed, if any;
 - validation results; and
 - important limitations that remain outside scope.
+
+Before reporting, populate the final holdout, regression, generated-summary, decision, and optional
+implementation records, then pass `check_audit.py check final ... --seal`. Use its computed counts
+instead of manually adding totals. A final `no-change` run must also pass this gate, with a recorded
+rationale and no implementation record.

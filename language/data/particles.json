@@ -1,0 +1,429 @@
+{
+  "particle_series": {
+    "P": {
+      "PI": {
+        "label": "inceptive",
+        "gloss": "just now start to"
+      },
+      "PY": {
+        "label": "progressive",
+        "gloss": "currently, be -ing"
+      },
+      "PE": {
+        "label": "resumptive",
+        "gloss": "again, back to doing it"
+      },
+      "PA": {
+        "label": "continuative",
+        "gloss": "still, keep (on)"
+      },
+      "PO": {
+        "label": "completive",
+        "gloss": "completely, all the way"
+      },
+      "PU": {
+        "label": "perfect",
+        "gloss": "already, (has) done/finished"
+      }
+    },
+    "M": {
+      "MI": {
+        "label": "minimal",
+        "gloss": "slightly, a bit, barely"
+      },
+      "MY": {
+        "label": "low",
+        "gloss": "somewhat, rather low"
+      },
+      "ME": {
+        "label": "neutral",
+        "gloss": "moderately, normally"
+      },
+      "MA": {
+        "label": "above-typical",
+        "gloss": "quite, pretty, fairly"
+      },
+      "MO": {
+        "label": "strong",
+        "gloss": "very, strongly"
+      },
+      "MU": {
+        "label": "maximal",
+        "gloss": "extremely, too, overly"
+      }
+    },
+    "T": {
+      "TI": {
+        "label": "remote past",
+        "gloss": "long ago"
+      },
+      "TY": {
+        "label": "recent past",
+        "gloss": "recently, just now"
+      },
+      "TE": {
+        "label": "present",
+        "gloss": "now, currently"
+      },
+      "TA": {
+        "label": "near future",
+        "gloss": "soon, about to"
+      },
+      "TO": {
+        "label": "far future",
+        "gloss": "later, someday"
+      },
+      "TU": {
+        "label": "gnomic",
+        "gloss": "generally, whenever"
+      }
+    },
+    "D": {
+      "DI": {
+        "label": "near singular",
+        "gloss": "this"
+      },
+      "DY": {
+        "label": "near plural",
+        "gloss": "these"
+      },
+      "DE": {
+        "label": "medial singular",
+        "gloss": "that (here / in view)"
+      },
+      "DA": {
+        "label": "medial plural",
+        "gloss": "those (here / in view)"
+      },
+      "DO": {
+        "label": "far singular",
+        "gloss": "that (elsewhere)"
+      },
+      "DU": {
+        "label": "far plural",
+        "gloss": "those (elsewhere)"
+      }
+    },
+    "N": {
+      "NI": {
+        "label": "affirmation",
+        "gloss": "yes, indeed, it is so"
+      },
+      "NY": {
+        "label": "partial",
+        "gloss": "sort of, partly, more or less"
+      },
+      "NE": {
+        "label": "neutral",
+        "gloss": "(no special polarity)"
+      },
+      "NA": {
+        "label": "negation",
+        "gloss": "not, no, it isn't so"
+      },
+      "NO": {
+        "label": "contrary",
+        "gloss": "on the contrary, anti-"
+      },
+      "NU": {
+        "label": "strong negation",
+        "gloss": "never, absolutely not, cannot"
+      }
+    },
+    "Q": {
+      "QI": {
+        "label": "empty",
+        "gloss": "no, none of"
+      },
+      "QY": {
+        "label": "existential",
+        "gloss": "a / some (there exists)"
+      },
+      "QE": {
+        "label": "partitive",
+        "gloss": "some of (them), not all"
+      },
+      "QA": {
+        "label": "large subset",
+        "gloss": "most (of)"
+      },
+      "QO": {
+        "label": "universal collective",
+        "gloss": "all (of), the whole X"
+      },
+      "QU": {
+        "label": "universal distributive",
+        "gloss": "every / each / any (one by one)"
+      }
+    },
+    "S": {
+      "SI": {
+        "label": "interior",
+        "gloss": "in, inside (within X)"
+      },
+      "SY": {
+        "label": "surface",
+        "gloss": "on, on top of, touching X"
+      },
+      "SE": {
+        "label": "adjacency",
+        "gloss": "next to, beside X"
+      },
+      "SA": {
+        "label": "surrounding",
+        "gloss": "around X, in X's area"
+      },
+      "SO": {
+        "label": "exterior",
+        "gloss": "outside X, beyond X"
+      },
+      "SU": {
+        "label": "among",
+        "gloss": "among X, amidst, throughout"
+      }
+    },
+    "C": {
+      "CI": {
+        "label": "minimal bound",
+        "gloss": "at least"
+      },
+      "CY": {
+        "label": "less-than",
+        "gloss": "less, not as ~"
+      },
+      "CE": {
+        "label": "equal",
+        "gloss": "as ~ as, equally"
+      },
+      "CA": {
+        "label": "more-than",
+        "gloss": "more, -er"
+      },
+      "CO": {
+        "label": "superlative",
+        "gloss": "most, at most"
+      },
+      "CU": {
+        "label": "extremal",
+        "gloss": "as ~ as possible"
+      }
+    },
+    "W": {
+      "WI": {
+        "label": "time",
+        "gloss": "when?"
+      },
+      "WY": {
+        "label": "reason",
+        "gloss": "why? (for what reason?)"
+      },
+      "WE": {
+        "label": "place",
+        "gloss": "where?"
+      },
+      "WA": {
+        "label": "thing",
+        "gloss": "what? / what thing?"
+      },
+      "WO": {
+        "label": "person",
+        "gloss": "who? / which person?"
+      },
+      "WU": {
+        "label": "manner",
+        "gloss": "how? / in what way?"
+      }
+    },
+    "J": {
+      "JI": {
+        "label": "1sg",
+        "gloss": "I"
+      },
+      "JY": {
+        "label": "2sg",
+        "gloss": "you (sg)"
+      },
+      "JE": {
+        "label": "3sg",
+        "gloss": "he / she / it"
+      },
+      "JA": {
+        "label": "1pl",
+        "gloss": "we"
+      },
+      "JO": {
+        "label": "2pl",
+        "gloss": "you (pl)"
+      },
+      "JU": {
+        "label": "3pl",
+        "gloss": "they"
+      }
+    },
+    "K": {
+      "KI": {
+        "label": "singled",
+        "gloss": "as a single unit, alone, singly"
+      },
+      "KY": {
+        "label": "pair",
+        "gloss": "in pairs, as a pair"
+      },
+      "KE": {
+        "label": "small group",
+        "gloss": "in a small group, a few together"
+      },
+      "KA": {
+        "label": "generic group",
+        "gloss": "as a group, together, in a crowd"
+      },
+      "KO": {
+        "label": "large collective",
+        "gloss": "en masse, as a large crowd/mass"
+      },
+      "KU": {
+        "label": "scattered",
+        "gloss": "scattered, spread out, all over"
+      }
+    },
+    "G": {
+      "GI": {
+        "label": "origin",
+        "gloss": "from, starting at (the path's origin)"
+      },
+      "GY": {
+        "label": "departure",
+        "gloss": "away from, leaving"
+      },
+      "GE": {
+        "label": "route",
+        "gloss": "along, via, through"
+      },
+      "GA": {
+        "label": "approach",
+        "gloss": "toward, nearing"
+      },
+      "GO": {
+        "label": "endpoint",
+        "gloss": "into / onto, arriving at, reaching"
+      },
+      "GU": {
+        "label": "return",
+        "gloss": "back to, returning"
+      }
+    },
+    "R": {
+      "RI": {
+        "label": "agent",
+        "gloss": "by (agent), as doer"
+      },
+      "RY": {
+        "label": "experiencer",
+        "gloss": "to / for (person)"
+      },
+      "RE": {
+        "label": "patient",
+        "gloss": "object of, about; \"than\" in comparatives"
+      },
+      "RA": {
+        "label": "instrument",
+        "gloss": "with, using, by means of"
+      },
+      "RO": {
+        "label": "location",
+        "gloss": "at, in, on (place/time)"
+      },
+      "RU": {
+        "label": "path-frame closer",
+        "gloss": "closes a G-oriented path phrase; orientation comes from the G-series"
+      }
+    },
+    "H": {
+      "HI": {
+        "label": "single",
+        "gloss": "once, one time"
+      },
+      "HY": {
+        "label": "low frequency",
+        "gloss": "rarely, seldom"
+      },
+      "HE": {
+        "label": "intermittent",
+        "gloss": "sometimes"
+      },
+      "HA": {
+        "label": "frequent",
+        "gloss": "often, frequently"
+      },
+      "HO": {
+        "label": "habitual",
+        "gloss": "usually, normally"
+      },
+      "HU": {
+        "label": "maximal frequency",
+        "gloss": "always, constantly"
+      }
+    }
+  },
+  "particle_series_metadata": {
+    "P": {
+      "name": "Phase"
+    },
+    "M": {
+      "name": "Degree"
+    },
+    "T": {
+      "name": "Time"
+    },
+    "D": {
+      "name": "Demonstratives"
+    },
+    "N": {
+      "name": "Polarity"
+    },
+    "Q": {
+      "name": "Quantifiers"
+    },
+    "S": {
+      "name": "Space"
+    },
+    "C": {
+      "name": "Comparison"
+    },
+    "W": {
+      "name": "Question words"
+    },
+    "J": {
+      "name": "Pronouns"
+    },
+    "K": {
+      "name": "Grouping"
+    },
+    "G": {
+      "name": "Paths"
+    },
+    "R": {
+      "name": "Roles"
+    },
+    "H": {
+      "name": "Frequency"
+    }
+  },
+  "derivational_prefix_series": [
+    "K"
+  ],
+  "derivational_prefixes": {
+    "KI": "one singled-out X",
+    "KY": "a pair of X",
+    "KE": "a few X",
+    "KA": "a group / crowd of X",
+    "KO": "a mass / population of X",
+    "KU": "X scattered all over"
+  },
+  "atomic_words": {
+    "NUM": {
+      "label": "numeral marker",
+      "gloss": "reads one or more following numeric CV blocks as a base-100 cardinal (num py pi = 100); clipped from nunu 'number'"
+    }
+  }
+}

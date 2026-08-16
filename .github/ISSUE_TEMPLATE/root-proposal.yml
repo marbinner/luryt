@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         Before proposing, check the [guide's matrix](https://marbinner.github.io/luryt/#grid)
-        and `src/conlang_tools/data/language.json` — the root's two vowels must
+        and `language/data/roots.json` — the root's two vowels must
         match the matrix cell it belongs to.
   - type: input
     id: root

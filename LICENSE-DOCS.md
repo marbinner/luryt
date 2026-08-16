@@ -4,8 +4,9 @@ The **code** in this repository (`src/`, `tests/`, `scripts/`) is licensed
 under the [MIT License](LICENSE).
 
 Everything that constitutes the **language itself and its documentation** —
-`spec.md`, `src/conlang_tools/data/language.json`, `docs/` (including the
-interactive guide), `archive/`, and the language content of `README.md` — is
+`language/`, the generated language snapshots under `src/` and `docs/`,
+`docs/` (including the interactive guide and dictionary), `archive/`, and
+the language content of `README.md` — is
 licensed under the **Creative Commons Attribution-ShareAlike 4.0 International
 license (CC BY-SA 4.0)**.
 

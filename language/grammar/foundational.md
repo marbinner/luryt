@@ -1,5 +1,3 @@
-<!-- Generated from language/grammar/foundational.md; do not edit. -->
-
 # Foundational Spec (v2)
 
 > **v2 — August 2026.** First revision, driven by an external stress test of the language.

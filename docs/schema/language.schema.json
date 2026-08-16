@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://marbinner.github.io/luryt/schema/language.schema.json",
+  "title": "Compiled Luryt language data",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "metadata",
+    "consonants",
+    "vowels",
+    "numeric_vowels",
+    "numeral_base",
+    "final_consonants",
+    "consonant_ipa",
+    "vowel_ipa",
+    "head_kinds",
+    "domains",
+    "aspects",
+    "particle_series",
+    "particle_series_metadata",
+    "derivational_prefix_series",
+    "derivational_prefixes",
+    "core_roots",
+    "atomic_words",
+    "lexemes",
+    "examples"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "https://marbinner.github.io/luryt/schema/language.schema.json"
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "project",
+        "display_name",
+        "language_version",
+        "schema_version",
+        "generated",
+        "source"
+      ],
+      "properties": {
+        "project": {"type": "string"},
+        "display_name": {"type": "string"},
+        "language_version": {"type": "string"},
+        "schema_version": {"type": "integer", "minimum": 1},
+        "generated": {"const": true},
+        "source": {"const": "language/"}
+      }
+    },
+    "consonants": {"type": "string", "pattern": "^[A-Z]+$"},
+    "vowels": {"type": "string", "pattern": "^[A-Z]+$"},
+    "numeric_vowels": {"type": "string", "pattern": "^[A-Z]+$"},
+    "numeral_base": {"type": "integer", "minimum": 2},
+    "final_consonants": {"type": "string", "pattern": "^[A-Z]+$"},
+    "consonant_ipa": {"$ref": "#/$defs/ipaMap"},
+    "vowel_ipa": {"$ref": "#/$defs/ipaMap"},
+    "head_kinds": {"$ref": "#/$defs/labelGlossMap"},
+    "domains": {"$ref": "#/$defs/labelGlossMap"},
+    "aspects": {"$ref": "#/$defs/labelGlossMap"},
+    "particle_series": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/labelGlossMap"}
+    },
+    "particle_series_metadata": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {"name": {"type": "string", "minLength": 1}}
+      }
+    },
+    "derivational_prefix_series": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[A-Z]$"},
+      "uniqueItems": true
+    },
+    "derivational_prefixes": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "core_roots": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/root"}
+    },
+    "atomic_words": {"$ref": "#/$defs/labelGlossMap"},
+    "lexemes": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/lexeme"}
+    },
+    "examples": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/example"}
+    }
+  },
+  "$defs": {
+    "ipaMap": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "pattern": "^/.+/$"}
+    },
+    "labelGloss": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "string", "minLength": 1},
+        {"type": "string", "minLength": 1}
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "labelGlossMap": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/labelGloss"}
+    },
+    "root": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["domain", "aspect", "gloss", "semantic_range"],
+      "properties": {
+        "domain": {"type": "string", "pattern": "^[A-Z]$"},
+        "aspect": {"type": "string", "pattern": "^[A-Z]$"},
+        "gloss": {"type": "string", "minLength": 1},
+        "semantic_range": {"type": "string", "minLength": 1}
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "head", "prefixes"],
+      "properties": {
+        "root": {"type": "string", "pattern": "^[A-Z]{4}$"},
+        "head": {"type": "string", "pattern": "^[A-Z]$"},
+        "prefixes": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^[A-Z]{2}$"}
+        }
+      }
+    },
+    "sense": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "definition", "gloss", "status", "examples"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "definition": {"type": "string", "minLength": 1},
+        "gloss": {"type": "string", "minLength": 1},
+        "status": {"enum": ["core", "provisional", "deprecated"]},
+        "examples": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "notes": {"type": "string"}
+      }
+    },
+    "lexeme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "form", "analysis", "senses"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "form": {"type": "string", "pattern": "^[A-Z]+$"},
+        "analysis": {"$ref": "#/$defs/analysis"},
+        "senses": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/sense"},
+          "minItems": 1
+        }
+      }
+    },
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "luryt", "translation"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "luryt": {"type": "string", "minLength": 1},
+        "translation": {"type": "string", "minLength": 1},
+        "notes": {"type": "string"},
+        "rules": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

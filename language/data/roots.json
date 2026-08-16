@@ -1,0 +1,220 @@
+{
+  "core_roots": {
+    "PIRI": {
+      "domain": "I",
+      "aspect": "I",
+      "gloss": "person, human individual",
+      "semantic_range": "person, self"
+    },
+    "MILY": {
+      "domain": "I",
+      "aspect": "Y",
+      "gloss": "body, physical self",
+      "semantic_range": "body, hand, heart, family"
+    },
+    "ZIFE": {
+      "domain": "I",
+      "aspect": "E",
+      "gloss": "to speak, talk (personal act)",
+      "semantic_range": "act, speak, eat, see, move"
+    },
+    "HISA": {
+      "domain": "I",
+      "aspect": "A",
+      "gloss": "to be well, healthy",
+      "semantic_range": "hungry, tired, sad, happy, healthy"
+    },
+    "SIRO": {
+      "domain": "I",
+      "aspect": "O",
+      "gloss": "friend relation, friend-of",
+      "semantic_range": "friend-of, parent-of, sibling-of, lover-of"
+    },
+    "TINU": {
+      "domain": "I",
+      "aspect": "U",
+      "gloss": "age of a person (years lived)",
+      "semantic_range": "age, strength, personal habit frequency"
+    },
+    "RYDI": {
+      "domain": "Y",
+      "aspect": "I",
+      "gloss": "group, crowd, people-as-unit",
+      "semantic_range": "group, tribe, clan, city as a social unit"
+    },
+    "SYRY": {
+      "domain": "Y",
+      "aspect": "Y",
+      "gloss": "institution, organized structure",
+      "semantic_range": "institution, hierarchy, government, organization"
+    },
+    "GYFE": {
+      "domain": "Y",
+      "aspect": "E",
+      "gloss": "to interact socially, mingle",
+      "semantic_range": "trade, talk, fight, negotiate, vote, cooperate"
+    },
+    "VYRA": {
+      "domain": "Y",
+      "aspect": "A",
+      "gloss": "social peace, order, stability",
+      "semantic_range": "peace, war, crisis, stability, trust"
+    },
+    "TYRO": {
+      "domain": "Y",
+      "aspect": "O",
+      "gloss": "rule/authority relation, boss-of",
+      "semantic_range": "citizen-of, member-of, boss-of, rule-over"
+    },
+    "BYRU": {
+      "domain": "Y",
+      "aspect": "U",
+      "gloss": "wealth, money amount",
+      "semantic_range": "money, price, wealth, budget, GDP"
+    },
+    "FENI": {
+      "domain": "E",
+      "aspect": "I",
+      "gloss": "animal (non-human)",
+      "semantic_range": "animal, plant, fungus, organism"
+    },
+    "BELY": {
+      "domain": "E",
+      "aspect": "Y",
+      "gloss": "forest / herd / ecosystem cluster",
+      "semantic_range": "forest, herd, swarm, ecosystem"
+    },
+    "KEFE": {
+      "domain": "E",
+      "aspect": "E",
+      "gloss": "to grow, develop (biological)",
+      "semantic_range": "grow, hunt, migrate, bloom, reproduce"
+    },
+    "MELA": {
+      "domain": "E",
+      "aspect": "A",
+      "gloss": "to be alive, living",
+      "semantic_range": "alive, dead, sick, healthy, poisonous"
+    },
+    "SEVO": {
+      "domain": "E",
+      "aspect": "O",
+      "gloss": "ecological relation (predator-of, symbiont-of, etc.)",
+      "semantic_range": "predator-of, prey-of, host-of, symbiont-of"
+    },
+    "BENU": {
+      "domain": "E",
+      "aspect": "U",
+      "gloss": "population, biomass, ecological quantity",
+      "semantic_range": "population size, biomass, crop yield"
+    },
+    "KATI": {
+      "domain": "A",
+      "aspect": "I",
+      "gloss": "rock, stone, lump of matter",
+      "semantic_range": "rock, river, mountain, planet, physical object"
+    },
+    "SARY": {
+      "domain": "A",
+      "aspect": "Y",
+      "gloss": "region, landscape, area",
+      "semantic_range": "landscape, region, terrain, field, cluster"
+    },
+    "PASE": {
+      "domain": "A",
+      "aspect": "E",
+      "gloss": "to move, go, travel, flow",
+      "semantic_range": "flow, fall, rain, blow, melt, freeze"
+    },
+    "HATA": {
+      "domain": "A",
+      "aspect": "A",
+      "gloss": "hot/warm (physical temperature)",
+      "semantic_range": "hot, cold, solid, liquid, gas, wet, dry"
+    },
+    "SAKO": {
+      "domain": "A",
+      "aspect": "O",
+      "gloss": "physical relation (contact/inclusion/proximity)",
+      "semantic_range": "in, on, under, near, around, between"
+    },
+    "DARU": {
+      "domain": "A",
+      "aspect": "U",
+      "gloss": "distance, spatial extent, length",
+      "semantic_range": "length, mass, time, energy, temperature"
+    },
+    "TOKI": {
+      "domain": "O",
+      "aspect": "I",
+      "gloss": "tool, implement, usable object",
+      "semantic_range": "tool, knife, cup, phone, vehicle, device"
+    },
+    "KORY": {
+      "domain": "O",
+      "aspect": "Y",
+      "gloss": "house, building, constructed structure",
+      "semantic_range": "house, road, bridge, network, city plan"
+    },
+    "GOSE": {
+      "domain": "O",
+      "aspect": "E",
+      "gloss": "to build, construct, make artefact",
+      "semantic_range": "cut, build, drive, send, compute"
+    },
+    "VOSA": {
+      "domain": "O",
+      "aspect": "A",
+      "gloss": "broken, out of order",
+      "semantic_range": "broken, fixed, open, closed, on, off"
+    },
+    "ZORO": {
+      "domain": "O",
+      "aspect": "O",
+      "gloss": "functional relation (fit, plug, compatibility)",
+      "semantic_range": "key-of, lock-for, plug-into, port-of, interface-with"
+    },
+    "KOMU": {
+      "domain": "O",
+      "aspect": "U",
+      "gloss": "capacity, size, volume (of artefacts)",
+      "semantic_range": "size, capacity, speed, power, storage, bandwidth"
+    },
+    "RUFI": {
+      "domain": "U",
+      "aspect": "I",
+      "gloss": "idea, concept",
+      "semantic_range": "idea, concept, word, symbol"
+    },
+    "LURY": {
+      "domain": "U",
+      "aspect": "Y",
+      "gloss": "language, system, theory",
+      "semantic_range": "theory, language, model, formal system, taxonomy"
+    },
+    "GUSE": {
+      "domain": "U",
+      "aspect": "E",
+      "gloss": "to think, compute, reason",
+      "semantic_range": "think, learn, compute, imagine, infer"
+    },
+    "GUSA": {
+      "domain": "U",
+      "aspect": "A",
+      "gloss": "to know, be knowledgeable",
+      "semantic_range": "know, believe, remember, doubt, forget"
+    },
+    "KURO": {
+      "domain": "U",
+      "aspect": "O",
+      "gloss": "cause-of, reason relation",
+      "semantic_range": "cause-of, equal-to, implies, means-of, part-of"
+    },
+    "NUNU": {
+      "domain": "U",
+      "aspect": "U",
+      "gloss": "number, amount, abstract quantity",
+      "semantic_range": "number, amount, probability, measure, degree"
+    }
+  }
+}

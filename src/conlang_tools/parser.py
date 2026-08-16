@@ -3,8 +3,9 @@
 from dataclasses import dataclass
 from typing import List, Optional
 from .constants import (
-    ATOMIC_WORDS, CONSONANTS, VOWELS, FINAL_CONSONANTS, PARTICLE_SERIES,
-    DOMAINS, ASPECTS, HEAD_KINDS, cv_to_number
+    ASPECTS, ATOMIC_WORDS, CONSONANTS, DERIVATIONAL_PREFIX_SERIES, DOMAINS,
+    FINAL_CONSONANTS, HEAD_KINDS, PARTICLE_SERIES, PREFIX_FORMS, VOWELS,
+    cv_to_number
 )
 
 
@@ -234,6 +235,12 @@ class WordParser:
                         )
                     else:
                         prefixes.append(prefix)
+                        if prefix not in PREFIX_FORMS:
+                            series = ", ".join(DERIVATIONAL_PREFIX_SERIES)
+                            errors.append(
+                                f"Prefix '{prefix}' is not standardized. "
+                                f"Defined prefix series: {series}"
+                            )
 
         # Analyze root semantics
         v1, v2 = root[1], root[3]
