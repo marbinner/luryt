@@ -25,6 +25,7 @@
 - A core lexicon: **one root per semantic cell (36 roots)**
 - The numeral marker **num** (§8.1)
 - Clause **pivot rule** and linear **operator scope** (§7.1)
+- Free K-series noun-phrase order and scope before Q/D (§7.2)
 
 **Still open (deliberately):**
 
@@ -35,7 +36,7 @@
   functions reserved, forms not yet specified. **V** and **L** remain unallocated.
 - Larger lexicon beyond the 36 core roots
 - Full syntax for complex clauses, subordination, focus, etc.
-- Scope and ordering of free K-series modifiers relative to the event-operator track
+- Direct event-level use and ordering of free K-series modifiers relative to the event-operator track
 - Combinations of exact numerals with Q-series quantifiers or D-series demonstratives
 - General clause/phrase distribution of manner (`ROOT-l`) and relational (`ROOT-r`) heads
 - W-extraction from inside static-location and oriented-path phrases
@@ -520,13 +521,27 @@ Examples of **prefix** use:
 * `feni-m` = an animal → `kefeni-m` = a small group of animals (if you choose that reading)
 * `kory-m` = a house → `kakory-m` = a group of houses (neighborhood/block)
 
-As a **particle**:
+As a **particle before an NP**, K occupies the outermost NP slot:
 
-* `ka piri-m sa sary-m pase-n.` – “People go as a group around the region.”
+```text
+[K] [Q] [D] [ROOT-{m|t}]
+```
 
-Current simple examples place a free K-particle immediately before the phrase it configures.
-Its ordering and scope relative to the fixed front-operator track are not yet specified, so K is
-not a slot in the canonical event template (§7.1).
+The free K-particle configures the participants selected by the complete following Q/D/head
+phrase. At most one free K-particle fills this slot.
+
+* `ka piri-m sa sary-m pase-n.` – “People, configured as a group, go around the region.”
+* `ky qe da feni-t` – “some of those animals, configured in pairs”
+
+A bound `kV-` remains lexical inside the entity head, so Q and D select configuration entities
+instead. Compare:
+
+* `ka qa piri-m` – “most people, configured together”
+* `qa ka-piri-m` – “most crowds”
+* `ky qe da feni-t` – “some of those animals, configured in pairs”
+* `qe da ky-feni-t` – “some of those identifiable animal pairs”
+
+Direct event-level use of free K, and its order among the front operators, remain open (§7.1).
 
 ---
 
@@ -813,9 +828,9 @@ The smallest pivoted event clause is **PIVOT + VERB**. The pivot may be absent i
 role-marked clause. Static-location and property-predicate clauses use their own patterns below
 and do not require an event word.
 
-The track covers the fixed event operators. Free K-series phrasal modifiers are grammatical in
-the documented simple examples, but their scope and order relative to this track remain open
-(§4.16).
+The track covers the fixed event operators. A free K-particle that introduces an NP belongs to
+that NP and precedes its Q and D slots (§§4.16, 7.2). Direct event-level K scope and order relative
+to this track remain open.
 
 Example:
 
@@ -844,9 +859,10 @@ narrow scope:
 ### 7.2 Noun Phrase Template
 
 ```text
-[Q] [D] [ROOT-{m|t}]
+[K] [Q] [D] [ROOT-{m|t}]
 ```
 
+* **K** – configuration of the selected participants (ki/ky/ke/ka/ko/ku)
 * **Q** – quantifier (qi/qy/qe/qa/qo/qu)
 * **D** – demonstrative (di/de/do/dy/da/du)
 * **ROOT-m / ROOT-t** – descriptive or referential entity head
@@ -857,6 +873,15 @@ Examples:
 * `qa piri-m` – most people
 * `qe da feni-t` – some of those animals (here)
 * `qo du kory-t` – all those houses (over there)
+* `ka qa piri-m` – most people, configured together
+* `ky qe da feni-t` – some of those animals, configured in pairs
+* `ki qu dy kory-t re gose-n.` – each of these houses, configured singly, was built
+
+Free K takes scope over the participants selected by the following Q/D/head phrase. Bound K is
+part of the head instead: `ka qa piri-m` means “most people, together,” while `qa ka-piri-m`
+means “most crowds.” Likewise, `ky qe da feni-t` configures some animals as pairs, whereas
+`qe da ky-feni-t` selects some identifiable animal-pair entities. Only one free K occupies the
+optional outer slot. A following R-series role marks the complete NP, including its K/Q/D scope.
 
 A simple exact-number noun phrase uses the numeral marker and numeric CV directly before its
 entity head:

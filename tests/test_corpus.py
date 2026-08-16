@@ -24,6 +24,11 @@ CORPUS = [
     "qy pirim",
     "qe da fenit",
     "qo du koryt",
+    "ka qa pirim pasen",
+    "qa kapirim pasen",
+    "ky qe da fenit pasen",
+    "qe da kyfenit pasen",
+    "ki qu dy koryt re gosen",
     # space: static, adjunct, oriented path
     "di pirit si di koryt",
     "ji si di koryt ro zifen",

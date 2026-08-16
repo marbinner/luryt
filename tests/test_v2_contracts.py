@@ -64,9 +64,27 @@ def test_questioned_nonpivot_keeps_its_event_role():
 
 
 def test_noun_phrase_template_allows_both_entity_heads():
-    assert "[Q] [D] [ROOT-{m|t}]" in SPEC
+    assert "[K] [Q] [D] [ROOT-{m|t}]" in SPEC
     assert "qi/qy/qe/qa/qo/qu" in SPEC
     assert "q o" not in SPEC
+
+
+def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
+    assert "configures the participants selected by the complete following Q/D/head" in SPEC
+    assert "At most one free K-particle fills this slot" in SPEC
+    for contrast in (
+        "`ka qa piri-m` – “most people, configured together”",
+        "`qa ka-piri-m` – “most crowds”",
+        "`ky qe da feni-t` – “some of those animals, configured in pairs”",
+        "`qe da ky-feni-t` – “some of those identifiable animal pairs”",
+        "`ki qu dy kory-t re gose-n.` – each of these houses, configured singly, was built",
+    ):
+        assert contrast in SPEC
+    assert '<span class="lx">[k] [q] [d] noun</span>' in GUIDE
+    assert '<span class="lx">ka qa pirim</span>' in GUIDE
+    assert '<span class="lx">qa kapirim</span>' in GUIDE
+    assert '<span class="lx">ky qe da fenit</span>' in GUIDE
+    assert '<span class="lx">qe da kyfenit</span>' in GUIDE
 
 
 def test_public_word_shape_summary_mentions_num_exception():
@@ -75,7 +93,7 @@ def test_public_word_shape_summary_mentions_num_exception():
 
 def test_intentionally_open_syntax_is_documented():
     open_topics = (
-        "Scope and ordering of free K-series modifiers",
+        "Direct event-level use and ordering of free K-series modifiers",
         "Combinations of exact numerals with Q-series quantifiers or D-series demonstratives",
         "General clause/phrase distribution of manner (`ROOT-l`)",
         "W-extraction from inside static-location and oriented-path phrases",
