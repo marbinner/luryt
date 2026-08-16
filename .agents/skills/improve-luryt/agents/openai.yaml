@@ -1,0 +1,4 @@
+interface:
+  display_name: "Improve Luryt"
+  short_description: "Stress-test Luryt, then make one change"
+  default_prompt: "Use $improve-luryt to stress-test one part of the language and make one evidence-backed improvement."
