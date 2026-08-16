@@ -3,8 +3,9 @@
 > **v2 — August 2026.** First revision, driven by an external stress test of the language.
 > Summary of changes: **-t** referential vs **-m** descriptive; a **pivot-and-role** clause rule;
 > three distinct spatial constructions with the new **G-series** (path orientation) and **ru** as
-> the path-phrase closer; linear **operator scope**; the numeral marker **num**; stress restated
-> as root-anchored (equivalent to the old penultimate rule). The prior version is preserved as
+> the path-phrase closer; linear **operator scope**; the numeral marker **num** with productive
+> base-100 cardinal runs; stress restated as root-anchored (equivalent to the old penultimate
+> rule). The prior version is preserved as
 > `archive/doc_v15.md`. Details in §9.
 
 ## 0. Scope
@@ -19,7 +20,7 @@
 - Final suffix system: **M T N S L R** and what each means
 - Principle that **CV series use one consonant + vowels in I Y E A O U order**
 - Root semantics: **6 Domains × 6 Aspects** (semantic matrix)
-- Numeric **00–99 → CV** system
+- Numeric **00–99 → CV block** system and canonical base-100 cardinal composition
 - Particle series defined so far: **P, M, T, D, N, Q, S, C, W, J, K, G, R, H**
 - First derivational prefix series: **K-series** (configuration / collectivity)
 - A core lexicon: **one root per semantic cell (36 roots)**
@@ -106,7 +107,7 @@ Used for:
 
 - semantic series (particles, prefixes),
 - root matrix coordinates (V₁, V₂),
-- numeric CV system (I/Y/E/A/O; U unused for 00–99).
+- numeric CV block system (I/Y/E/A/O; U unused in the 00–99 block inventory).
 
 ---
 
@@ -866,7 +867,7 @@ narrow scope:
 * **K** – configuration of the selected participants (ki/ky/ke/ka/ko/ku)
 * **Q** – quantifier (qi/qy/qe/qa/qo/qu)
 * **D** – demonstrative (di/de/do/dy/da/du)
-* **NUM** – optional exact cardinal from 0 to 99, with the fixed form `num CV`
+* **NUM** – optional exact nonnegative cardinal, with the fixed form `num numeric-CV+`
 * **ROOT-m / ROOT-t** – descriptive or referential entity head
 
 Examples:
@@ -889,25 +890,42 @@ animals as pairs, whereas `qe da ky-feni-t` selects some identifiable animal-pai
 one free K occupies the optional outer slot. A following R-series role marks the complete NP,
 including its K/Q/D/NUM scope.
 
-The current NUM constituent is indivisible and contains exactly the marker plus one numeric CV:
+A NUM constituent contains the marker followed by a maximal run of one or more numeric CV blocks:
 
 ```text
-NUM = num CV
+NUM = num numeric-CV+
 ```
+
+Each block keeps its 0–99 value from §8. With block values *d₁ … dₖ*, the run is read
+most-significant first in base 100:
+
+```text
+value = d₁ × 100^(k-1) + d₂ × 100^(k-2) + … + dₖ
+```
+
+A one-block run therefore retains every existing 0–99 expression. In a run of two or more blocks,
+the first block must be nonzero; zero blocks may occur internally or finally. `num pi` is the sole
+form of zero. There is no maximum block count.
 
 NUM gives the exact cardinality of the entity head inside any restriction supplied by D. An overt
 Q scopes over the following D/NUM/head cardinal frame, so `qe da num bi feni-t` selects some but
-not all of an identified five-animal set. All K/Q/D particles precede NUM; none can occur between
-`num` and the entity head. This preserves the particle/numeral boundary even when the same CV has
-both uses:
+not all of an identified five-animal set. All K/Q/D particles precede NUM. After `num`, successive
+numeric CVs belong to its payload until the structurally distinct content-word head ends the run;
+no K/Q/D or other particle can intervene. Outside an entity NP, the numeral-phrase boundary ends
+a standalone NUM. A later `num` begins a separate NUM constituent, not another block of the same
+integer. These boundaries preserve the particle/numeral distinction even when a CV has both uses:
 
 * `num pa piri-m` – three people
 * `qe num qe piri-t` – some but not all of an identifiable forty-two-person set
 * `da num da piri-t` – thirty-three of those people (first `da` = demonstrative; second = 33)
 * `ka num ka piri-m` – eighty-three people, configured together (first `ka` = K; second = 83)
+* `num py pi piri-m` – one hundred people
+* `num py pi pi kory-t` – ten thousand identifiable houses
+* `ka num pe pi piri-m` – two hundred people configured together
+* `num pe pi ka-piri-m` – two hundred crowd entities
 
 The rule adds no special agreement morphology: combinations whose existing D, Q, and numeral
-meanings contradict one another remain semantically anomalous. Values above 99 remain open (§8).
+meanings contradict one another remain semantically anomalous.
 
 Demonstratives point at identifiable referents, so they normally take **-t** heads; a **-m** head
 after a demonstrative gives a kind reading (`da feni-m` ≈ “those sorts of animal”).
@@ -1012,7 +1030,7 @@ Superlative:
 
 ---
 
-## 8. Numeric CV System (00–99)
+## 8. Numeric CV Blocks and Base-100 Cardinals
 
 Consonant indices (canonical order):
 
@@ -1045,7 +1063,7 @@ Vowel indices for numerals (first five vowels):
 3. A
 4. O
 
-For integer **d** with 0 ≤ d ≤ 99:
+Each numeric CV is one base-100 block. For integer **d** with 0 ≤ d ≤ 99:
 
 ```text
 c_index = d // 5      # 0..19
@@ -1075,7 +1093,7 @@ Inverse, given CV (with vowel in {I,Y,E,A,O}):
 d = 5 * c_index + v_index
 ```
 
-### 8.1 The numeral marker `num` (v2)
+### 8.1 The numeral marker `num` and positional composition (v2)
 
 Seventy of the hundred numeric CVs are homophonous with defined particles (`te` is both “now”
 and 27). The remaining thirty use the six reserved or unallocated series consonants and currently
@@ -1085,16 +1103,42 @@ longer than CV, a clipped entity form of **nunu** “number”:
 
 * `num pi` – “zero”
 * `num te` – “twenty-seven”
+* `num py pi` – “one hundred” (blocks 1, 0)
+* `num py py` – “one hundred one” (blocks 1, 1)
+* `num py pi pi` – “ten thousand” (blocks 1, 0, 0)
 * `num pa piri-m pase-n.` – “Three people go.”
 * `pi ji zife-n.` – “I begin to speak.” (bare `pi` is still the phase particle)
 
-Inside an entity NP, `num CV` occupies the NUM slot after any K, Q, and D particles and directly
-before the entity head (§7.2). The marker governs exactly one numeric CV in the current 0–99
-system. For example, `da num da piri-t` keeps the first `da` demonstrative and reads the second as
-33. This order reserves a clear phrase boundary without defining any multi-CV value above 99.
+Inside an entity NP, `num numeric-CV+` occupies the NUM slot after any K, Q, and D particles and
+directly before the entity head (§7.2). The marker governs the maximal following run of numeric
+CVs. For example, `da num da piri-t` keeps the first `da` demonstrative and reads the second as
+33, while `da num py pi piri-t` reads the payload as 100.
+
+For a payload of *k* block values *d₁ … dₖ*, composition is positional and
+most-significant first:
+
+```text
+N = Σ dᵢ × 100^(k-i)    for i = 1 … k
+```
+
+Equivalently, start at zero and replace `N` with `100 × N + d` for each block from left to
+right. The spelling is canonical:
+
+* a payload contains at least one block;
+* `num pi` is zero;
+* a payload longer than one block cannot start with `pi`;
+* internal and final `pi` blocks are retained; and
+* the rule has no upper block-count limit.
+
+Thus 9,999 is `num ho ho`, 10,001 is `num py pi py`, and 12,345,678 is
+`num me do ly ja`. A following content-word head or the boundary of a standalone numeral phrase
+ends the run. A new `num` starts a separate numeral constituent: `num py pi` is the single
+integer 100, whereas `num py / num pi` (with the slash only marking a phrase boundary here)
+contains the separate integers 1 and 0.
 
 A bare numeric CV remains available as a label or code where no clause competes for the reading
-(list numbering, IDs, tables).
+(list numbering, IDs, tables). A bare sequence such as `py pi` is correspondingly two code
+elements, never an unmarked alias of `num py pi` “100.”
 
 ---
 
@@ -1106,6 +1150,7 @@ A bare numeric CV remains available as a label or code where no clause competes 
   architecture is unchanged (all 36 roots re-verified against the matrix). Adopted: referential
   **-t** / descriptive **-m**; the pivot-and-role clause rule with fully-role-marked
   (agent-omitting) clauses; three-way spatial constructions; the **G-series** with **ru** as path
-  closer; linear operator scope; the numeral marker **num**; root-anchored stress statement.
+  closer; linear operator scope; the numeral marker **num** and canonical base-100 cardinal runs;
+  root-anchored stress statement.
   Earmarked but *not* adopted sight-unseen from the stress-test proposal: the **B/F/X/Z** form
   tables and its provisional added roots.

@@ -44,7 +44,7 @@ empty slots are:
 - **6 consonants** (`b f v z l x`) are reserved for future particle families
   (four already earmarked: mood, coordination, subordination, discourse reference)
 - the **36 matrix cells** each hold one core root — with room for many more
-- **numbers above 99**, **conjunctions**, and **complex-clause syntax** are open
+- **negative numbers, fractions, ordinals**, **conjunctions**, and **complex-clause syntax** are open
 - only the K-family works as a prefix so far; more prefix families are anticipated
 
 Proposals go through issues (there are templates), discussion happens in
@@ -64,7 +64,8 @@ language: a parser/validator, reference lookups, and a number converter.
 uv sync                     # install
 uv run luryt parse kapirim  # segment + analyze a word
 uv run luryt ref particles  # the 14 particle families
-uv run luryt num --to-cv 42 # numbers <-> syllables
+uv run luryt num --to-cv 12345678  # -> me do ly ja
+uv run luryt num --to-num "py pi"  # -> 100 (quote a multi-block run)
 ```
 
 (`uv run conlang …` works too, as an alias.)

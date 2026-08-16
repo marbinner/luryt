@@ -13,6 +13,7 @@ from conlang_tools.constants import (
     DOMAINS,
     FINAL_CONSONANTS,
     HEAD_KINDS,
+    NUMERAL_BASE,
     NUMERIC_VOWELS,
     PARTICLE_SERIES,
     VOWELS,
@@ -45,6 +46,7 @@ def test_inventories():
     assert len(set(CONSONANTS)) == 20
     assert VOWELS == "IYEAOU"
     assert NUMERIC_VOWELS == "IYEAO"
+    assert NUMERAL_BASE == len(CONSONANTS) * len(NUMERIC_VOWELS) == 100
     assert FINAL_CONSONANTS == "MTNSLR"
     assert list(HEAD_KINDS) == list(FINAL_CONSONANTS)
     assert set(DOMAINS) == set(VOWELS)

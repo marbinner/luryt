@@ -2,7 +2,13 @@
 
 import pytest
 
-from conlang_tools.constants import CONSONANTS, NUMERIC_VOWELS, cv_to_number, number_to_cv
+from conlang_tools.constants import (
+    CONSONANTS,
+    NUMERAL_BASE,
+    NUMERIC_VOWELS,
+    cv_to_number,
+    number_to_cv,
+)
 from conlang_tools.parser import WordParser
 
 
@@ -70,20 +76,42 @@ def test_invalid_words(parser, bad):
 
 
 def test_number_round_trip():
-    for n in range(100):
+    for n in range(10_001):
         cv = number_to_cv(n)
         assert cv_to_number(cv) == n
+    assert NUMERAL_BASE == 100
     assert number_to_cv(0) == "PI"
     assert number_to_cv(27) == "TE"
     assert number_to_cv(42) == "QE"
     assert number_to_cv(99) == "HO"
+    assert number_to_cv(100) == "PY PI"
+    assert number_to_cv(101) == "PY PY"
+    assert number_to_cv(10_000) == "PY PI PI"
+    assert number_to_cv(12_345_678) == "ME DO LY JA"
 
 
-def test_number_out_of_range():
+def test_number_rejects_negative_and_nonnumeric_blocks():
     with pytest.raises(ValueError):
-        number_to_cv(100)
+        number_to_cv(-1)
     with pytest.raises(ValueError):
         cv_to_number("tu")  # U is not a numeric vowel
+    with pytest.raises(ValueError):
+        cv_to_number("py qu")
+
+
+def test_multiblock_number_canonicality():
+    assert cv_to_number("py pi") == 100
+    assert cv_to_number("PY PI PY") == 10_001
+    assert cv_to_number("me do ly ja") == 12_345_678
+    with pytest.raises(ValueError, match="cannot begin with the zero block"):
+        cv_to_number("pi py")
+    with pytest.raises(ValueError, match="at least one block"):
+        cv_to_number("")
+
+
+def test_arbitrary_precision_number_round_trip():
+    n = int("1234567890" * 10)
+    assert cv_to_number(number_to_cv(n)) == n
 
 
 @pytest.mark.parametrize("bad", ["pı", "ſi"])
@@ -94,5 +122,11 @@ def test_number_rejects_non_ascii_lookalikes(bad):
 
 @pytest.mark.parametrize("bad", [1.5, True, "1", None])
 def test_number_rejects_non_integers(bad):
-    with pytest.raises(ValueError, match="must be an integer"):
+    with pytest.raises(ValueError, match="must be a nonnegative integer"):
         number_to_cv(bad)
+
+
+@pytest.mark.parametrize("bad", [1.5, True, None])
+def test_numeric_cv_run_rejects_non_strings(bad):
+    with pytest.raises(ValueError, match="must be a string"):
+        cv_to_number(bad)

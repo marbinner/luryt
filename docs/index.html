@@ -1100,14 +1100,14 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <header>
       <p class="eyebrow">Chapter 06</p>
       <h2>Numbers</h2>
-      <p class="chsub prose">Every number from 0 to 99 is a single syllable — read straight off the
-      alphabet.</p>
+      <p class="chsub prose">Every nonnegative integer is one marked run of compact base-100
+      syllable blocks.</p>
     </header>
     <div class="prose">
       <p>The counting system reuses the canonical orders from chapter 01. Number the twenty
       consonants 0–19, and the first five vowels 0–4 (<span class="lx">u</span> sits this one out).
-      Then any number under 100 becomes one syllable:</p>
-      <p style="font-family:var(--mono);font-size:16px"><b>number = 5 × consonant + vowel</b></p>
+      Each value from 0 to 99 therefore becomes one syllable:</p>
+      <p style="font-family:var(--mono);font-size:16px"><b>block value = 5 × consonant + vowel</b></p>
       <p>So 27 = 5 × 5 + 2 = consonant №5 (<span class="lx">t</span>) + vowel №2
       (<span class="lx">e</span>) → <b class="lx">te</b>. And 99 = 5 × 19 + 4 →
       <b class="lx">ho</b>. The whole hundred, at a glance:</p>
@@ -1134,23 +1134,31 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       marker <span class="lx">num</span> (a clipped form of <span class="lx">nunu</span> “number”):
       <span class="lx">num te</span> = 27, <span class="lx">num pi</span> = 0,
       <span class="lx">num pa pirim pasen</span> “three people go”. A bare syllable like
-      <span class="lx">pi</span> stays a particle (“just starting to”). Numbers above 99 aren’t
-      specified yet.</p>
+      <span class="lx">pi</span> stays a particle (“just starting to”).</p>
+      <p class="plate-cap">For 100 and above, put two or more of those blocks after one
+      <span class="lx">num</span> and read them left to right as base-100 places:
+      <span class="lx">num py pi</span> = 100,
+      <span class="lx">num py py</span> = 101,
+      <span class="lx">num py pi pi</span> = 10,000, and
+      <span class="lx">num me do ly ja</span> = 12,345,678. A multi-block numeral cannot start
+      with <span class="lx">pi</span>, but zero blocks stay inside or at the end. There is no
+      maximum number of blocks.</p>
       <p class="plate-cap">Inside an entity noun phrase, configuration, quantifier, and pointer
-      all come before the exact number: <span class="lx">[k] [q] [d] [num cv] noun</span>.
+      all come before the exact number: <span class="lx">[k] [q] [d] [num cv+] noun</span>.
       For example, <span class="lx">dy num pa pirit</span> means “these three people.” Keeping
-      every NP particle before <span class="lx">num</span> makes the numeral boundary visible.</p>
+      every NP particle before <span class="lx">num</span> and using a content-word noun to close
+      the CV run makes both numeral boundaries visible.</p>
     </div>
     <h3>Try it</h3>
     <div class="plate conv">
       <div class="cell">
-        <label for="n2cv">Number → syllable</label>
-        <input id="n2cv" type="text" inputmode="numeric" autocomplete="off" placeholder="0–99, e.g. 42">
+        <label for="n2cv">Number → marked numeral</label>
+        <input id="n2cv" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 12345678">
         <output for="n2cv" id="n2cvOut"></output>
       </div>
       <div class="cell">
-        <label for="cv2n">Syllable → number</label>
-        <input id="cv2n" type="text" autocomplete="off" spellcheck="false" maxlength="2" placeholder="e.g. qe">
+        <label for="cv2n">CV run → number</label>
+        <input id="cv2n" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. me do ly ja">
         <output for="cv2n" id="cv2nOut"></output>
       </div>
     </div>
@@ -1253,7 +1261,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
     <h3>Noun phrases: configuration, quantifier, pointer, exact number, noun</h3>
     <div class="prose"><p>Inside a noun phrase, an optional free K-family configuration comes
     first, then the quantifier (Q-family), demonstrative (D-family), optional exact number, and noun:
-    <span class="lx">[k] [q] [d] [num cv] noun</span>. K configures the participants selected by
+    <span class="lx">[k] [q] [d] [num cv+] noun</span>. K configures the participants selected by
     everything that follows it; Q can quantify the following pointer-and-cardinality frame, and
     only one free K fills the outer slot.</p></div>
     <div class="ix"><div class="ix-s">
@@ -1276,9 +1284,10 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
       <div class="ix-w"><span class="lx">qe da num bi fenit</span><span class="g">some of those five animals</span></div>
       <div class="ix-w"><span class="lx">ka num ka pirim</span><span class="g">83 people · together</span></div>
       <div class="ix-w"><span class="lx">num pa kapirim</span><span class="g">three crowds</span></div>
-    </div><div class="ix-t"><span class="lx">num</span> makes its following CV numeric, even when
-    that CV is also a particle elsewhere. All K/Q/D particles come first; a bound K remains inside
-    the noun.</div></div>
+      <div class="ix-w"><span class="lx">num py pi pirim</span><span class="g">100 people</span></div>
+    </div><div class="ix-t"><span class="lx">num</span> makes its following run of numeric CVs one
+    base-100 cardinal, even when those CVs are particles elsewhere. All K/Q/D particles come first;
+    the content-word noun ends the run, and a bound K remains inside that noun.</div></div>
 
     <h3>Who did what to whom: role markers</h3>
     <div class="prose"><p>Instead of case endings, Luryt puts a small R-family particle
@@ -1520,7 +1529,8 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
           <li>Longer fixed atom: <span class="lx">num</span> — numeral marker</li>
           <li>Content: <span class="lx">(cv)* + cvcv + m/t/n/s/l/r</span></li>
           <li>Stress: second-to-last syllable</li>
-          <li>Numbers 0–99: <span class="lx">num</span> + <span class="lx">cv</span>, value = 5·C + V</li>
+          <li>Number block 0–99: <span class="lx">cv</span>, value = 5·C + V</li>
+          <li>Cardinal: <span class="lx">num cv+</span>, blocks read left-to-right in base 100</li>
         </ul>
       </div>
       <div class="refbox">
@@ -1544,7 +1554,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
         <ul>
           <li><span class="lx">[w (+r)] [t] [p] [h] [m] [n]</span></li>
           <li><span class="lx">[pivot] · NPs+role · event‑n</span></li>
-          <li>NP: <span class="lx">[k] [q] [d] [num cv] noun</span> · roles follow the complete NP</li>
+          <li>NP: <span class="lx">[k] [q] [d] [num cv+] noun</span> · roles follow the complete NP</li>
           <li>Compare: <span class="lx">A ca PROP‑s B re</span> “A is more PROP than B”</li>
           <li>Path: <span class="lx">figure g (s) place ru verb</span></li>
           <li>Operators scope over what follows them</li>
@@ -1571,7 +1581,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
         operator track. NP-internal K already precedes Q, D, and the exact number.</li>
         <li>The general clause and phrase syntax of manner <span class="lx">-l</span> and
         relational <span class="lx">-r</span> content words.</li>
-        <li>Numbers beyond 99.</li>
+        <li>Negative numbers, fractions, decimals, and ordinals.</li>
       </ul>
       <p>Which is to say: if you learn this page, you know the entire language — for now.</p>
     </div>
@@ -1592,6 +1602,7 @@ footer.colophon p{font-size:13.5px;color:var(--ink2);margin:0 0 6px}
 const CONS = "pbmfvtdnqszlcwxjkgrh";
 const VOWS = "iyeaou";
 const NVOWS = "iyeao";
+const NUM_BASE = 100;
 const FINALS = "mtnslr";
 
 const CONS_INFO = [
@@ -1669,7 +1680,7 @@ const ROOTS = {
 };
 
 const ATOMS = {
-  num:["numeral marker","reads the following CV syllable as a number (num te = 27); clipped from nunu 'number'"]
+  num:["numeral marker","reads one or more following numeric CV blocks as a base-100 cardinal (num py pi = 100); clipped from nunu 'number'"]
 };
 
 const SERIES = [
@@ -1964,12 +1975,12 @@ const DD_RENDERERS = {
       return `<div class="dd-card" data-v="${f[1]}"><div class="dd-card-head"><span class="dd-code">${colorize(f)}</span><span><b class="dd-name">${n}</b><span class="dd-meta">5 × ${ci} + ${vi}</span></span></div><div class="dd-form">num ${colorize(f)}</div></div>`;
     }).join("");
     return `
-      ${ddHead("base 5 × 20","One syllable encodes 0–99","The consonant chooses a five-number bank; one of five numeral vowels adds 0–4. The marker num prevents collisions with grammar particles.")}
+      ${ddHead("base 5 × 20 blocks","One syllable encodes 0–99","The consonant chooses a five-number bank; one of five numeral vowels adds 0–4. One or more blocks after num compose positionally in base 100.")}
       <div class="dd-form big">value = 5 × index(C) + index(V)</div>
       <div class="dd-panel" style="margin-top:9px"><span class="dd-meta">consonant index · bank 0–19</span><div class="dd-index-grid" style="margin-top:7px">${consonants}</div></div>
       <div class="dd-panel" style="margin-top:7px"><span class="dd-meta">numeral vowel index · offset 0–4 · u is not used</span><div class="dd-index-grid" style="grid-template-columns:repeat(5,1fr);margin-top:7px">${vowels}</div></div>
       <div class="dd-grid four" style="margin-top:9px">${examples}</div>
-      <div class="dd-note"><span class="lx">te</span> alone is the present-time particle; <span class="lx">num te</span> announces the number 27. Inside an NP, K/Q/D come before <span class="lx">num</span> and the noun closes the numeral frame. Values above 99 are not specified yet.</div>`;
+      <div class="dd-note"><span class="lx">te</span> alone is the present-time particle; <span class="lx">num te</span> announces 27. Larger values reuse the same blocks: <span class="lx">num py pi</span> is 100 and <span class="lx">num py pi pi</span> is 10,000. Inside an NP, K/Q/D come before <span class="lx">num</span> and the noun closes the numeral run.</div>`;
   },
 
   clause(){
@@ -2189,24 +2200,49 @@ $("#vowrow").innerHTML = VOW_INFO.map(([L,ipa,hint]) =>
   html += `</tbody></table>`;
   $("#numgridHost").innerHTML = html;
 
+  const blockValue = block => {
+    if (block.length !== 2 || !CONS.includes(block[0]) || !NVOWS.includes(block[1])){
+      return null;
+    }
+    return 5 * CONS.indexOf(block[0]) + NVOWS.indexOf(block[1]);
+  };
+  const encodeNumber = value => {
+    if (value === 0n) return ["pi"];
+    const blocks = [], base = BigInt(NUM_BASE);
+    while (value > 0n){
+      const digit = Number(value % base);
+      blocks.push(CONS[Math.floor(digit / 5)] + NVOWS[digit % 5]);
+      value /= base;
+    }
+    return blocks.reverse();
+  };
+
   const n2cvOut = $("#n2cvOut"), cv2nOut = $("#cv2nOut");
   $("#n2cv").addEventListener("input", e => {
     const t = e.target.value.trim();
     if (!t){ n2cvOut.innerHTML = ""; return; }
-    const n = Number(t);
-    if (!/^\d+$/.test(t) || n > 99){ n2cvOut.innerHTML = `<span class="err">needs a whole number from 0 to 99</span>`; return; }
-    n2cvOut.innerHTML = `${n} → <span class="big">${CONS[Math.floor(n/5)]}${NVOWS[n%5]}</span>
-      <span class="small">(5×${Math.floor(n/5)} + ${n%5})</span>`;
+    if (!/^\d+$/.test(t)){
+      n2cvOut.innerHTML = `<span class="err">needs a nonnegative whole number</span>`; return;
+    }
+    const n = BigInt(t), blocks = encodeNumber(n), payload = blocks.join(" ");
+    n2cvOut.innerHTML = `${n} → <span class="big">num ${payload}</span>
+      <span class="small">(${blocks.length} base-100 block${blocks.length === 1 ? "" : "s"})</span>`;
   });
   $("#cv2n").addEventListener("input", e => {
     const t = e.target.value.trim().toLowerCase();
     if (!t){ cv2nOut.innerHTML = ""; return; }
-    if (t.length !== 2 || !CONS.includes(t[0]) || !NVOWS.includes(t[1])){
-      cv2nOut.innerHTML = `<span class="err">needs consonant + one of i y e a o</span>`; return;
+    const blocks = t.split(/\s+/), values = blocks.map(blockValue);
+    if (values.some(value => value === null)){
+      cv2nOut.innerHTML = `<span class="err">each block needs consonant + one of i y e a o</span>`; return;
     }
-    const n = 5 * CONS.indexOf(t[0]) + NVOWS.indexOf(t[1]);
-    cv2nOut.innerHTML = `<span class="lx">${t}</span> → <span class="big">${n}</span>
-      <span class="small">(5×${CONS.indexOf(t[0])} + ${NVOWS.indexOf(t[1])})</span>`;
+    if (values.length > 1 && values[0] === 0){
+      cv2nOut.innerHTML = `<span class="err">a multi-block numeral cannot start with pi</span>`; return;
+    }
+    let n = 0n;
+    for (const value of values) n = n * BigInt(NUM_BASE) + BigInt(value);
+    const payload = blocks.join(" ");
+    cv2nOut.innerHTML = `<span class="lx">num ${payload}</span> → <span class="big">${n}</span>
+      <span class="small">(${blocks.length} base-100 block${blocks.length === 1 ? "" : "s"})</span>`;
   });
 })();
 

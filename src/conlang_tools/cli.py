@@ -73,11 +73,11 @@ def cmd_reference(args):
 
 
 def cmd_number(args):
-    """Convert between numbers and CV syllables."""
+    """Convert between numbers and canonical numeric-CV runs."""
     status = 0
 
     if args.to_cv:
-        # Convert numbers to CV
+        # Convert numbers to canonical CV runs
         for num in args.to_cv:
             try:
                 cv = number_to_cv(num)
@@ -88,7 +88,7 @@ def cmd_number(args):
                 print(f"{num} -> {cv.lower()}")
 
     if args.to_num:
-        # Convert CV to numbers
+        # Convert canonical CV runs to numbers
         for cv in args.to_num:
             try:
                 num = cv_to_number(cv)
@@ -131,11 +131,13 @@ def main() -> int:
     ref_parser.set_defaults(func=cmd_reference)
 
     # Number conversion command
-    num_parser = subparsers.add_parser('num', help='Convert between numbers and CV')
+    num_parser = subparsers.add_parser(
+        'num', help='Convert between numbers and numeric-CV runs'
+    )
     num_parser.add_argument('--to-cv', type=int, nargs='+',
-                           help='Convert numbers to CV')
+                           help='Convert nonnegative integers to canonical CV runs')
     num_parser.add_argument('--to-num', nargs='+',
-                           help='Convert CV to numbers')
+                           help='Convert CV runs to integers (quote multi-block runs)')
     num_parser.set_defaults(func=cmd_number)
 
     args = parser.parse_args()

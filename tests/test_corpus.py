@@ -67,6 +67,10 @@ CORPUS = [
     "num pi",
     "num te",
     "num pa pirim pasen",
+    "num py pi pirim pasen",
+    "num py py koryt re gosen",
+    "ka qo da num py pi pi fenit",
+    "num me do ly ja pirim pasen",
     "pi ji zifen",
 ]
 

@@ -22,8 +22,16 @@ CONSONANTS: str = _DATA["consonants"]
 # Canonical vowel order
 VOWELS: str = _DATA["vowels"]
 
-# Numeric vowels (for 00-99 system, excludes U)
+# Numeric vowels (for 00-99 blocks, excludes U)
 NUMERIC_VOWELS: str = _DATA["numeric_vowels"]
+
+# Positional base for multi-block cardinal numerals
+NUMERAL_BASE: int = _DATA["numeral_base"]
+if NUMERAL_BASE != len(CONSONANTS) * len(NUMERIC_VOWELS):
+    raise ValueError(
+        "numeral_base must equal the numeric CV inventory size "
+        f"({len(CONSONANTS) * len(NUMERIC_VOWELS)})"
+    )
 
 # Final consonant pool (for content words)
 FINAL_CONSONANTS: str = _DATA["final_consonants"]
@@ -61,22 +69,12 @@ ATOMIC_WORDS: Dict[str, Tuple[str, str]] = {
 }
 
 
-def cv_to_number(cv: str) -> int:
-    """Convert a CV syllable to a number (0-99).
-
-    Args:
-        cv: A two-character string (consonant + vowel)
-
-    Returns:
-        The numeric value (0-99)
-
-    Raises:
-        ValueError: If the CV is invalid
-    """
+def _cv_block_to_number(cv: str) -> int:
+    """Convert one numeric CV block to its value from 0 to 99."""
     if len(cv) != 2:
-        raise ValueError(f"CV must be exactly 2 characters, got: {cv}")
+        raise ValueError(f"Numeric CV block must be exactly 2 characters, got: {cv}")
     if not cv.isascii():
-        raise ValueError(f"CV must use ASCII Luryt letters, got: {cv!r}")
+        raise ValueError(f"Numeric CV block must use ASCII Luryt letters, got: {cv!r}")
 
     c, v = cv[0].upper(), cv[1].upper()
 
@@ -85,31 +83,71 @@ def cv_to_number(cv: str) -> int:
     if v not in NUMERIC_VOWELS:
         raise ValueError(f"Invalid numeric vowel: {v} (must be one of {NUMERIC_VOWELS})")
 
-    c_index = CONSONANTS.index(c)
-    v_index = NUMERIC_VOWELS.index(v)
+    return len(NUMERIC_VOWELS) * CONSONANTS.index(c) + NUMERIC_VOWELS.index(v)
 
-    return 5 * c_index + v_index
+
+def cv_to_number(cv: str) -> int:
+    """Convert a canonical numeric-CV run to a nonnegative integer.
+
+    One block retains its original 0-99 value. Multiple whitespace-separated
+    blocks compose most-significant first in base 100. Multi-block runs may
+    contain zero internally or finally but may not begin with the zero block PI.
+
+    Args:
+        cv: One or more whitespace-separated numeric CV blocks
+
+    Returns:
+        The decoded nonnegative integer
+
+    Raises:
+        ValueError: If the run is empty, noncanonical, or contains an invalid block
+    """
+    if not isinstance(cv, str):
+        raise ValueError(f"Numeric CV run must be a string, got: {cv!r}")
+
+    blocks = cv.split()
+    if not blocks:
+        raise ValueError("Numeric CV run must contain at least one block")
+
+    values = [_cv_block_to_number(block) for block in blocks]
+    if len(values) > 1 and values[0] == 0:
+        raise ValueError("Multi-block numeral cannot begin with the zero block PI")
+
+    number = 0
+    for value in values:
+        number = number * NUMERAL_BASE + value
+    return number
+
+
+def _number_to_cv_block(n: int) -> str:
+    """Convert one value from 0 to 99 to its numeric CV block."""
+    c_index, v_index = divmod(n, len(NUMERIC_VOWELS))
+    return CONSONANTS[c_index] + NUMERIC_VOWELS[v_index]
 
 
 def number_to_cv(n: int) -> str:
-    """Convert a number (0-99) to a CV syllable.
+    """Convert a nonnegative integer to its canonical numeric-CV run.
 
     Args:
-        n: An integer from 0 to 99
+        n: Any nonnegative integer
 
     Returns:
-        The CV syllable representation
+        One or more space-separated CV blocks, most-significant first in base 100
 
     Raises:
-        ValueError: If n is not an integer or is out of range
+        ValueError: If n is not a nonnegative integer
     """
     if isinstance(n, bool) or not isinstance(n, int):
-        raise ValueError(f"Number must be an integer between 0 and 99, got: {n!r}")
+        raise ValueError(f"Number must be a nonnegative integer, got: {n!r}")
 
-    if not 0 <= n <= 99:
-        raise ValueError(f"Number must be between 0 and 99, got: {n}")
+    if n < 0:
+        raise ValueError(f"Number must be a nonnegative integer, got: {n}")
 
-    c_index = n // 5
-    v_index = n % 5
+    if n == 0:
+        return _number_to_cv_block(0)
 
-    return CONSONANTS[c_index] + NUMERIC_VOWELS[v_index]
+    blocks = []
+    while n:
+        n, value = divmod(n, NUMERAL_BASE)
+        blocks.append(_number_to_cv_block(value))
+    return " ".join(reversed(blocks))

@@ -2,6 +2,7 @@
   "consonants": "PBMFVTDNQSZLCWXJKGRH",
   "vowels": "IYEAOU",
   "numeric_vowels": "IYEAO",
+  "numeral_base": 100,
   "final_consonants": "MTNSLR",
   "consonant_ipa": {
     "P": "/p/",
@@ -662,7 +663,7 @@
   "atomic_words": {
     "NUM": [
       "numeral marker",
-      "reads the following CV syllable as a number (num te = 27); clipped from nunu 'number'"
+      "reads one or more following numeric CV blocks as a base-100 cardinal (num py pi = 100); clipped from nunu 'number'"
     ]
   }
 }

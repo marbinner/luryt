@@ -16,9 +16,15 @@ def run_cli(*args: str) -> subprocess.CompletedProcess[str]:
 
 def test_successful_commands_exit_zero():
     assert run_cli("parse", "kapirim").returncode == 0
-    result = run_cli("num", "--to-cv", "42")
+    result = run_cli("num", "--to-cv", "42", "100", "12345678")
     assert result.returncode == 0
     assert "42 -> qe" in result.stdout
+    assert "100 -> py pi" in result.stdout
+    assert "12345678 -> me do ly ja" in result.stdout
+
+    result = run_cli("num", "--to-num", "py pi")
+    assert result.returncode == 0
+    assert "py pi -> 100" in result.stdout
 
 
 def test_invalid_words_exit_nonzero():
@@ -27,10 +33,15 @@ def test_invalid_words_exit_nonzero():
 
 
 def test_number_conversion_error_exits_nonzero_on_stderr():
-    result = run_cli("num", "--to-cv", "100")
+    result = run_cli("num", "--to-cv", "-1")
     assert result.returncode == 1
     assert result.stdout == ""
-    assert "Number must be between 0 and 99" in result.stderr
+    assert "Number must be a nonnegative integer" in result.stderr
+
+    result = run_cli("num", "--to-num", "pi py")
+    assert result.returncode == 1
+    assert result.stdout == ""
+    assert "cannot begin with the zero block" in result.stderr
 
 
 def test_number_command_requires_a_direction():

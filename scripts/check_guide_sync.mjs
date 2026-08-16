@@ -27,14 +27,34 @@ const noopEl = new Proxy(function () {}, {
   },
   apply: () => noopEl,
 });
+const converterElements = Object.fromEntries(
+  ["#n2cv", "#n2cvOut", "#cv2n", "#cv2nOut"].map((selector) => [
+    selector,
+    {
+      innerHTML: "",
+      value: "",
+      listeners: {},
+      addEventListener(event, listener) {
+        this.listeners[event] = listener;
+      },
+    },
+  ])
+);
 const documentStub = new Proxy(
   {},
-  { get: (t, p) => (p === "querySelectorAll" ? () => [] : () => noopEl) }
+  {
+    get: (t, p) => {
+      if (p === "querySelectorAll") return () => [];
+      if (p === "querySelector")
+        return (selector) => converterElements[selector] ?? noopEl;
+      return () => noopEl;
+    },
+  }
 );
 const guide = new Function(
   "document",
   "window",
-  js + "\nreturn {CONS, VOWS, NVOWS, FINALS, CONS_INFO, VOW_INFO, " +
+  js + "\nreturn {CONS, VOWS, NVOWS, NUM_BASE, FINALS, CONS_INFO, VOW_INFO, " +
     "SUFF, DOMS, ASPS, ROOTS, SERIES, ATOMS, parseWord};"
 )(documentStub, {});
 
@@ -47,6 +67,7 @@ const eq = (name, a, b) => {
 eq("consonant order", guide.CONS.toUpperCase(), canon.consonants);
 eq("vowel order", guide.VOWS.toUpperCase(), canon.vowels);
 eq("numeric vowels", guide.NVOWS.toUpperCase(), canon.numeric_vowels);
+eq("numeral base", guide.NUM_BASE, canon.numeral_base);
 eq("final consonants", [...guide.FINALS.toUpperCase()].sort(), [...canon.final_consonants].sort());
 
 const pronunciationMap = (rows) =>
@@ -77,6 +98,43 @@ const parsedNum = guide.parseWord("num");
 eq("num parser type", parsedNum?.type, "atomic");
 eq("num parser numeric value", parsedNum?.numval, null);
 eq("num parser errors", parsedNum?.errors, []);
+
+const converterOutput = (inputSelector, outputSelector, value) => {
+  const input = converterElements[inputSelector];
+  const output = converterElements[outputSelector];
+  output.innerHTML = "";
+  input.listeners.input({ target: { value } });
+  return output.innerHTML;
+};
+const includes = (name, actual, expected) => {
+  if (!actual.includes(expected))
+    failures.push(name + ": expected output to contain " + JSON.stringify(expected));
+};
+includes(
+  "guide converter encodes 100",
+  converterOutput("#n2cv", "#n2cvOut", "100"),
+  "num py pi"
+);
+includes(
+  "guide converter encodes 12345678",
+  converterOutput("#n2cv", "#n2cvOut", "12345678"),
+  "num me do ly ja"
+);
+includes(
+  "guide converter decodes 10001",
+  converterOutput("#cv2n", "#cv2nOut", "py pi py"),
+  ">10001<"
+);
+includes(
+  "guide converter rejects a leading zero",
+  converterOutput("#cv2n", "#cv2nOut", "pi py"),
+  "cannot start with pi"
+);
+includes(
+  "guide converter rejects U-vowel blocks",
+  converterOutput("#cv2n", "#cv2nOut", "py qu"),
+  "each block needs"
+);
 
 const guideRoots = Object.keys(guide.ROOTS).map((r) => r.toUpperCase()).sort();
 eq("root inventory", guideRoots, Object.keys(canon.core_roots).sort());
