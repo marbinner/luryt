@@ -87,8 +87,17 @@ def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
     assert '<span class="lx">qe da kyfenit</span>' in GUIDE
 
 
-def test_public_word_shape_summary_mentions_num_exception():
+def test_public_word_shape_summaries_mention_num_exception():
     assert "the numeral marker `num` is the sole longer fixed atom" in README
+    assert "the sole longer fixed atom" in GUIDE
+    assert "First check the list of longer fixed atoms" in GUIDE
+    for false_absolute in (
+        "Two-letter words are grammar. Longer words are vocabulary",
+        "longer than two letters, so it must be a content word",
+        "All of Luryt’s grammar lives in two-letter words",
+        "Particles are exactly CV.",
+    ):
+        assert false_absolute not in GUIDE
 
 
 def test_intentionally_open_syntax_is_documented():
