@@ -1400,3 +1400,17 @@ elements, never an unmarked alias of `num py pi` “100.”
   base-100 cardinal runs; root-anchored stress statement.
   Earmarked but *not* adopted sight-unseen from the stress-test proposal: the **B/F/X/Z** form
   tables and its provisional added roots.
+- **v2 amendments (2026-08-18)** — five changes adopted through evidence-first stress-test
+  cycles (frozen corpora with sealed holdouts; one design decision per cycle), each landed as
+  its own commit:
+  1. Attributive `ROOT-s` property modifiers in the noun phrase (§7.2).
+  2. The **F-series** — coordination & logical linkage — with same-kind infix coordination,
+     discourse-initial linkage, and the low-attachment rule (§4.3, §7.6).
+  3. The **J-series** remapped person-major (`ji jy je ja jo ju` = I, we, you, you-pl,
+     he/she/it, they), plus the §2.4 categorical-series design note.
+  4. The symmetric **C-scale** (`ci` “least”), front N-series polarity on comparisons, and
+     compositional bounds — `na … cy` “at least”, `na … ca` “at most” (§4.12, §7.5).
+  5. The **Q-series** bottom slot: `qi` “few”; empty-set claims are compositional
+     (`na qy …`) (§4.8).
+  Numeric-particle homophones rose from seventy to seventy-five; word shapes, parsing, and
+  the 36 core roots are unchanged throughout.

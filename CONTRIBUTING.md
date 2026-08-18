@@ -41,7 +41,9 @@ node --check docs/assets/js/dictionary.mjs
 - It fills a slot the spec already reserves (an unused consonant series, an
   under-populated matrix cell, negative numbers, fractions, decimals, and ordinals…).
 - It follows the existing design language: series use one consonant crossed
-  with `i y e a o u` mapped to a monotone semantic scale; roots are CVCV with
+  with `i y e a o u` mapped to a monotone semantic scale; two-category series
+  interleave major–minor, and no participant- or polarity-flipping contrast may
+  sit on the weak vowel pairs `i/y` or `o/u` (spec §2.4); roots are CVCV with
   vowels matching their matrix cell; particles should double as prefixes where
   that makes sense.
 - It comes with 3–5 example sentences using existing vocabulary.

@@ -64,22 +64,23 @@ const K_PREFIX = Object.fromEntries(Object.entries(LANGUAGE.derivational_prefixe
 
 // These are teaching-layout choices, not normative language facts.
 const SERIES_UI = {
-  j:{grp:0,scale:"me → them",note:"No gender anywhere: <span class='lx'>jo</span> covers he, she and it."},
+  j:{grp:0,scale:"me → them",note:"Read the vowels in pairs, like the pointing family: <span class='lx'>i/y</span> first person (I/we), <span class='lx'>e/a</span> second, <span class='lx'>o/u</span> third — first of each pair singular, second plural. No gender anywhere: <span class='lx'>jo</span> covers he, she and it."},
   d:{grp:0,scale:"near → far, one → many",note:"Read the vowels in pairs: <span class='lx'>i/y</span> near, <span class='lx'>e/a</span> in view, <span class='lx'>o/u</span> elsewhere — first of each pair singular, second plural."},
   w:{grp:0,scale:"when → how",note:"A question word opens the clause. A pivot is bare: <span class='lx'>wo zifen?</span> “who speaks?” A nonpivot keeps its role: <span class='lx'>wa re ji nifen?</span> “what do I eat?”"},
   t:{grp:1,scale:"long ago → timeless",note:"<span class='lx'>tu</span> is for timeless truths: “water flows”."},
   p:{grp:1,scale:"just starting → already done",note:"Combines freely with time: <span class='lx'>ti pu</span> “had already …”."},
   h:{grp:1,scale:"once → always",note:""},
   n:{grp:1,scale:"yes → never",note:"These double as one-word answers: <span class='lx'>ni. na. no. nu.</span>"},
-  q:{grp:2,scale:"none → every single one",note:"<span class='lx'>qo</span> takes the group as one mass; <span class='lx'>qu</span> goes one by one."},
+  q:{grp:2,scale:"few → every single one",note:"<span class='lx'>qo</span> takes the group as one mass; <span class='lx'>qu</span> goes one by one. There is no “none” form — negation composes it: <span class='lx'>na qy pirim pasen</span> “no person goes”."},
   m:{grp:2,scale:"barely → too much",note:""},
-  c:{grp:2,scale:"at least → as much as possible",note:"Pairs with <span class='lx'>re</span> “than”: see chapter 07."},
+  c:{grp:2,scale:"least → as much as possible",note:"Pairs with <span class='lx'>re</span> “than”: see chapter 07. Front <span class='lx'>na</span> builds the bounds: <span class='lx'>na … cy</span> “at least”, <span class='lx'>na … ca</span> “at most”."},
+  f:{grp:3,scale:"and → or else",note:"Links two of the same kind — two noun phrases or two full clauses: <span class='lx'>koryt fi tokim</span> “the house and the tool”, <span class='lx'>di koryt vosas fo ji gosen.</span> “the house is broken, so I build.” Sentence-initial, it links back to the previous sentence: <span class='lx'>fo ji gosen.</span> “So, I build.”"},
   r:{grp:3,scale:"doer → path closer",note:"Normally placed <em>after</em> a noun phrase, like <span class='lx'>tokim ra</span> “with a tool”. In a path, <span class='lx'>ru</span> closes the full G (S) ground frame."},
   s:{grp:3,scale:"inside → among",note:"Static on its own; traces a path when the verb moves."},
   g:{grp:3,scale:"origin → return",note:"Orients a motion path; <span class='lx'>ru</span> closes the whole path phrase: <span class='lx'>ji go si di koryt ru pasen</span> — “I go into this house.”"},
   k:{grp:3,scale:"single → scattered",note:"Also a prefix — the only one so far: <span class='lx'>kypirim</span> “a pair of people”, <span class='lx'>kokatim</span> “a mass of rock”, <span class='lx'>kufenim</span> “animals scattered everywhere”."}
 };
-const SERIES_ORDER = "jdwtphnqmcrsgk";
+const SERIES_ORDER = "jdwtphnqmcfrsgk";
 const SERIES = [...SERIES_ORDER].map(c => {
   const canonical = c.toUpperCase();
   const ui = SERIES_UI[c];
@@ -98,7 +99,7 @@ const GROUPS = [
   ["People & pointing","who’s talking, and about which things"],
   ["The verb’s dashboard","when, how far along, how often, whether at all"],
   ["How much","amounts, intensity, and comparison"],
-  ["Links, places, groups","roles in the event, positions in space, shapes of collections"]
+  ["Links, places, groups","links between phrases and clauses, roles in the event, positions in space, shapes of collections"]
 ];
 
 /* ============ helpers ============ */
