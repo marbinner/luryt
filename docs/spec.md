@@ -39,10 +39,12 @@
   (§7.2)
 - **F-series coordination**: same-kind infix coordination of noun phrases and clauses,
   sentence-initial discourse linkage, and the low-attachment rule (§7.6)
+- Symmetric C-scale with superlative-low **ci**, and a single front N-series polarity
+  position on comparative and superlative clauses (§7.5)
 
 **Still open (deliberately):**
 
-- Numeric expressions beyond nonnegative exact cardinals: negative numbers, fractions, decimals, and ordinals
+- Numeric expressions beyond nonnegative exact cardinals: negative numbers, fractions, decimals, and ordinals, and scalar bounds over cardinals (“at least three”)
 - Additional derivational prefix series (Time, Voice, Valence, etc.)
 - More closed-class items (focus particles, further clause-linkers, etc.)
 - The earmarked series **B** (mood / clause force),
@@ -494,14 +496,16 @@ Path-neutral motion: `FIGURE S GROUND MOTION-VERB`; the S-relation describes the
 
 ### 12 – C (Comparatives / Scalar Relations)
 
-| **Form** | **Comparative role**  | **Gloss**          |
-| -------- | --------------------- | ------------------ |
-| **ci**   | minimal bound         | “at least”         |
-| **cy**   | less-than             | “less, not as ~”   |
-| **ce**   | equal                 | “as ~ as, equally” |
-| **ca**   | more-than             | “more, -er”        |
-| **co**   | maximal / superlative | “most, at most”    |
-| **cu**   | extremal limit        | “as ~ as possible” |
+| **Form** | **Comparative role**  | **Gloss**              |
+| -------- | --------------------- | ---------------------- |
+| **ci**   | superlative-low       | “least, the least ~”   |
+| **cy**   | less-than             | “less, not as ~”       |
+| **ce**   | equal                 | “as ~ as, equally”     |
+| **ca**   | more-than             | “more, -er”            |
+| **co**   | superlative           | “most, the most ~”     |
+| **cu**   | extremal limit        | “as ~ as possible”     |
+
+The scale is symmetric and monotone: least → less → equal → more → most → as-possible.
 
 Pattern with property `PROP-s`:
 
@@ -510,7 +514,10 @@ A cy/ce/ca PROP-s B re
 = “A is less/as/more PROP than B”
 ```
 
-`re` (R-series) marks **standard-of-comparison** (“than B”).
+`re` (R-series) marks **standard-of-comparison** (“than B”). The superlatives `ci` and `co`
+take the standard-less frame `A ci/co PROP-s` (§7.5). Scalar bounds are compositional, not
+lexical: front `na` over a comparative gives “at least” (`na … cy`, not-less) and “at most”
+(`na … ca`, not-more) — see §7.5. No C form encodes a bound.
 
 ---
 
@@ -1161,7 +1168,7 @@ open. Attributive `ROOT-s` inside a noun phrase is licensed by §7.2 and is not 
 the only operator extension licensed here:
 simple property clauses have no T/P/H/M operator track, and those event-clause positions in §7.1
 do not extend to them by analogy. The two N patterns above likewise do not extend by analogy to
-comparisons or static-location clauses.
+static-location clauses; a comparison licenses one front polarity position of its own (below).
 
 Comparative pattern (C-series + `re`):
 
@@ -1174,10 +1181,30 @@ Comparative pattern (C-series + `re`):
 * `ji cy gusa-s de piri-t re.`
   → “I am less knowledgeable than that person.”
 
-Superlative:
+Superlatives (standard-less frame):
 
 * `ji co gusa-s.`
   → “I am the most knowledgeable.”
+
+* `ji ci gusa-s.`
+  → “I am the least knowledgeable.”
+
+**Comparative polarity.** A comparative or superlative clause may contain at most one front
+N-series particle, taking scope over the whole comparison; the narrow pre-predicate position
+does not extend to comparisons:
+
+* `na ji ca gusa-s de piri-t re.` – “I am not more knowledgeable than that person” — that is,
+  at most as knowledgeable.
+* `na ji cy gusa-s de piri-t re.` – “I am not less knowledgeable than that person” — at least
+  as knowledgeable.
+* `na ji ce gusa-s de piri-t re.` – “I am not exactly as knowledgeable as that person.”
+* `ni ji ca gusa-s de piri-t re.` – “Indeed, I am more knowledgeable than that person.”
+* `nu ji ca gusa-s de piri-t re.` – “I absolutely cannot be more knowledgeable than that
+  person.”
+* `na ji co gusa-s.` – “I am not the most knowledgeable.”
+
+Scalar bounds are therefore compositional — **na + cy** “at least”, **na + ca** “at most” —
+and no C form encodes a bound.
 
 An overt C-series form keeps the existing comparative or superlative construction; it is not an
 optional part of the simple `SUBJECT PROPERTY` template.

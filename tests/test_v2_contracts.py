@@ -386,3 +386,29 @@ def test_j_series_mapping_is_person_major():
     assert "| **jo** | 3sg" in SPEC
     assert "| **jy** | 2sg" not in SPEC
     assert "| **je** | 3sg" not in SPEC
+
+
+def test_c_scale_is_symmetric_with_front_polarity():
+    assert "superlative-low" in SPEC
+    assert "“least, the least ~”" in SPEC
+    assert "“most, the most ~”" in SPEC
+    assert "“most, at most”" not in SPEC
+    assert "minimal bound" not in SPEC
+    assert "least → less → equal → more → most" in SPEC
+    assert "**Comparative polarity.**" in SPEC
+    assert "the narrow pre-predicate position" in SPEC
+    for example in (
+        "`ji ci gusa-s.`",
+        "`na ji ca gusa-s de piri-t re.`",
+        "`na ji cy gusa-s de piri-t re.`",
+        "`na ji ce gusa-s de piri-t re.`",
+        "`ni ji ca gusa-s de piri-t re.`",
+        "`na ji co gusa-s.`",
+    ):
+        assert example in SPEC
+    assert "Scalar bounds are therefore compositional" in SPEC
+    assert "static-location clauses; a comparison licenses one front polarity" in SPEC
+    assert "ci · cy · ce · ca · co" in GUIDE
+    assert "least · less · equal · more · most" in GUIDE
+    assert '<span class="lx">ji ci gusas</span>' in GUIDE
+    assert "at most” not" not in GUIDE  # no stale bound gloss reappears

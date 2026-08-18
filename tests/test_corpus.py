@@ -81,6 +81,17 @@ CORPUS = [
     # comparison
     "ji ca gusas de pirit re",
     "ji co gusas",
+    # symmetric C-scale: superlative-low + comparative polarity + compositional bounds
+    "ji ci gusas",
+    "di tokit ci vosas",
+    "di pirit ci hisas",
+    "na ji ca gusas de pirit re",
+    "na ji cy gusas de pirit re",
+    "na ji ce gusas de pirit re",
+    "ni ji ca gusas de pirit re",
+    "nu ji ca gusas de pirit re",
+    "na ji co gusas",
+    "na qa dy koryt ca vosas di koryt re",
     # grouping: particle vs prefix
     "ka pirim sa sarym pasen",
     "kapirim pasen",

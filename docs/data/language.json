@@ -332,8 +332,8 @@
     },
     "C": {
       "CI": [
-        "minimal bound",
-        "at least"
+        "superlative-low",
+        "least, the least ~ (of all)"
       ],
       "CY": [
         "less-than",
@@ -349,7 +349,7 @@
       ],
       "CO": [
         "superlative",
-        "most, at most"
+        "most, the most ~ (of all)"
       ],
       "CU": [
         "extremal",

@@ -210,8 +210,8 @@
     },
     "C": {
       "CI": {
-        "label": "minimal bound",
-        "gloss": "at least"
+        "label": "superlative-low",
+        "gloss": "least, the least ~ (of all)"
       },
       "CY": {
         "label": "less-than",
@@ -227,7 +227,7 @@
       },
       "CO": {
         "label": "superlative",
-        "gloss": "most, at most"
+        "gloss": "most, the most ~ (of all)"
       },
       "CU": {
         "label": "extremal",
