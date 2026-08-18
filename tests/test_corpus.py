@@ -88,6 +88,22 @@ CORPUS = [
     "ti ja go do saryt ru pasen",
     "pu ju qo koryt re gosen",
     # numerals
+    # F-series coordination: same-kind linking, discourse-initial use
+    "ji koryt fi tokim re gosen",
+    "pirim fe fenim pasen",
+    "di koryt vosas fa di tokit na vosas",
+    "di koryt vosas fo ji gosen",
+    "ty je zifen fy je pasen",
+    "na qy pirim fe qy fenim pasen",
+    "di tokit vosas fe di tokit hatas",
+    "ji go si di koryt fi di saryt ru pasen",
+    "pirim fi fenim fi katim pasen",
+    "qa korym fi qe tokim vosas",
+    "te ji zifen fi to jy zifen",
+    "jy zifen fu ji pasen",
+    "num pa korym fi num bi fenim pasen",
+    "fo ji gosen",
+    "di vosas koryt fi vosas tokim re gosen",
     # attributive property modifiers: prenominal, restrictive, close a num run
     "vosas korym",
     "di vosas koryt",

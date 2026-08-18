@@ -39,8 +39,7 @@ node --check docs/assets/js/dictionary.mjs
 ### What makes a proposal easy to accept
 
 - It fills a slot the spec already reserves (an unused consonant series, an
-  under-populated matrix cell, negative numbers, fractions, decimals, and ordinals,
-  conjunctions…).
+  under-populated matrix cell, negative numbers, fractions, decimals, and ordinals…).
 - It follows the existing design language: series use one consonant crossed
   with `i y e a o u` mapped to a monotone semantic scale; roots are CVCV with
   vowels matching their matrix cell; particles should double as prefixes where

@@ -42,10 +42,10 @@ or consult the normative [foundational spec](https://marbinner.github.io/luryt/s
 luryt is deliberately unfinished, and the grammar defines exactly where the
 empty slots are:
 
-- **6 consonants** (`b f v z l x`) are reserved for future particle families
-  (four already earmarked: mood, coordination, subordination, discourse reference)
+- **5 consonants** (`b v z l x`) are reserved for future particle families
+  (three already earmarked: mood, subordination, discourse reference)
 - the **36 matrix cells** each hold one core root — with room for many more
-- **negative numbers, fractions, decimals, and ordinals**, **conjunctions**, and **complex-clause syntax** are open
+- **negative numbers, fractions, decimals, and ordinals** and **complex-clause syntax** are open
 - only the K-family works as a prefix so far; more prefix families are anticipated
 
 Proposals go through issues (there are templates), discussion happens in
@@ -65,7 +65,7 @@ language: a parser/validator, reference lookups, and a number converter.
 ```bash
 uv sync                     # install
 uv run luryt parse kapirim  # segment + analyze a word
-uv run luryt ref particles  # the 14 particle families
+uv run luryt ref particles  # the 15 particle families
 uv run luryt num --to-cv 12345678  # -> me do ly ja
 uv run luryt num --to-num "py pi"  # -> 100 (quote a multi-block run)
 ```

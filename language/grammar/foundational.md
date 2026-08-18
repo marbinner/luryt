@@ -23,7 +23,7 @@
 - Principle that **CV series use one consonant + vowels in I Y E A O U order**
 - Root semantics: **6 Domains × 6 Aspects** (semantic matrix)
 - Numeric **00–99 → CV block** system and canonical base-100 cardinal composition
-- Particle series defined so far: **P, M, T, D, N, Q, S, C, W, J, K, G, R, H**
+- Particle series defined so far: **P, M, F, T, D, N, Q, S, C, W, J, K, G, R, H**
 - First derivational prefix series: **K-series** (configuration / collectivity)
 - A core lexicon: **one root per semantic cell (36 roots)**
 - The numeral marker **num** (§8.1)
@@ -35,15 +35,23 @@
 - Exact-cardinal noun-phrase slot and scope with K/Q/D (§7.2)
 - Attributive **ROOT-s** property modifiers in the noun-phrase slot before the entity head
   (§7.2)
+- **F-series coordination**: same-kind infix coordination of noun phrases and clauses,
+  sentence-initial discourse linkage, and the low-attachment rule (§7.6)
 
 **Still open (deliberately):**
 
 - Numeric expressions beyond nonnegative exact cardinals: negative numbers, fractions, decimals, and ordinals
 - Additional derivational prefix series (Time, Voice, Valence, etc.)
-- More closed-class items (conjunctions, clause-linkers, etc.)
-- The earmarked series **B** (mood / clause force), **F** (coordination & logical linkage),
+- More closed-class items (focus particles, further clause-linkers, etc.)
+- The earmarked series **B** (mood / clause force),
   **X** (subordinate-clause delimiters), **Z** (reflexive / reciprocal / discourse reference):
   functions reserved, forms not yet specified. **V** and **L** remain unallocated.
+- Layers on top of coordination: emphatic/exclusive correlatives (“both … and”,
+  “either … or”), K-configuration scoping over a whole coordination, ellipsis and gapping
+  across conjuncts, and coordination of bare numerals (an open payload run absorbs a
+  numeric-vowel F form; use counted heads or separate sentences)
+- Causal subordination (“because”-clauses): X-series work; until then, put the cause first
+  and link with **fo** (§7.6)
 - Larger lexicon beyond the 36 core roots
 - Full syntax for complex clauses, subordination, focus, etc.
 - Direct event-level use and ordering of free K-series modifiers relative to the event-operator track
@@ -367,9 +375,26 @@ Used as clause particles, typically before the verb.
 
 ---
 
-### 3 – F
+### 3 – F (Coordination & Logical Linkage)
 
-*(reserved — earmarked for coordination & logical linkage)*
+| **Form** | **Relation**                        | **Gloss**            |
+| -------- | ----------------------------------- | -------------------- |
+| **fi**   | additive                            | “and”                |
+| **fy**   | sequential                          | “and then”           |
+| **fe**   | alternative (inclusive)             | “or”                 |
+| **fa**   | adversative                         | “but, yet”           |
+| **fo**   | consecutive                         | “so, therefore”      |
+| **fu**   | preventive / alternative consequence | “or else, otherwise” |
+
+The scale runs from symmetric addition to conditional consequence: additive → sequential →
+alternative → adversative → consecutive → preventive. A free F particle joins two constituents
+of the same kind — complete noun phrases or complete clauses — and may open a sentence as a
+discourse connective. Syntax and attachment in §7.6.
+
+Note (safety): **fi/fy** differ only in sequence, and **fo/fu** are both forward-looking
+consequence links, so a misheard vowel keeps the discourse move. “Because” is deliberately
+*not* an F form — backward-looking grounds are future X-series subordination; until then, put
+the cause first and link with **fo** (§7.6).
 
 ---
 
@@ -1147,6 +1172,56 @@ optional part of the simple `SUBJECT PROPERTY` template.
 
 ---
 
+### 7.6 Coordination (F-series)
+
+A free F particle (§4.3) links **exactly two constituents of the same kind** as `X F Y`:
+
+- **noun phrases**: each conjunct is one complete §7.2 noun phrase (pronouns included), and
+  the coordinated noun phrase stands wherever the grammar licenses a noun phrase — pivot,
+  role-marked argument, property-clause subject, spatial ground. A following role particle
+  marks the **complete** coordination; every K/Q/D/NUM particle and attributive modifier
+  scopes only inside its own conjunct.
+- **clauses**: each conjunct is one complete clause (event, property, comparative, or static);
+  front operators (§7.1) remain local to their own clause — an operator’s rightward scope ends
+  at its clause’s F boundary.
+
+Chains iterate left to right with the same construction: `A fi B fi C`; a mixed chain such as
+`A fi B fe C` groups as `(A fi B) fe C`.
+
+**Attachment (low attachment).** An F particle immediately preceded by a noun-phrase-final
+word (an entity head or pronoun) and immediately followed by a noun-phrase-initial word (a
+K/Q/D particle, `num`, an attributive `ROOT-s`, an entity head, or a pronoun) coordinates
+noun phrases; clause coordination is available only otherwise. To chain a clause after one
+that ends in a noun phrase (a static-location clause), give the next clause a non-NP-initial
+start — a front operator — or use separate sentences.
+
+**Discourse use.** A sentence may open with one F particle, linking the whole sentence to the
+previous sentence with the same relation: `di koryt vosas. fo ji gosen.` — “The house is
+broken. So, I build.” Cause-first order plus **fo** covers “because” until X-series
+subordination exists.
+
+**Not licensed:** linking constituents of different kinds; F inside an attributive block;
+correlative doubling (“both … and”); and F directly inside an open numeral payload — a
+numeric-vowel F form there is read as a payload block (§8.1), so bare numerals are not
+coordinable (coordinate counted heads instead: `num pa kory-m fi num bi feni-m`).
+
+Examples:
+
+* `ji kory-t fi toki-m re gose-n.` – “I build the house and the tool.” (one event, one role)
+* `piri-m fe feni-m pase-n.` – “A person or an animal goes.”
+* `di kory-t vosa-s fa di toki-t na vosa-s.` – “The house is broken, but the tool is not.”
+* `di kory-t vosa-s fo ji gose-n.` – “The house is broken, so I build.”
+* `ty je zife-n fy je pase-n.` – “She spoke and then goes on.”
+* `na qy piri-m fe qy feni-m pase-n.` – “Neither a person nor an animal goes.” (¬∃ over `fe`)
+* `di toki-t vosa-s fe di toki-t hata-s?` – “Is this tool broken, or is it hot?”
+* `ji go si di kory-t fi di sary-t ru pase-n.` – “I go into the house and the region.”
+* `piri-m fi feni-m fi kati-m pase-n.` – “The person, the animal, and the rock move.”
+* `qa kory-m fi qe toki-m vosa-s.` – “Most houses and some tools are broken.”
+* `te ji zife-n fi to jy zife-n.` – “Now I speak, and later you will speak.”
+* `jy zife-n fu ji pase-n.` – “You speak, or else I go.”
+
+---
+
 ## 8. Numeric CV Blocks and Base-100 Cardinals
 
 Consonant indices (canonical order):
@@ -1212,8 +1287,9 @@ d = 5 * c_index + v_index
 
 ### 8.1 The numeral marker `num` and positional composition (v2)
 
-Seventy of the hundred numeric CVs are homophonous with defined particles (`te` is both “now”
-and 27). The remaining thirty use the six reserved or unallocated series consonants and currently
+Seventy-five of the hundred numeric CVs are homophonous with defined particles (`te` is both
+“now” and 27). The remaining twenty-five use the five reserved or unallocated series consonants
+and currently
 have only a numeric reading. Because collisions are nevertheless systematic and common, ordinary
 numeric expressions are announced uniformly by **num** — the language’s first fixed atomic form
 longer than CV, a clipped entity form of **nunu** “number”:

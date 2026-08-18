@@ -52,6 +52,32 @@
         "gloss": "extremely, too, overly"
       }
     },
+    "F": {
+      "FI": {
+        "label": "additive",
+        "gloss": "and"
+      },
+      "FY": {
+        "label": "sequential",
+        "gloss": "and then"
+      },
+      "FE": {
+        "label": "alternative",
+        "gloss": "or (inclusive)"
+      },
+      "FA": {
+        "label": "adversative",
+        "gloss": "but, yet"
+      },
+      "FO": {
+        "label": "consecutive",
+        "gloss": "so, therefore"
+      },
+      "FU": {
+        "label": "preventive",
+        "gloss": "or else, otherwise"
+      }
+    },
     "T": {
       "TI": {
         "label": "remote past",
@@ -371,6 +397,9 @@
     },
     "M": {
       "name": "Degree"
+    },
+    "F": {
+      "name": "Coordination"
     },
     "T": {
       "name": "Time"

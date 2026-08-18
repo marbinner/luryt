@@ -316,10 +316,51 @@ def test_intentionally_open_syntax_is_documented():
 
 
 def test_numeric_collision_count_is_precise():
-    assert "Seventy of the hundred numeric CVs" in SPEC
-    assert "Seventy of the hundred number syllables" in GUIDE
+    assert "Seventy-five of the hundred numeric CVs" in SPEC
+    assert "Seventy-five of the hundred number syllables" in GUIDE
+    assert "Seventy of the hundred" not in SPEC
+    assert "Seventy of the hundred" not in GUIDE
     assert "Every numeric CV collides" not in SPEC
     assert "Every numeric CV collides" not in GUIDE
+
+
+def test_f_series_links_same_kind_with_low_attachment():
+    assert "### 3 – F (Coordination & Logical Linkage)" in SPEC
+    assert "(reserved — earmarked for coordination" not in SPEC
+    assert "### 7.6 Coordination (F-series)" in SPEC
+    assert "**exactly two constituents of the same kind**" in SPEC
+    assert "marks the **complete** coordination" in SPEC
+    assert "remain local to their own clause" in SPEC
+    assert "groups as `(A fi B) fe C`" in SPEC
+    assert "**Attachment (low attachment).**" in SPEC
+    assert "coordinates\nnoun phrases; clause coordination is available only otherwise" in SPEC
+    assert "**Discourse use.**" in SPEC
+    assert "Cause-first order plus **fo**" in SPEC
+    assert "correlative doubling" in SPEC
+    assert "bare numerals are not\ncoordinable" in SPEC
+    for example in (
+        "`ji kory-t fi toki-m re gose-n.`",
+        "`piri-m fe feni-m pase-n.`",
+        "`di kory-t vosa-s fa di toki-t na vosa-s.`",
+        "`di kory-t vosa-s fo ji gose-n.`",
+        "`ty je zife-n fy je pase-n.`",
+        "`na qy piri-m fe qy feni-m pase-n.`",
+        "`di toki-t vosa-s fe di toki-t hata-s?`",
+        "`ji go si di kory-t fi di sary-t ru pase-n.`",
+        "`piri-m fi feni-m fi kati-m pase-n.`",
+        "`qa kory-m fi qe toki-m vosa-s.`",
+        "`te ji zife-n fi to jy zife-n.`",
+        "`jy zife-n fu ji pase-n.`",
+    ):
+        assert example in SPEC
+    assert "<h2>Particles: fifteen families</h2>" in GUIDE
+    assert "fourteen families" not in GUIDE.lower()
+    assert "<h3>Linking: and, or, but</h3>" in GUIDE
+    assert '<span class="lx">koryt fi tokim</span>' in GUIDE
+    assert '<span class="lx">pirim fe fenim pasen.</span>' in GUIDE
+    assert '<span class="lx">na qy pirim fe qy fenim pasen.</span>' in GUIDE
+    assert '<span class="lx">fo ji gosen.</span>' in GUIDE
+    assert "and · then · or · but · so · or‑else" in GUIDE
 
 
 def test_guide_uses_standards_mode_document_structure():
