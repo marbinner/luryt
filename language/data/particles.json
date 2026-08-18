@@ -266,20 +266,20 @@
         "gloss": "I"
       },
       "JY": {
-        "label": "2sg",
-        "gloss": "you (sg)"
-      },
-      "JE": {
-        "label": "3sg",
-        "gloss": "he / she / it"
-      },
-      "JA": {
         "label": "1pl",
         "gloss": "we"
       },
-      "JO": {
+      "JE": {
+        "label": "2sg",
+        "gloss": "you (sg)"
+      },
+      "JA": {
         "label": "2pl",
         "gloss": "you (pl)"
+      },
+      "JO": {
+        "label": "3sg",
+        "gloss": "he / she / it"
       },
       "JU": {
         "label": "3pl",

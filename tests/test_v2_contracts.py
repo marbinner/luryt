@@ -35,8 +35,8 @@ def test_path_neutral_motion_is_verb_final():
 
 
 def test_guide_drills_follow_v2_path_and_pivot_rules():
-    assert "ti ja go do saryt ru pasen." in GUIDE
-    assert "ti ja ru do sarym pasen." not in GUIDE
+    assert "ti jy go do saryt ru pasen." in GUIDE
+    assert "ti jy ru do sarym pasen." not in GUIDE
     assert "pu ju qo koryt re gosen." in GUIDE
     assert "pu ju qo koryt gosen." not in GUIDE
 
@@ -63,7 +63,7 @@ def test_event_manner_has_one_clause_final_slot():
         "`ji si di kory-t ro guse-l zife-n.`",
         "`ji go si di kory-t ru vyra-l pase-n.`",
         "`ji guse-l na zife-n.`",
-        "`je guse-l zife-n.`",
+        "`jo guse-l zife-n.`",
     ):
         assert sentence in SPEC
 
@@ -73,8 +73,8 @@ def test_event_manner_has_one_clause_final_slot():
         '[manner‑l] · [na] · event‑n</span>'
     ) in GUIDE
     assert '<span class="lx">ji gusel na zifen</span>' in GUIDE
-    assert '<span class="lx">wu je zifen?</span>' in GUIDE
-    assert '<span class="lx">je gusel zifen.</span>' in GUIDE
+    assert '<span class="lx">wu jo zifen?</span>' in GUIDE
+    assert '<span class="lx">jo gusel zifen.</span>' in GUIDE
 
 
 def test_simple_property_clause_is_zero_copula_and_property_final():
@@ -141,7 +141,7 @@ def test_questioned_nonpivot_keeps_its_event_role():
         "`wo ry ji qy rufi-m re zife-n?`",
         "`wa ra ji di kory-t re gose-n?`",
         "`wo ri di kory-t re gose-n?`",
-        "`we ro je nife-n?`",
+        "`we ro jo nife-n?`",
     ):
         assert sentence in SPEC
     assert "`wa ji nife-n?`" not in SPEC
@@ -154,7 +154,7 @@ def test_questioned_nonpivot_keeps_its_event_role():
     assert "Where does he/she eat?" in question_section
     assert "Where do they eat?" not in question_section
     assert any(forms[i:i + 4] == ["wa", "re", "ji", "nifen?"] for i in range(len(forms) - 3))
-    assert any(forms[i:i + 4] == ["we", "ro", "je", "nifen?"] for i in range(len(forms) - 3))
+    assert any(forms[i:i + 4] == ["we", "ro", "jo", "nifen?"] for i in range(len(forms) - 3))
     assert '["w– (+ r–)","question + role"' in GUIDE
 
 
@@ -255,7 +255,7 @@ def test_exact_numerals_compose_canonically_in_base_100():
         "`num py pi` – “one hundred”",
         "`num py py` – “one hundred one”",
         "`num py pi pi` – “ten thousand”",
-        "`num me do ly ja`",
+        "`num me do ly jy`",
     ):
         assert example in SPEC
 
@@ -343,14 +343,14 @@ def test_f_series_links_same_kind_with_low_attachment():
         "`piri-m fe feni-m pase-n.`",
         "`di kory-t vosa-s fa di toki-t na vosa-s.`",
         "`di kory-t vosa-s fo ji gose-n.`",
-        "`ty je zife-n fy je pase-n.`",
+        "`ty jo zife-n fy jo pase-n.`",
         "`na qy piri-m fe qy feni-m pase-n.`",
         "`di toki-t vosa-s fe di toki-t hata-s?`",
         "`ji go si di kory-t fi di sary-t ru pase-n.`",
         "`piri-m fi feni-m fi kati-m pase-n.`",
         "`qa kory-m fi qe toki-m vosa-s.`",
-        "`te ji zife-n fi to jy zife-n.`",
-        "`jy zife-n fu ji pase-n.`",
+        "`te ji zife-n fi to je zife-n.`",
+        "`je zife-n fu ji pase-n.`",
     ):
         assert example in SPEC
     assert "<h2>Particles: fifteen families</h2>" in GUIDE
@@ -376,3 +376,13 @@ def test_guide_exposes_github_contribution_link_at_the_top():
     assert contribution_link in GUIDE
     assert GUIDE.index(contribution_link) < GUIDE.index('<header class="hero">')
     assert "Contribute on GitHub" in GUIDE
+
+
+def test_j_series_mapping_is_person_major():
+    assert "person-major, number-minor" in SPEC
+    assert "Note (categorical series)" in SPEC
+    assert "participant-, polarity-, or" in SPEC
+    assert "| **jy** | 1pl" in SPEC
+    assert "| **jo** | 3sg" in SPEC
+    assert "| **jy** | 2sg" not in SPEC
+    assert "| **je** | 3sg" not in SPEC

@@ -64,7 +64,7 @@ const K_PREFIX = Object.fromEntries(Object.entries(LANGUAGE.derivational_prefixe
 
 // These are teaching-layout choices, not normative language facts.
 const SERIES_UI = {
-  j:{grp:0,scale:"me → them",note:"No gender anywhere: <span class='lx'>je</span> covers he, she and it."},
+  j:{grp:0,scale:"me → them",note:"No gender anywhere: <span class='lx'>jo</span> covers he, she and it."},
   d:{grp:0,scale:"near → far, one → many",note:"Read the vowels in pairs: <span class='lx'>i/y</span> near, <span class='lx'>e/a</span> in view, <span class='lx'>o/u</span> elsewhere — first of each pair singular, second plural."},
   w:{grp:0,scale:"when → how",note:"A question word opens the clause. A pivot is bare: <span class='lx'>wo zifen?</span> “who speaks?” A nonpivot keeps its role: <span class='lx'>wa re ji nifen?</span> “what do I eat?”"},
   t:{grp:1,scale:"long ago → timeless",note:"<span class='lx'>tu</span> is for timeless truths: “water flows”."},
@@ -427,7 +427,7 @@ const DD_RENDERERS = {
         <div class="dd-panel">
           <div class="dd-panel-title"><span class="dd-code">c−</span><span><b>Comparison</b><span class="dd-meta">bound → less → equal → more → most → extreme</span></span></div>
           ${ddRows(c)}
-          <div class="dd-note"><span class="lx">jy ca hisas ji re</span> → “you are healthier than I am.”</div>
+          <div class="dd-note"><span class="lx">je ca hisas ji re</span> → “you are healthier than I am.”</div>
         </div>
       </div>
       <div class="dd-note"><span class="lx">di koryt vosas</span> is the zero-copula base “this house is broken.” An overt C-form instead selects the existing comparison or superlative construction.</div>`;
@@ -606,16 +606,16 @@ $("#vowrow").innerHTML = VOW_INFO.map(([L,ipa,hint]) =>
   const drills = [
     ["ji zifen.", "“I speak.”",
      [["ji","I"],["zifen","speak"]]],
-    ["te py je gusen.", "“He (or she) is thinking right now.”",
-     [["te","now"],["py","-ing"],["je","he/she/it"],["gusen","think"]]],
+    ["te py jo gusen.", "“He (or she) is thinking right now.”",
+     [["te","now"],["py","-ing"],["jo","he/she/it"],["gusen","think"]]],
     ["ho qa pirim gyfen.", "“Most people usually socialize.”",
      [["ho","usually"],["qa","most"],["pirim","people"],["gyfen","mingle"]]],
     ["dy fenit si di koryt.", "“These animals are inside this house.”",
      [["dy","these"],["fenit","animals"],["si","inside"],["di","this"],["koryt","house"]]],
-    ["ti ja go do saryt ru pasen.", "“Long ago, we traveled to that faraway region.”",
-     [["ti","long ago"],["ja","we"],["go","endpoint"],["do","that (far)"],["saryt","the region"],["ru","path closer"],["pasen","go"]]],
-    ["jy ca hisas ji re.", "“You are healthier than I am.”",
-     [["jy","you"],["ca","more"],["hisas","healthy"],["ji","I"],["re","than"]]],
+    ["ti jy go do saryt ru pasen.", "“Long ago, we traveled to that faraway region.”",
+     [["ti","long ago"],["jy","we"],["go","endpoint"],["do","that (far)"],["saryt","the region"],["ru","path closer"],["pasen","go"]]],
+    ["je ca hisas ji re.", "“You are healthier than I am.”",
+     [["je","you"],["ca","more"],["hisas","healthy"],["ji","I"],["re","than"]]],
     ["pu ju qo koryt re gosen.", "“They have already built all the houses.”",
      [["pu","already"],["ju","they"],["qo","all"],["koryt","the houses"],["re","object"],["gosen","build"]]],
     ["num pa pirim pasen.", "“Three people go.”",

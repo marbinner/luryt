@@ -388,20 +388,20 @@
         "I"
       ],
       "JY": [
-        "2sg",
-        "you (sg)"
-      ],
-      "JE": [
-        "3sg",
-        "he / she / it"
-      ],
-      "JA": [
         "1pl",
         "we"
       ],
-      "JO": [
+      "JE": [
+        "2sg",
+        "you (sg)"
+      ],
+      "JA": [
         "2pl",
         "you (pl)"
+      ],
+      "JO": [
+        "3sg",
+        "he / she / it"
       ],
       "JU": [
         "3pl",

@@ -248,6 +248,12 @@ Many CV series serve as:
 
 K-series (configuration) is the first fully specified particle+prefix series.
 
+Note (categorical series): when one series crosses two categories (distance × number in D,
+person × number in J), the vowels interleave **major–minor** — `di`/`dy` “this/these”,
+`ji`/`jy` “I/we”. Future series must not place a participant-, polarity-, or
+direction-flipping contrast on the acoustically weakest vowel pairs **i/y** and **o/u**;
+those pairs should differ only in the minor category or by one step of the scale.
+
 ---
 
 ## 3. Semantic Matrix (Domains × Aspects)
@@ -532,11 +538,15 @@ A cy/ce/ca PROP-s B re
 | Form   | Person / number | Gloss         |
 | ------ | --------------- | ------------- |
 | **ji** | 1sg             | I             |
-| **jy** | 2sg             | you (sg)      |
-| **je** | 3sg             | he / she / it |
-| **ja** | 1pl             | we            |
-| **jo** | 2pl             | you (pl)      |
+| **jy** | 1pl             | we            |
+| **je** | 2sg             | you (sg)      |
+| **ja** | 2pl             | you (pl)      |
+| **jo** | 3sg             | he / she / it |
 | **ju** | 3pl             | they          |
+
+The mapping is person-major, number-minor — the same major–minor interleave as the D-series
+(`di`/`dy` “this/these”), so the acoustically closest pairs `ji`/`jy` and `jo`/`ju` differ
+only in number (“I/we”, “he-she-it/they”), never in discourse participant.
 
 ---
 
@@ -895,7 +905,7 @@ R-series role particle (§7.3), including a questioned argument (§7.4). A claus
 morphology:
 
 * `ji kory-t re toki-m ra gose-n.` – “I build the house with a tool.”
-* `ji jy ry qy rufi-m re zife-n.` – “I tell you an idea.”
+* `ji je ry qy rufi-m re zife-n.` – “I tell you an idea.”
 * `ty di kory-t re gose-n.` – “This house was built recently.” (patient marked, agent omitted)
 
 **Event manner.** The MANNER slot stays adjacent to the clause-final event tail even when the
@@ -1050,8 +1060,8 @@ A G-series particle adds orientation, and `ru` closes the whole oriented path ph
 
 * `ji go si di kory-t ru pase-n.` – “I go into this house.” (endpoint + inside)
 * `ji gi si di kory-t ru pase-n.` – “I come out of this house.” (origin + inside)
-* `ja ge su bely-m ru pase-n.` – “We travel through the forest.” (route + among)
-* `je gu si di kory-t ru pase-n.` – “She returns into this house.”
+* `jy ge su bely-m ru pase-n.` – “We travel through the forest.” (route + among)
+* `jo gu si di kory-t ru pase-n.` – “She returns into this house.”
 
 `ru` no longer means “from” or “to” by itself: orientation lives in the G-series, and `ru` is the
 role particle closing the completed path frame. (This fixes v1, where `ru` conflated source with
@@ -1072,17 +1082,17 @@ as non-role operators (time, reason, manner) remain unmarked.
 * `wa ra ji di kory-t re gose-n?` – “With what do I build this house?” (instrument)
 * `wo ri di kory-t re gose-n?` – “By whom was this house built?” (explicit agent; no pivot)
 * `wi ju pase-n?` – “When do they go?”
-* `wy je guse-n?` – “Why does he/she think?”
-* `we ro je nife-n?` – “Where does he/she eat?” (event setting)
-* `wu je zife-n?` – “How does he/she speak?”
-  * `je guse-l zife-n.` – “He/she speaks thoughtfully.”
+* `wy jo guse-n?` – “Why does he/she think?”
+* `we ro jo nife-n?` – “Where does he/she eat?” (event setting)
+* `wu jo zife-n?` – “How does he/she speak?”
+  * `jo guse-l zife-n.` – “He/she speaks thoughtfully.”
 
 This rule does not extract a W-word from inside a static S construction or an oriented G…`ru`
 path frame; those question constructions remain open (§0).
 
 **Yes/no questions**: same clause + question intonation / `?`.
 
-* `je zife-n?` – “Does he/she speak?”
+* `jo zife-n?` – “Does he/she speak?”
 
 Answers with N-series:
 
@@ -1213,14 +1223,14 @@ Examples:
 * `piri-m fe feni-m pase-n.` – “A person or an animal goes.”
 * `di kory-t vosa-s fa di toki-t na vosa-s.` – “The house is broken, but the tool is not.”
 * `di kory-t vosa-s fo ji gose-n.` – “The house is broken, so I build.”
-* `ty je zife-n fy je pase-n.` – “She spoke and then goes on.”
+* `ty jo zife-n fy jo pase-n.` – “She spoke and then goes on.”
 * `na qy piri-m fe qy feni-m pase-n.` – “Neither a person nor an animal goes.” (¬∃ over `fe`)
 * `di toki-t vosa-s fe di toki-t hata-s?` – “Is this tool broken, or is it hot?”
 * `ji go si di kory-t fi di sary-t ru pase-n.` – “I go into the house and the region.”
 * `piri-m fi feni-m fi kati-m pase-n.` – “The person, the animal, and the rock move.”
 * `qa kory-m fi qe toki-m vosa-s.` – “Most houses and some tools are broken.”
-* `te ji zife-n fi to jy zife-n.` – “Now I speak, and later you will speak.”
-* `jy zife-n fu ji pase-n.` – “You speak, or else I go.”
+* `te ji zife-n fi to je zife-n.` – “Now I speak, and later you will speak.”
+* `je zife-n fu ji pase-n.` – “You speak, or else I go.”
 
 ---
 
@@ -1327,7 +1337,7 @@ right. The spelling is canonical:
 * the rule has no upper block-count limit.
 
 Thus 9,999 is `num ho ho`, 10,001 is `num py pi py`, and 12,345,678 is
-`num me do ly ja`. A following content word — attributive modifier or entity head — or the
+`num me do ly jy`. A following content word — attributive modifier or entity head — or the
 boundary of a standalone numeral phrase
 ends the run. A new `num` starts a separate numeral constituent: `num py pi` is the single
 integer 100, whereas `num py / num pi` (with the slash only marking a phrase boundary here)

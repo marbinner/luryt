@@ -122,3 +122,10 @@ def test_ru_is_only_a_path_frame_closer():
     assert meaning == "path-frame closer"
     assert "closes a G-oriented path phrase" in gloss
     assert "orientation comes from the G-series" in gloss
+
+
+def test_pronouns_interleave_person_major_number_minor():
+    j_labels = [PARTICLE_SERIES["J"][f"J{v}"][0] for v in "IYEAOU"]
+    assert j_labels == ["1sg", "1pl", "2sg", "2pl", "3sg", "3pl"]
+    d_labels = [PARTICLE_SERIES["D"][f"D{v}"][0] for v in "IYEAOU"]
+    assert [label.split()[-1] for label in d_labels] == ["singular", "plural"] * 3
