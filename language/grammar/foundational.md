@@ -39,6 +39,8 @@
   sentence-initial discourse linkage, and the low-attachment rule (§7.6)
 - Symmetric C-scale with superlative-low **ci**, and a single front N-series polarity
   position on comparative and superlative clauses (§7.5)
+- Monotone Q-scale with **qi** “few”; empty-set claims are compositional (front N over an
+  existential, §4.8/§7.1)
 
 **Still open (deliberately):**
 
@@ -455,12 +457,19 @@ the cause first and link with **fo** (§7.6).
 
 | Form   | Type                       | Short gloss                       |
 | ------ | -------------------------- | --------------------------------- |
-| **qi** | empty set                  | “no, none of”                     |
+| **qi** | few / small subset         | “few, a small number of”          |
 | **qy** | existential, non-partitive | “a / some (there exists)”         |
 | **qe** | partitive, not-all         | “some of (them), not all”         |
 | **qa** | large subset               | “most (of)”                       |
 | **qo** | universal, collective      | “all (of), the whole X”           |
 | **qu** | universal, distributive    | “every / each / any (one by one)” |
+
+The scale is a monotone positive quantity progression: few → some → some of → most → all →
+every. There is no negative quantifier: an empty-set claim is compositional, with a front
+N-series particle over an existential — `na qy piri-m pase-n.` “no person goes” (¬∃),
+`nu qy piri-m pase-n.` “absolutely no one goes” — exactly as linear operator scope (§7.1)
+already provides. Quantity is not configuration: `qi piri-m` “few people” (proportion)
+contrasts with `ke piri-m` “people in a small group” (K-series grouping).
 
 ---
 
@@ -946,6 +955,7 @@ narrow scope:
 
 Examples:
 
+* `qi piri-m` – few people
 * `qy piri-m` – a person / some person
 * `qa piri-m` – most people
 * `qe da feni-t` – some of those animals (here)

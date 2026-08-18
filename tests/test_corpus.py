@@ -46,6 +46,14 @@ CORPUS = [
     "ty di koryt re gosen",
     # noun phrases
     "qy pirim",
+    # monotone Q-scale: qi = few; none is compositional (front N over existential)
+    "qi pirim",
+    "qi pirim pasen",
+    "qi da fenit melas",
+    "ti qi vosas korym re gosen",
+    "na qy pirim pasen",
+    "nu qy pirim pasen",
+    "ka qi pirim pasen",
     "qe da fenit",
     "qo du koryt",
     "ka qa pirim pasen",

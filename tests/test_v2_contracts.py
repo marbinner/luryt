@@ -412,3 +412,15 @@ def test_c_scale_is_symmetric_with_front_polarity():
     assert "least · less · equal · more · most" in GUIDE
     assert '<span class="lx">ji ci gusas</span>' in GUIDE
     assert "at most” not" not in GUIDE  # no stale bound gloss reappears
+
+
+def test_q_series_bottom_is_few_and_none_is_compositional():
+    assert "“few, a small number of”" in SPEC
+    assert "“no, none of”" not in SPEC
+    assert "There is no negative quantifier" in SPEC
+    assert "`na qy piri-m pase-n.`" in SPEC
+    assert "`nu qy piri-m pase-n.`" in SPEC
+    assert "few → some → some of → most → all" in SPEC
+    assert "`qi piri-m` – few people" in SPEC
+    assert "`ke piri-m`" in SPEC
+    assert '<span class="lx">qi pirim</span>' in GUIDE
