@@ -44,3 +44,26 @@ def test_dictionary_local_assets_exist():
     missing = [ref for ref in local_refs if not (page.parent / ref).resolve().is_file()]
     assert local_refs
     assert not missing, f"dictionary references missing local assets: {missing}"
+
+
+def test_guide_particle_gallery_covers_every_series():
+    """A data-defined series must render in the guide's particle chapter.
+
+    The chapter's layout comes from the hand-maintained SERIES_ORDER and
+    SERIES_UI maps in guide.mjs; nothing else fails when a newly adopted
+    series is missing from them (the F-series was invisible until a docs
+    pass caught it).
+    """
+    import json
+
+    data = json.loads((DOCS / "data" / "language.json").read_text(encoding="utf-8"))
+    defined = {c.lower() for c in data["particle_series"]}
+    order = re.search(r'const SERIES_ORDER = "([a-z]+)";', GUIDE_SCRIPT).group(1)
+    assert len(order) == len(set(order))
+    assert set(order) == defined, (
+        f"guide SERIES_ORDER covers {sorted(set(order))} but the language defines {sorted(defined)}"
+    )
+    for c in sorted(defined):
+        assert re.search(rf"^  {c}:\{{grp:", GUIDE_SCRIPT, flags=re.M), (
+            f"SERIES_UI has no entry for the {c.upper()}-series"
+        )

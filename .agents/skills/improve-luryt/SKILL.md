@@ -1,6 +1,6 @@
 ---
 name: improve-luryt
-description: Stress-test one narrowly scoped part of the Luryt constructed language, isolate a repeated failure, and propose or implement exactly one evidence-backed language change. Use when Codex is asked to improve, evolve, extend, challenge, or stress-test Luryt grammar, morphology, phonology, particles, roots, semantics, spatial constructions, questions, or numbers. Do not use for tooling-only bugs, ordinary code changes, or wording edits that do not alter the language.
+description: Stress-test one narrowly scoped part of the Luryt constructed language, isolate a repeated failure, and propose or implement exactly one evidence-backed language change. Use when you are asked to improve, evolve, extend, challenge, or stress-test Luryt grammar, morphology, phonology, particles, roots, semantics, spatial constructions, questions, or numbers. Do not use for tooling-only bugs, ordinary code changes, or wording edits that do not alter the language.
 ---
 
 # Improve Luryt
@@ -15,7 +15,9 @@ Make one semantic design decision per run. Treat the documentation, data, exampl
 
 ## Establish authority
 
-Resolve the repository root before using the paths below. Preserve unrelated work in the worktree.
+Resolve the repository root before using the paths below. Preserve unrelated work in the
+worktree. Prefer starting a run from a clean committed tree; when the tree carries prior
+adopted-but-uncommitted work, say so in the snapshot label and record which paths it touches.
 
 1. Read CONTRIBUTING.md in full.
 2. Map the headings and cross-references in language/grammar/foundational.md. Read section 0, the complete section under test, and every section whose behavior directly interacts with it. Read the full spec only when the target is genuinely global or its dependencies cannot be bounded.
@@ -162,6 +164,14 @@ Update canonical sources first, then regenerate every affected consumer:
 
 For a prose-only syntax decision that has no JSON representation, make language/grammar/foundational.md the normative edit and add the strongest feasible regression coverage. Do not claim that token-level corpus parsing proves sentence semantics; preserve semantic contrasts as explicit spec examples when no sentence parser can assert them.
 
+When a change adds, removes, or renames a series, root, family, or fixed atom, sweep every
+consumer that hardcodes membership or counts. Presentation registries (for example
+`SERIES_ORDER` and `SERIES_UI` in docs/assets/js/guide.mjs) fail no check when an entry is
+missing — a data-driven page can still have a hand-maintained layout map — and spelled-out
+counts ("fourteen families", "seventy of the hundred", "four already earmarked") live in the
+spec, the guide, README.md, and CONTRIBUTING.md. Grep for both kinds before declaring the
+sync complete.
+
 In implementation mode, record the paths authorized and changed by this run. Map every atomicity
 ledger ID to its normative representation and regression coverage; explain any untestable semantic
 claim rather than silently omitting it.
@@ -181,7 +191,9 @@ For implementation work, run the relevant focused checks, then run the complete 
     node --check docs/assets/js/dictionary.mjs
     git diff --check
 
-Inspect the final diff for scope creep and stale examples. Report:
+Inspect the final diff for scope creep and stale examples; for additive changes, confirm the
+new material actually appears on every consumer surface — green checks prove consistency of
+what exists, not the presence of what should. Report:
 
 - what was stress-tested and how many cases were used;
 - the repeated failure found;

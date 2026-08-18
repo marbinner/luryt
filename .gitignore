@@ -16,7 +16,8 @@ htmlcov/
 .env
 
 # Editor / assistant local state
-.claude/
+.claude/*
+!.claude/skills/
 claude_files/
 .text-graph/
 .idea/

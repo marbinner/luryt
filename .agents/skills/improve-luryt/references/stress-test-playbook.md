@@ -98,6 +98,23 @@ The frozen manifest should contain the task and coverage intent, not a desired L
 - Verify case normalization and written punctuation separately from phonological claims.
 - Preserve the guarantee of unique structural parsing unless the proposal explicitly reopens that invariant.
 
+### Phonological robustness or form-to-meaning mapping
+
+- Declare the evaluation standard in the audit artifact before analyzing any case: which
+  contrasts count as weak (derive them from the spec's own IPA tables), which channel is under
+  test (spoken vs written), and what a confusion outcome must do to count as STRAINED
+  (invert participants, polarity, or direction of a relation) versus PASS (land on an adjacent
+  scale step or a minor-category difference, or be recoverable from structure or answers).
+- Test every weak pair in the target series and in comparison series where the same confusion
+  is benign; the benign rows are the controls, and an internal precedent (a series that
+  already solves the problem) is the strongest remedy evidence.
+- A remedy that only remaps meanings must leave every form, word shape, and parse untouched.
+  State the meaning-preserving token substitution for existing examples explicitly, verify it
+  is a bijection, and exclude form-inventory lines and paradigm tables from mechanical
+  substitution — tables remap meanings in place; only example tokens swap.
+- Distinguish redundancy honestly: a distinction that context, answer types, or clause
+  structure can recover is weaker evidence than one carried by the vowel contrast alone.
+
 ### Numerals or quantitative expressions
 
 - Test zero, one, transition points, maximum values, and out-of-range values.
