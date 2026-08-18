@@ -566,10 +566,12 @@
       with <span class="lx">pi</span>, but zero blocks stay inside or at the end. There is no
       maximum number of blocks.</p>
       <p class="plate-cap">Inside an entity noun phrase, configuration, quantifier, and pointer
-      all come before the exact number: <span class="lx">[k] [q] [d] [num cv+] noun</span>.
-      For example, <span class="lx">dy num pa pirit</span> means “these three people.” Keeping
-      every NP particle before <span class="lx">num</span> and using a content-word noun to close
-      the CV run makes both numeral boundaries visible.</p>
+      all come before the exact number, and any property words come after it:
+      <span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span>.
+      For example, <span class="lx">dy num pa pirit</span> means “these three people” and
+      <span class="lx">dy num pa vosas koryt</span> “these three broken houses.” Keeping
+      every NP particle before <span class="lx">num</span> and using a content word — property or
+      noun — to close the CV run makes both numeral boundaries visible.</p>
     </div>
     <h3>Try it</h3>
     <div class="plate conv">
@@ -719,10 +721,12 @@
     </div><div class="ix-t">The narrow-polarity tail is always
     <span class="lx">manner‑l · na · event‑n</span>.</div></div>
 
-    <h3>Noun phrases: configuration, quantifier, pointer, exact number, noun</h3>
+    <h3>Noun phrases: configuration, quantifier, pointer, exact number, property, noun</h3>
     <div class="prose"><p>Inside a noun phrase, an optional free K-family configuration comes
-    first, then the quantifier (Q-family), demonstrative (D-family), optional exact number, and noun:
-    <span class="lx">[k] [q] [d] [num cv+] noun</span>. K configures the participants selected by
+    first, then the quantifier (Q-family), demonstrative (D-family), optional exact number,
+    optional property words, and noun:
+    <span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span>. K configures the participants
+    selected by
     everything that follows it; Q can quantify the following pointer-and-cardinality frame, and
     only one free K fills the outer slot.</p></div>
     <div class="ix"><div class="ix-s">
@@ -748,7 +752,20 @@
       <div class="ix-w"><span class="lx">num py pi pirim</span><span class="g">100 people</span></div>
     </div><div class="ix-t"><span class="lx">num</span> makes its following run of numeric CVs one
     base-100 cardinal, even when those CVs are particles elsewhere. All K/Q/D particles come first;
-    the content-word noun ends the run, and a bound K remains inside that noun.</div></div>
+    the first content word — property or noun — ends the run, and a bound K remains inside that
+    noun.</div></div>
+    <div class="ix"><div class="ix-s">
+      <div class="ix-w"><span class="lx">vosas korym</span><span class="g">a broken house</span></div>
+      <div class="ix-w"><span class="lx">di vosas koryt</span><span class="g">this broken house</span></div>
+      <div class="ix-w"><span class="lx">qa vosas korym</span><span class="g">most broken houses</span></div>
+      <div class="ix-w"><span class="lx">dy num pa vosas koryt</span><span class="g">these three broken houses</span></div>
+    </div><div class="ix-t">A property‑s word <em>before</em> the noun restricts it — it says
+    <em>which ones</em>. The same word at the end of a clause predicates — it says <em>how it
+    is</em>: <span class="lx">vosas korym</span> “a broken house” vs
+    <span class="lx">korym vosas.</span> “a house is broken.” Stack several to intersect:
+    <span class="lx">di hatas vosas tokit</span> “this hot, broken tool,” in either order. K, Q,
+    D, and the exact number all scope over the restricted noun:
+    <span class="lx">qa vosas korym</span> quantifies over broken houses, not houses.</div></div>
 
     <h3>Who did what to whom: role markers</h3>
     <div class="prose"><p>Instead of case endings, Luryt puts a small R-family particle
@@ -934,9 +951,12 @@
       <div class="ix-w"><span class="lx">ni.</span><span class="g">indeed · affirm that proposition</span></div>
     </div><div class="ix-t">Question intonation and the existing short answers work on a
     polarity-marked property clause too.</div></div>
-    <div class="prose"><p>The clause still licenses one property only. Multiple properties,
-    property words inside noun phrases, and time, phase, frequency, or degree operators remain
-    outside the specified grammar. Property polarity does not automatically extend to comparisons
+    <div class="prose"><p>The clause still licenses one property predicate only. Multiple
+    property predicates, and time, phase, frequency, or degree operators, remain outside the
+    specified grammar. A property word <em>inside</em> a noun phrase is different — it restricts
+    the noun rather than predicating (see the noun-phrase chapter):
+    <span class="lx">di vosas koryt hatas.</span> asserts only hotness, of this broken house.
+    Property polarity does not automatically extend to comparisons
     or static-location clauses.</p></div>
 
     <h3>Comparing things</h3>
@@ -1071,7 +1091,7 @@
         <ul>
           <li><span class="lx">[w (+r)] [t] [p] [h] [m] [n]</span></li>
           <li><span class="lx">[pivot] · NPs+role/space · [manner‑l] · [na] · event‑n</span></li>
-          <li>NP: <span class="lx">[k] [q] [d] [num cv+] noun</span> · roles follow the complete NP</li>
+          <li>NP: <span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span> · roles follow the complete NP</li>
           <li>Property: <span class="lx">[n] · subject · property‑s</span> or
           <span class="lx">subject · [na] · property‑s</span> · one polarity position · no copula</li>
           <li>Compare: <span class="lx">A ca PROP‑s B re</span> “A is more PROP than B”</li>

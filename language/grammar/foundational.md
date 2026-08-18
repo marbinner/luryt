@@ -33,6 +33,8 @@
   scope (§7.5)
 - Free K-series noun-phrase order and scope before Q/D/NUM (§7.2)
 - Exact-cardinal noun-phrase slot and scope with K/Q/D (§7.2)
+- Attributive **ROOT-s** property modifiers in the noun-phrase slot before the entity head
+  (§7.2)
 
 **Still open (deliberately):**
 
@@ -48,6 +50,8 @@
 - Distribution and scope of T/P/H/M operators in property clauses
 - Non-event distribution of manner (`ROOT-l`) heads and general distribution of relational
   (`ROOT-r`) heads
+- Property restriction of pronoun-headed noun phrases; non-restrictive (appositive)
+  modification; and degree (M) or comparison (C) operators inside noun phrases
 - W-extraction from inside static-location and oriented-path phrases
 
 Design principle:
@@ -181,8 +185,9 @@ Final suffixes (in canonical order):
 
 These six head meanings and their word formation are fixed. The basic syntax below specifies
 entity, event, and property constructions, including event-modifying `ROOT-l` manner heads
-(§7.1). Non-event placement of `ROOT-l` and the general placement and attachment rules for
-`ROOT-r` relational heads remain deliberately open.
+(§7.1) and attributive `ROOT-s` modifiers inside noun phrases (§7.2). Non-event placement of
+`ROOT-l` and the general placement and attachment rules for `ROOT-r` relational heads remain
+deliberately open.
 
 **-m** vs **-t** (v2): **-t** picks out a referent the hearer can identify — a specific
 individual *or* an identifiable plural set (`kory-t` “the house / those houses, you know which”).
@@ -534,7 +539,7 @@ Examples of **prefix** use:
 As a **particle before an NP**, K occupies the outermost NP slot:
 
 ```text
-[K] [Q] [D] [NUM] [ROOT-{m|t}]
+[K] [Q] [D] [NUM] [ROOT-s]* [ROOT-{m|t}]
 ```
 
 The free K-particle configures the participants selected by the complete following Q/D/NUM/head
@@ -887,13 +892,14 @@ narrow scope:
 ### 7.2 Noun Phrase Template
 
 ```text
-[K] [Q] [D] [NUM] [ROOT-{m|t}]
+[K] [Q] [D] [NUM] [ROOT-s]* [ROOT-{m|t}]
 ```
 
 * **K** – configuration of the selected participants (ki/ky/ke/ka/ko/ku)
 * **Q** – quantifier (qi/qy/qe/qa/qo/qu)
 * **D** – demonstrative (di/de/do/dy/da/du)
 * **NUM** – optional exact nonnegative cardinal, with the fixed form `num numeric-CV+`
+* **ROOT-s*** – zero or more attributive property modifiers, each restricting the head
 * **ROOT-m / ROOT-t** – descriptive or referential entity head
 
 Examples:
@@ -933,10 +939,13 @@ A one-block run therefore retains every existing 0–99 expression. In a run of 
 the first block must be nonzero; zero blocks may occur internally or finally. `num pi` is the sole
 form of zero. There is no maximum block count.
 
-NUM gives the exact cardinality of the entity head inside any restriction supplied by D. An overt
+NUM gives the exact cardinality of the entity head — as restricted by any attributive block —
+inside any restriction supplied by D. An overt
 Q scopes over the following D/NUM/head cardinal frame, so `qe da num bi feni-t` selects some but
-not all of an identified five-animal set. All K/Q/D particles precede NUM. After `num`, successive
-numeric CVs belong to its payload until the structurally distinct content-word head ends the run;
+not all of an identified five-animal set. All K/Q/D particles precede NUM, and the attributive
+block follows NUM. After `num`, successive
+numeric CVs belong to its payload until the first structurally distinct content word — an
+attributive modifier or the entity head — ends the run;
 no K/Q/D or other particle can intervene. Outside an entity NP, the numeral-phrase boundary ends
 a standalone NUM. A later `num` begins a separate NUM constituent, not another block of the same
 integer. These boundaries preserve the particle/numeral distinction even when a CV has both uses:
@@ -952,6 +961,30 @@ integer. These boundaries preserve the particle/numeral distinction even when a 
 
 The rule adds no special agreement morphology: combinations whose existing D, Q, and numeral
 meanings contradict one another remain semantically anomalous.
+
+**Attributive properties.** An entity noun phrase may include an attributive block of one or
+more property modifiers — each a bare `ROOT-s` content word — immediately before its entity
+head. Each attributive `ROOT-s` restricts the head's referents intersectively to those having
+the property; order among stacked attributives carries no semantic import. The surrounding
+K/Q/D/NUM operators take scope over the restricted head: restriction applies before
+configuration, quantification, pointing, and counting, so `qa vosa-s kory-m` quantifies over
+broken houses, not houses. Attributive `ROOT-s` occurs only in this prenominal block — never
+after the head, never on a pronoun head, and nowhere else in the clause — so clause-final
+property predication (§7.5) keeps its unique parse. The positions form a minimal pair:
+`vosa-s kory-m` “a broken house” is a noun phrase, while `kory-m vosa-s.` “a house is broken”
+is a clause.
+
+* `vosa-s kory-m` – a broken house / broken houses
+* `di vosa-s kory-t` – this broken house
+* `qa vosa-s kory-m` – most broken houses
+* `qe da vosa-s kory-t` – some of those broken houses
+* `dy num pa vosa-s kory-t` – these three broken houses
+* `ka hisa-s piri-m` – healthy people, configured as a group
+* `di hata-s vosa-s toki-t` – this hot, broken tool (equivalently `di vosa-s hata-s toki-t`)
+* `tu hata-s kati-m pase-n.` – “Hot rocks move.” (gnomic claim about a restricted kind)
+* `ti di vosa-s kory-t re gose-n.` – “This broken house was built long ago.”
+* `di vosa-s kory-t hata-s.` – “This broken house is hot.” (attribution inside the subject,
+  predication at the clause end)
 
 Demonstratives point at identifiable referents, so they normally take **-t** heads; a **-m** head
 after a demonstrative gives a kind reading (`da feni-m` ≈ “those sorts of animal”).
@@ -1085,8 +1118,10 @@ Examples:
 
 No copula, event head, role marker, or agreement stands between the subject and property; local
 `na` is the sole licensed intervening polarity particle.
-The template licenses one property predicate; multiple or coordinated properties and attributive
-`ROOT-s` inside an NP remain open. Property polarity is the only operator extension licensed here:
+The template licenses one property predicate; multiple or coordinated property predicates remain
+open. Attributive `ROOT-s` inside a noun phrase is licensed by §7.2 and is not predication: in
+`di vosa-s kory-t hata-s.` only hotness is predicated, of this broken house. Property polarity is
+the only operator extension licensed here:
 simple property clauses have no T/P/H/M operator track, and those event-clause positions in §7.1
 do not extend to them by analogy. The two N patterns above likewise do not extend by analogy to
 comparisons or static-location clauses.
@@ -1192,7 +1227,8 @@ longer than CV, a clipped entity form of **nunu** “number”:
 * `pi ji zife-n.` – “I begin to speak.” (bare `pi` is still the phase particle)
 
 Inside an entity NP, `num numeric-CV+` occupies the NUM slot after any K, Q, and D particles and
-directly before the entity head (§7.2). The marker governs the maximal following run of numeric
+directly before the attributive block (if any) and entity head (§7.2).
+The marker governs the maximal following run of numeric
 CVs. For example, `da num da piri-t` keeps the first `da` demonstrative and reads the second as
 33, while `da num py pi piri-t` reads the payload as 100.
 
@@ -1213,7 +1249,8 @@ right. The spelling is canonical:
 * the rule has no upper block-count limit.
 
 Thus 9,999 is `num ho ho`, 10,001 is `num py pi py`, and 12,345,678 is
-`num me do ly ja`. A following content-word head or the boundary of a standalone numeral phrase
+`num me do ly ja`. A following content word — attributive modifier or entity head — or the
+boundary of a standalone numeral phrase
 ends the run. A new `num` starts a separate numeral constituent: `num py pi` is the single
 integer 100, whereas `num py / num pi` (with the slash only marking a phrase boundary here)
 contains the separate integers 1 and 0.

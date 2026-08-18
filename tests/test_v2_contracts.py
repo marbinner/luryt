@@ -159,9 +159,43 @@ def test_questioned_nonpivot_keeps_its_event_role():
 
 
 def test_noun_phrase_template_allows_both_entity_heads():
-    assert "[K] [Q] [D] [NUM] [ROOT-{m|t}]" in SPEC
+    assert "[K] [Q] [D] [NUM] [ROOT-s]* [ROOT-{m|t}]" in SPEC
+    assert "[K] [Q] [D] [NUM] [ROOT-{m|t}]" not in SPEC
     assert "qi/qy/qe/qa/qo/qu" in SPEC
     assert "q o" not in SPEC
+
+
+def test_attributive_properties_are_prenominal_and_restrictive():
+    assert "**Attributive properties.**" in SPEC
+    assert "immediately before its entity" in SPEC
+    assert "restricts the head's referents intersectively" in SPEC
+    assert "order among stacked attributives carries no semantic import" in SPEC
+    assert "restriction applies before" in SPEC
+    assert "never on a pronoun head" in SPEC
+    for contrast in (
+        "`vosa-s kory-m` – a broken house / broken houses",
+        "`di vosa-s kory-t` – this broken house",
+        "`qa vosa-s kory-m` – most broken houses",
+        "`qe da vosa-s kory-t` – some of those broken houses",
+        "`dy num pa vosa-s kory-t` – these three broken houses",
+        "`ka hisa-s piri-m` – healthy people, configured as a group",
+        "`tu hata-s kati-m pase-n.`",
+        "`ti di vosa-s kory-t re gose-n.`",
+        "`di vosa-s kory-t hata-s.`",
+    ):
+        assert contrast in SPEC
+    # the minimal pair against predication, in both spec and guide
+    assert "`vosa-s kory-m` “a broken house” is a noun phrase" in SPEC
+    assert "`kory-m vosa-s.` “a house is broken”" in SPEC
+    assert "Attributive `ROOT-s` inside a noun phrase is licensed by §7.2" in SPEC
+    # the numeral payload closes at the first content word, modifier or head
+    assert "attributive modifier or the entity head — ends the run" in SPEC
+    assert '<span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span>' in GUIDE
+    assert '<span class="lx">vosas korym</span>' in GUIDE
+    assert '<span class="lx">korym vosas.</span>' in GUIDE
+    assert '<span class="lx">dy num pa vosas koryt</span>' in GUIDE
+    assert '<span class="lx">di vosas koryt hatas.</span>' in GUIDE
+    assert "property words inside noun phrases" not in GUIDE
 
 
 def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
@@ -175,7 +209,7 @@ def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
         "`ki qu dy kory-t re gose-n.` – each of these houses, configured singly, was built",
     ):
         assert contrast in SPEC
-    assert '<span class="lx">[k] [q] [d] [num cv+] noun</span>' in GUIDE
+    assert '<span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span>' in GUIDE
     assert '<span class="lx">ka qa pirim</span>' in GUIDE
     assert '<span class="lx">qa kapirim</span>' in GUIDE
     assert '<span class="lx">ky qe da fenit</span>' in GUIDE
@@ -198,7 +232,7 @@ def test_exact_numeral_has_inner_np_slot_and_fixed_scope():
         "`num py pi pi kory-t` – ten thousand identifiable houses",
     ):
         assert contrast in SPEC
-    assert '<span class="lx">[k] [q] [d] [num cv+] noun</span>' in GUIDE
+    assert '<span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span>' in GUIDE
     assert '<span class="lx">dy num pa pirit</span>' in GUIDE
     assert '<span class="lx">qe da num bi fenit</span>' in GUIDE
     assert '<span class="lx">ka num ka pirim</span>' in GUIDE
