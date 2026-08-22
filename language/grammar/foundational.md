@@ -35,6 +35,8 @@
 - Exact-cardinal noun-phrase slot and scope with K/Q/D (§7.2)
 - Attributive **ROOT-s** property modifiers in the noun-phrase slot before the entity head
   (§7.2)
+- Prenominal **ROOT-r** relational restrictions in entity noun phrases, ordered before the
+  attributive **ROOT-s** block (§7.2)
 - **F-series coordination**: same-kind infix coordination of noun phrases and clauses,
   sentence-initial discourse linkage, and the low-attachment rule (§7.6)
 - Symmetric C-scale with superlative-low **ci**, and a single front N-series polarity
@@ -60,8 +62,8 @@
 - Full syntax for complex clauses, subordination, focus, etc.
 - Direct event-level use and ordering of free K-series modifiers relative to the event-operator track
 - Distribution and scope of T/P/H/M operators in property clauses
-- Non-event distribution of manner (`ROOT-l`) heads and general distribution of relational
-  (`ROOT-r`) heads
+- Non-event distribution of manner (`ROOT-l`) heads and distribution of relational (`ROOT-r`)
+  heads outside the entity-noun-phrase restriction block
 - Property restriction of pronoun-headed noun phrases; non-restrictive (appositive)
   modification; and degree (M) or comparison (C) operators inside noun phrases
 - W-extraction from inside static-location and oriented-path phrases
@@ -197,9 +199,9 @@ Final suffixes (in canonical order):
 
 These six head meanings and their word formation are fixed. The basic syntax below specifies
 entity, event, and property constructions, including event-modifying `ROOT-l` manner heads
-(§7.1) and attributive `ROOT-s` modifiers inside noun phrases (§7.2). Non-event placement of
-`ROOT-l` and the general placement and attachment rules for `ROOT-r` relational heads remain
-deliberately open.
+(§7.1), attributive `ROOT-s` modifiers, and NP-internal `ROOT-r` relational restrictions
+(§7.2). Non-event placement of `ROOT-l` and the distribution of `ROOT-r` outside the specified
+entity-NP restriction block remain deliberately open.
 
 **-m** vs **-t** (v2): **-t** picks out a referent the hearer can identify — a specific
 individual *or* an identifiable plural set (`kory-t` “the house / those houses, you know which”).
@@ -590,12 +592,12 @@ Examples of **prefix** use:
 As a **particle before an NP**, K occupies the outermost NP slot:
 
 ```text
-[K] [Q] [D] [NUM] [ROOT-s]* [ROOT-{m|t}]
+[K] [Q] [D] [NUM] [ROOT-r]* [ROOT-s]* [ROOT-{m|t}]
 ```
 
-The free K-particle configures the participants selected by the complete following Q/D/NUM/head
-phrase. At most one free K-particle fills this slot. **NUM** is the optional exact-cardinal
-constituent defined in §7.2.
+The free K-particle configures the participants selected by the complete following
+Q/D/NUM/modifier/head phrase. At most one free K-particle fills this slot. **NUM** is the optional
+exact-cardinal constituent defined in §7.2.
 
 * `ka piri-m sa sary-m pase-n.` – “People, configured as a group, go around the region.”
 * `ky qe da feni-t` – “some of those animals, configured in pairs”
@@ -943,13 +945,14 @@ narrow scope:
 ### 7.2 Noun Phrase Template
 
 ```text
-[K] [Q] [D] [NUM] [ROOT-s]* [ROOT-{m|t}]
+[K] [Q] [D] [NUM] [ROOT-r]* [ROOT-s]* [ROOT-{m|t}]
 ```
 
 * **K** – configuration of the selected participants (ki/ky/ke/ka/ko/ku)
 * **Q** – quantifier (qi/qy/qe/qa/qo/qu)
 * **D** – demonstrative (di/de/do/dy/da/du)
 * **NUM** – optional exact nonnegative cardinal, with the fixed form `num numeric-CV+`
+* **ROOT-r*** – zero or more bare relational restrictions, each restricting the entity head
 * **ROOT-s*** – zero or more attributive property modifiers, each restricting the head
 * **ROOT-m / ROOT-t** – descriptive or referential entity head
 
@@ -967,12 +970,12 @@ Examples:
 * `qe da num bi feni-t` – some but not all of those five animals
 * `qu dy num pa kory-t re gose-n.` – each of these three houses was built
 
-Free K takes scope over the participants selected by the following Q/D/NUM/head phrase. Bound K
-is part of the head instead: `ka num pa piri-m` means “exactly three people, together,” while
+Free K takes scope over the participants selected by the following Q/D/NUM/modifier/head phrase.
+Bound K is part of the head instead: `ka num pa piri-m` means “exactly three people, together,” while
 `num pa ka-piri-m` means “exactly three crowds.” Likewise, `ky qe da feni-t` configures some
 animals as pairs, whereas `qe da ky-feni-t` selects some identifiable animal-pair entities. Only
 one free K occupies the optional outer slot. A following R-series role marks the complete NP,
-including its K/Q/D/NUM scope.
+including its K/Q/D/NUM and modifier scope.
 
 A NUM constituent contains the marker followed by a maximal run of one or more numeric CV blocks:
 
@@ -991,13 +994,13 @@ A one-block run therefore retains every existing 0–99 expression. In a run of 
 the first block must be nonzero; zero blocks may occur internally or finally. `num pi` is the sole
 form of zero. There is no maximum block count.
 
-NUM gives the exact cardinality of the entity head — as restricted by any attributive block —
-inside any restriction supplied by D. An overt
-Q scopes over the following D/NUM/head cardinal frame, so `qe da num bi feni-t` selects some but
-not all of an identified five-animal set. All K/Q/D particles precede NUM, and the attributive
-block follows NUM. After `num`, successive
-numeric CVs belong to its payload until the first structurally distinct content word — an
-attributive modifier or the entity head — ends the run;
+NUM gives the exact cardinality of the entity head — as restricted by any relational and
+property blocks — inside any restriction supplied by D. An overt
+Q scopes over the following D/NUM/restricted-head cardinal frame, so `qe da num bi feni-t` selects some but
+not all of an identified five-animal set. All K/Q/D particles precede NUM, and both modifier
+blocks follow NUM. After `num`, successive
+numeric CVs belong to its payload until the first structurally distinct content word — a
+relational restriction, an attributive property modifier, or the entity head — ends the run;
 no K/Q/D or other particle can intervene. Outside an entity NP, the numeral-phrase boundary ends
 a standalone NUM. A later `num` begins a separate NUM constituent, not another block of the same
 integer. These boundaries preserve the particle/numeral distinction even when a CV has both uses:
@@ -1014,12 +1017,43 @@ integer. These boundaries preserve the particle/numeral distinction even when a 
 The rule adds no special agreement morphology: combinations whose existing D, Q, and numeral
 meanings contradict one another remain semantically anomalous.
 
+**Relational restrictions.** Within an entity noun phrase, zero or more bare `ROOT-r` content
+words form a prenominal relational-restriction block in the slot immediately after optional NUM
+and immediately before every attributive `ROOT-s`; each restricts the final `ROOT-{m|t}` head to
+referents for which its established “related-by-X” meaning holds, order among `ROOT-r` modifiers
+carries no semantic import, K/Q/D/NUM scope over the head after all relational and property
+restrictions, and a `ROOT-r` beginning this block counts as an NP-initial word for the §7.6
+low-attachment rule.
+
+The block supplies a generic, contextually interpreted relation to the root concept; it does not
+add an explicit possessor, complement, or direction to that relation. Only bare `ROOT-r` words
+occur here: prefixed relational words, relational restriction of pronoun heads, recursive
+relational dependents, relational predication, and F-coordination inside the block are not
+licensed. Those constructions remain open. All `ROOT-r` modifiers precede all `ROOT-s`
+modifiers, and neither kind follows the entity head, so category order and the NP boundary remain
+fixed.
+
+* `zife-r rufi-m` – a speech-related idea
+* `di zife-r rufi-t` – this speech-related idea
+* `zife-r lury-r rufi-m` – an idea related to speech and language (equivalently
+  `lury-r zife-r rufi-m`)
+* `num bi kory-r vosa-s toki-m` – five broken, house-related tools
+* `qe da zife-r rufi-t` – some of those speech-related ideas
+* `ji zife-r rufi-m re guse-n.` – “I think about a speech-related idea.”
+
+The head suffix remains contrastive inside the same environment: `zife-r rufi-m` is “a
+speech-related idea,” while `zife-s rufi-m` is “a speech-like idea.” The mixed-category order is
+canonical: `zife-r vosa-s toki-m` is a speech-related broken tool, while
+`vosa-s zife-r toki-m` is not one licensed noun phrase.
+
 **Attributive properties.** An entity noun phrase may include an attributive block of one or
 more property modifiers — each a bare `ROOT-s` content word — immediately before its entity
 head. Each attributive `ROOT-s` restricts the head's referents intersectively to those having
-the property; order among stacked attributives carries no semantic import. The surrounding
-K/Q/D/NUM operators take scope over the restricted head: restriction applies before
-configuration, quantification, pointing, and counting, so `qa vosa-s kory-m` quantifies over
+the property; order among stacked attributives carries no semantic import. When a relational
+block is present, the complete `ROOT-r` block precedes the complete `ROOT-s` block. The
+surrounding K/Q/D/NUM operators take scope over the relationally and property-restricted head:
+restriction applies before configuration, quantification, pointing, and counting, so
+`qa vosa-s kory-m` quantifies over
 broken houses, not houses. Attributive `ROOT-s` occurs only in this prenominal block — never
 after the head, never on a pronoun head, and nowhere else in the clause — so clause-final
 property predication (§7.5) keeps its unique parse. The positions form a minimal pair:
@@ -1125,8 +1159,8 @@ Property from root + `-s`:
 * `gusa` – know / be knowledgeable → `gusa-s` – knowledgeable
 
 **Simple property clause.** An unmarked affirmative non-comparative property clause has the
-zero-copula form `SUBJECT PROPERTY`: SUBJECT is exactly one pronoun or complete
-`[K] [Q] [D] [NUM] ROOT-{m|t}` noun phrase, and PROPERTY is exactly one clause-final `ROOT-s`
+zero-copula form `SUBJECT PROPERTY`: SUBJECT is exactly one pronoun or complete §7.2 noun
+phrase, and PROPERTY is exactly one clause-final `ROOT-s`
 whose property is asserted of that subject.
 
 ```text
@@ -1152,9 +1186,9 @@ SUBJECT na PROPERTY
 
 Any N-series form (`ni/ny/ne/na/no/nu`) may occupy the front position and takes rightward scope
 over the complete `SUBJECT PROPERTY` proposition. Only `na` may instead occur immediately before
-PROPERTY; there, the complete SUBJECT noun phrase — including its K/Q/D/NUM scope — outscopes
-negation. The two positions cannot co-occur, and N particles do not stack. With neither position,
-the clause retains the unmarked affirmative reading.
+PROPERTY; there, the complete SUBJECT noun phrase — including its K/Q/D/NUM scope over any
+modifiers — outscopes negation. The two positions cannot co-occur, and N particles do not stack.
+With neither position, the clause retains the unmarked affirmative reading.
 
 Examples:
 
@@ -1226,8 +1260,8 @@ A free F particle (§4.3) links **exactly two constituents of the same kind** as
 - **noun phrases**: each conjunct is one complete §7.2 noun phrase (pronouns included), and
   the coordinated noun phrase stands wherever the grammar licenses a noun phrase — pivot,
   role-marked argument, property-clause subject, spatial ground. A following role particle
-  marks the **complete** coordination; every K/Q/D/NUM particle and attributive modifier
-  scopes only inside its own conjunct.
+  marks the **complete** coordination; every K/Q/D/NUM particle and relational or property
+  modifier scopes only inside its own conjunct.
 - **clauses**: each conjunct is one complete clause (event, property, comparative, or static);
   front operators (§7.1) remain local to their own clause — an operator’s rightward scope ends
   at its clause’s F boundary.
@@ -1237,7 +1271,8 @@ Chains iterate left to right with the same construction: `A fi B fi C`; a mixed 
 
 **Attachment (low attachment).** An F particle immediately preceded by a noun-phrase-final
 word (an entity head or pronoun) and immediately followed by a noun-phrase-initial word (a
-K/Q/D particle, `num`, an attributive `ROOT-s`, an entity head, or a pronoun) coordinates
+K/Q/D particle, `num`, a relational `ROOT-r`, an attributive `ROOT-s`, an entity head, or a
+pronoun) coordinates
 noun phrases; clause coordination is available only otherwise. To chain a clause after one
 that ends in a noun phrase (a static-location clause), give the next clause a non-NP-initial
 start — a front operator — or use separate sentences.
@@ -1247,7 +1282,7 @@ previous sentence with the same relation: `di koryt vosas. fo ji gosen.` — “
 broken. So, I build.” Cause-first order plus **fo** covers “because” until X-series
 subordination exists.
 
-**Not licensed:** linking constituents of different kinds; F inside an attributive block;
+**Not licensed:** linking constituents of different kinds; F inside either modifier block;
 correlative doubling (“both … and”); and F directly inside an open numeral payload — a
 numeric-vowel F form there is read as a payload block (§8.1), so bare numerals are not
 coordinable (coordinate counted heads instead: `num pa kory-m fi num bi feni-m`).
@@ -1263,6 +1298,7 @@ Examples:
 * `di toki-t vosa-s fe di toki-t hata-s?` – “Is this tool broken, or is it hot?”
 * `ji go si di kory-t fi di sary-t ru pase-n.` – “I go into the house and the region.”
 * `piri-m fi feni-m fi kati-m pase-n.` – “The person, the animal, and the rock move.”
+* `toki-m fi zife-r rufi-m pase-n.` – “A tool and a speech-related idea move.”
 * `qa kory-m fi qe toki-m vosa-s.` – “Most houses and some tools are broken.”
 * `te ji zife-n fi to je zife-n.` – “Now I speak, and later you will speak.”
 * `je zife-n fu ji pase-n.` – “You speak, or else I go.”
@@ -1350,7 +1386,7 @@ longer than CV, a clipped entity form of **nunu** “number”:
 * `pi ji zife-n.` – “I begin to speak.” (bare `pi` is still the phase particle)
 
 Inside an entity NP, `num numeric-CV+` occupies the NUM slot after any K, Q, and D particles and
-directly before the attributive block (if any) and entity head (§7.2).
+directly before the relational and property modifier blocks (if any) and entity head (§7.2).
 The marker governs the maximal following run of numeric
 CVs. For example, `da num da piri-t` keeps the first `da` demonstrative and reads the second as
 33, while `da num py pi piri-t` reads the payload as 100.
@@ -1372,7 +1408,8 @@ right. The spelling is canonical:
 * the rule has no upper block-count limit.
 
 Thus 9,999 is `num ho ho`, 10,001 is `num py pi py`, and 12,345,678 is
-`num me do ly jy`. A following content word — attributive modifier or entity head — or the
+`num me do ly jy`. A following content word — relational modifier, property modifier, or entity
+head — or the
 boundary of a standalone numeral phrase
 ends the run. A new `num` starts a separate numeral constituent: `num py pi` is the single
 integer 100, whereas `num py / num pi` (with the slash only marking a phrase boundary here)
@@ -1398,7 +1435,8 @@ elements, never an unmarked alias of `num py pi` “100.”
   base-100 cardinal runs; root-anchored stress statement.
   Earmarked but *not* adopted sight-unseen from the stress-test proposal: the **B/F/X/Z** form
   tables and its provisional added roots.
-- **v2 amendments (2026-08-18)** — five changes adopted through evidence-first stress-test
+- **v2 amendments (2026-08-18, 2026-08-22)** — six changes adopted through evidence-first
+  stress-test
   cycles (frozen corpora with sealed holdouts; one design decision per cycle), each landed as
   its own commit:
   1. Attributive `ROOT-s` property modifiers in the noun phrase (§7.2).
@@ -1410,5 +1448,8 @@ elements, never an unmarked alias of `num py pi` “100.”
      compositional bounds — `na … cy` “at least”, `na … ca` “at most” (§4.12, §7.5).
   5. The **Q-series** bottom slot: `qi` “few”; empty-set claims are compositional
      (`na qy …`) (§4.8).
+  6. Prenominal **ROOT-r** relational restrictions in entity noun phrases, ordered before
+     attributive `ROOT-s`, with fixed K/Q/D/NUM scope and ROOT-r-initial F low attachment
+     (§7.2, §7.6; 2026-08-22).
   Numeric-particle homophones rose from seventy to seventy-five; word shapes, parsing, and
   the 36 core roots are unchanged throughout.

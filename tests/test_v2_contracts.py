@@ -159,7 +159,7 @@ def test_questioned_nonpivot_keeps_its_event_role():
 
 
 def test_noun_phrase_template_allows_both_entity_heads():
-    assert "[K] [Q] [D] [NUM] [ROOT-s]* [ROOT-{m|t}]" in SPEC
+    assert "[K] [Q] [D] [NUM] [ROOT-r]* [ROOT-s]* [ROOT-{m|t}]" in SPEC
     assert "[K] [Q] [D] [NUM] [ROOT-{m|t}]" not in SPEC
     assert "qi/qy/qe/qa/qo/qu" in SPEC
     assert "q o" not in SPEC
@@ -189,8 +189,8 @@ def test_attributive_properties_are_prenominal_and_restrictive():
     assert "`kory-m vosa-s.` “a house is broken”" in SPEC
     assert "Attributive `ROOT-s` inside a noun phrase is licensed by §7.2" in SPEC
     # the numeral payload closes at the first content word, modifier or head
-    assert "attributive modifier or the entity head — ends the run" in SPEC
-    assert '<span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span>' in GUIDE
+    assert "relational restriction, an attributive property modifier, or the entity head" in SPEC
+    assert '<span class="lx">[k] [q] [d] [num cv+] [relation‑r] [property‑s] noun</span>' in GUIDE
     assert '<span class="lx">vosas korym</span>' in GUIDE
     assert '<span class="lx">korym vosas.</span>' in GUIDE
     assert '<span class="lx">dy num pa vosas koryt</span>' in GUIDE
@@ -198,8 +198,53 @@ def test_attributive_properties_are_prenominal_and_restrictive():
     assert "property words inside noun phrases" not in GUIDE
 
 
+def test_relational_restrictions_are_prenominal_ordered_and_scoped():
+    template = "[K] [Q] [D] [NUM] [ROOT-r]* [ROOT-s]* [ROOT-{m|t}]"
+    assert template in SPEC
+    assert "**Relational restrictions.**" in SPEC
+    for rule in (
+        "zero or more bare `ROOT-r` content",
+        "immediately after optional NUM",
+        "immediately before every attributive `ROOT-s`",
+        "order among `ROOT-r` modifiers",
+        "K/Q/D/NUM scope over the head after all relational and property",
+        "counts as an NP-initial word for the §7.6",
+        "prefixed relational words",
+        "relational restriction of pronoun heads",
+        "neither kind follows the entity head",
+    ):
+        assert rule in SPEC
+
+    for example in (
+        "`zife-r rufi-m` – a speech-related idea",
+        "`di zife-r rufi-t` – this speech-related idea",
+        "`zife-r lury-r rufi-m` – an idea related to speech and language",
+        "`num bi kory-r vosa-s toki-m` – five broken, house-related tools",
+        "`qe da zife-r rufi-t` – some of those speech-related ideas",
+        "`ji zife-r rufi-m re guse-n.`",
+        "`zife-r rufi-m` is “a",
+        "`zife-s rufi-m` is “a speech-like idea.”",
+        "`vosa-s zife-r toki-m` is not one licensed noun phrase",
+    ):
+        assert example in SPEC
+
+    assert "general placement and attachment rules for `ROOT-r`" not in SPEC
+    assert "heads outside the entity-noun-phrase restriction block" in SPEC
+    assert '<span class="lx">[k] [q] [d] [num cv+] [relation‑r] [property‑s] noun</span>' in GUIDE
+    for form in (
+        '<span class="lx">zifer rufim</span>',
+        '<span class="lx">di zifer rufit</span>',
+        '<span class="lx">zifer luryr rufim</span>',
+        '<span class="lx">num bi koryr vosas tokim</span>',
+        '<span class="lx">tokim fi zifer rufim pasen.</span>',
+    ):
+        assert form in GUIDE
+    assert "context-supplied relation" in GUIDE
+    assert "explicit possessor or relation direction" in GUIDE
+
+
 def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
-    assert "configures the participants selected by the complete following Q/D/NUM/head" in SPEC
+    assert "configures the participants selected by the complete following\nQ/D/NUM/modifier/head" in SPEC
     assert "At most one free K-particle fills this slot" in SPEC
     for contrast in (
         "`ka qa piri-m` – “most people, configured together”",
@@ -209,7 +254,7 @@ def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
         "`ki qu dy kory-t re gose-n.` – each of these houses, configured singly, was built",
     ):
         assert contrast in SPEC
-    assert '<span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span>' in GUIDE
+    assert '<span class="lx">[k] [q] [d] [num cv+] [relation‑r] [property‑s] noun</span>' in GUIDE
     assert '<span class="lx">ka qa pirim</span>' in GUIDE
     assert '<span class="lx">qa kapirim</span>' in GUIDE
     assert '<span class="lx">ky qe da fenit</span>' in GUIDE
@@ -219,7 +264,7 @@ def test_free_k_has_outer_np_scope_while_bound_k_stays_lexical():
 def test_exact_numeral_has_inner_np_slot_and_fixed_scope():
     assert "NUM = num numeric-CV+" in SPEC
     assert "All K/Q/D particles precede NUM" in SPEC
-    assert "Q scopes over the following D/NUM/head cardinal frame" in SPEC
+    assert "Q scopes over the following D/NUM/restricted-head cardinal frame" in SPEC
     assert "The marker governs the maximal following run of numeric" in SPEC
     for contrast in (
         "`dy num pa piri-t` – these three people / exactly three of these people",
@@ -232,7 +277,7 @@ def test_exact_numeral_has_inner_np_slot_and_fixed_scope():
         "`num py pi pi kory-t` – ten thousand identifiable houses",
     ):
         assert contrast in SPEC
-    assert '<span class="lx">[k] [q] [d] [num cv+] [property‑s] noun</span>' in GUIDE
+    assert '<span class="lx">[k] [q] [d] [num cv+] [relation‑r] [property‑s] noun</span>' in GUIDE
     assert '<span class="lx">dy num pa pirit</span>' in GUIDE
     assert '<span class="lx">qe da num bi fenit</span>' in GUIDE
     assert '<span class="lx">ka num ka pirim</span>' in GUIDE
@@ -313,6 +358,7 @@ def test_intentionally_open_syntax_is_documented():
     )
     for topic in open_topics:
         assert topic in SPEC
+    assert "heads outside the entity-noun-phrase restriction block" in SPEC
 
 
 def test_numeric_collision_count_is_precise():
@@ -333,6 +379,7 @@ def test_f_series_links_same_kind_with_low_attachment():
     assert "remain local to their own clause" in SPEC
     assert "groups as `(A fi B) fe C`" in SPEC
     assert "**Attachment (low attachment).**" in SPEC
+    assert "a relational `ROOT-r`, an attributive `ROOT-s`" in SPEC
     assert "coordinates\nnoun phrases; clause coordination is available only otherwise" in SPEC
     assert "**Discourse use.**" in SPEC
     assert "Cause-first order plus **fo**" in SPEC
@@ -348,6 +395,7 @@ def test_f_series_links_same_kind_with_low_attachment():
         "`di toki-t vosa-s fe di toki-t hata-s?`",
         "`ji go si di kory-t fi di sary-t ru pase-n.`",
         "`piri-m fi feni-m fi kati-m pase-n.`",
+        "`toki-m fi zife-r rufi-m pase-n.`",
         "`qa kory-m fi qe toki-m vosa-s.`",
         "`te ji zife-n fi to je zife-n.`",
         "`je zife-n fu ji pase-n.`",
@@ -359,6 +407,7 @@ def test_f_series_links_same_kind_with_low_attachment():
     assert '<span class="lx">koryt fi tokim</span>' in GUIDE
     assert '<span class="lx">pirim fe fenim pasen.</span>' in GUIDE
     assert '<span class="lx">na qy pirim fe qy fenim pasen.</span>' in GUIDE
+    assert '<span class="lx">tokim fi zifer rufim pasen.</span>' in GUIDE
     assert '<span class="lx">fo ji gosen.</span>' in GUIDE
     assert "and · then · or · but · so · or‑else" in GUIDE
 
