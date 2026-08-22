@@ -29,7 +29,17 @@ CORPUS = [
     "qa dy num pa koryt vosas",
     "ky qe da fenit melas",
     "di tokit vosas",
-    # simple-property polarity: any front N, or narrow na before ROOT-s
+    # property-local M degree: all six values and varied complete subjects
+    "di koryt mi hatas",
+    "di koryt my hatas",
+    "di koryt me hatas",
+    "di koryt ma hatas",
+    "di koryt mo hatas",
+    "di koryt mu hatas",
+    "ji mo gusas",
+    "dy num pa tokit mu vosas",
+    "num bi koryr vosas tokim mo hatas",
+    # simple-property polarity: any front N, or narrow na before optional M + ROOT-s
     "ni di koryt vosas",
     "ny di koryt vosas",
     "ne di koryt vosas",
@@ -40,6 +50,10 @@ CORPUS = [
     "qo dy koryt na vosas",
     "nu ka dy num pa koryt vosas",
     "na di tokit vosas",
+    "ni di koryt mo hatas",
+    "na qo dy koryt mo hatas",
+    "qo dy koryt na mo hatas",
+    "di tokit mu vosas",
     # pivot and roles
     "ji koryt re tokim ra gosen",
     "ji je ry qy rufim re zifen",
@@ -121,6 +135,7 @@ CORPUS = [
     "ji koryt fi tokim re gosen",
     "pirim fe fenim pasen",
     "di koryt vosas fa di tokit na vosas",
+    "di koryt mo vosas fa di tokit mi vosas",
     "di koryt vosas fo ji gosen",
     "ty jo zifen fy jo pasen",
     "na qy pirim fe qy fenim pasen",

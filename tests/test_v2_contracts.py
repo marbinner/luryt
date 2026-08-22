@@ -79,15 +79,19 @@ def test_event_manner_has_one_clause_final_slot():
 
 def test_simple_property_clause_is_zero_copula_and_property_final():
     assert "### 7.5 Properties and Comparatives" in SPEC
-    assert "`SUBJECT PROPERTY`" in SPEC
+    assert "`SUBJECT [M] PROPERTY`" in SPEC
     assert "SUBJECT is exactly one pronoun or complete" in SPEC
     assert "PROPERTY is exactly one clause-final `ROOT-s`" in SPEC
     assert "No copula, event head, role marker, or agreement" in SPEC
-    assert "simple property clauses have no T/P/H/M operator track" in SPEC
+    assert "simple property clauses have no T/P/H operator track" in SPEC
     assert "An overt C-series form keeps the existing comparative" in SPEC
     for sentence in (
         "`ji gusa-s.`",
         "`di kory-t vosa-s.`",
+        "`di kory-t mi hata-s.`",
+        "`di kory-t mo hata-s.`",
+        "`di kory-t mu hata-s.`",
+        "`num bi kory-r vosa-s toki-m mo hata-s.`",
         "`kory-m vosa-s.`",
         "`qa dy num pa kory-t vosa-s.`",
         "`ky qe da feni-t mela-s.`",
@@ -96,7 +100,7 @@ def test_simple_property_clause_is_zero_copula_and_property_final():
         assert sentence in SPEC
 
     assert "<h3>Describe a subject with one property</h3>" in GUIDE
-    assert '<span class="lx">subject · property‑s</span>' in GUIDE
+    assert '<span class="lx">subject · [m] · property‑s</span>' in GUIDE
     assert '<span class="lx">gusas.</span>' in GUIDE
     assert '<span class="lx">di koryt</span>' in GUIDE
     assert '<span class="lx">qa dy num pa koryt</span>' in GUIDE
@@ -104,11 +108,43 @@ def test_simple_property_clause_is_zero_copula_and_property_final():
     assert '<span class="lx">di koryt vosas</span>' in GUIDE
 
 
+def test_simple_property_degree_is_single_local_and_scoped():
+    assert "optionally place one M-series particle immediately" in SPEC
+    assert "before the clause-final `ROOT-s` — `[N] SUBJECT [M] ROOT-s`" in SPEC
+    assert "or `SUBJECT na [M] ROOT-s`; it grades" in SPEC
+    assert "only that property" in SPEC
+    assert "The slot permits at most one M particle; M particles do not stack" in SPEC
+    assert "No M particle occurs inside this attributive block" in SPEC
+    assert "licenses no M occurrence inside noun phrases, comparisons" in SPEC
+    assert "does not combine with a C-series comparison" in SPEC
+    for sentence in (
+        "`di kory-t mi hata-s.`",
+        "`di kory-t mo hata-s.`",
+        "`di kory-t mu hata-s.`",
+        "`num bi kory-r vosa-s toki-m mo hata-s.`",
+        "`ni di kory-t mo hata-s.`",
+        "`na qo dy kory-t mo hata-s.`",
+        "`qo dy kory-t na mo hata-s.`",
+        "`di toki-t mu vosa-s?`",
+    ):
+        assert sentence in SPEC
+
+    for form in (
+        '<span class="lx">subject · [m] · property‑s</span>',
+        '<span class="lx">di koryt mo hatas</span>',
+        '<span class="lx">[n] · subject · [m] · property‑s</span>',
+        '<span class="lx">subject · na · [m] · property‑s</span>',
+        '<span class="lx">na qo dy koryt mo hatas.</span>',
+        '<span class="lx">qo dy koryt na mo hatas.</span>',
+    ):
+        assert form in GUIDE
+
+
 def test_simple_property_polarity_has_broad_and_narrow_scope():
-    assert "[N] SUBJECT PROPERTY" in SPEC
-    assert "SUBJECT na PROPERTY" in SPEC
+    assert "[N] SUBJECT [M] PROPERTY" in SPEC
+    assert "SUBJECT na [M] PROPERTY" in SPEC
     assert "Any N-series form (`ni/ny/ne/na/no/nu`) may occupy the front position" in SPEC
-    assert "Only `na` may instead occur immediately before" in SPEC
+    assert "Only `na` may instead occur after SUBJECT" in SPEC
     assert "The two positions cannot co-occur" in SPEC
     assert "N particles do not stack" in SPEC
     assert "including its K/Q/D/NUM scope" in SPEC
@@ -126,8 +162,8 @@ def test_simple_property_polarity_has_broad_and_narrow_scope():
     ):
         assert sentence in SPEC
 
-    assert '<span class="lx">[n] · subject · property‑s</span>' in GUIDE
-    assert '<span class="lx">subject · na · property‑s</span>' in GUIDE
+    assert '<span class="lx">[n] · subject · [m] · property‑s</span>' in GUIDE
+    assert '<span class="lx">subject · na · [m] · property‑s</span>' in GUIDE
     assert '<span class="lx">qo dy koryt</span>' in GUIDE
     assert '<span class="lx">na di tokit vosas?</span>' in GUIDE
     assert "These are alternative positions; do not" in GUIDE
@@ -352,7 +388,7 @@ def test_public_word_shape_summaries_mention_num_exception():
 def test_intentionally_open_syntax_is_documented():
     open_topics = (
         "Direct event-level use and ordering of free K-series modifiers",
-        "Distribution and scope of T/P/H/M operators in property clauses",
+        "Distribution and scope of T/P/H operators in property clauses",
         "Non-event distribution of manner (`ROOT-l`)",
         "W-extraction from inside static-location and oriented-path phrases",
     )

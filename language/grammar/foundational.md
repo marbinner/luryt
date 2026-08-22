@@ -4,7 +4,8 @@
 > Summary of changes: **-t** referential vs **-m** descriptive; a **pivot-and-role** clause rule;
 > three distinct spatial constructions with the new **G-series** (path orientation) and **ru** as
 > the path-phrase closer; linear **operator scope**; a clause-final **ROOT-l event-manner slot**;
-> a zero-copula **simple property clause** with broad N-series polarity and narrow **na** scope;
+> a zero-copula **simple property clause** with broad N-series polarity, narrow **na** scope,
+> and property-local M-series degree;
 > the numeral marker **num** with productive base-100
 > cardinal runs; stress restated as root-anchored (equivalent to the old penultimate rule).
 > The prior version is preserved as
@@ -30,7 +31,7 @@
 - Clause **pivot rule** and linear **operator scope** (§7.1)
 - Clause-final event-modifying **ROOT-l manner slot** (§7.1)
 - Zero-copula simple **ROOT-s property clause** with broad N-series and narrow **na** polarity
-  scope (§7.5)
+  scope, plus one property-local M-series degree particle (§7.5)
 - Free K-series noun-phrase order and scope before Q/D/NUM (§7.2)
 - Exact-cardinal noun-phrase slot and scope with K/Q/D (§7.2)
 - Attributive **ROOT-s** property modifiers in the noun-phrase slot before the entity head
@@ -61,7 +62,7 @@
 - Larger lexicon beyond the 36 core roots
 - Full syntax for complex clauses, subordination, focus, etc.
 - Direct event-level use and ordering of free K-series modifiers relative to the event-operator track
-- Distribution and scope of T/P/H/M operators in property clauses
+- Distribution and scope of T/P/H operators in property clauses
 - Non-event distribution of manner (`ROOT-l`) heads and distribution of relational (`ROOT-r`)
   heads outside the entity-noun-phrase restriction block
 - Property restriction of pronoun-headed noun phrases; non-restrictive (appositive)
@@ -384,6 +385,10 @@ Used as clause particles, typically before the verb.
 | **ma**   | above-typical                  | “quite, pretty, fairly”   |
 | **mo**   | strong / high degree           | “very, strongly”          |
 | **mu**   | maximal / excessive / too much | “extremely, too, overly”  |
+
+In an event clause, M occupies its existing front-operator position (§7.1). In a simple
+non-comparative property clause, one M particle may instead occur immediately before the
+clause-final `ROOT-s`, grading only that property (§7.5).
 
 ---
 
@@ -1048,8 +1053,9 @@ canonical: `zife-r vosa-s toki-m` is a speech-related broken tool, while
 
 **Attributive properties.** An entity noun phrase may include an attributive block of one or
 more property modifiers — each a bare `ROOT-s` content word — immediately before its entity
-head. Each attributive `ROOT-s` restricts the head's referents intersectively to those having
-the property; order among stacked attributives carries no semantic import. When a relational
+head. No M particle occurs inside this attributive block.
+Each attributive `ROOT-s` restricts the head's referents intersectively to those having the
+property; order among stacked attributives carries no semantic import. When a relational
 block is present, the complete `ROOT-r` block precedes the complete `ROOT-s` block. The
 surrounding K/Q/D/NUM operators take scope over the relationally and property-restricted head:
 restriction applies before configuration, quantification, pointing, and counting, so
@@ -1159,36 +1165,47 @@ Property from root + `-s`:
 * `gusa` – know / be knowledgeable → `gusa-s` – knowledgeable
 
 **Simple property clause.** An unmarked affirmative non-comparative property clause has the
-zero-copula form `SUBJECT PROPERTY`: SUBJECT is exactly one pronoun or complete §7.2 noun
-phrase, and PROPERTY is exactly one clause-final `ROOT-s`
+zero-copula form `SUBJECT [M] PROPERTY`: SUBJECT is exactly one pronoun or complete §7.2 noun
+phrase, optional M is one degree particle, and PROPERTY is exactly one clause-final `ROOT-s`
 whose property is asserted of that subject.
 
 ```text
-SUBJECT PROPERTY
+SUBJECT [M] PROPERTY
 ```
+
+In a simple non-comparative property clause, optionally place one M-series particle immediately
+before the clause-final `ROOT-s` — `[N] SUBJECT [M] ROOT-s` or `SUBJECT na [M] ROOT-s`; it grades
+only that property, while the existing front-N and local-`na` positions and scopes remain
+unchanged. The slot permits at most one M particle; M particles do not stack.
 
 Examples:
 
 * `ji gusa-s.` – “I am knowledgeable.”
 * `di kory-t vosa-s.` – “This house is broken.”
+* `di kory-t mi hata-s.` – “This house is slightly hot.”
+* `di kory-t mo hata-s.` – “This house is very hot.”
+* `di kory-t mu hata-s.` – “This house is extremely / excessively hot.”
+* `num bi kory-r vosa-s toki-m mo hata-s.` – “Five broken, house-related tools are very hot.”
 * `kory-m vosa-s.` – “A house is broken / houses are broken.”
 * `qa dy num pa kory-t vosa-s.` – “Most of these three houses are broken.”
 * `ky qe da feni-t mela-s.` – “Some of those animals, configured in pairs, are alive.”
 * `di toki-t vosa-s?` – “Is this tool broken?” (ordinary yes/no intonation)
+* `di toki-t mu vosa-s?` – “Is this tool excessively broken?”
 
 **Property polarity.** A simple property proposition may contain at most one free N-series
 particle in one of two mutually exclusive positions:
 
 ```text
-[N] SUBJECT PROPERTY
-SUBJECT na PROPERTY
+[N] SUBJECT [M] PROPERTY
+SUBJECT na [M] PROPERTY
 ```
 
 Any N-series form (`ni/ny/ne/na/no/nu`) may occupy the front position and takes rightward scope
-over the complete `SUBJECT PROPERTY` proposition. Only `na` may instead occur immediately before
-PROPERTY; there, the complete SUBJECT noun phrase — including its K/Q/D/NUM scope over any
-modifiers — outscopes negation. The two positions cannot co-occur, and N particles do not stack.
-With neither position, the clause retains the unmarked affirmative reading.
+over the complete `SUBJECT [M] PROPERTY` proposition. Only `na` may instead occur after SUBJECT
+and immediately before optional M and PROPERTY; there, the complete SUBJECT noun phrase —
+including its K/Q/D/NUM scope over any modifiers — outscopes negation, and `na` outscopes the
+graded property. The two positions cannot co-occur, and N particles do not stack. With neither
+position, the clause retains the unmarked affirmative reading.
 
 Examples:
 
@@ -1201,16 +1218,23 @@ Examples:
 * `na qo dy kory-t vosa-s.` – “Not all these houses are broken.” (`¬∀`)
 * `qo dy kory-t na vosa-s.` – “All these houses are not broken — none of them is broken.” (`∀¬`)
 * `na di toki-t vosa-s?` – “Isn’t this tool broken?” (ordinary yes/no intonation)
+* `ni di kory-t mo hata-s.` – “Indeed, this house is very hot.”
+* `na qo dy kory-t mo hata-s.` – “Not all these houses are very hot.” (`¬∀ very-hot`)
+* `qo dy kory-t na mo hata-s.` – “All these houses are not very hot.” (`∀ ¬very-hot`)
 
 No copula, event head, role marker, or agreement stands between the subject and property; local
-`na` is the sole licensed intervening polarity particle.
+`na` is the sole licensed intervening polarity particle, and optional local M is the sole
+licensed degree particle, in that order.
 The template licenses one property predicate; multiple or coordinated property predicates remain
 open. Attributive `ROOT-s` inside a noun phrase is licensed by §7.2 and is not predication: in
-`di vosa-s kory-t hata-s.` only hotness is predicated, of this broken house. Property polarity is
-the only operator extension licensed here:
-simple property clauses have no T/P/H/M operator track, and those event-clause positions in §7.1
-do not extend to them by analogy. The two N patterns above likewise do not extend by analogy to
-static-location clauses; a comparison licenses one front polarity position of its own (below).
+`di vosa-s kory-t hata-s.` only hotness is predicated, of this broken house. Property polarity and
+the property-local M slot are the only operator extensions licensed here:
+simple property clauses have no T/P/H operator track, and the event-clause M position in §7.1
+does not extend to them by
+analogy. The property-local M rule licenses no M occurrence inside noun phrases, comparisons,
+static-location clauses, or other constructions.
+The two N patterns above likewise do not extend by analogy to static-location clauses; a comparison licenses one front polarity
+position of its own (below).
 
 Comparative pattern (C-series + `re`):
 
@@ -1249,7 +1273,8 @@ Scalar bounds are therefore compositional — **na + cy** “at least”, **na +
 and no C form encodes a bound.
 
 An overt C-series form keeps the existing comparative or superlative construction; it is not an
-optional part of the simple `SUBJECT PROPERTY` template.
+optional part of the simple `SUBJECT [M] PROPERTY` template.
+The property-local M slot does not combine with a C-series comparison.
 
 ---
 
@@ -1435,7 +1460,7 @@ elements, never an unmarked alias of `num py pi` “100.”
   base-100 cardinal runs; root-anchored stress statement.
   Earmarked but *not* adopted sight-unseen from the stress-test proposal: the **B/F/X/Z** form
   tables and its provisional added roots.
-- **v2 amendments (2026-08-18, 2026-08-22)** — six changes adopted through evidence-first
+- **v2 amendments (2026-08-18, 2026-08-22)** — seven changes adopted through evidence-first
   stress-test
   cycles (frozen corpora with sealed holdouts; one design decision per cycle), each landed as
   its own commit:
@@ -1451,5 +1476,8 @@ elements, never an unmarked alias of `num py pi` “100.”
   6. Prenominal **ROOT-r** relational restrictions in entity noun phrases, ordered before
      attributive `ROOT-s`, with fixed K/Q/D/NUM scope and ROOT-r-initial F low attachment
      (§7.2, §7.6; 2026-08-22).
+  7. Property-local **M-series** degree in simple non-comparative property clauses, after
+     local **na** and before clause-final `ROOT-s`, with no extension to noun phrases,
+     comparisons, or other constructions (§4.2, §7.5; 2026-08-22).
   Numeric-particle homophones rose from seventy to seventy-five; word shapes, parsing, and
   the 36 core roots are unchanged throughout.

@@ -431,7 +431,7 @@ const DD_RENDERERS = {
           <div class="dd-note"><span class="lx">je ca hisas ji re</span> → “you are healthier than I am.”</div>
         </div>
       </div>
-      <div class="dd-note"><span class="lx">di koryt vosas</span> is the zero-copula base “this house is broken.” An overt C-form instead selects the existing comparison or superlative construction.</div>`;
+      <div class="dd-note"><span class="lx">di koryt vosas</span> is the zero-copula base “this house is broken.” <span class="lx">di koryt mo hatas</span> uses local M for “this house is very hot.” An overt C-form instead selects the existing comparison or superlative construction.</div>`;
   },
 
   parser(){
